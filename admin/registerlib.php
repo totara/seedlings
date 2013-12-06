@@ -61,6 +61,7 @@ function get_registration_data() {
     $data['badgesnumber'] = $DB->count_records_select('badge', 'status <> ' . BADGE_STATUS_ARCHIVED);
     $data['issuedbadgesnumber'] = $DB->count_records('badge_issued');
     $data['debugstatus'] = (isset($CFG->debug) ? $CFG->debug : DEBUG_NONE);
+    $data['edition'] = 2;
     return $data;
 }
 

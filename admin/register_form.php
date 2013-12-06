@@ -22,8 +22,8 @@ class register_form extends moodleform {
 
         $mform->addElement('header', 'registrationinfo', get_string('registrationinformation', 'admin'));
         $data = get_registration_data();
-        foreach($data as $key => $value) {
-            $module = (strpos($key, 'totara') === 0 || ($key == 'debugstatus')) ? 'totara_core' : 'admin';
+        foreach ($data as $key => $value) {
+            $module = (strpos($key, 'totara') === 0 || ($key == 'debugstatus') || ($key == 'edition')) ? 'totara_core' : 'admin';
             $mform->addElement('static', $key, get_string($key, $module));
         }
     }

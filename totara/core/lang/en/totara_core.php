@@ -140,6 +140,7 @@ $string['developmentplan'] = 'Development Planner';
 $string['disablefeature'] = 'Disable';
 $string['downloaderrorlog'] = 'Download error log';
 $string['editheading'] = 'Edit the Report Heading Block';
+$string['edition'] = 'Edition';
 $string['elearning'] = 'E-learning';
 $string['elementlibrary'] = 'Element Library';
 $string['enabledisabletotarasync'] = 'Select Enable or Disable and then click continue to update Totara Sync for {$a}';
