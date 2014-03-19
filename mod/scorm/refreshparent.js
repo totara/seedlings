@@ -22,5 +22,5 @@
 
 window.onunload = refreshParent;
 function refreshParent() {
-    window.opener.location.reload();
+    window.opener.history.back();
 }
