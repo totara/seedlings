@@ -1,0 +1,125 @@
+<form id="assignform" method="post" action="<?php echo "{$CFG->wwwroot}/mod/facetoface/editattendees.php?s={$s}"; ?>">
+<div>
+<input type="hidden" name="searchbutton" value="<?php p($searchbutton) ?>" />
+<input type="hidden" name="sesskey" value="<?php p(sesskey()) ?>" />
+<input type="hidden" name="add" value="" />
+<input type="hidden" name="remove" value="" />
+<input type="hidden" name="waitlist" value="<?php echo $waitlist; ?>" />
+<input type="hidden" name="takeattendance" value="<?php echo $takeattendance; ?>" />
+<input type="hidden" name="requireapproval" value="<?php echo $requireapproval; ?>" />
+<input type="hidden" name="removedusers" value="<?php echo implode(',', array_values($removed)); ?>" />
+<input type="hidden" name="attendees" value="<?php echo implode(',', array_keys($attendees)); ?>" />
+  <table summary="" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+    <tr>
+      <td valign="top" width="40%">
+          <label for="removeselect"><?php print_string('existingusers', 'role', $attendeescount); ?></label>
+          <br />
+          <select name="removeselect[]" size="22" style="width: 100%;" id="removeselect" multiple="multiple"
+                  onfocus="$('form#assignform input[name=add]').attr('disabled', 'disabled');
+                           $('form#assignform input[name=remove]').removeAttr('disabled');
+                           $('#addselect').val(-1);">
+
+          <?php
+            if ($attendeescount > 0) {
+                foreach ($attendees as $existinguser) {
+                    $fullname = fullname($existinguser, true);
+
+                    if ($session->datetimeknown && ($existinguser->statuscode > MDL_F2F_STATUS_BOOKED)) {
+                        echo "<option value=\"$existinguser->id\">".$fullname." (".
+                            get_string('status_'.$MDL_F2F_STATUS[$existinguser->statuscode], 'facetoface')."), ".$existinguser->email."</option>\n";
+                    } else {
+                        echo "<option value=\"$existinguser->id\">".$fullname.", ".$existinguser->email."</option>\n";
+                    }
+                }
+            } else {
+                echo '<option/>'; // Empty select breaks xhtml strict.
+            }
+          ?>
+
+          </select>
+      </td>
+      <td valign="middle" style="width: 20%; text-align: center;">
+        <p class="arrow_button">
+            <input name="add" id="add" type="submit" value="<?php echo $OUTPUT->larrow().'&nbsp;'.get_string('add'); ?>" title="<?php print_string('add'); ?>" style="width: 75%; text-align: center; margin-bottom: 10px;" onclick="$('form#assignform input[name=add]').val(1);" />
+            <br />
+            <input name="remove" id="remove" type="submit" value="<?php echo $OUTPUT->rarrow().'&nbsp;'.get_string('remove'); ?>" title="<?php print_string('remove'); ?>" style="width: 75%; text-align: center;" onclick="$('form#assignform input[name=remove]').val(1);" />
+        </p>
+      </td>
+      <td valign="top" width="40%">
+          <label for="addselect"><?php print_string('potentialusers', 'role', $usercount); ?></label>
+         <br />
+         <select name="addselect[]" size="20" style="width: 100%;" id="addselect" multiple="multiple"
+                  onfocus="$('form#assignform input[name=remove]').attr('disabled', 'disabled');
+                           $('form#assignform input[name=add]').removeAttr('disabled');
+                           $('#removeselect').val(-1);">
+          <?php
+            if (!empty($searchtext)) {
+                if ($usercount > MAX_USERS_PER_PAGE) {
+                    $serchcount = new stdClass();
+                    $serchcount->count = $usercount;
+                    $serchcount->search = $searchtext;
+                    echo '<optgroup label="'.get_string('toomanyusersmatchsearch', 'moodle', $serchcount).'"><option></option></optgroup>'."\n"
+                        .'<optgroup label="'.get_string('pleasesearchmore').'"><option></option></optgroup>'."\n";
+                } else {
+                    if ($availableusers->valid()) {
+                        echo "<optgroup label=\"$strsearchresults (" . $usercount . ")\">\n";
+                        foreach ($availableusers as $user) {
+                            $fullname = fullname($user, true);
+                            if ($session->datetimeknown && ($user->statuscode == MDL_F2F_STATUS_WAITLISTED)) {
+                                echo "<option value=\"$user->id\">".$fullname." (".
+                                    get_string('status_'.$MDL_F2F_STATUS[$user->statuscode], 'facetoface')."), ".$user->email."</option>\n";
+                            } else {
+                                echo "<option value=\"$user->id\">".$fullname.", ".$user->email."</option>\n";
+                            }
+                        }
+                    } else {
+                        echo '<optgroup label="'.get_string('nomatchingusers', 'moodle', $searchtext).'"><option></option></optgroup>'."\n"
+                            .'<optgroup label="'.get_string('pleasesearchmore').'"><option></option></optgroup>'."\n";
+                    }
+                    $availableusers->close();
+                }
+                echo "</optgroup>\n";
+            } else {
+                if ($usercount > MAX_USERS_PER_PAGE) {
+                    echo '<optgroup label="'.get_string('toomanytoshow').'"><option></option></optgroup>'."\n"
+                          .'<optgroup label="'.get_string('trysearching').'"><option></option></optgroup>'."\n";
+                } else {
+                    if ($availableusers->valid()) {
+                        foreach ($availableusers as $user) {
+                            $fullname = fullname($user, true);
+                            if ($session->datetimeknown && ($user->statuscode == MDL_F2F_STATUS_WAITLISTED)) {
+                                echo "<option value=\"$user->id\">".$fullname." (".
+                                get_string('status_'.$MDL_F2F_STATUS[$user->statuscode], 'facetoface')."), ".$user->email."</option>\n";
+                            } else {
+                                echo "<option value=\"$user->id\">".$fullname.", ".$user->email."</option>\n";
+                            }
+                        }
+                    } else {
+                        echo '<optgroup label="'.get_string('nousersfound').'"><option></option></optgroup>';
+                    }
+                    $availableusers->close();
+                }
+            }
+          ?>
+         </select>
+         <br />
+         <label for="searchtext" class="accesshide"><?php p($strsearch) ?></label>
+         <input type="text" name="searchtext" id="searchtext" size="20" value="<?php p($searchtext, true) ?>"
+                  onfocus ="$('form#assignform input[name=add]').attr('disabled', 'disabled');
+                            $('form#assignform input[name=remove]').attr('disabled', 'disabled');
+                            $('#removeselect').val(-1);;
+                            $('#addselect').val(-1);" />
+         <input name="search" id="search" type="submit" value="<?php p($strsearch) ?>" onclick="$('form#assignform input[name=searchbutton]').val(1);" />
+         <?php if (!empty($searchtext)) { ?>
+         <input name="clearsearch" id="clearsearch" type="submit" value="<?php echo $strshowall ?>" onclick="$('form#assignform input[name=searchbutton]').val(0);" />
+         <?php } ?>
+       </td>
+    </tr>
+    </table>
+
+<br />
+<input type="checkbox" id="suppressemail" name="suppressemail" value="1" <?php echo $suppressemail ? 'checked="checked"' : '' ?> />
+<label for="suppressemail"><?php print_string('suppressemailforattendees', 'facetoface'); ?></label>
+
+</div>
+</form>

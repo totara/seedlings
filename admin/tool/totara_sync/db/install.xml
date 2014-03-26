@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="admin/tool/totara_sync/db" VERSION="2013082800" COMMENT="XMLDB file for Totara sync local module"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+
+    <TABLE NAME="totara_sync_log" COMMENT="log table for totara element syncing">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="time" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="unix time"/>
+        <FIELD NAME="element" TYPE="char" LENGTH="60" NOTNULL="true" SEQUENCE="false" COMMENT="element name"/>
+        <FIELD NAME="logtype" TYPE="char" LENGTH="60" NOTNULL="false" SEQUENCE="false" COMMENT="log type"/>
+        <FIELD NAME="action" TYPE="char" LENGTH="60" NOTNULL="false" SEQUENCE="false" COMMENT="action performed"/>
+        <FIELD NAME="info" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="log entry info message"/>
+        <FIELD NAME="runid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Run Batch ID"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="time" UNIQUE="false" FIELDS="time"/>
+        <INDEX NAME="element" UNIQUE="false" FIELDS="element"/>
+        <INDEX NAME="logtype" UNIQUE="false" FIELDS="logtype"/>
+        <INDEX NAME="action" UNIQUE="false" FIELDS="action"/>
+        <INDEX NAME="runid" UNIQUE="false" FIELDS="runid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

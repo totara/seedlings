@@ -1,0 +1,89 @@
+/** General **/
+
+/* image used to add 1 px line along bottom of header area */
+.block .header {
+    border: none;
+    background-image:url([[pix:theme|pixel_grey]]);
+    background-repeat:repeat-x;
+    background-position:center bottom;
+    background-color: #F5F5F5;
+}
+/* the line must be removed when the block is minimised */
+.block.hidden .header {
+    background-image: none;
+}
+.block .header h2 {
+    margin-top: inherit;
+    font-size: inherit;
+}
+.block .title h2 {
+    font-weight: bold;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 10px 5px 10px 10px;
+}
+
+.block .header .block_action input {
+    width: auto;
+    height: auto;
+    margin-top: 0px;
+}
+.block .content {
+    margin: 0;
+    padding: 7px 10px;
+    border: none;
+    background:#FFF;
+}
+.block .header .block_action {
+    float: right;
+    width: 30px;
+    padding: 12px 0 0;
+    float:right;
+}
+.dir-rtl .block .header .block_action {
+    float:left;
+}
+.block .header .block_action.notitle input.moveto {
+    margin: -8px 4px 0;
+}
+.block .block-hider-show,
+.block .block-hider-hide {
+    float: right;
+    margin-top: 0;
+    margin-left: 2px;
+}
+.dir-ltr .block .header .block_action .block-hider-hide,
+.dir-ltr .block .header .block_action .block-hider-show {
+   float:right;
+}
+.dir-rtl .block .header .block_action .block-hider-hide,
+.dir-rtl .block .header .block_action .block-hider-show {
+   float:left;
+}
+.block .header .block_action input {
+    margin-right: 0;
+}
+.block .footer input#adminsearchquery {
+    width: 100px;
+}
+.block-region .hidden .header {
+    border: none;
+}
+/** Block Navigation **/
+.block_navigation .block_tree .tree_item {
+    margin: 0;
+}
+.calendar-event-panel .yui3-widget-hd {
+    background-image: none;
+    background-color: transparent;
+    padding: 5px;
+}
+/** HTML Block **/
+.block.block_html .content .no-overflow {
+    clear: both;
+    padding: 7px 10px;
+}
+.block_site_main_menu .footer select {
+    width: 155px;
+}
+

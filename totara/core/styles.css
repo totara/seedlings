@@ -1,0 +1,64 @@
+/*
+ * CSS for progress bar (see totara/core/renderer.php)
+ * background-position is added via inline styles to correctly show progress
+ * */
+img.totara_progress_bar_large {
+   background: white url('[[pix:totara_core|progressbar_back-large]]') no-repeat top left;
+}
+img.totara_progress_bar_medium {
+   background: white url('[[pix:totara_core|progressbar_back-medium]]') no-repeat top left;
+}
+.dir-rtl img.totara_progress_bar_large {
+   background-image: url('[[pix:totara_core|progressbar_back-large-rtl]]');
+}
+.dir-rtl img.totara_progress_bar_medium {
+   background-image: url('[[pix:totara_core|progressbar_back-medium-rtl]]');
+}
+
+span.coursecompletionstatus span {
+    display: block;
+    width: 39px;
+    height: 12px;
+    background: transparent url('[[pix:totara_core|progress-icons]]') no-repeat;
+    /* hide text outside of visible area (accessibility) */
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.dir-rtl span.coursecompletionstatus span {
+    background-image: url('[[pix:totara_core|progress-icons-rtl]]');
+}
+
+span.coursecompletionstatus span.completion-inprogress {
+    background-position: 0px -12px;
+}
+
+span.coursecompletionstatus span.completion-complete {
+    background-position: 0px -24px;
+}
+
+span.coursecompletionstatus span.completion-completeviarpl {
+    background-position: 0px -24px;
+}
+
+/**
+ * Wrap this div round the datepicker text field and icon to avoid
+ * issues in RTL languages.
+ */
+div.datepicker-wrapper {
+    display: inline-block;
+}
+
+table.namewithlinks-layout {
+    width: 100%;
+}
+
+.block_totara_my_team_nav .content span {
+    padding-left: 5px;
+    font-style: italic;
+}
+
+.block_totara_my_team_nav a img.smallicon {
+    height: auto;
+    width: auto;
+}

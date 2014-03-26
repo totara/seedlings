@@ -1,0 +1,319 @@
+/**
+ * Totara Navigation
+ */
+div#main_menu {
+    float:left;
+    width:auto;
+    margin-top:26px;
+}
+.dir-rtl div#main_menu {
+    float:right;
+}
+div#totaramenu ul li {
+   font-weight:700;
+   margin:-4px 0 0;
+}
+div#totaramenu ul li a {
+    min-width:100px;
+    text-align:center;
+    display:block;
+    color:#FFFFFF;
+    border:none;
+    padding:28px 10px 20px;
+    background:transparent;
+}
+div#totaramenu ul li a:hover {
+    color:#666666;
+    background:#E0E1Cf;
+}
+div#totaramenu ul li.selected a {
+    color:#666666;
+    border:none;
+    background:#F2F3E1;
+}
+div#totaramenu ul li ul {
+    width:auto;
+    min-width:180px;
+    margin-top:-12px;
+    padding:10px 0 0;
+    border:none !important;
+    background:transparent url([[pix:theme|menu-sub-bg]]) no-repeat 10% 0;
+}
+.dir-rtl div#totaramenu ul li ul {
+    background:transparent url([[pix:theme|menu-sub-bg]]) no-repeat 90% 0;
+}
+div#totaramenu ul li ul li,
+div#totaramenu ul li.selected li {
+    font-size:0.9em;
+    font-weight:normal;
+    text-transform:none;
+    border:none;
+    margin:0;
+    box-shadow:0 3px 3px 0 #888;
+}
+div#totaramenu ul li li a,
+div#totaramenu ul li.selected li a {
+    text-align:left;
+    padding:0.6em 0.7em 0.4em;
+    border:none;
+    background:#FFFFFF;
+}
+.dir-rtl div#totaramenu ul li li a,
+.dir-rtl div#totaramenu ul li.selected li a {
+    text-align:right;
+}
+div#totaramenu ul li li a:hover,
+div#totaramenu ul li.selected li a:hover {
+    color:#666666;
+    background:#E0E1CF;
+}
+
+/* Totara Footer Navigation */
+#page-footer div#totaramenu {
+    float:right;
+    text-align:right;
+}
+.dir-rtl #page-footer div#totaramenu {
+    float:left;
+    text-align:left;
+}
+#page-footer div#totaramenu ul {
+   width:auto;
+   float:right;
+}
+.dir-rtl #page-footer div#totaramenu ul {
+   float:left;
+}
+#page-footer div#totaramenu ul li {
+   width:auto;
+   margin:12px 0 0;
+}
+#page-footer div#totaramenu ul li a,
+#page-footer div#totaramenu ul li.selected a {
+    font-size:0.95em;
+    min-width:0;
+    line-height:1em;
+    display:block;
+    color:#FFFFFF;
+    padding:0 10px 0;
+    background:transparent;
+}
+.dir-ltr #page-footer div#totaramenu ul li a,
+.dir-ltr #page-footer div#totaramenu ul li.selected a {
+    text-align:left;
+    border-right:1px solid #FFFFFF;
+}
+.dir-rtl #page-footer div#totaramenu ul li a,
+.dir-rtl #page-footer div#totaramenu ul li.selected a {
+    text-align:right;
+    border-left:1px solid #FFFFFF;
+}
+#page-footer div#totaramenu ul li a:hover,
+#page-footer div#totaramenu ul li.selected a:hover {
+    color:#DDDDDD;
+    text-decoration:underline;
+    background:transparent;
+}
+#page-footer div#totaramenu ul li ul {
+    display:none;
+    width:auto;
+    margin:17px 0 10px;
+    padding:0;
+    box-shadow:none;
+    background:transparent;
+}
+#page-footer div#totaramenu ul li ul li,
+#page-footer div#totaramenu ul li.selected li {
+    width:auto;
+    margin:0;
+}
+#page-footer div#totaramenu ul li ul li a,
+#page-footer div#totaramenu ul li.selected li a {
+    font-size:1em;
+    line-height:1.2em;
+    color:#555555;
+    border:none;
+    margin:0 0 0 10px;
+    padding:0 0 0 10px;
+    background:transparent url([[pix:theme|arw-ftr]]) no-repeat 0 3px;
+}
+.dir-rtl #page-footer div#totaramenu ul li ul li a,
+.dir-rtl #page-footer div#totaramenu ul li.selected li a {
+    margin:0 10px 0 0;
+    padding:0 10px 0 0;
+}
+
+#page-footer div#totaramenu ul li ul li a:hover,
+#page-footer div#totaramenu ul li ul li.selected a:hover {
+    color:#666666;
+    text-decoration:underline;
+    background:transparent url([[pix:theme|arw-ftr]]) no-repeat 0 3px;
+}
+#page-footer div#totaramenu ul li.last a {
+    border:none;
+}
+.dir-ltr #page-footer div#totaramenu ul li.last a {
+    padding-right:0;
+}
+.dir-rtl #page-footer div#totaramenu ul li.last a {
+    padding-left:0;
+}
+
+/* Custom Menu Navigation */
+
+div#custommenu {
+    float:left;
+    width:auto;
+    height:62px;
+    margin-top:0;
+    background:transparent;
+}
+.dir-rtl div#custommenu {
+    float:right;
+}
+div#custommenu ul {
+    margin:0 0 0 15px;
+}
+.dir-rtl div#custommenu ul {
+    margin:0 15px 0 0;
+}
+div#custommenu ul li {
+   font-weight:700;
+   font-size:1.05em;
+   padding:0;
+   margin:-4px 0 0;
+   list-style-type: none;
+   text-transform: uppercase;
+}
+div#custommenu ul li a {
+    min-width:100px;
+    text-align:center;
+    display:block;
+    color:#FFFFFF;
+    border:none;
+    margin:0;
+    padding:25px 10px 17px;
+    background:transparent;
+}
+div#custommenu ul li a:hover {
+    color:#666666;
+    background:#E0E1Cf;
+}
+div#custommenu ul li.selected a {
+    color:#666666;
+    border:none;
+    background:#F2F3E1;
+}
+div#custommenu ul li ul {
+    width:auto;
+    min-width:180px;
+    margin-top:-17px;
+    padding:10px 0 0;
+    border:none !important;
+    background:transparent url([[pix:theme|menu-sub-bg]]) no-repeat 15px 0;
+}
+.dir-ltr div#custommenu ul li ul {
+    margin-left:0;
+}
+.dir-rtl div#custommenu ul li ul {
+    margin-right:0;
+}
+div#custommenu ul li ul li,
+div#custommenu ul li.selected li {
+    font-size:0.95em;
+    font-weight:normal;
+    text-transform:none;
+    border:none;
+    margin:0;
+    box-shadow:0 3px 3px 0 #888;
+}
+div#custommenu ul li li a,
+div#custommenu ul li.selected li a {
+    color:#666666;
+    text-align:left;
+    padding:0.6em 0.7em 0.4em;
+    border:none;
+    background:#FFFFFF;
+}
+.dir-rtl div#custommenu ul li li a,
+.dir-rtl div#custommenu ul li.selected li a {
+    text-align:right;
+}
+div#custommenu ul li li a:hover,
+div#custommenu ul li.selected li a:hover {
+    color:#666666;
+    background:#E0E1CF;
+}
+div#custommenu ul li ul ul {
+    margin-top:-13px;
+    background:transparent
+}
+div#custommenu ul li ul ul li {
+    font-size:1em;
+    background:transparent;
+}
+#custommenu .yui3-menu,
+#custommenu .yui3-menu ul li,
+#custommenu .yui3-menu ul ul ul,
+#custommenu .yui3-menu .yui3-menu-content {
+    border:none;
+    background:transparent;
+}
+#custommenu .yui3-menu ul li a {
+    background-image:none;
+}
+#custommenu .yui3-menu .yui3-menuitem-active,
+#custommenu .yui3-menu .yui3-menu-label-menuvisible {
+    color:#666666;
+}
+
+/* Custom Menu Footer Navigation */
+#page-footer div#custommenu {
+    float:right;
+    text-align:right;
+    width:850px;
+}
+.dir-rtl #page-footer div#custommenu {
+    float:left;
+    text-align:left;
+}
+#page-footer div#custommenu ul {
+   width:auto;
+   float:right;
+}
+.dir-rtl #page-footer div#custommenu ul {
+   float:left;
+}
+#page-footer div#custommenu ul li {
+   width:auto;
+   margin:12px 0 0;
+}
+#page-footer div#custommenu ul li a,
+#page-footer div#custommenu ul li.selected a {
+    font-size:0.95em;
+    min-width:0;
+    line-height:1em;
+    text-align:left;
+    display:block;
+    color:#FFFFFF;
+    padding:0 10px 0;
+    background:transparent;
+}
+.dir-rtl #page-footer div#custommenu ul li a,
+.dir-rtl #page-footer div#custommenu ul li.selected a {
+    text-align:right;
+}
+#page-footer div#custommenu ul li a:hover,
+#page-footer div#custommenu ul li.selected a:hover {
+    color:#DDDDDD;
+    text-decoration:underline;
+    background:transparent;
+}
+#page-footer div#custommenu ul li ul {
+    display:none;
+    width:auto;
+    margin:17px 0 10px;
+    padding:0;
+    box-shadow:none;
+    background:transparent;
+}

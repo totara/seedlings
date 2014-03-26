@@ -1,0 +1,1825 @@
+2010-11-16 Tuesday 03:33  agrabs
+
+	* lang/de_utf8/feedback.php, version.php,
+	lang/en_utf8/feedback.php: 
+	
+	a small correction on the lang-string for info-item
+
+2010-11-05 Friday 17:38  agrabs
+
+	* lib.php, version.php: 
+	
+	MDL-25078 - incorrect studentcount on show_entries.php
+
+2010-11-01 Monday 05:55  agrabs
+
+	* complete.php, complete_guest.php, version.php, view.php: 
+	
+	MDL-24958 - bad permission check on anonymous feedbacks
+
+2010-09-30 Thursday 04:43  agrabs
+
+	* mapcourse.php, version.php: 
+	
+	MDL-24450 - searching in mapcourses fails
+
+2010-09-04 Saturday 04:15  agrabs
+
+	* item/multichoice/lib.php, item/multichoicerated/lib.php,
+	version.php: 
+	
+	MDL-24054 - Multilang filter not working in answers
+
+2010-08-22 Sunday 20:25  agrabs
+
+	* version.php: 
+	
+	Formatting in questions
+
+2010-08-22 Sunday 18:45  agrabs
+
+	* lang/es_utf8/help/feedback/autonumbering.html: 
+	
+	file autonumbering.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2010-08-22 Sunday 18:45  agrabs
+
+	* lang/es_utf8/help/feedback/url_for_continue.html: 
+	
+	file url_for_continue.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2010-08-22 Sunday 18:45  agrabs
+
+	* lang/es_utf8/help/feedback/index.html: 
+	
+	file index.html was initially added on branch MOODLE_19_STABLE.
+
+2010-08-22 Sunday 18:45  agrabs
+
+	* item/captcha/lib.php, item/info/lib.php,
+	item/multichoice/lib.php, item/multichoicerated/lib.php,
+	item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, lang/es_utf8/block_feedback.php,
+	lang/es_utf8/feedback.php,
+	lang/es_utf8/help/feedback/editelements.html,
+	lang/es_utf8/help/feedback/emailnotification.html,
+	lang/es_utf8/help/feedback/mapcourse.html,
+	lang/es_utf8/help/feedback/mapcourses.html,
+	lang/es_utf8/help/feedback/autonumbering.html,
+	lang/es_utf8/help/feedback/index.html,
+	lang/es_utf8/help/feedback/mods.html,
+	lang/es_utf8/help/feedback/multiplesubmit.html,
+	lang/es_utf8/help/feedback/searchcourses.html,
+	lang/es_utf8/help/feedback/show_anon_entries.html,
+	lang/es_utf8/help/feedback/timeclose.html,
+	lang/es_utf8/help/feedback/timeopen.html,
+	lang/es_utf8/help/feedback/url_for_continue.html,
+	lang/es_utf8/help/feedback/viewcompleted.html: 
+	
+	Formatting in questions Lang es_utf8 updated
+
+2010-08-12 Thursday 04:54  agrabs
+
+	* lang/: de_utf8/help/feedback/autonumbering.html,
+	en_utf8/help/feedback/autonumbering.html: 
+	
+	file autonumbering.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2010-08-12 Thursday 04:54  agrabs
+
+	* lang/: de_utf8/help/feedback/autonumbering.html,
+	en_utf8/help/feedback/autonumbering.html: 
+	
+	added a missing help file
+
+2010-08-04 Wednesday 22:04  agrabs
+
+	* analysis_to_excel.php: 
+	
+	Numeric answers was print out as string in the detailed xls-sheet
+
+2010-08-04 Wednesday 21:50  agrabs
+
+	* analysis_to_excel.php, version.php: 
+	
+	Numeric answers was print out as string in the detailed xls-sheet
+
+2010-05-07 Friday 02:35  agrabs
+
+	* lib.php: 
+	
+	the field item->required strongly needs an integer
+
+2010-04-30 Friday 00:29  agrabs
+
+	* analysis.php, lib.php, show_entries.php, version.php: 
+	
+	fixed: invalid ANSI does not work in oracle. Thanks to David Binney
+
+2010-03-26 Friday 07:55  agrabs
+
+	* lang/de_utf8/feedback.php: 
+	
+	some new strings
+
+2010-03-09 Tuesday 05:38  agrabs
+
+	* settings.php: 
+	
+	file settings.php was initially added on branch MOODLE_19_STABLE.
+
+2010-03-09 Tuesday 05:38  agrabs
+
+	* settings.php: 
+	
+	MDL-19846 - Admin ability to submit answers
+
+2010-03-02 Tuesday 06:50  agrabs
+
+	* complete.php, complete_guest.php, view.php,
+	lang/en_utf8/feedback.php: 
+	
+	MDL-19846 - Admin ability to submit answers
+
+2009-08-06 Thursday 22:33  arborrow
+
+	* view.php: 
+	
+	MDL-19846 - allow admins and teachers to complete feedback,
+	removing not edititems check as it does not appear to make sense
+
+2009-06-13 Saturday 21:07  agrabs
+
+	* analysis.php, analysis_to_excel.php, lib.php, show_entries.php,
+	version.php: 
+	
+	MDL-19497 - group selection is broken
+
+2009-05-31 Sunday 00:44  agrabs
+
+	* lang/: de_utf8/help/feedback/url_for_continue.html,
+	en_utf8/help/feedback/url_for_continue.html: 
+	
+	file url_for_continue.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-05-31 Sunday 00:44  agrabs
+
+	* lang/de_utf8/feedback.php, mod_form.php, version.php,
+	lang/de_utf8/help/feedback/url_for_continue.html,
+	lang/en_utf8/feedback.php,
+	lang/en_utf8/help/feedback/url_for_continue.html, mod_form.php: 
+	
+	MDL-19348 - "Site after submit" option is not clear to understand
+
+2009-05-26 Tuesday 03:49  agrabs
+
+	* lib.php, show_entries.php, version.php: 
+	
+	MDL-17005 - very high memory comsumption for feedback module->show
+	entries on big Moodle platforms
+
+2009-05-18 Monday 20:48  agrabs
+
+	* item/captcha/captcha_form.php, item/info/info_form.php,
+	item/multichoice/multichoice_form.php, version.php,
+	item/multichoicerated/multichoicerated_form.php,
+	item/numeric/numeric_form.php, item/textarea/textarea_form.php,
+	item/textfield/textfield_form.php: 
+	
+	Some textfield length from items increased
+
+2009-04-23 Thursday 05:30  skodak
+
+	* lib.php: 
+	
+	MDL-18523 Only display the 'Synchronise legacy grades' button when
+	necessary
+
+2009-04-01 Wednesday 04:28  agrabs
+
+	* README.txt, ToDo, analysis.php, analysis_course.php,
+	analysis_to_excel.php, backuplib.php, changelog,
+	choose_group_form.php, complete.php, complete_guest.php,
+	delete_completed.php, delete_completed_form.php, delete_item.php,
+	delete_item_form.php, delete_template.php,
+	delete_template_form.php, easy_excel.php, edit.php, edit_form.php,
+	edit_item.php, export.php, icon.gif, import.php, index.php,
+	lib.php, mapcourse.php, mod.html, mod_form.php, print.css,
+	print.php, restorelib.php, show_entries.php,
+	show_entries_anonym.php, styles.php, tabs.php, unmapcourse.php,
+	use_templ.php, use_templ_form.php, version.php, view.php,
+	db/access.php, db/install.xml, db/migrate2utf8.php,
+	db/migrate2utf8.xml, db/mysql.php, db/mysql.sql, db/postgres7.php,
+	db/postgres7.sql, db/upgrade.php, item/captcha/lib.php,
+	item/captcha/print_captcha.php, item/feedback_item_class.php,
+	item/label/lib.php, item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, lang/cs_utf8/feedback.php,
+	lang/cs_utf8/help/feedback/mods.html,
+	lang/cs_utf8/help/feedback/preview.html,
+	lang/de_utf8/block_feedback.php, lang/de_utf8/feedback.php,
+	lang/de_utf8/help/feedback/editelements.html,
+	lang/de_utf8/help/feedback/emailnotification.html,
+	lang/de_utf8/help/feedback/index.html,
+	lang/de_utf8/help/feedback/mapcourse.html,
+	lang/de_utf8/help/feedback/mapcourses.html,
+	lang/de_utf8/help/feedback/mods.html,
+	lang/de_utf8/help/feedback/multiplesubmit.html,
+	lang/de_utf8/help/feedback/preview.html,
+	lang/de_utf8/help/feedback/searchcourses.html,
+	lang/de_utf8/help/feedback/show_anon_entries.html,
+	lang/de_utf8/help/feedback/timeclose.html,
+	lang/de_utf8/help/feedback/timeopen.html,
+	lang/de_utf8/help/feedback/viewcompleted.html,
+	lang/en_utf8/block_feedback.php, lang/en_utf8/feedback.php,
+	lang/en_utf8/help/feedback/editelements.html,
+	lang/en_utf8/help/feedback/emailnotification.html,
+	lang/en_utf8/help/feedback/index.html,
+	lang/en_utf8/help/feedback/mapcourse.html,
+	lang/en_utf8/help/feedback/mapcourses.html,
+	lang/en_utf8/help/feedback/mods.html,
+	lang/en_utf8/help/feedback/multiplesubmit.html,
+	lang/en_utf8/help/feedback/preview.html,
+	lang/en_utf8/help/feedback/searchcourses.html,
+	lang/en_utf8/help/feedback/show_anon_entries.html,
+	lang/en_utf8/help/feedback/timeclose.html,
+	lang/en_utf8/help/feedback/timeopen.html,
+	lang/en_utf8/help/feedback/viewcompleted.html,
+	lang/es_utf8/block_feedback.php, lang/es_utf8/feedback.php,
+	lang/es_utf8/help/feedback/editelements.html,
+	lang/es_utf8/help/feedback/emailnotification.html,
+	lang/es_utf8/help/feedback/mapcourse.html,
+	lang/es_utf8/help/feedback/mapcourses.html,
+	lang/es_utf8/help/feedback/mods.html,
+	lang/es_utf8/help/feedback/multiplesubmit.html,
+	lang/es_utf8/help/feedback/preview.html,
+	lang/es_utf8/help/feedback/searchcourses.html,
+	lang/es_utf8/help/feedback/show_anon_entries.html,
+	lang/es_utf8/help/feedback/timeclose.html,
+	lang/es_utf8/help/feedback/timeopen.html,
+	lang/es_utf8/help/feedback/viewcompleted.html,
+	lang/eu_utf8/feedback.php, lang/fi_utf8/feedback.php,
+	lang/fi_utf8/help/feedback/mods.html,
+	lang/fi_utf8/help/feedback/preview.html, lang/fr_utf8/feedback.php,
+	lang/fr_utf8/help/feedback/mods.html,
+	lang/fr_utf8/help/feedback/preview.html,
+	lang/it_utf8/block_feedback.php, lang/it_utf8/feedback.php,
+	lang/it_utf8/help/feedback/mods.html,
+	lang/it_utf8/help/feedback/preview.html,
+	lang/ja_utf8/block_feedback.php, lang/ja_utf8/feedback.php,
+	lang/ja_utf8/help/feedback/editelements.html,
+	lang/ja_utf8/help/feedback/emailnotification.html,
+	lang/ja_utf8/help/feedback/mapcourse.html,
+	lang/ja_utf8/help/feedback/mapcourses.html,
+	lang/ja_utf8/help/feedback/mods.html,
+	lang/ja_utf8/help/feedback/multiplesubmit.html,
+	lang/ja_utf8/help/feedback/preview.html,
+	lang/ja_utf8/help/feedback/searchcourses.html,
+	lang/ja_utf8/help/feedback/show_anon_entries.html,
+	lang/ja_utf8/help/feedback/timeclose.html,
+	lang/ja_utf8/help/feedback/timeopen.html,
+	lang/ja_utf8/help/feedback/viewcompleted.html,
+	lang/nl_utf8/feedback.php, lang/nl_utf8/help/feedback/mods.html,
+	lang/nl_utf8/help/feedback/preview.html,
+	lang/sk_utf8/block_feedback.php, lang/sk_utf8/feedback.php,
+	lang/sk_utf8/help/feedback/editelements.html,
+	lang/sk_utf8/help/feedback/emailnotification.html,
+	lang/sk_utf8/help/feedback/mapcourse.html,
+	lang/sk_utf8/help/feedback/mapcourses.html,
+	lang/sk_utf8/help/feedback/mods.html,
+	lang/sk_utf8/help/feedback/multiplesubmit.html,
+	lang/sk_utf8/help/feedback/preview.html,
+	lang/sk_utf8/help/feedback/searchcourses.html,
+	lang/sk_utf8/help/feedback/show_anon_entries.html,
+	lang/sk_utf8/help/feedback/timeclose.html,
+	lang/sk_utf8/help/feedback/timeopen.html,
+	lang/sk_utf8/help/feedback/viewcompleted.html,
+	lang/sv_utf8/feedback.php, lang/sv_utf8/help/feedback/index.html,
+	lang/sv_utf8/help/feedback/mods.html,
+	lang/sv_utf8/help/feedback/preview.html, pics/0.gif, pics/1.gif,
+	pics/2.gif, pics/3.gif, pics/4.gif, pics/5.gif, pics/6.gif,
+	pics/7.gif, pics/8.gif, pics/9.gif, pics/notrequired.gif,
+	pics/required.gif: 
+	
+	this version of the feedback module is moved to the feedback-core
+
+2009-03-29 Sunday 09:30  agrabs
+
+	* lib.php: 
+	
+	MDL-18716 - ALL Notification E-Mails are sent to System Admins
+
+2009-03-12 Thursday 20:24  agrabs
+
+	* version.php, item/info/lib.php: 
+	
+	MDL-18533 - fixed
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/show_anon_entries.html: 
+	
+	file show_anon_entries.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/timeopen.html: 
+	
+	file timeopen.html was initially added on branch MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/viewcompleted.html: 
+	
+	file viewcompleted.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/timeclose.html: 
+	
+	file timeclose.html was initially added on branch MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/mapcourses.html: 
+	
+	file mapcourses.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/mods.html: 
+	
+	file mods.html was initially added on branch MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/preview.html: 
+	
+	file preview.html was initially added on branch MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/multiplesubmit.html: 
+	
+	file multiplesubmit.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/index.html: 
+	
+	file index.html was initially added on branch MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/mapcourse.html: 
+	
+	file mapcourse.html was initially added on branch MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/searchcourses.html: 
+	
+	file searchcourses.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/emailnotification.html: 
+	
+	file emailnotification.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/help/feedback/editelements.html: 
+	
+	file editelements.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/pt_br_utf8/block_feedback.php: 
+	
+	file block_feedback.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/: pl_utf8/feedback.php, pt_br_utf8/feedback.php: 
+	
+	file feedback.php was initially added on branch MOODLE_19_STABLE.
+
+2009-03-08 Sunday 02:11  agrabs
+
+	* lang/: de_utf8/feedback.php, pl_utf8/feedback.php,
+	pt_br_utf8/block_feedback.php, pt_br_utf8/feedback.php,
+	pt_br_utf8/help/feedback/editelements.html,
+	pt_br_utf8/help/feedback/emailnotification.html,
+	pt_br_utf8/help/feedback/index.html,
+	pt_br_utf8/help/feedback/mapcourse.html,
+	pt_br_utf8/help/feedback/mapcourses.html,
+	pt_br_utf8/help/feedback/mods.html,
+	pt_br_utf8/help/feedback/multiplesubmit.html,
+	pt_br_utf8/help/feedback/preview.html,
+	pt_br_utf8/help/feedback/searchcourses.html,
+	pt_br_utf8/help/feedback/show_anon_entries.html,
+	pt_br_utf8/help/feedback/timeclose.html,
+	pt_br_utf8/help/feedback/timeopen.html,
+	pt_br_utf8/help/feedback/viewcompleted.html: 
+	
+	Updated some lang-files
+
+2009-03-07 Saturday 09:39  agrabs
+
+	* lib.php, version.php: 
+	
+	MDL-18471,  MDL-18473 - many thanks to Manolescu Dorel, who
+	contributed these two functions
+
+2009-02-24 Tuesday 22:32  agrabs
+
+	* lib.php: 
+	
+	MDL-18362 - a typo in function feedback_set_events
+
+2009-01-28 Wednesday 14:38  skodak
+
+	* version.php: 
+	
+	MDL-18057 forgot to bump up version number in the last commit,
+	sorry
+
+2009-01-27 Tuesday 18:24  skodak
+
+	* db/access.php: 
+	
+	MDL-17611 backported removing of XSS risk
+
+2009-01-27 Tuesday 00:46  mudrd8mz
+
+	* lang/cs_utf8/feedback.php: 
+	
+	Added missing strings
+
+2009-01-27 Tuesday 00:41  mudrd8mz
+
+	* lang/cs_utf8/feedback.php: 
+	
+	Added missing strings
+
+2009-01-27 Tuesday 00:27  mudrd8mz
+
+	* lib.php, lang/en_utf8/feedback.php: 
+	
+	String 'Select' changed to custom 'Select item type...' -
+	accessibility issue. Merged from MOODLE_19_STABLE
+
+2009-01-27 Tuesday 00:16  mudrd8mz
+
+	* lib.php, lang/en_utf8/feedback.php: 
+	
+	String 'Select' changed to custom 'Select item type...' -
+	accessibility issue
+
+2008-11-17 Monday 05:46  agrabs
+
+	* complete.php, version.php, view.php: 
+	
+	MDL-17249 - feedbacks on the mainsite are not accessible
+
+2008-11-15 Saturday 02:07  agrabs
+
+	* version.php, db/upgrade.php: 
+	
+	MDL-17239 - numeric item does not support 0-values and float-values
+
+2008-11-15 Saturday 01:52  agrabs
+
+	* item/numeric/lib.php: 
+	
+	MDL-17239 - numeric item does not support 0-values and float-values
+
+2008-11-15 Saturday 01:47  agrabs
+
+	* item/multichoice/lib.php: 
+	
+	MDL-17238 - Multiple Choice -- Multiple Answer problem
+
+2008-11-08 Saturday 07:12  agrabs
+
+	* lib.php: 
+	
+	MDL-16968 - there was a typo
+
+2008-07-31 Thursday 02:57  agrabs
+
+	* analysis.php, complete.php, version.php, view.php: 
+	
+	MDL-15787 Using hidden feedbacks on front page
+
+2008-07-23 Wednesday 06:28  agrabs
+
+	* complete.php, version.php, view.php: 
+	
+	MDL-15787 Using hidden feedbacks on front page
+
+2008-07-18 Friday 22:54  agrabs
+
+	* analysis_course.php, analysis_to_excel.php, lib.php: 
+	
+	MDL-14517 Cannot export analysis to excel by course
+
+2008-06-27 Friday 15:19  agrabs
+
+	* easy_excel.php, version.php: 
+	
+	MDL-14525 bad result in the Excel after download
+
+2008-06-25 Wednesday 18:27  thepurpleblob
+
+	* easy_excel.php, version.php: 
+	
+	MDL-14525 Patching in STABLE_19 branch of CONTRIB. This seems only
+	to have been patched in HEAD originally.
+
+2008-06-24 Tuesday 14:19  dongsheng
+
+	* edit_item.php: 
+	
+	"fix id name"
+
+2008-06-21 Saturday 05:02  agrabs
+
+	* version.php: 
+	
+	MDL-15331 Feedback fails to remove slashes when editing questions
+	in 1.9
+
+2008-06-21 Saturday 04:54  agrabs
+
+	* item/: captcha/lib.php, info/lib.php, multichoice/lib.php,
+	multichoicerated/lib.php, numeric/lib.php, textarea/lib.php,
+	textfield/lib.php: 
+	
+	MDL-15331 Feedback fails to remove slashes when editing questions
+	in 1.9
+
+2008-06-14 Saturday 05:43  agrabs
+
+	* import.php, version.php: 
+	
+	MDL-15234 - exported questions from moodle 1.8 will not be imported
+	correctly on moodle 1.9
+
+2008-06-10 Tuesday 21:10  agrabs
+
+	* item/textarea/lib.php: 
+	
+	MDL-15202 - The item textarea print out a notice while the
+	excelexport if there are no values
+
+2008-06-09 Monday 05:15  agrabs
+
+	* edit_item.php, version.php, item/feedback_item_class.php,
+	item/captcha/captcha_form.php, item/captcha/lib.php,
+	item/info/info_form.php, item/info/lib.php,
+	item/label/label_form.php, item/label/lib.php,
+	item/multichoice/lib.php, item/multichoice/multichoice_form.php,
+	item/multichoicerated/lib.php,
+	item/multichoicerated/multichoicerated_form.php,
+	item/numeric/lib.php, item/numeric/numeric_form.php,
+	item/textarea/lib.php, item/textarea/textarea_form.php,
+	item/textfield/lib.php, item/textfield/textfield_form.php: 
+	
+	MDL-15186 - fixed some missing assignments per reference
+
+2008-06-05 Thursday 02:35  agrabs
+
+	* easy_excel.php, version.php: 
+	
+	MDL-14525 bad result in the Excel after download
+
+2008-05-27 Tuesday 13:01  agrabs
+
+	* db/upgrade.php: 
+	
+	mistake in writing on update the multichoice-items
+
+2008-05-23 Friday 04:42  agrabs
+
+	* lib.php, version.php: 
+	
+	MDL-14522 - the admin on frontpage did not receive any mail
+
+2008-05-16 Friday 19:40  agrabs
+
+	* analysis_to_excel.php: 
+	
+	setTempDir() set now the correct location
+
+2008-05-16 Friday 06:55  agrabs
+
+	* analysis.php, show_entries.php: 
+	
+	deprecated function get_groups() replaced with
+	groups_get_all_groups()
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/textfield/textfield_form.php: 
+	
+	file textfield_form.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/textarea/textarea_form.php: 
+	
+	file textarea_form.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/numeric/numeric_form.php: 
+	
+	file numeric_form.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/multichoice/multichoice_form.php: 
+	
+	file multichoice_form.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/multichoicerated/multichoicerated_form.php: 
+	
+	file multichoicerated_form.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* TODO.txt, item/captcha/captcha_form.php, item/info/info_form.php,
+	item/info/lib.php, item/label/label_form.php,
+	item/multichoice/lib.php, item/multichoice/multichoice_form.php,
+	item/multichoicerated/lib.php,
+	item/multichoicerated/multichoicerated_form.php,
+	item/numeric/numeric_form.php, item/textarea/textarea_form.php,
+	item/textfield/textfield_form.php: 
+	
+	[no log message]
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* TODO.txt: 
+	
+	file TODO.txt was initially added on branch MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/info/info_form.php: 
+	
+	file info_form.php was initially added on branch MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/label/label_form.php: 
+	
+	file label_form.php was initially added on branch MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/: info/lib.php, multichoice/lib.php,
+	multichoicerated/lib.php: 
+	
+	file lib.php was initially added on branch MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:38  agrabs
+
+	* item/captcha/captcha_form.php: 
+	
+	file captcha_form.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2008-05-15 Thursday 18:33  agrabs
+
+	* README.txt, analysis.php, analysis_course.php,
+	analysis_to_excel.php, backuplib.php, choose_group_form.php,
+	complete.php, complete_guest.php, delete_completed.php,
+	delete_completed_form.php, delete_item.php, delete_item_form.php,
+	delete_template.php, delete_template_form.php, easy_excel.php,
+	edit.php, edit_form.php, edit_item.php, export.php, import.php,
+	index.php, lib.php, mapcourse.php, mod_form.php, print.php,
+	restorelib.php, show_entries.php, show_entries_anonym.php,
+	tabs.php, unmapcourse.php, use_templ.php, changelog, print.css,
+	use_templ_form.php, version.php, view.php, db/access.php,
+	db/install.xml, db/migrate2utf8.php, db/migrate2utf8.xml,
+	db/mysql.php, db/upgrade.php, db/mysql.sql, db/postgres7.php,
+	db/postgres7.sql, item/feedback_item_class.php,
+	item/captcha/lib.php, item/captcha/print_captcha.php,
+	item/label/lib.php, item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, lang/en_utf8/feedback.php: 
+	
+	Backport from version for moodle 2.0 to version for moodle 1.9.x
+	main changes: new common multichoice item new capability
+	receivemail autonumbering can be switched on or off support of
+	groupings feature
+
+2008-05-15 Thursday 05:33  agrabs
+
+	* lib.php, version.php, lib.php, version.php: 
+	
+	MDL-14823 - changed $feedbackid to $feedback->id in function
+	feedback_set_events()
+
+2008-05-07 Wednesday 03:31  agrabs
+
+	* version.php, item/feedback_item_class.php: 
+	
+	MDL-14711 - added a class feedback_item_pagebreak in
+	feedback_item_class.php
+
+2008-05-04 Sunday 05:41  agrabs
+
+	* mod_form.php, version.php: 
+	
+	MDL-14657 - additional check if instance-id is numeric for better
+	compatibility to  postgres
+
+2008-05-04 Sunday 05:37  agrabs
+
+	* complete_guest.php, version.php: 
+	
+	Added missing sesskey parameter on complete_guest.php
+
+2008-05-04 Sunday 05:23  agrabs
+
+	* mod_form.php, version.php: 
+	
+	MDL-14657 - additional check if instance-id is numeric for better
+	compatibility to  postgres
+
+2008-04-18 Friday 22:27  agrabs
+
+	* db/upgrade.php, version.php: 
+	
+	[no log message]
+
+2008-04-04 Friday 18:38  agrabs
+
+	* changelog, complete.php, complete_guest.php,
+	delete_completed.php, delete_item.php, edit_item.php, print.php,
+	show_entries.php, show_entries_anonym.php, use_templ.php,
+	version.php, view.php, changelog, complete.php, complete_guest.php,
+	delete_completed.php, delete_item.php, edit_item.php, print.php,
+	show_entries.php, show_entries_anonym.php, use_templ.php,
+	version.php, view.php, changelog, complete.php, complete_guest.php,
+	delete_completed.php, delete_item.php, edit_item.php, print.php,
+	show_entries.php, show_entries_anonym.php, use_templ.php,
+	version.php, view.php: 
+	
+	the heading has not supported multilang strings
+
+2008-04-03 Thursday 22:27  agrabs
+
+	* README.txt, README.txt, README.txt: 
+	
+	[no log message]
+
+2008-04-03 Thursday 21:51  agrabs
+
+	* changelog, lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, changelog, lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, changelog, lib.php, item/textarea/lib.php,
+	item/textfield/lib.php: 
+	
+	users can not see the own values if there are chars like single-(')
+	or doublequotas (")
+
+2008-04-03 Thursday 21:22  agrabs
+
+	* analysis.php, analysis_course.php, changelog, complete.php,
+	complete_guest.php, edit.php, edit_form.php, edit_item.php,
+	index.php, lib.php, mapcourse.php, mod_form.php, show_entries.php,
+	show_entries_anonym.php, tabs.php, version.php, view.php,
+	db/install.xml, db/upgrade.php, changelog, complete.php,
+	version.php, changelog, complete.php, version.php: 
+	
+	anonymous feedback was send the userid on email-notification
+	(http://tracker.moodle.org/browse/CONTRIB-355)
+
+2008-04-03 Thursday 18:50  andreabix
+
+	* lang/it_utf8/feedback.php: 
+	
+	Aggiornamento traduzione di Claudio Maggi
+
+2008-03-09 Sunday 03:09  agrabs
+
+	* changelog, complete.php, complete_guest.php, lib.php,
+	version.php, changelog, complete.php, complete_guest.php, lib.php,
+	version.php, changelog, complete.php, complete_guest.php, lib.php,
+	version.php: 
+	
+	admin users now respect capability-setting 
+	(http://tracker.moodle.org/browse/CONTRIB-321)
+
+2008-02-25 Monday 06:44  mudrd8mz
+
+	* edit_item.php: 
+	
+	Fixed PHP Notice: $item is created as an empty object for newly
+	created questions.
+
+2008-02-25 Monday 06:30  mudrd8mz
+
+	* lang/cs_utf8/: feedback.php, feedback.php: 
+	
+	Updated Czech language pack (UTF-8 version).
+
+2008-02-25 Monday 06:19  mudrd8mz
+
+	* lang/cs_utf8/help/feedback/preview.html: 
+	
+	Fixed file encoding to UTF-8
+
+2008-02-25 Monday 05:55  mudrd8mz
+
+	* lang/cs_utf8/: feedback.php, help/feedback/preview.html: 
+	
+	Updated Czech language pack (UTF-8 version).
+
+2008-02-23 Saturday 19:15  agrabs
+
+	* lang/ja_utf8/: feedback.php, feedback.php: 
+	
+	new japanese language file
+
+2008-02-23 Saturday 19:03  agrabs
+
+	* lang/ja_utf8/feedback.php: 
+	
+	new japanese language file
+
+2008-01-20 Sunday 20:52  agrabs
+
+	* analysis_to_excel.php, version.php: 
+	
+	there was a fix path to tempdir by mistake. Now there is set to
+	$CFG->dataroot
+
+2008-01-20 Sunday 20:49  agrabs
+
+	* item/captcha/: lib.php, print_captcha.php: 
+	
+	[no log message]
+
+2008-01-16 Wednesday 08:53  agrabs
+
+	* README.txt, ToDo, analysis.php, analysis_course.php,
+	analysis_to_excel.php, backuplib.php, changelog, complete.php,
+	complete_guest.php, delete_completed.php, delete_item.php,
+	delete_template.php, easy_excel.php, edit.php, edit_item.php,
+	export.php, import.php, index.php, lib.php, mapcourse.php,
+	choose_group_form.php, edit_form.php, print.php, restorelib.php,
+	show_entries.php, show_entries_anonym.php, unmapcourse.php,
+	use_templ.php, version.php, view.php, mod_form.php, print.css,
+	tabs.php, use_templ_form.php, db/access.php, db/install.xml,
+	db/mysql.php, db/upgrade.php, item/label/lib.php,
+	item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, lang/de_utf8/feedback.php,
+	lang/de_utf8/help/feedback/editelements.html,
+	lang/de_utf8/help/feedback/emailnotification.html,
+	lang/de_utf8/help/feedback/index.html,
+	lang/de_utf8/help/feedback/mapcourse.html,
+	lang/de_utf8/help/feedback/mapcourses.html,
+	lang/de_utf8/help/feedback/mods.html,
+	lang/de_utf8/help/feedback/multiplesubmit.html,
+	lang/de_utf8/help/feedback/preview.html,
+	lang/de_utf8/help/feedback/searchcourses.html,
+	lang/de_utf8/help/feedback/show_anon_entries.html,
+	lang/de_utf8/help/feedback/timeclose.html,
+	lang/de_utf8/help/feedback/timeopen.html,
+	lang/de_utf8/help/feedback/viewcompleted.html,
+	lang/en_utf8/feedback.php,
+	lang/en_utf8/help/feedback/editelements.html,
+	lang/en_utf8/help/feedback/emailnotification.html,
+	lang/en_utf8/help/feedback/mapcourse.html,
+	lang/en_utf8/help/feedback/mapcourses.html,
+	lang/en_utf8/help/feedback/mods.html,
+	lang/en_utf8/help/feedback/multiplesubmit.html,
+	lang/en_utf8/help/feedback/preview.html,
+	lang/en_utf8/help/feedback/searchcourses.html,
+	lang/en_utf8/help/feedback/show_anon_entries.html,
+	lang/en_utf8/help/feedback/timeclose.html,
+	lang/en_utf8/help/feedback/timeopen.html,
+	lang/en_utf8/help/feedback/viewcompleted.html,
+	item/feedback_item_class.php,
+	lang/en_utf8/help/feedback/index.html,
+	lang/it_utf8/block_feedback.php, lang/it_utf8/feedback.php,
+	lang/it_utf8/help/feedback/mods.html,
+	lang/ja_utf8/block_feedback.php, lang/ja_utf8/feedback.php,
+	lang/sk_utf8/help/feedback/emailnotification.html,
+	lang/sk_utf8/help/feedback/searchcourses.html: 
+	
+	this is a merge with an early version of feedback for 1.9 - adding
+	tabs - changing the table feedback_template, field public ->
+	ispublic, public is reserved in oracle - fix an session-issue with
+	more than one feedback in a course (complete.php,
+	complete_guest.php) - fix an issue in the function
+	feedback_convert_to_win() in easy_excel.php
+
+2008-01-05 Saturday 01:12  agrabs
+
+	* changelog, version.php, db/upgrade.php: 
+	
+	a better fix to the last anonymous issue
+
+2007-12-30 Sunday 05:55  agrabs
+
+	* changelog, version.php, db/upgrade.php: 
+	
+	- issue with new anonymous_responses field
+
+2007-12-25 Tuesday 08:23  arborrow
+
+	* lang/sk_utf8/: help/feedback/editelements.html,
+	help/feedback/emailnotification.html,
+	help/feedback/mapcourses.html, help/feedback/multiplesubmit.html,
+	help/feedback/searchcourses.html,
+	help/feedback/show_anon_entries.html, help/feedback/timeclose.html,
+	feedback.php, help/feedback/mapcourse.html,
+	help/feedback/mods.html, help/feedback/preview.html,
+	help/feedback/timeopen.html, help/feedback/viewcompleted.html: 
+	
+	updated Slovak (sk_utf8) translation thanks to Miroslav Fikar
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/multiplesubmit.html: 
+	
+	file multiplesubmit.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:53 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/timeopen.html: 
+	
+	file timeopen.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:54 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/editelements.html: 
+	
+	file editelements.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:53 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/mapcourse.html: 
+	
+	file mapcourse.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:54 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/timeclose.html: 
+	
+	file timeclose.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:53 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/viewcompleted.html: 
+	
+	file viewcompleted.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:31 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/emailnotification.html: 
+	
+	file emailnotification.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:30 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/mapcourse.html: 
+	
+	file mapcourse.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:30 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/editelements.html: 
+	
+	file editelements.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:30 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/emailnotification.html: 
+	
+	file emailnotification.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:53 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/timeclose.html: 
+	
+	file timeclose.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:30 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/viewcompleted.html: 
+	
+	file viewcompleted.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:54 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/timeopen.html: 
+	
+	file timeopen.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:31 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/multiplesubmit.html: 
+	
+	file multiplesubmit.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:30 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/searchcourses.html: 
+	
+	file searchcourses.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:30 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/show_anon_entries.html: 
+	
+	file show_anon_entries.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:53 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/mapcourses.html: 
+	
+	file mapcourses.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:53 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/searchcourses.html: 
+	
+	file searchcourses.html was added on branch MOODLE_18_STABLE on
+	2007-12-24 23:19:53 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/show_anon_entries.html: 
+	
+	file show_anon_entries.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:30 +0000
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/: help/feedback/mapcourses.html,
+	help/feedback/searchcourses.html,
+	help/feedback/show_anon_entries.html, feedback.php,
+	help/feedback/editelements.html,
+	help/feedback/emailnotification.html, help/feedback/mapcourse.html,
+	help/feedback/mods.html, help/feedback/multiplesubmit.html,
+	help/feedback/preview.html, help/feedback/timeclose.html,
+	help/feedback/timeopen.html, help/feedback/viewcompleted.html,
+	help/feedback/editelements.html,
+	help/feedback/emailnotification.html,
+	help/feedback/mapcourses.html, help/feedback/multiplesubmit.html,
+	help/feedback/searchcourses.html,
+	help/feedback/show_anon_entries.html, help/feedback/timeclose.html,
+	feedback.php, help/feedback/mapcourse.html,
+	help/feedback/mods.html, help/feedback/preview.html,
+	help/feedback/timeopen.html, help/feedback/viewcompleted.html: 
+	
+	updated Slovak (sk_utf8) translation thanks to Miroslav Fikar
+
+2007-12-25 Tuesday 08:17  arborrow
+
+	* lang/sk_utf8/help/feedback/mapcourses.html: 
+	
+	file mapcourses.html was added on branch MOODLE_19_STABLE on
+	2007-12-24 23:23:30 +0000
+
+2007-12-21 Friday 03:11  andreabix
+
+	* lang/it_utf8/feedback.php: 
+	
+	Aggiornamento Traduzione di Andrea Bicciolo
+
+2007-12-21 Friday 03:08  andreabix
+
+	* lang/it_utf8/: feedback.php, feedback.php: 
+	
+	Aggiornamento Traduzione di Andrea Bicciolo
+
+2007-12-19 Wednesday 03:55  agrabs
+
+	* analysis.php, changelog, version.php: 
+	
+	resolved issue http://tracker.moodle.org/browse/CONTRIB-231
+
+2007-12-18 Tuesday 23:30  andreabix
+
+	* lang/it_utf8/: feedback.php, feedback.php: 
+	
+	Aggiornamento Traduzione di Andrea Bicciolo
+
+2007-12-18 Tuesday 23:18  andreabix
+
+	* lang/it_utf8/: block_feedback.php, feedback.php,
+	help/feedback/editelements.html,
+	help/feedback/emailnotification.html, help/feedback/mods.html,
+	help/feedback/mapcourse.html, help/feedback/mapcourses.html,
+	help/feedback/multiplesubmit.html,
+	help/feedback/searchcourses.html,
+	help/feedback/show_anon_entries.html, help/feedback/timeclose.html,
+	help/feedback/timeopen.html, help/feedback/viewcompleted.html: 
+	
+	Aggiornamento Traduzione di Andrea Bicciolo
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback.php: 
+	
+	file feedback.php was initially added on branch MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/show_anon_entries.html: 
+	
+	file show_anon_entries.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/viewcompleted.html: 
+	
+	file viewcompleted.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/multiplesubmit.html: 
+	
+	file multiplesubmit.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:40 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/timeopen.html: 
+	
+	file timeopen.html was initially added on branch MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/mapcourses.html: 
+	
+	file mapcourses.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:40 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/mapcourses.html: 
+	
+	file mapcourses.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/multiplesubmit.html: 
+	
+	file multiplesubmit.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/searchcourses.html: 
+	
+	file searchcourses.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:40 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/show_anon_entries.html: 
+	
+	file show_anon_entries.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:40 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/timeopen.html: 
+	
+	file timeopen.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:40 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/timeclose.html: 
+	
+	file timeclose.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:40 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/searchcourses.html: 
+	
+	file searchcourses.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/timeclose.html: 
+	
+	file timeclose.html was initially added on branch MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/viewcompleted.html: 
+	
+	file viewcompleted.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:41 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/block_feedback.php: 
+	
+	file block_feedback.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/: block_feedback.php, feedback.php,
+	help/feedback/editelements.html,
+	help/feedback/emailnotification.html, help/feedback/mapcourse.html,
+	help/feedback/mods.html, help/feedback/mapcourses.html,
+	help/feedback/multiplesubmit.html,
+	help/feedback/searchcourses.html,
+	help/feedback/show_anon_entries.html, help/feedback/timeclose.html,
+	help/feedback/timeopen.html, help/feedback/viewcompleted.html,
+	help/block_feedback.php, help/feedback.php: 
+	
+	Aggiornamento Traduzione di Andrea Bicciolo
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/emailnotification.html: 
+	
+	file emailnotification.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:39 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/editelements.html: 
+	
+	file editelements.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/mapcourse.html: 
+	
+	file mapcourse.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:40 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/mapcourse.html: 
+	
+	file mapcourse.html was initially added on branch MOODLE_19_STABLE.
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/editelements.html: 
+	
+	file editelements.html was added on branch MOODLE_18_STABLE on
+	2007-12-18 14:19:39 +0000
+
+2007-12-18 Tuesday 21:59  andreabix
+
+	* lang/it_utf8/help/feedback/emailnotification.html: 
+	
+	file emailnotification.html was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-12-04 Tuesday 07:57  agrabs
+
+	* edit_form.php: 
+	
+	file edit_form.php was added on branch MOODLE_18_STABLE on
+	2008-01-15 23:53:25 +0000
+
+2007-12-04 Tuesday 07:57  agrabs
+
+	* analysis.php, analysis_course.php, changelog, edit.php,
+	edit_form.php, lib.php, mapcourse.php, show_entries.php,
+	show_entries_anonym.php, tabs.php, version.php, view.php,
+	db/install.xml, db/upgrade.php: 
+	
+	- changing the table feedback_template, field public -> ispublic,
+	public is reserved in oracle - resolved issue
+	http://tracker.moodle.org/browse/CONTRIB-95
+
+2007-12-04 Tuesday 07:57  agrabs
+
+	* tabs.php: 
+	
+	file tabs.php was added on branch MOODLE_18_STABLE on 2008-01-15
+	23:53:26 +0000
+
+2007-11-02 Friday 11:51  fmarier
+
+	* edit_item.php, lib.php, mod_form.php, item/numeric/lib.php,
+	item/textarea/lib.php, item/textfield/lib.php: 
+	
+	Fix SQL errors, PHP warnings and XHTML errors.
+
+2007-11-02 Friday 11:45  fmarier
+
+	* edit_item.php, lib.php, mod_form.php, item/numeric/lib.php,
+	item/textarea/lib.php, item/textfield/lib.php: 
+	
+	Fix SQL errors, PHP warnings and XTHML errors.
+
+2007-11-02 Friday 11:45  agrabs
+
+	* mod_form.php: 
+	
+	file mod_form.php was added on branch MOODLE_18_STABLE on
+	2008-01-15 23:53:26 +0000
+
+2007-11-02 Friday 11:36  fmarier
+
+	* analysis.php, index.php: 
+	
+	Fix PHP warnings and database errors
+
+2007-11-02 Friday 11:35  fmarier
+
+	* lib.php, lib.php: 
+	
+	Use the correct capability (fixes a PHP warning as well)
+
+2007-11-02 Friday 11:32  fmarier
+
+	* analysis.php, index.php: 
+	
+	Fix PHP warnings and database errors
+
+2007-09-16 Sunday 18:34  agrabs
+
+	* analysis_course.php, changelog, version.php: 
+	
+	coursesearch now use unicode characters
+
+2007-09-16 Sunday 18:09  agrabs
+
+	* changelog, lib.php, version.php: 
+	
+	removed the check of legacy roles on has_capability()
+
+2007-09-16 Sunday 17:57  agrabs
+
+	* changelog, version.php, db/access.php: 
+	
+	changing access.php, removed the lines with coursecreator, added
+	some RISK_xxx
+
+2007-09-15 Saturday 19:44  agrabs
+
+	* analysis.php, edit_form.php, styles.php, version.php: 
+	
+	better compatibility for xhtml 1.0 strict
+
+2007-09-14 Friday 03:28  agrabs
+
+	* item/captcha/lib.php: 
+	
+	file lib.php was added on branch MOODLE_18_STABLE on 2008-01-20
+	11:49:01 +0000
+
+2007-09-14 Friday 03:28  agrabs
+
+	* changelog, edit.php, edit_item.php, styles.php, version.php,
+	item/captcha/lib.php, item/label/lib.php, item/numeric/lib.php,
+	item/textarea/lib.php, item/textfield/lib.php: 
+	
+	- updated edit.php to make the output more xhtml 1.0 strict like
+
+2007-09-12 Wednesday 06:29  agrabs
+
+	* styles.php: 
+	
+	[no log message]
+
+2007-09-12 Wednesday 06:15  agrabs
+
+	* lang/de_utf8/help/feedback/index.html: 
+	
+	file index.html was added on branch MOODLE_18_STABLE on 2008-01-15
+	23:53:29 +0000
+
+2007-09-12 Wednesday 06:14  agrabs
+
+	* lang/en_utf8/help/feedback/index.html: 
+	
+	file index.html was added on branch MOODLE_18_STABLE on 2008-01-15
+	23:53:31 +0000
+
+2007-09-12 Wednesday 06:14  agrabs
+
+	* print.css: 
+	
+	file print.css was added on branch MOODLE_18_STABLE on 2008-01-15
+	23:53:26 +0000
+
+2007-09-12 Wednesday 06:14  agrabs
+
+	* delete_completed_form.php, delete_item_form.php,
+	delete_template_form.php, print.css, styles.php,
+	lang/en_utf8/help/feedback/index.html,
+	lang/de_utf8/help/feedback/index.html: 
+	
+	[no log message]
+
+2007-09-12 Wednesday 06:10  agrabs
+
+	* analysis.php, analysis_course.php, changelog, complete.php,
+	complete_guest.php, delete_completed.php, delete_item.php,
+	delete_template.php, edit.php, edit_form.php, edit_item.php,
+	import.php, index.php, lib.php, mapcourse.php, print.php,
+	show_entries.php, show_entries_anonym.php, use_templ.php,
+	version.php, view.php, item/label/lib.php,
+	lang/de_utf8/feedback.php,
+	lang/de_utf8/help/feedback/editelements.html,
+	lang/de_utf8/help/feedback/emailnotification.html,
+	lang/de_utf8/help/feedback/mapcourse.html,
+	lang/de_utf8/help/feedback/mapcourses.html,
+	lang/de_utf8/help/feedback/mods.html,
+	lang/de_utf8/help/feedback/multiplesubmit.html,
+	lang/de_utf8/help/feedback/preview.html,
+	lang/de_utf8/help/feedback/searchcourses.html,
+	lang/de_utf8/help/feedback/show_anon_entries.html,
+	lang/de_utf8/help/feedback/timeclose.html,
+	lang/de_utf8/help/feedback/timeopen.html,
+	lang/de_utf8/help/feedback/viewcompleted.html,
+	lang/en_utf8/feedback.php: 
+	
+	- Update feedback settings has help showing wrongly - Menu on "Add
+	question to activity" should be sorted alphabetically - missing
+	"Add Pagebreak" is now at the item-list - no hardcoded css - use
+	new print_header() (note it only is available on moodle 1.9!!!) -
+	missing sesskey checks in feedback - uninitialised $filename when
+	importing into feedback
+
+2007-09-10 Monday 11:19  arborrow
+
+	* lang/en_utf8/feedback.php: 
+	
+	CONTRIB-79 - modulenameplural changed to Feedback
+
+2007-08-30 Thursday 23:00  arborrow
+
+	* lang/en_utf8/feedback.php: 
+	
+	CONTRIB-77 - fixed numerous captialization errors, removed double
+	quotes
+
+2007-08-02 Thursday 05:09  agrabs
+
+	* changelog, import.php, version.php: 
+	
+	fixed bug with missing numbers after xml Question-Import
+
+2007-07-30 Monday 04:10  agrabs
+
+	* changelog, version.php, view.php, item/numeric/lib.php,
+	lang/en_utf8/feedback.php: 
+	
+	- added "require_course_login()" in view.php - added missing
+	langstring "no_itemname"
+
+2007-07-26 Thursday 06:07  agrabs
+
+	* changelog: 
+	
+	[no log message]
+
+2007-07-13 Friday 19:08  agrabs
+
+	* lang/en_utf8/feedback.php: 
+	
+	added langstring count_of_nums
+
+2007-07-09 Monday 17:32  agrabs
+
+	* lang/ja_utf8/: block_feedback.php, feedback.php,
+	help/feedback/multiplesubmit.html,
+	help/feedback/viewcompleted.html: 
+	
+	updated japanese lang files
+
+2007-07-09 Monday 17:28  agrabs
+
+	* lang/ja_utf8/: block_feedback.php, feedback.php,
+	help/feedback/multiplesubmit.html,
+	help/feedback/viewcompleted.html: 
+	
+	updated japanese lang files
+
+2007-07-08 Sunday 05:43  agrabs
+
+	* item/feedback_item_class.php: 
+	
+	file feedback_item_class.php was added on branch MOODLE_18_STABLE
+	on 2008-01-15 23:53:31 +0000
+
+2007-07-08 Sunday 05:43  agrabs
+
+	* use_templ_form.php: 
+	
+	file use_templ_form.php was added on branch MOODLE_18_STABLE on
+	2008-01-15 23:53:26 +0000
+
+2007-07-08 Sunday 05:43  agrabs
+
+	* choose_group_form.php: 
+	
+	file choose_group_form.php was added on branch MOODLE_18_STABLE on
+	2008-01-15 23:53:25 +0000
+
+2007-07-08 Sunday 05:43  agrabs
+
+	* analysis.php, analysis_course.php, analysis_to_excel.php,
+	backuplib.php, changelog, choose_group_form.php, complete.php,
+	complete_guest.php, delete_completed.php, delete_item.php,
+	delete_template.php, easy_excel.php, edit.php, edit_form.php,
+	edit_item.php, export.php, import.php, index.php, lib.php,
+	mapcourse.php, mod_form.php, print.php, restorelib.php,
+	show_entries.php, show_entries_anonym.php, tabs.php,
+	unmapcourse.php, use_templ.php, use_templ_form.php, version.php,
+	action_lib.php, view.php, db/mysql.php, item/captcha/lib.php,
+	item/feedback_item_class.php, item/label/lib.php,
+	item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php: 
+	
+	- all functions in lib.php now are with comments in phpdoc-style -
+	removed all depricated function-calls - some code-styling changes
+	(http://docs.moodle.org/en/Coding)
+
+2007-07-07 Saturday 06:48  agrabs
+
+	* easy_excel.php, version.php: 
+	
+	Now it is possible to export excel with utf8. But to many data will
+	crash the excel  file. If the excefile crashes so you switch to
+	latin-export in lang-settings
+
+2007-07-07 Saturday 03:20  agrabs
+
+	* easy_excel.php, version.php: 
+	
+	excelexport now uses the localwincharset from langconfig.php
+
+2007-07-06 Friday 17:18  agrabs
+
+	* version.php, db/access.php: 
+	
+	adding the default permission CAP_ALLOW to the legacy-role:user for
+	the capabilities view and complete
+
+2007-07-06 Friday 17:13  agrabs
+
+	* show_entries.php: 
+	
+	fixing some notice-messages with $SESSION-lstgroupid
+
+2007-07-06 Friday 16:57  agrabs
+
+	* lib.php, lang/en_utf8/feedback.php: 
+	
+	Adding some missing lang-strings
+
+2007-06-25 Monday 01:38  agrabs
+
+	* analysis_to_excel.php, version.php: 
+	
+	added new field "idnumber" into excel detailed report
+
+2007-06-25 Monday 00:53  agrabs
+
+	* analysis_to_excel.php, version.php: 
+	
+	fixed excel-problem with tempfiles
+
+2007-06-22 Friday 03:01  agrabs
+
+	* complete.php, complete_guest.php, delete_template.php,
+	easy_excel.php, edit.php, edit_item.php, import.php, index.php,
+	lib.php, mapcourse.php, show_entries.php, show_entries_anonym.php,
+	tabs.php, unmapcourse.php, version.php, view.php,
+	item/captcha/lib.php, item/feedback_item_class.php,
+	item/label/lib.php, item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php: 
+	
+	better support for xhtml some improvements
+
+2007-06-21 Thursday 18:01  agrabs
+
+	* item/captcha/print_captcha.php: 
+	
+	file print_captcha.php was added on branch MOODLE_18_STABLE on
+	2008-01-20 11:49:01 +0000
+
+2007-06-21 Thursday 18:01  agrabs
+
+	* README.txt, ToDo, action_lib.php, analysis.php,
+	analysis_course.php, analysis_to_excel.php, changelog,
+	complete.php, complete_guest.php, delete_completed.php,
+	delete_template.php, easy_excel.php, edit.php, edit_item.php,
+	import.php, lib.php, choose_group_form.php, print.php,
+	restorelib.php, show_entries.php, show_entries_anonym.php,
+	use_templ.php, version.php, view.php, edit_form.php, mod_form.php,
+	tabs.php, use_templ_form.php, item/label/lib.php,
+	item/numeric/lib.php, item/captcha/lib.php,
+	item/captcha/print_captcha.php, item/textarea/lib.php,
+	item/textfield/lib.php, item/feedback_item_class.php: 
+	
+	- items now are classes - most of forms use formslib - gui now uses
+	tabs - new item "captcha" Now it only runs on Moodle 1.8 or later
+
+2007-06-17 Sunday 18:47  agrabs
+
+	* item/label/lib.php, item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, version.php: 
+	
+	fixed bar-alignment
+
+2007-06-17 Sunday 18:43  agrabs
+
+	* item/label/lib.php, item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, version.php, item/label/lib.php,
+	item/numeric/lib.php, item/textarea/lib.php,
+	item/textfield/lib.php, version.php: 
+	
+	fixed bar-alignment
+
+2007-06-16 Saturday 21:20  agrabs
+
+	* easy_excel.php, easy_excel.php, easy_excel.php: 
+	
+	fixed error on array_key_exists function
+
+2007-06-11 Monday 16:03  agrabs
+
+	* lang/ja_utf8/: feedback.php, feedback.php, feedback.php: 
+	
+	[no log message]
+
+2007-06-08 Friday 02:10  agrabs
+
+	* lang/ja_utf8/: feedback.php, help/feedback/editelements.html,
+	help/feedback/emailnotification.html, help/feedback/mapcourse.html,
+	help/feedback/mapcourses.html, help/feedback/multiplesubmit.html,
+	help/feedback/preview.html, help/feedback/searchcourses.html,
+	help/feedback/show_anon_entries.html, help/feedback/timeclose.html,
+	help/feedback/timeopen.html, help/feedback/viewcompleted.html: 
+	
+	[no log message]
+
+2007-06-08 Friday 02:00  agrabs
+
+	* lang/ja_utf8/: feedback.php, help/feedback/editelements.html,
+	help/feedback/emailnotification.html, help/feedback/mapcourse.html,
+	help/feedback/mapcourses.html, help/feedback/multiplesubmit.html,
+	help/feedback/preview.html, help/feedback/searchcourses.html,
+	help/feedback/show_anon_entries.html, help/feedback/timeclose.html,
+	help/feedback/timeopen.html, help/feedback/viewcompleted.html: 
+	
+	[no log message]
+
+2007-05-23 Wednesday 03:48  agrabs
+
+	* lang/en_utf8/feedback.php: 
+	
+	added missing string "courseid"
+
+2007-05-23 Wednesday 03:45  agrabs
+
+	* lang/en_utf8/: feedback.php, feedback.php: 
+	
+	added missing string "courseid"
+
+2007-05-22 Tuesday 12:53  moodler
+
+	* README.txt, ToDo, action_lib.php, analysis.php,
+	analysis_course.php, analysis_to_excel.php, backuplib.php,
+	changelog, complete.php, complete_guest.php, delete_completed.php,
+	delete_item.php, delete_template.php, easy_excel.php, edit.php,
+	edit_item.php, export.php, icon.gif, import.php, index.php,
+	lib.php, mapcourse.php, mod.html, print.php, restorelib.php,
+	show_entries.php, show_entries_anonym.php, unmapcourse.php,
+	use_templ.php, version.php, view.php, db/access.php,
+	db/install.xml, db/migrate2utf8.php, db/migrate2utf8.xml,
+	db/mysql.php, db/mysql.sql, db/postgres7.php, db/postgres7.sql,
+	db/upgrade.php, item/label/lib.php, item/numeric/lib.php,
+	item/textarea/lib.php, item/textfield/lib.php,
+	lang/cs_utf8/feedback.php, lang/cs_utf8/help/feedback/mods.html,
+	lang/cs_utf8/help/feedback/preview.html,
+	lang/de_utf8/block_feedback.php, lang/de_utf8/feedback.php,
+	lang/de_utf8/help/feedback/editelements.html,
+	lang/de_utf8/help/feedback/emailnotification.html,
+	lang/de_utf8/help/feedback/mapcourse.html,
+	lang/de_utf8/help/feedback/mapcourses.html,
+	lang/de_utf8/help/feedback/mods.html,
+	lang/de_utf8/help/feedback/multiplesubmit.html,
+	lang/de_utf8/help/feedback/preview.html,
+	lang/de_utf8/help/feedback/searchcourses.html,
+	lang/de_utf8/help/feedback/show_anon_entries.html,
+	lang/de_utf8/help/feedback/timeclose.html,
+	lang/de_utf8/help/feedback/timeopen.html,
+	lang/de_utf8/help/feedback/viewcompleted.html,
+	lang/en_utf8/block_feedback.php, lang/en_utf8/feedback.php,
+	lang/en_utf8/help/feedback/editelements.html,
+	lang/en_utf8/help/feedback/emailnotification.html,
+	lang/en_utf8/help/feedback/mapcourse.html,
+	lang/en_utf8/help/feedback/mapcourses.html,
+	lang/en_utf8/help/feedback/mods.html,
+	lang/en_utf8/help/feedback/multiplesubmit.html,
+	lang/en_utf8/help/feedback/preview.html,
+	lang/en_utf8/help/feedback/searchcourses.html,
+	lang/en_utf8/help/feedback/show_anon_entries.html,
+	lang/en_utf8/help/feedback/timeclose.html,
+	lang/en_utf8/help/feedback/timeopen.html,
+	lang/en_utf8/help/feedback/viewcompleted.html,
+	lang/es_utf8/block_feedback.php, lang/es_utf8/feedback.php,
+	lang/es_utf8/help/feedback/editelements.html,
+	lang/es_utf8/help/feedback/emailnotification.html,
+	lang/es_utf8/help/feedback/mapcourse.html,
+	lang/es_utf8/help/feedback/mapcourses.html,
+	lang/es_utf8/help/feedback/mods.html,
+	lang/es_utf8/help/feedback/multiplesubmit.html,
+	lang/es_utf8/help/feedback/preview.html,
+	lang/es_utf8/help/feedback/searchcourses.html,
+	lang/es_utf8/help/feedback/show_anon_entries.html,
+	lang/es_utf8/help/feedback/timeclose.html,
+	lang/es_utf8/help/feedback/timeopen.html,
+	lang/es_utf8/help/feedback/viewcompleted.html,
+	lang/eu_utf8/feedback.php, lang/fi_utf8/feedback.php,
+	lang/fi_utf8/help/feedback/mods.html,
+	lang/fi_utf8/help/feedback/preview.html, lang/fr_utf8/feedback.php,
+	lang/fr_utf8/help/feedback/mods.html,
+	lang/fr_utf8/help/feedback/preview.html,
+	lang/it_utf8/block_feedback.php, lang/it_utf8/feedback.php,
+	lang/it_utf8/help/feedback/mods.html,
+	lang/it_utf8/help/feedback/preview.html,
+	lang/ja_utf8/block_feedback.php, lang/ja_utf8/feedback.php,
+	lang/ja_utf8/help/feedback/editelements.html,
+	lang/ja_utf8/help/feedback/emailnotification.html,
+	lang/ja_utf8/help/feedback/mapcourse.html,
+	lang/ja_utf8/help/feedback/mapcourses.html,
+	lang/ja_utf8/help/feedback/mods.html,
+	lang/ja_utf8/help/feedback/multiplesubmit.html,
+	lang/ja_utf8/help/feedback/preview.html,
+	lang/ja_utf8/help/feedback/searchcourses.html,
+	lang/ja_utf8/help/feedback/show_anon_entries.html,
+	lang/ja_utf8/help/feedback/timeclose.html,
+	lang/ja_utf8/help/feedback/timeopen.html,
+	lang/ja_utf8/help/feedback/viewcompleted.html,
+	lang/nl_utf8/feedback.php, lang/nl_utf8/help/feedback/mods.html,
+	lang/nl_utf8/help/feedback/preview.html,
+	lang/sk_utf8/block_feedback.php, lang/sk_utf8/feedback.php,
+	lang/sk_utf8/help/feedback/mods.html,
+	lang/sk_utf8/help/feedback/preview.html, lang/sv_utf8/feedback.php,
+	lang/sv_utf8/help/feedback/index.html,
+	lang/sv_utf8/help/feedback/mods.html,
+	lang/sv_utf8/help/feedback/preview.html, pics/0.gif, pics/1.gif,
+	pics/2.gif, pics/3.gif, pics/4.gif, pics/5.gif, pics/6.gif,
+	pics/7.gif, pics/8.gif, pics/9.gif, pics/notrequired.gif,
+	pics/required.gif: 
+	
+	Adding feedback module to contrib CVS for group maintenance
+

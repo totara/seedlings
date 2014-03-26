@@ -1,0 +1,94 @@
+/**
+ * Docking
+**/
+
+body.has_dock {
+    margin:0;
+}
+.dir-ltr body.has_dock #page-header #logo,
+.dir-ltr body.has_dock #page-header #logo.custom {
+    margin-left:30px;
+}
+.dir-rtl body.has_dock #page-header #logo,
+.dir-rtl body.has_dock #page-header #logo.custom {
+    margin-right:30px;
+}
+body.has_dock #page-content-wrapper {
+    padding:0 0 0 0;
+}
+.dir-ltr body.has_dock #page-content-wrapper {
+    border-left:30px solid #FFFFFF
+}
+.dir-rtl body.has_dock #page-content-wrapper {
+    border-right:30px solid #FFFFFF
+}
+body.has_dock #page-content {
+    max-width:1410px;
+}
+.dir-ltr body.has_dock #page-footer .footer-powered {
+    margin-left:30px;
+}
+.dir-rtl body.has_dock #page-footer .footer-powered {
+    margin-right:30px;
+}
+#dock {
+    position:fixed;
+    z-index:100;
+    margin-top:136px;
+    background:#FFFFFF;
+    border:none;
+}
+#dock .controls {
+    bottom:12em;
+    position:absolute;
+    padding:0.3em 0;
+    background:transparent url([[pix:theme|dock-to-block-bg]]) no-repeat center center;
+}
+#dock .buttons_container {
+    height:100%;
+    margin-top:-146px;
+    background:transparent;
+}
+#dock .dockeditem_container {
+    padding-top:97px;
+    margin:0;
+}
+#dock .dockeditem {
+    padding:0;
+}
+#dockeditempanel {
+    z-index:100;
+    min-width:250px;
+    border:none;
+}
+#dockeditempanel .dockeditempanel_content {
+    border:none;
+    background:#FFF;
+}
+#dock .dockeditem .dockedtitle,
+#dock .dockeditem .dockedtitle.activeitem {
+    color:#9c9b9b;
+    border:none;
+    border-bottom:1px solid #C4C0C0;
+}
+#dock .dockeditem .dockedtitle h2 {
+    font-size:0.9em;
+    color:#9c9b9b;
+    margin:1px 0;
+    padding:15px 4px;
+    background:#FFFFFF;
+}
+#dock .dockeditem .dockedtitle.activeitem,
+#dock .dockeditem .dockedtitle.activeitem h2 {
+    background:#F6F6F1;
+}
+#dock .dockeditem .dockedtitle h2 svg {
+    color:#9c9b9b;
+}
+#dock .dockeditempanel_hd {
+    border:none;
+    background:#FFFFFF;
+}
+#dock .dockeditempanel_hd .hidepanelicon {
+    display:none;
+}

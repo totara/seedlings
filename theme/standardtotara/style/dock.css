@@ -1,0 +1,48 @@
+/**
+ * For the dock and items on the dock
+ * see also css3.css for gradient
+ */
+
+#dock .dockeditem {
+    background: transparent;
+    padding: 1px 0 1px 3px;
+}
+#dock .dockeditem_container {
+    margin-left: 4px;
+}
+#dock .dockeditem .dockedtitle {
+    border: 1px solid #DDD;
+    background: #FFF;
+}
+#dock .dockeditem .dockedtitle.activeitem {
+    background: #FFF;
+    border: 1px solid #DDD;
+}
+#dock .dockeditem .dockedtitle h2 {
+    margin: 10px 3px;
+}
+#dock .controls {
+    bottom: auto;
+    top: auto;
+    margin-top: 10px;
+}
+
+/** For the panel the docked blocks are shown in */
+#dockeditempanel .dockeditempanel_content {
+    border-color: #DDD;
+}
+#dockeditempanel .dockeditempanel_hd {
+    border-bottom-color: #DDD;
+    padding: 5px 5px 3px;
+    background: #FFF;
+    text-align: left;
+}
+#dockeditempanel .dockeditempanel_hd h2 {
+    font-size:110%;
+    color: #888;
+    margin: 0 5px;
+}
+#dockeditempanel .dockeditempanel_hd .commands {
+    float: right;
+}
+

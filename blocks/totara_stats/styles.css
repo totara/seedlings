@@ -1,0 +1,19 @@
+/******************************************
+ * Stats block widget
+ *****************************************/
+
+.block_totara_stats .content ul li{
+  font-size:0.8em;
+}
+
+div.block_totara_stats .content tr.shade td {
+  background: #F2F2F2;
+}
+
+div.block_totara_stats .content tr.noshade td {
+  background: #ffffff;
+}
+
+td.staticon {
+    width: 35px;
+}

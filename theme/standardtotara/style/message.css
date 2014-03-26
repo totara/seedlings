@@ -1,0 +1,19 @@
+/** Message **/
+.dir-rtl .message .contactselector {width:24%;float:right;}
+.dir-rtl .message .contactselector .contact {text-align:right;}
+
+.dir-rtl .message .messagearea  {padding-left:0;padding-right:1%;border-left:0px;border-right:1px solid LightGrey;float:left;}
+
+.message .messagearea .messagehistory .left {padding-bottom:10px;width:50%;float:left;clear:both;}
+.message .messagearea .messagehistory .right {padding-bottom:10px;width:50%;float:right;clear:both;}
+
+.dir-rtl .message .messagearea .messagerecent {text-align:right;}
+.dir-rtl .message .messagearea .messagerecent .singlemessage .messagedate {float:left;}
+
+.dir-rtl .message .messagearea .messagerecent .singlemessage .otheruser span {float:right;}
+.dir-rtl .message .messagearea .messagerecent .singlemessage .themessage {padding:5px;float:right;}
+.dir-rtl .message .messagearea .messagerecent .singlemessage .messagecontext {clear:both;}
+
+.dir-rtl .messagesearchresults td {padding:0px 20px 0px 10px;}
+
+.dir-rtl #newmessageoverlay {bottom:0;right:auto;left:0;}

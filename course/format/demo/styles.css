@@ -1,0 +1,13 @@
+.course-content ul.demosections {margin:0;}
+.course-content ul.demosections li.section {list-style: none;margin:5px 0 0 0;padding:0;}
+.course-content ul.demosections li.section .content {margin:0 40px; padding: 5px 10px; background-color: #eee;}
+.course-content ul.demosections li.section .left {width:40px;float:left;text-align:center;}
+.course-content ul.demosections li.section .right {width:40px;float:right;text-align:center;}
+.course-content ul.section li.activity span.autocompletion {right: 0;}
+.course-content ul.demosections li.format-demo-content {background-color:#eee; padding:50; height:105%;}
+.course-content ul.demosections li.section.current {background: transparent;}
+.course-content ul.demosections li.section.current .content {background: #E1E1E1;}
+.jumpmenu {text-align:center;}
+
+.demosections #section-0 .content {background-color: transparent;}
+.demosections #section-0 .sectionname {font-size: 200%;}

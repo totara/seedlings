@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/completionimport/db" VERSION="20130903" COMMENT="XMLDB file for Moodle totara/completionimport"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="totara_compl_import_course" COMMENT="Intermediary file for importing course completion data">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="id"/>
+        <FIELD NAME="username" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="username"/>
+        <FIELD NAME="courseshortname" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="course shortname"/>
+        <FIELD NAME="courseidnumber" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="course idnumber"/>
+        <FIELD NAME="completiondate" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="completiondate"/>
+        <FIELD NAME="grade" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="grade"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time the record was imported into this table"/>
+        <FIELD NAME="timeupdated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time the record was added to the system"/>
+        <FIELD NAME="importuserid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of user running the import"/>
+        <FIELD NAME="importerror" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="true/false if there were any errors"/>
+        <FIELD NAME="importerrormsg" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Any error messages for this record"/>
+        <FIELD NAME="rownumber" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Row number in the csv file"/>
+        <FIELD NAME="importevidence" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="imported into evidence"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="importuserid" UNIQUE="false" FIELDS="importuserid"/>
+        <INDEX NAME="compimpcou_username_ix" UNIQUE="false" FIELDS="username"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="totara_compl_import_cert" COMMENT="Intermediary file for importing certification completion data">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="id"/>
+        <FIELD NAME="username" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="username"/>
+        <FIELD NAME="certificationshortname" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="certification shortname"/>
+        <FIELD NAME="certificationidnumber" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="certification id number"/>
+        <FIELD NAME="completiondate" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="completiondate"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Time the record was imported into this table"/>
+        <FIELD NAME="timeupdated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Time the record was added to the system"/>
+        <FIELD NAME="importuserid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of user running the import"/>
+        <FIELD NAME="importerror" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="true/false if there were any errors"/>
+        <FIELD NAME="importerrormsg" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Any error messages for this record"/>
+        <FIELD NAME="rownumber" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Row number in the csv file"/>
+        <FIELD NAME="importevidence" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Imported into evidence"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="importuserid" UNIQUE="false" FIELDS="importuserid"/>
+        <INDEX NAME="compimpcer_username_ix" UNIQUE="false" FIELDS="username"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

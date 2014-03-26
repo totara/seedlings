@@ -1,0 +1,8 @@
+.dir-rtl #custommenu ul.dropdown {float:right;}
+.dir-rtl #custommenu ul.dropdown ul{right: 0;left: auto;}
+.dir-rtl #custommenu ul.dropdown ul ul {right: 203px;left: auto;}
+.dir-rtl #custommenu ul.dropdown ul span,
+.dir-rtl #custommenu ul.dropdown ul span a,
+.dir-rtl #custommenu ul.dropdown ul li.clickable-with-children > a
+{background-position: 0% 50%;background-image: url([[pix:theme|menu/nav-arrow-left]]);}
+

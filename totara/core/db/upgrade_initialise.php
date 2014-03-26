@@ -1,0 +1,94 @@
+<?php
+/*
+ * This file is part of Totara LMS
+ *
+ * Copyright (C) 2010 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Ciaran Irvine <ciaran.irvine@totaralms.com>
+ * @package totara
+ * @subpackage totara_core
+ */
+
+// Example of an upgrade output item:
+// echo $OUTPUT->heading('Disable Moodle autoupdates in Totara');
+// echo $OUTPUT->notification($success, 'notifysuccess');
+// print_upgrade_separator();
+
+defined('MOODLE_INTERNAL') || die();
+
+global $OUTPUT, $DB, $CFG, $TOTARA;
+require_once ("$CFG->dirroot/totara/core/db/utils.php");
+
+$dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
+$success = get_string('success');
+
+// Double-check version numbers when upgrading a Totara installation.
+if (isset($CFG->totara_release)){
+    if (substr($CFG->totara_release, 0, 3) == '1.0' || substr($CFG->totara_release, 0, 3) == '1.1') {
+        $a = new stdClass();
+        $a->currentversion = $CFG->totara_release;
+        $a->attemptedversion = $TOTARA->release;
+        $a->required = get_string('totararequiredupgradeversion', 'totara_core');
+        throw new moodle_exception('totaraunsupportedupgradepath', 'totara_core', '', $a);
+    } else if (substr($CFG->totara_release, 0, 3) == '2.4') {
+        totara_fix_existing_capabilities();
+    }
+}
+
+// Check unique idnumbers in totara tables.
+if ($CFG->version < 2013051402.00) {
+    echo $OUTPUT->heading(get_string('totaraupgradecheckduplicateidnumbers', 'totara_core'));
+    $duplicates = totara_get_nonunique_idnumbers();
+    if (!empty($duplicates)) {
+        $duplicatestr = '';
+        foreach ($duplicates as $duplicate) {
+            $duplicatestr .= get_string('idnumberduplicates', 'totara_core', $duplicate) . '<br/>';
+        }
+        throw new moodle_exception('totarauniqueidnumbercheckfail', 'totara_core', '', $duplicatestr);
+    } else {
+        echo $OUTPUT->notification($success, 'notifysuccess');
+        print_upgrade_separator();
+    }
+}
+
+// Remove old/unused themes.
+if ($CFG->version < 2013111801.00) {
+    $plugins = array('theme_mymobiletotara', 'theme_canvas');
+    $pluginman = core_plugin_manager::instance();
+
+    foreach ($plugins as $uninstall) {
+        $pluginfo = $pluginman->get_plugin_info($uninstall);
+
+        // Make sure we know the plugin.
+        if (!is_null($pluginfo) && $pluginman->can_uninstall_plugin($pluginfo->component)) {
+            $pluginname = $pluginman->plugin_name($pluginfo->component);
+
+            echo $OUTPUT->heading(get_string('uninstalling', 'core_plugin', array('name' => $pluginname)));
+
+            $progress = new progress_trace_buffer(new text_progress_trace(), false);
+            $pluginman->uninstall_plugin($pluginfo->component, $progress);
+            $progress->finished();
+
+            echo $OUTPUT->notification($success, 'notifysuccess');
+
+            // Reset op code caches.
+            if (function_exists('opcache_reset')) {
+                opcache_reset();
+            }
+            print_upgrade_separator();
+        }
+    }
+}

@@ -1,0 +1,397 @@
+
+/*****************************************************************************/
+/** View Program (including when viewing via catalog, as required learning,
+ *  or as part of a learning plan) **/
+/*****************************************************************************/
+.timeallowed {
+    font-weight: bold;
+}
+
+/** Grey boxes containing program details (shown when viewing a program) **/
+.programprogress {
+    height: 30px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.programprogress .item {
+    height: 100%;
+    padding-top: 10px;
+    float: left;
+    text-align: center;
+    width: 30%;
+    margin-right: 5px;
+}
+.dir-rtl .programprogress .item {
+    float: right;
+    margin-right: 0px;
+    margin-left: 5px;
+}
+
+
+/** These styles are applied on the 'view' pages **/
+.nextsetoperator .operator-or,
+.nextsetoperator .operator-then {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.4;
+    width: auto;
+    display: inline-block;
+    height: 53px;
+    padding-right: 80px;
+}
+.dir-rtl .nextsetoperator .operator-or,
+.dir-rtl .nextsetoperator .operator-then {
+    padding-right: 0px;
+    padding-left: 80px;
+}
+
+/** Help text that appears below OR/THEN **/
+.nextsetoperator .nextsethelp {
+    color: #777777;
+    clear: both;
+    width: auto;
+}
+
+
+/** These styles are applied on the 'edit' page **/
+.nextsetoperator-or,
+.nextsetoperator-then {
+    width: 100px;
+    height: 53px;
+    padding-right: 44px;
+}
+.dir-rtl .nextsetoperator-or,
+.dir-rtl .nextsetoperator-then {
+    padding-right: 0px;
+    padding-left: 44px;
+}
+.nextsetoperator-or select,
+.nextsetoperator-then select {
+    margin: 15px 0px;
+
+}
+
+
+/** These are applied on both 'view' and 'edit' pages **/
+.nextsetoperator {
+    padding-bottom:20px;
+}
+
+.nextsetoperator-or,
+.nextsetoperator .operator-or {
+    background:url([[pix:totara_program|progress_or]]) no-repeat right center;
+}
+.nextsetoperator-then,
+.nextsetoperator .operator-then {
+    background:url([[pix:totara_program|progress_then]]) no-repeat right center;
+}
+.dir-rtl .nextsetoperator-or,
+.dir-rtl .nextsetoperator .operator-or,
+.dir-rtl .nextsetoperator-then,
+.dir-rtl .nextsetoperator .operator-then {
+    background-position: left center;
+}
+
+/**
+ * Other styles applied when viewing the program (but not when editing)
+ */
+
+fieldset.display-program table .status {
+    width:95px;
+}
+fieldset.display-program table .launchcourse {
+    width:55px;
+}
+
+fieldset.display-program {
+    padding: 10px 25px;
+}
+
+/*****************************************************************************/
+/** Program Content **/
+/*****************************************************************************/
+
+/**
+ * Indent list of courses so course names line up rather than and/or operator
+ */
+#edit-program-content fieldset.course_set .course_table .operator {
+    width: 30px;
+}
+#edit-program-content fieldset.course_set .course_table {
+    position: relative;
+}
+
+.dir-ltr #edit-program-content fieldset.course_set .course_table {
+    left: -48px;
+}
+.dir-rtl #edit-program-content fieldset.course_set .course_table {
+    right: -48px;
+}
+
+/**
+ * Restrict cell containing totara-item-group divs to limit their width
+ * on this page.
+ */
+#edit-program-content fieldset.course_set .course_table td.course {
+    width: 300px;
+}
+
+/**
+ * Remove any table stripping
+ */
+#edit-program-content fieldset.course_set .course_table tr {
+    background: transparent;
+}
+
+/**
+ * Display up/down/delete buttons for coursesets/messages.
+ * Make to look like links with icons.
+ */
+.path-totara-program fieldset .setbuttons,
+.path-totara-program fieldset .messagebuttons {
+    width: 100%;
+    margin-top: -10px;
+}
+
+.dir-ltr.path-totara-program fieldset .setbuttons,
+.dir-ltr.path-totara-program fieldset .messagebuttons {
+    text-align: right;
+}
+
+.dir-rtl.path-totara-program fieldset .setbuttons,
+.dir-rtl.path-totara-program fieldset .messagebuttons {
+    text-align: left;
+}
+
+.dir-ltr.path-totara-program fieldset .setbuttons input,
+.dir-ltr.path-totara-program fieldset .messagebuttons input {
+    padding-right: 17px;
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.dir-rtl.path-totara-program fieldset .setbuttons input,
+.dir-rtl.path-totara-program fieldset .messagebuttons input {
+    padding-left: 17px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.path-totara-program fieldset .setbuttons input.moveup,
+.path-totara-program fieldset .messagebuttons input.moveup {
+    background-image: url([[pix:t/up]]);
+}
+
+.path-totara-program fieldset .setbuttons input.movedown,
+.path-totara-program fieldset .messagebuttons input.movedown {
+    background-image: url([[pix:t/down]]);
+}
+
+.path-totara-program fieldset .setbuttons input.delete,
+.path-totara-program fieldset .messagebuttons input.delete {
+    background-image: url([[pix:t/delete]]);
+}
+
+.path-totara-program fieldset .setbuttons input.movedown[disabled],
+.path-totara-program fieldset .messagebuttons input.movedown[disabled] {
+    background-image: url([[pix:t/disable_down]]);
+    color:#bdbdc8;
+}
+
+.path-totara-program fieldset .setbuttons input.moveup[disabled],
+.path-totara-program fieldset .messagebuttons input.moveup[disabled] {
+    background-image: url([[pix:t/disable_up]]);
+    color:#bdbdc8;
+}
+
+/**
+ * Fix the layout in the 'Set completion' dialog box on 'Content' tab.
+ */
+div#prog-completion-fixed-date {
+    display: inline-block;
+}
+
+div#prog-completion-fixed-date label {
+    display: inline-block;
+    width: 100px;
+}
+
+div#prog-completion-or-string {
+    clear: both;
+    padding: 15px 5px;
+}
+
+div#prog-completion-relative-date {
+    display: inline-block;
+}
+
+div#prog-completion-relative-date label {
+    display: inline-block;
+    width: 100px;
+}
+
+
+/*****************************************************************************/
+/** Program Assignments **/
+/*****************************************************************************/
+
+/**
+ * Styling the assignment tables
+ */
+#assignment_categories .assignment_category td.col0,
+#assignment_categories .assignment_category th.col0 {
+    width: 410px;
+}
+
+
+#assignment_categories .assignment_category td.col1,
+#assignment_categories .assignment_category th.col1 {
+    text-align: center;
+    width: 100px;
+}
+
+#assignment_categories .assignment_category td.col2,
+#assignment_categories .assignment_category th.col2 {
+    width: 170px;
+}
+
+#assignment_categories .assignment_category.individuals td.col2,
+#assignment_categories .assignment_category.individuals th.col2 {
+    width: 270px;
+}
+
+#assignment_categories .assignment_category td.col3,
+#assignment_categories .assignment_category th.col3 {
+    width: 80px;
+}
+
+#assignment_categories .assignment_category td.col3 {
+    text-align: right;
+}
+
+.dir-rtl #assignment_categories .assignment_category td.col3 {
+    text-align: left;
+}
+
+#assignment_categories .assignment_category td,
+#assignment_categories .assignment_category th {
+    padding: 0px 6px;
+}
+
+#assignment_categories .assignment_category th {
+    padding-bottom: 9px;
+}
+
+#assignment_categories .assignment_category tr {
+    margin-bottom: 5px;
+}
+
+#assignment_categories .assignment_category td.col1,
+#assignment_categories .assignment_category th.col1 {
+    border-left: 1px solid #2e2e2e;
+    border-right: 0px solid;
+}
+
+.dir-rtl #assignment_categories .assignment_category td.col1,
+.dir-rtl #assignment_categories .assignment_category th.col1 {
+    border-right: 1px solid #2e2e2e;
+    border-left: 0px solid;
+}
+
+#assignment_categories .assignment_category td.col2,
+#assignment_categories .assignment_category th.col2 {
+    border-left: 1px solid #2e2e2e;
+    border-right: 0px solid;
+}
+
+.dir-rtl #assignment_categories .assignment_category td.col2,
+.dir-rtl #assignment_categories .assignment_category th.col2 {
+    border-right: 1px solid #2e2e2e;
+    border-left: 0px solid;
+}
+
+#assignment_categories .assignment_category td.col3,
+#assignment_categories .assignment_category th.col3 {
+    border-left: 1px solid #2e2e2e;
+    border-right: 0px solid;
+}
+
+.dir-rtl #assignment_categories .assignment_category td.col3,
+.dir-rtl #assignment_categories .assignment_category th.col3 {
+    border-right: 1px solid #2e2e2e;
+    border-left: 0px solid;
+}
+
+/*
+ * Assignment count totals displayed on Assignments tab.
+ */
+.path-totara-program.dir-ltr .total_user_count {
+    text-align: right;
+    padding-right: 6px;
+    padding-left: 0px;
+}
+
+.path-totara-program.dir-rtl .total_user_count {
+    text-align: left;
+    padding-left: 6px;
+    padding-right: 0px;
+}
+
+.path-totara-program.dir-ltr .overall_total {
+    padding: 6px;
+    text-align: right;
+}
+
+.path-totara-program.dir-rtl .overall_total {
+    padding: 6px;
+    text-align: left;
+}
+
+/**
+ * Add a little space between assignment types.
+ */
+#assignment_categories .assignment_category {
+    margin: 15px 0;
+}
+
+
+/*****************************************************************************/
+/** Program Exceptions **/
+/*****************************************************************************/
+
+/**
+ * Styles for action toolbar.
+ */
+#program-exceptions .exceptionactions div {
+    float: left;
+    padding-right: 5px;
+    padding-left: 0px;
+}
+
+.dir-rtl #program-exceptions .exceptionactions div {
+    float: right;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+#program-exceptions .exceptionactions {
+    float: none;
+    height: 35px;
+    margin-top: 10px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0;
+}
+
+#program-exceptions .exceptionactions input#applyactionbutton {
+    margin: 0px 5px;
+}
+
+#program-exceptions .exceptionactions p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+

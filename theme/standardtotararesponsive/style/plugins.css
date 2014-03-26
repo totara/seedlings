@@ -1,0 +1,88 @@
+/** Appraisals **/
+#fgroup_id_addquestgroup select {
+    width: 50%;
+    max-width: 260px;
+}
+
+#fgroup_id_addquestgroup .fitemtitle {
+    display: none;
+}
+
+.appraisal-stage input[type="submit"] {
+    margin-bottom: 0;
+}
+
+#fitem_id_submitbutton {
+    background: transparent;
+    border: none;
+}
+
+@media screen and (max-width: 979px) {
+    .appraisal-stages {
+        width: 100%;
+    }
+
+    .dir-ltr div.appraisal-page-pane, .dir-rtl div.appraisal-page-pane {
+        float: none;
+    }
+
+    .stagetitle,
+    .stageactions {
+        position: static;
+        width: auto;
+    }
+
+    .stageinfo {
+        margin: 0;
+    }
+
+    #appraisal-questions {
+        margin: 0;
+        width: 100%;
+    }
+
+    ul.appraisal-page-list {
+        border: 1px solid #eeeeee;
+    }
+
+    ul.appraisal-page-list li {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dir-ltr #appraisalanswers1 div.fcontainer,
+    .dir-rtl #appraisalanswers1 div.fcontainer {
+        padding: 0;
+    }
+
+    #appraisalanswers1 div.fcontainer > a {
+        height: auto;
+        left: 0 !important;
+    }
+}
+
+.visibleto {
+    top: 35px;
+}
+
+/** Learning Plans **/
+@media screen and (max-width: 979px) {
+    #recordoflearning-menu,
+    #dp-plans-menu,
+    #dp-plan-content,
+    #program-content,
+    #required-learning {
+        float: none;
+        width: 100%;
+    }
+
+    #dp-plan-content #dp-plans-description .dp-add-plan-link {
+        width: 182px;
+        float: right;
+    }
+
+    #dp-plan-content #dp-plans-description .instructional_text {
+        width: auto;
+    }
+}

@@ -1,0 +1,111 @@
+<?php
+/**
+* Copyright (C) 2011 Catalyst IT Ltd
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+* @package    auth/gauth
+* @author     Catalyst IT Ltd
+* @author     Piers Harding
+* @license    http://www.gnu.org/copyleft/gpl.html GNU GPL
+* @copyright  (C) 2011 Catalyst IT Ltd http://catalyst.net.nz
+*
+*/
+
+    global $CFG;
+$configs[] = new admin_setting_configtext('domainname', get_string('domainname','auth_gauth'), "", '', PARAM_RAW, 50);
+
+    // Set to defaults if undefined
+    if (!isset ($config->domainname)) {
+        $config->domainname = '<google apps domain>';
+    }
+    if (!isset ($config->username)) {
+        $config->username = 'email';
+    }
+    if (!isset ($config->userfield)) {
+        $config->userfield = 'idnumber';
+    }
+    if (!isset ($config->casesensitive)) {
+        $config->casesensitive = true;
+    }
+    if (!isset ($config->createusers)) {
+        $config->createusers = '';
+    }
+    if (!isset ($config->duallogin)) {
+        $config->duallogin = '';
+    }
+    if (!isset ($config->domainspecificlogin)) {
+        $config->domainspecificlogin = '';
+    }
+?>
+<table cellspacing="0" cellpadding="5" border="0">
+<tr valign="top" class="required">
+    <td align="right"><?php print_string("auth_gauth_domainname", "auth_gauth"); ?>:</td>
+    <td>
+        <input name="domainname" type="text" size="30" value="<?php echo $config->domainname; ?>" />
+    </td>
+    <td><?php print_string("auth_gauth_domainname_description", "auth_gauth"); ?></td>
+</tr>
+<tr valign="top">
+    <td align="right"><?php print_string("auth_gauth_domainspecificlogin", "auth_gauth"); ?>:</td>
+    <td>
+        <input name="domainspecificlogin" type="checkbox" <?php if($config->domainspecificlogin) echo "CHECKED"; ?> />
+    </td>
+    <td><?php print_string("auth_gauth_domainspecificlogin_description", "auth_gauth"); ?></td>
+</tr>
+<tr valign="top" class="required">
+    <td align="right"><?php print_string("auth_gauth_username", "auth_gauth"); ?>:</td>
+    <td>
+        <input name="username" type="text" size="30" value="<?php echo $config->username; ?>" />
+    </td>
+    <td><?php print_string("auth_gauth_username_description", "auth_gauth"); ?></td>
+</tr>
+<tr valign="top" class="required">
+    <td align="right"><?php print_string("auth_gauth_userfield", "auth_gauth"); ?>:</td>
+    <td>
+        <input name="userfield" type="text" size="30" value="<?php echo $config->userfield; ?>" />
+    </td>
+    <td><?php print_string("auth_gauth_userfield_description", "auth_gauth"); ?></td>
+</tr>
+
+<tr valign="top">
+    <td align="right"><?php print_string("auth_gauth_casesensitive", "auth_gauth"); ?>:</td>
+    <td>
+        <input name="casesensitive" type="checkbox" <?php if($config->casesensitive) echo "CHECKED"; ?> />
+    </td>
+    <td><?php print_string("auth_gauth_casesensitive_description", "auth_gauth"); ?></td>
+</tr>
+
+<tr valign="top">
+    <td align="right"><?php print_string("auth_gauth_createusers", "auth_gauth"); ?>:</td>
+    <td>
+        <input name="createusers" type="checkbox" <?php if($config->createusers) echo "CHECKED"; ?> />
+    </td>
+    <td><?php print_string("auth_gauth_createusers_description", "auth_gauth"); ?></td>
+</tr>
+
+<tr valign="top">
+    <td align="right"><?php print_string("auth_gauth_duallogin", "auth_gauth"); ?>:</td>
+    <td>
+        <input name="duallogin" type="checkbox" <?php if($config->duallogin) echo "CHECKED"; ?> />
+    </td>
+    <td><?php print_string("auth_gauth_duallogin_description", "auth_gauth"); ?></td>
+</tr>
+
+<?php
+
+print_auth_lock_options('gauth', $user_fields, get_string("auth_gauth_field_instructions", "auth_gauth"), true, false);
+
+?>
+</table>

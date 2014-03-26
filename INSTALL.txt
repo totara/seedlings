@@ -1,0 +1,55 @@
+TOTARA INSTALL PROCESS
+======================
+
+Before installing Totara you should have a server with:
+* A supported OS - Windows or Linux (Ubuntu, Debian, Suse, Redhat), Solaris10, other Unix variant
+* System clock synchronised with internet time servers.
+* Functional outbound email
+* Supported webserver software (Apache 2.x.x or IIS only at this stage although nginx should also work)
+* PHP (5.3.3 minimum).
+* Required PHP modules: iconv, curl, ctype, zip, simplexml, spl, pcre, dom, xml, json, GD (new)
+* Recommended PHP modules: mbstring, openssl, tokenizer, xmlrpc, soap, gd, intl
+* PHP Memory limit of at least 256MB
+* Access to a supported database (Postgres 8.3 or greater, Mysql 5.1.33 or greater, MariaDB 5.2, MSSQL 2008 or greater).
+  If your database is Postgres you must set standard_conforming_strings to off and escape_string_warning to off in your postgresql.conf file
+* A domain name that resolves to your server
+* Recommended minimum browser: Google Chrome 11, Firefox 4, Safari 5, Internet Explorer 8 (IE 10 required for drag and drop of files from outside the browser into Totara)
+
+1. If you are planning to use Totara in multiple user languages, you should ensure that the server is properly configured with the correct locales.
+   This is important to ensure that date, number and currency data is displayed correctly for each language.
+   See http://docs.moodle.org/dev/Table_of_locales for more information on server locales.
+2. Create directories on your server for www files ('wwwroot' - allow for 1GB) and sitedata files ('sitedata' - allow for 10GB).
+   Ensure the sitedata directory is outside the wwwroot.
+   Ensure that the sitedata directory is writeable by the web server process
+3. Configure your webserver to serve requests for your domain from the wwwroot directory.
+4. Move the Totara source code into the wwwroot directory.
+5. Create an empty database using the UTF8 character set.
+   For postgres: createdb -E utf8 [dbname]
+   For mysql: CREATE DATABASE [dbname] DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+   See http://docs.moodle.org/24/en/Installation_Quickstart for details
+   Ensure that you have a non-root database user with write access to the database
+
+6. Using your web browser, visit your domain and step through the installation process.
+7. Set up a cron task to call the file admin/cron.php every fifteen minutes.
+8. Set up a root cron task to call the file admin/cron_watcher.php every five minutes.
+   The cron watcher script needs to be called *directly*, not by fetching the page through the web server (e.g. using wget or similar)
+   as it needs sufficient permissions to be able to kill the cron process if it has crashed. This would normally
+   be done using a command like this on the crontab:
+   php /path/to/site/admin/cron_watcher.php > /path/to/logs/watcher.log 2>&1
+9. Setting PHP variables
+   There are some PHP configuration variables that may need to be customised, depending on your needs. The variables that are commonly changed
+   include "memory_limit", "upload_max_filesize", "post_max_size", "max_input_vars" and "upload_tmp_dir".
+
+   memory_limit - This will need to be increased for restoring large course backups or unzipping large files within Totara
+   upload_max_filesize - This setting in conjuction with "post_max_size" will determine how high you can set the max upload size within Totara
+   max_input_vars - This setting will need to be increased to a minimum of 2000 if you would like to customise any of the Totara language packs.
+   upload_tmp_dir - Some customers may wish to enable this setting and specifically set a directory where files are temporarily stored during the upload process. Note the web server user must have permissions to write files in this directory, or all file uploads will fail.
+
+   These settings are all located in php.ini. See http://php.net/manual/en/ini.core.php for more information (note that you will need to restart your
+   webserver for these settings to take effect).
+10. Once Totara is installed you should configure timezone information, especially if you have users in multiple timezones.
+   First run Site Administration -> Location -> Update timezones to ensure Totara has the latest timezone information including the latest changes to Daylight Savings rules in different parts of the world
+   Then in Site Administration -> Location -> Location Settings there are two options
+      1. "Default timezone" should be set to the timezone location where your server is located, or where most of your users are based. You must use the location format timezones e.g. America/New_York, Europe/Berlin, Asia/Singapore rather than the UTC offset (e.g. UTC+3) or the timezone abbreviations (e.g. CET, EST) - this will ensure Daylight Savings rules are applied correctly
+      2. "Force default timezone" if all your users are in one timezone you can enforce a timezone here, to ensure that all users see dates and times in the proper timezone. As above, the location format timezones must be used.

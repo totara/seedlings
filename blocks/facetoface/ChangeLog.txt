@@ -1,0 +1,23 @@
+2.0.0 (2012-07-20)
+Ported block to Moodle 2.2 format
+
+1.1.0 (2011-09-07)
+Bug Fixes:
+- Fix missing tab on IE6
+- Fix warnings if custom fields are missing
+- Fix layout issues
+
+New Features:
+- Add Bookings history page
+- Add tab display for My Signups/My Sessions
+- Add Booking history page
+- Add User search box and results list
+- Add Training calendar
+
+Improvements:
+- Updated to new version of Facetoface Module
+- Changed default date filter to be 3 months
+
+
+1.0.0 (2008-05-07)
+- First public release

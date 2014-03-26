@@ -1,0 +1,495 @@
+.addoptionlink {
+    display: none;
+}
+
+#appraisalstagecontainer {
+    margin-top: 10px;
+}
+
+.dir-ltr div.appraisal-page-pane {
+    float:left;
+}
+.dir-rtl div.appraisal-page-pane {
+    float:right;
+}
+
+div.appraisal-content {
+    border:1px solid #EEE;
+    min-height: 200px;
+    background-color: #ffffff;
+}
+.dir-ltr div.appraisal-content {
+    margin-left: 352px;
+}
+.dir-rtl div.appraisal-content {
+    margin-right: 352px;
+}
+
+div.appraisal-content fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+div.appraisal-content .fitem {
+  display: none;
+}
+
+div.appraisal-content .fitem.fitem_fgroup {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+ul.appraisal-page-list,
+ul.appraisal-quest-list {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    margin-bottom: 0.5em;
+    background-color: white;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+.dir-ltr ul.appraisal-page-list {
+    border-left: 1px solid #eeeeee;
+}
+.dir-rtl ul.appraisal-page-list,
+.dir-rtl ul.appraisal-quest-list {
+    border-right: 1px solid #eeeeee;
+}
+
+ul.appraisal-quest-list {
+    border: none;
+}
+
+ul.appraisal-page-list li,
+.yui3-dd-proxy {
+    width: 339px;
+    padding: 6px;
+}
+
+ul.appraisal-quest-list li {
+    padding: 6px;
+}
+
+ul.appraisal-page-list a.appraisal-page-list-name,
+ul.appraisal-quest-list a.appraisal-quest-list-name {
+    max-width:250px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.dir-ltr span.appraisal-page-actions,
+.dir-ltr span.appraisal-quest-actions {
+    float: right;
+}
+.dir-rtl span.appraisal-page-actions,
+.dir-rtl span.appraisal-quest-actions {
+    float: left;
+}
+
+.dir-ltr table.appraisal-stages .lastcol {
+    text-align: right;
+}
+.dir-rtl table.appraisal-stages .lastcol {
+    text-align: left;
+}
+
+table.appraisal-stages tr,
+ul.appraisal-page-list li,
+ul.appraisal-quest-list li{
+    background-color: #ffffff;
+    -webkit-transition: background-color 250ms linear;
+    -moz-transition: background-color 250ms linear;
+    -ms-transition: background-color 250ms linear;
+    -o-transition: background-color 250ms linear;
+    transition: background-color 250ms linear;
+}
+
+table.appraisal-stages tr:hover,
+ul.appraisal-page-list li:hover,
+ul.appraisal-quest-list li:hover {
+    background-color: #f5f5f5;
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+}
+
+table.appraisal-stages tr.selected,
+ul.appraisal-page-list li.selected,
+ul.appraisal-quest-list li.selected {
+    background-color: #e6e6e6;
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+}
+
+body.jsenabled .js-hide,
+.js-show,
+.js-show-inline {
+    display: none;
+}
+
+body.jsenabled .js-show {
+    display: block;
+}
+
+body.jsenabled .js-show-inline {
+    display: inline;
+}
+
+table.role_matrix td.cell {
+    padding: 0 .5em;
+}
+table.role_matrix td.cell div.fitem {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+table.role_matrix td.cell div.felement {
+    float:none;
+}
+
+table.role_matrix td div.fitem div.fitemtitle {
+    width:0;
+}
+
+img.smallicon {
+    vertical-align: top;
+}
+
+.dir-ltr div.previewer {
+    float: right;
+}
+.dir-rtl div.previewer {
+    float: left;
+}
+
+li.yui3-dd-draggable {
+    cursor: move;
+}
+
+.move-target {
+    background-color: #ddffd6 !important;
+}
+
+/* modal dialogs */
+.path-admin-totara-appraisal.yui3-skin-sam .yui3-panel-content,
+.path-totara-appraisal.yui3-skin-sam .yui3-panel-content {
+    border: none;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.path-admin-totara-appraisal.yui3-skin-sam .yui3-panel-content .yui3-widget-hd,
+.path-totara-appraisal.yui3-skin-sam .yui3-panel-content .yui3-widget-hd {
+    background: #f5f5f5;
+    color: #444444;
+    font-weight: bold;
+}
+
+.path-admin-totara-appraisal.yui3-skin-sam .yui3-panel-content .yui3-widget-hd,
+.path-admin-totara-appraisal.yui3-skin-sam .yui3-panel-content .yui3-widget-bd,
+.path-totara-appraisal.yui3-skin-sam .yui3-panel-content .yui3-widget-hd,
+.path-totara-appraisal.yui3-skin-sam .yui3-panel-content .yui3-widget-bd {
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.path-admin-totara-appraisal.yui3-skin-sam .yui3-panel .yui3-widget-ft,
+.path-totara-appraisal.yui3-skin-sam .yui3-panel .yui3-widget-ft {
+    background: none;
+}
+
+.appraisal-stage-completed,
+.appraisal-stage-inprogress,
+.appraisal-stage-overdue,
+.appraisal-stage-locked {
+    width:auto;
+    margin:1em 0;
+    text-align:left !important;
+    border:1px solid #444444;
+    padding:10px;
+    -moz-border-radius:4px 4px 4px 4px;
+    -webkit-border-radius:4px 4px 4px 4px;
+    -o-border-radius:4px 4px 4px 4px;
+    border-radius:4px 4px 4px 4px;
+    overflow: hidden;
+    position: relative;
+    min-height: 100px;
+}
+.dir-rtl .appraisal-stage-completed,
+.dir-rtl .appraisal-stage-inprogress,
+.dir-rtl .appraisal-stage-overdue,
+.dir-rtl .appraisal-stage-locked {
+    text-align:right !important;
+}
+
+.appraisal-stage-completed {
+    background:#F5F5F5;
+}
+.appraisal-stage-inprogress {
+    background:#FFE599;
+}
+.appraisal-stage-overdue {
+    background:#F5A5A5;
+}
+.appraisal-stage-locked {
+    background:#D5D5D5;
+}
+
+.appraisal-title {
+    float: left;
+}
+.dir-rtl .appraisal-title {
+    float: right;
+}
+
+.appraisal-headerbuttons {
+    float: right;
+    overflow: hidden;
+}
+.dir-rtl .appraisal-headerbuttons {
+    float: left;
+}
+
+.dir-ltr .appraisal-headerbuttons .singlebutton {
+    float: left;
+}
+.dir-rtl .appraisal-headerbuttons .singlebutton {
+    float: right;
+}
+
+.stagelist {
+    clear: left;
+    margin: 15px 0;
+}
+.dir-rtl .stagelist {
+    clear: right;
+}
+
+.stagetitle {
+    position: absolute;
+    top: 10px;
+    width: 200px;
+}
+.dir-ltr .stagetitle {
+    left: 10px;
+}
+.dir-rtl .stagetitle {
+    right: 10px;
+}
+
+.stageinfo {
+    margin: 0 200px;
+}
+
+.stageinfo p {
+  margin: 0;
+}
+
+.stageinfo h4 + p {
+  margin-bottom: 10px;
+}
+
+.stageactions {
+    position: absolute;
+    top: 10px;
+    width: 200px;
+}
+.dir-ltr .stageactions {
+    right: 10px;
+    text-align: right;
+}
+.dir-rtl .stageactions {
+    left: 10px;
+    text-align: left;
+}
+
+.stageactions .link-as-button {
+  display: inline-block;
+  margin: 5px;
+  padding: 4px 0;
+  width: 118px;
+  text-align: center;
+}
+
+.stageactions input[type="submit"] {
+  width: 120px;
+}
+
+div.tabtree {
+  margin-bottom: 10px;
+}
+
+.dir-ltr .verticaltabtree img.smallicon {
+  margin-right: 3px;
+}
+
+.dir-rtl .verticaltabtree img.smallicon {
+  margin-left: 3px;
+}
+
+input[type=text] {
+  max-width: 335px;
+}
+
+input[type=text].appraisal-event-time {
+    width: 5em;
+}
+
+input[type=text].appraisal-event-title,
+textarea.appraisal-event-body {
+    width: 30em;
+}
+
+textarea.appraisal-event-body {
+    height: 15em;
+}
+
+.viewing-xs-appraisal {
+    margin-bottom: 0;
+}
+
+.path-totara-appraisal div.plan_box {
+  margin-top: 0;
+}
+
+.path-totara-appraisal div.plan_box .invisiblepadded td {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.path-totara-appraisal div.plan_box img {
+  display: block;
+}
+
+#appraisalanswers1 div.fcontainer {
+    position: relative;
+    margin: 0;
+}
+
+.dir-ltr #appraisalanswers1 div.fcontainer {
+    padding-left: 40px;
+}
+
+.dir-rtl #appraisalanswers1 div.fcontainer {
+    padding-right: 40px;
+}
+
+#appraisalanswers1 div.fcontainer > a {
+    height: 0;
+    position: relative;
+    top: 5px;
+}
+
+.dir-ltr #appraisalanswers1 div.fcontainer > a {
+    float: left;
+    left: -40px;
+}
+
+.dir-rtl #appraisalanswers1 div.fcontainer > a {
+    float: right;
+    right: -40px;
+}
+
+#appraisalanswers1 div.fcontainer > div.fitem {
+    min-height: 35px;
+}
+
+form.print-stages-form .fitem .felement,
+form.print-stages-form .fitem .fitemtitle {
+    width: 100%
+}
+
+#fgroup_stages-list fieldset.fgroup {
+    margin-top: 3pt;
+}
+#fgroup_stages-list fieldset span {
+    margin-left: 5pt;
+}
+
+.fwhitespace {
+    height: 48pt;
+}
+
+#savepdf.yui-isloading {
+    background-image: url([[pix:i/loading]]);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#assignedgroups {
+    padding-top: 1em;
+}
+
+#assignedusers .dataTables_length {
+    padding-bottom: 1em;
+}
+
+@media print {
+    .visibleto {
+        display: none;
+    }
+
+    .visibleto-review {
+        display: none;
+    }
+
+    .skiplinks {
+        display: none;
+    }
+}
+
+@media dompdf {
+    * {
+        font-family: "DejaVu Sans";
+    }
+
+    .visibleto {
+        display: none;
+    }
+
+    .visibleto-review {
+        display: none;
+    }
+
+    .userpicture {
+        display: none;
+    }
+
+    .skiplinks {
+        display: none;
+    }
+
+    .mform fieldset legend.ftoggler {
+        font-size: 18px;
+        color: #087BB1;
+    }
+
+    .mform fieldset div.fcontainer {
+        padding: 10px 0px;
+    }
+
+    .mform fieldset div.fcontainer h3 {
+        font-size: 16px;
+    }
+
+   .mform .fitem div.fitemtitle {
+        float: left;
+        width: 180px;
+    }
+
+    .mform div.fitem div.felement {
+        padding: 0 185px;
+    }
+}
+
+.redisplay-notification-nomargin .notifyproblem {
+    margin: 0 !important;
+}

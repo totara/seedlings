@@ -1,0 +1,31 @@
+<table cellpadding="9" cellspacing="0">
+  <tr valign="top">
+    <td align="right">
+       <?php print_string('commentsperpage', 'block_comments'); ?>:
+    </td>
+    <td>
+       <?php
+            $perpageoptions = array();
+            for ($i=1; $i < 51; $i++) {
+                $perpageoptions[$i] = $i;
+            }
+            choose_from_menu($perpageoptions, 'commentsperpage', !empty($this->config->commentsperpage) ? $this->config->commentsperpage : 15);
+        ?>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td align="right">
+       <?php print_string('autostart', 'block_comments'); ?>:
+    </td>
+    <td>
+       <?php
+            choose_from_menu_yesno('autostart', isset($this->config->autostart) ? $this->config->autostart : 1);
+        ?>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <input type="submit" value="<?php print_string('savechanges') ?>" />
+    </td>
+  </tr>
+</table>

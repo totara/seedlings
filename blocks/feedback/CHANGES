@@ -1,0 +1,75 @@
+2010-08-22 Sunday 18:54  agrabs
+
+	* lang/es_utf8/block_feedback.php: 
+	
+	lang es_utf8 updated
+
+2010-05-05 Wednesday 01:25  agrabs
+
+	* README.txt, block_feedback.php: 
+	
+	first version for moodle2.0
+
+2009-05-07 Thursday 16:51  agrabs
+
+	* block_feedback.php, lang/de_utf8/block_feedback.php,
+	lang/en_utf8/block_feedback.php: 
+	
+	MDL-19099 - if the feedback-block is installed without the
+	feedback-module the installation crashes
+
+2009-04-01 Wednesday 04:35  agrabs
+
+	* block_feedback.php: 
+	
+	this version of the feedback module is moved to the moodle-core
+
+2009-04-01 Wednesday 04:34  agrabs
+
+	* README.txt: 
+	
+	this version of the feedback block is moved to the moodle-core
+
+2009-03-25 Wednesday 06:44  agrabs
+
+	* block_feedback.php: 
+	
+	there was a typo in the version number
+
+2008-07-16 Wednesday 18:18  agrabs
+
+	* lang/: de_utf8/block_feedback.php, en_utf8/block_feedback.php,
+	es_utf8/block_feedback.php, it_utf8/block_feedback.php,
+	ja_utf8/block_feedback.php, sk_utf8/block_feedback.php: 
+	
+	CONTRIB-471 Feedback block listed as [[feedback]]
+
+2008-07-16 Wednesday 18:18  agrabs
+
+	* lang/: de_utf8/block_feedback.php, en_utf8/block_feedback.php,
+	es_utf8/block_feedback.php, it_utf8/block_feedback.php,
+	ja_utf8/block_feedback.php, sk_utf8/block_feedback.php: 
+	
+	file block_feedback.php was initially added on branch
+	MOODLE_19_STABLE.
+
+2007-07-26 Thursday 06:05  agrabs
+
+	* block_feedback.php: 
+	
+	now defined in applicable_formats() to hide the block in moodle
+	My-Site
+
+2007-07-08 Sunday 06:09  agrabs
+
+	* block_feedback.php: 
+	
+	fixed xhtml issue
+
+2007-05-22 Tuesday 13:13  moodler
+
+	* block_feedback.php: 
+	
+	Adedd initial checkin for Andreas Grabs' feedback block (goes with
+	feedback module)
+

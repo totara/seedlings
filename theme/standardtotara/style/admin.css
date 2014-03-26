@@ -1,0 +1,29 @@
+/** Admin **/
+.path-admin .incompatibleblockstable td.c0 {
+    color: #ff3330;
+}
+#adminsettings fieldset {
+    color: #333;
+}
+
+#page-admin-totara-program-manage .addcategory {padding: 10px;}
+#page-admin-totara-program-manage .buttons {margin-bottom: 15px;}
+#page-admin-totara-program-manage .editcourse {margin:20px auto;}
+#page-admin-totara-program-manage .editcourse th,
+#page-admin-totara-program-manage .editcourse td {padding-left:10px;padding-right:10px;}
+#page-admin-totara-program-manage .editcourse .count {text-align:right;}
+#page-admin-totara-program-manage.dir-rtl .editcourse td[align="left"] {text-align: right;}
+#page-admin-totara-program-manage.dir-rtl .editcourse td[align="right"] {text-align: left;}
+
+#page-admin-totara-program-manage .buttons {
+  display: inline;
+  padding: 5px;
+}
+
+/* Fixes for some RTL problems in base */
+.dir-rtl .path-admin .roleassigntable p {text-align: right;}
+.dir-rtl #adminsettings .form-item .form-label {text-align: left;}
+.dir-rtl #adminsettings .form-item .form-description {text-align: right;}
+.dir-rtl .admin_colourpicker .colourdialogue {float:right;}
+.dir-rtl .admin_colourpicker .previewcolour {margin-right:301px;}
+.dir-rtl .admin_colourpicker .currentcolour {margin-right:301px;}

@@ -1,0 +1,69 @@
+.treeview, .treeview ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.treeview ul {
+    background-color: white;
+    margin-top: 4px;
+}
+
+.treeview .hitarea {
+    background: url([[pix:totara_core|jquery_treeview/treeview-default]]) -64px -24px no-repeat;
+    height: 16px;
+    width: 16px;
+    margin-left: -16px;
+    float: left;
+    cursor: pointer;
+}
+/* fix for IE6 */
+* html .hitarea {
+    display: inline;
+    float:none;
+}
+
+.treeview li {
+    margin: 0;
+    padding: 3px 0pt 3px 16px;
+}
+
+.treeview a.selected {
+    background-color: #eee;
+}
+
+#treecontrol { margin: 1em 0; display: none; }
+
+/*.treeview .hover { color: red; cursor: pointer; }*/
+
+.treeview li { background: url([[pix:totara_core|jquery_treeview/treeview-default-line]]) 0 0 no-repeat; }
+.treeview li.collapsable, .treeview li.expandable { background-position: 0 -176px; }
+
+.treeview .expandable-hitarea { background-position: -80px -2px; }
+
+.treeview li.last { background-position: 0 -1766px }
+.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-default]]); }
+.treeview li.lastCollapsable { background-position: 0 -111px }
+.treeview li.lastExpandable { background-position: -32px -67px }
+
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea { background-position: 0; }
+
+.treeview-red li { background-image: url([[pix:totara_core|jquery_treeview/treeview-red-line]]); }
+.treeview-red .hitarea, .treeview-red li.lastCollapsable, .treeview-red li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-red]]); }
+
+.treeview-black li { background-image: url([[pix:totara_core|jquery_treeview/treeview-black-line]]); }
+.treeview-black .hitarea, .treeview-black li.lastCollapsable, .treeview-black li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-black]]); }
+
+.treeview-gray li { background-image: url([[pix:totara_core|jquery_treeview/treeview-gray-line]]); }
+.treeview-gray .hitarea, .treeview-gray li.lastCollapsable, .treeview-gray li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-gray]]); }
+
+.treeview-famfamfam li { background-image: url([[pix:totara_core|jquery_treeview/treeview-famfamfam-line]]); }
+.treeview-famfamfam .hitarea, .treeview-famfamfam li.lastCollapsable, .treeview-famfamfam li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-famfamfam]]); }
+
+
+.filetree li { padding: 3px 0 2px 16px; }
+.filetree li { padding: 0 0 0 16px; }
+.filetree span.folder, .filetree span.file { padding: 1px 0 1px 16px; display: block; }
+.filetree span.folder { background: url([[pix:totara_core|jquery_treeview/folder]]) 0 0 no-repeat; }
+.filetree li.expandable span.folder { background: url([[pix:totara_core|jquery_treeview/folder-closed]]) 0 0 no-repeat; }
+.filetree span.file { background: url([[pix:totara_core|jquery_treeview/file]]) 0 0 no-repeat; }

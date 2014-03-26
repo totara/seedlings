@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/message/db" VERSION="20130828" COMMENT="XMLDB file for Moodle totara/message"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="message_metadata" COMMENT="type, status, and workflow additions to messages">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="id of the table, please edit me"/>
+        <FIELD NAME="messageid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="message that still needs some processing (on message table)"/>
+        <FIELD NAME="msgtype" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="The message type"/>
+        <FIELD NAME="msgstatus" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="The message status"/>
+        <FIELD NAME="processorid" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="The message processor id"/>
+        <FIELD NAME="urgency" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="The message urgency"/>
+        <FIELD NAME="icon" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="onaccept" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" COMMENT="serialised action on message acceptance"/>
+        <FIELD NAME="onreject" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" COMMENT="serialised action on message rejection"/>
+        <FIELD NAME="oninfo" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false" COMMENT="serialised action on message info"/>
+        <FIELD NAME="messagereadid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="for tracking metadata after message has been read"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="primary key of the table"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="message" UNIQUE="false" FIELDS="messageid" COMMENT="Index for looking up messageids"/>
+        <INDEX NAME="messageread" UNIQUE="false" FIELDS="messagereadid" COMMENT="Index for looking up messagereadids"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

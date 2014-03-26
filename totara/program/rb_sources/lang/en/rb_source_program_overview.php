@@ -1,0 +1,29 @@
+<?php
+
+$string['sourcetitle'] = 'Program Overview';
+$string['duedate'] = 'Due Date';
+$string['programnameselect'] = 'Program name (select box)';
+$string['programcompletionstatus'] = 'Program Status';
+$string['programcompletionprogress'] = 'Progress';
+$string['completionorganisationshortname'] = 'Completion Organisation Short Name';
+$string['completionorganisationfullname'] = 'Completion Organisation Full Name';
+$string['completionpositionfullname'] = 'Completion Position Full Name';
+$string['courseshortname'] = 'Course Short Name';
+$string['coursecompletionstatus'] = 'Course Status';
+$string['coursecompletiontimeenrolled'] = 'Date Enrolled';
+$string['coursecompletiontimestarted'] = 'Date Started';
+$string['coursecompletiontimecompleted'] = 'Date Completed';
+$string['programname'] = 'Program Name';
+$string['complete'] = 'Complete';
+$string['incomplete'] = 'Incomplete';
+$string['finalgrade'] = 'Final Grade';
+$string['gradepass'] = 'Grade Pass';
+$string['coursecompletion_completeviarpl'] = 'Complete via RPL';
+$string['coursecompletion_inprogress'] = 'In progress';
+$string['coursecompletion_notyetstarted'] = 'Not yet started';
+$string['coursecompletion_complete'] = 'Complete';
+$string['timestart'] = 'Date Started';
+$string['timecompleted'] = 'Date Completed';
+$string['completionpositiontype'] = 'Completion Position Type';
+$string['completionpositionidnumber'] = 'Completion Position ID';
+$string['completionorganisationtype'] = 'Completion Organisation Type';

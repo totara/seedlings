@@ -1,0 +1,70 @@
+body.path-mod-facetoface table.f2fsession td.c0 {
+    font-weight: bold;
+    width: 12%;
+}
+body.path-mod-facetoface table.f2fsession {
+    width: 100%;
+}
+table.table90 {
+    width: 90%;
+}
+table.table50 {
+    width: 50%;
+    text-align: left;
+}
+table.inlinetable {
+    display: inline-table;
+    border: 0;
+}
+tr.highlight td.cell {
+    background-color: #AAFFAA;
+}
+a.f2fsessionlinks, td.f2fsessionnotice, span.f2fsessionnotice {
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 14px;
+}
+span.f2fonepointfive {
+    line-height:1.5;
+}
+span.errorstring {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+body#page-mod-facetoface-view div#page-content table.sessions {
+    width: 100%;
+}
+
+body.path-mod-facetoface table.mod-facetoface-room-list {
+    width: 100%;
+}
+
+body.path-mod-facetoface table.mod-facetoface-notification-template-list {
+    width: 100%;
+}
+
+body.path-mod-facetoface table.mod-facetoface-attendees {
+    width: 100%;
+}
+
+body.path-mod-facetoface div.f2f-button {
+    float: left;
+}
+
+body.path-mod-facetoface div#fgroup_id_recipients input[id*="id_booked_type"] {
+    margin-left: 15px;
+}
+
+input.cellwidth {
+    width: 90% !important;
+}
+div.mod-indent form.togglecompletion input[type="image"] {
+    left: -13px;
+}
+.dir-rtl div.mod-indent form.togglecompletion input[type="image"] {
+    right: -5px;
+}
+td.f2fwidth {
+    width: 83%;
+}
