@@ -45,9 +45,6 @@
 .dir-rtl .block .header .block_action .block-hider-show {
    margin-right:5px;
 }
-.block_action .moveto {
-    display:block;
-}
 .block .content {
    border:none;
 }

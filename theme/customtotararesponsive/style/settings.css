@@ -94,9 +94,6 @@ div.header h6 {
 #page-footer .footer-powered {
     color: [[setting:text-on-headerbgc]];
 }
-.block_action .moveto {
-    display: none;
-}
 
 /** Custom CSS defined via theme settings **/
 [[setting:customcss]]

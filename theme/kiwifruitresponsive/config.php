@@ -30,6 +30,6 @@ $THEME->sheets = array(
     'core', 'blocks', 'navigation', 'course', 'dock', 'css3', 'ie7', 'custom'
 );
 
-$THEME->enable_dock = true;
+$THEME->enable_dock = false;
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->csspostprocess = 'theme_kiwifruitresponsive_process_css';
