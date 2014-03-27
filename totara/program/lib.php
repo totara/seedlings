@@ -329,7 +329,11 @@ function prog_display_certification_programs($userid) {
         }
         $row = array();
         $row[] = $program->display_summary_widget($userid);
-        $row[] = $program->display_duedate($cp->duedate, $cp->certifpath, $cp->status);
+        if (!empty($cp->timeexpires)) {
+            $row[] = $program->display_duedate($cp->timeexpires, $cp->certifpath, $cp->status);
+        } else {
+            $row[] = $program->display_duedate($cp->duedate, $cp->certifpath, $cp->status);
+        }
         $row[] = $program->display_progress($userid);
         $table->add_data($row);
         $rowcount++;
