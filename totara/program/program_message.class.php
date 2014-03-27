@@ -633,13 +633,13 @@ abstract class prog_noneventbased_message extends prog_message {
 
         // Verify the $sender of the email.
         if ($sender == null) { //null check on $sender, default to manager or no-reply accordingly
-            $sender = ($manager && $manager->id == $USER->id) ? $manager : generate_email_supportuser();
+            $sender = ($manager && $manager->id == $USER->id) ? $manager : core_user::get_support_user();
         } else if ($sender->id == $USER->id) { //make sure $sender is currently logged in
             $sender = $USER;
         } else if ($manager && $USER->id == $manager->id) { //$sender is not logged in, see if it is their manager
             $sender = $manager;
         } else { // Last option, the no-reply address.
-            $sender = generate_email_supportuser();
+            $sender = core_user::get_support_user();
         }
 
         // Send the message to the learner.
@@ -656,7 +656,7 @@ abstract class prog_noneventbased_message extends prog_message {
             $managerdata = new stdClass();
             $managerdata->userto = $manager;
             //ensure the message is actually coming from $user, default to support
-            $managerdata->userfrom = ($USER->id == $recipient->id) ? $recipient : generate_email_supportuser();
+            $managerdata->userfrom = ($USER->id == $recipient->id) ? $recipient : core_user::get_support_user();
             $managerdata->subject = $this->replacevars($this->managermessagedata->subject);
             $managerdata->fullmessage = $this->replacevars($this->managermessagedata->fullmessage);
             $managerdata->contexturl = $CFG->wwwroot.'/totara/program/view.php?id='.$this->programid.'&amp;userid='.$recipient->id;
@@ -745,13 +745,13 @@ abstract class prog_eventbased_message extends prog_message {
 
         //verify the $sender of the email
         if ($sender == null) { //null check on $sender, default to manager or no-reply accordingly
-            $sender = ($manager && $manager->id == $USER->id) ? $manager : generate_email_supportuser();
+            $sender = ($manager && $manager->id == $USER->id) ? $manager : core_user::get_support_user();
         } else if ($sender->id == $USER->id) { //make sure $sender is currently logged in
             $sender = $USER;
         } else if ($manager && $USER->id == $manager->id) { //$sender is not logged in, see if it is their manager
             $sender = $manager;
         } else { //last option, the no-reply address
-            $sender = generate_email_supportuser();
+            $sender = core_user::get_support_user();
         }
 
         // send the message to the learner
@@ -779,7 +779,7 @@ abstract class prog_eventbased_message extends prog_message {
             $managerdata = new stdClass();
             $managerdata->userto = $manager;
             //ensure the message is actually coming from $user, default to support
-            $managerdata->userfrom = ($USER->id == $recipient->id) ? $recipient : generate_email_supportuser();
+            $managerdata->userfrom = ($USER->id == $recipient->id) ? $recipient : core_user::get_support_user();
             $managerdata->subject = $this->replacevars($this->managermessagedata->subject);
             $managerdata->fullmessage = $this->replacevars($this->managermessagedata->fullmessage);
             $managerdata->contexturl = $CFG->wwwroot.'/totara/program/view.php?id='.$this->programid.'&amp;userid='.$recipient->id;
@@ -1141,7 +1141,7 @@ class prog_extension_request_message extends prog_noneventbased_message {
 
         //ensure that $sender is defined and logged in, default to support
         if ($sender == null || ($USER->id != $sender->id)) {
-            $sender == generate_email_supportuser();
+            $sender == core_user::get_support_user();
         }
 
         // send the message to the Manager

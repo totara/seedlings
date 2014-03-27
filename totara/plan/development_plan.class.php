@@ -1354,7 +1354,7 @@ class development_plan {
 
             $event = new tm_task_eventdata($manager, 'plan', $data, $data);
             //ensure the message is actually coming from $learner, default to support
-            $event->userfrom = ($USER->id == $learner->id) ? $learner : generate_email_supportuser();
+            $event->userfrom = ($USER->id == $learner->id) ? $learner : core_user::get_support_user();
             $event->contexturl = $this->get_display_url();
             $event->contexturlname = $this->name;
             $event->icon = 'learningplan-request';
@@ -1426,7 +1426,7 @@ class development_plan {
 
         $event = new tm_task_eventdata($manager, 'plan', $data, $data);
         //ensure the message is actually coming from $learner, default to support
-        $event->userfrom = ($USER->id == $learner->id) ? $learner : generate_email_supportuser();
+        $event->userfrom = ($USER->id == $learner->id) ? $learner : core_user::get_support_user();
         $event->contexturl = "{$CFG->wwwroot}/totara/plan/approve.php?id={$this->id}";
         $event->contexturlname = $this->name;
         $event->icon = 'learningplan-request';
@@ -1476,7 +1476,7 @@ class development_plan {
             }
             $event = new tm_alert_eventdata($userto);
             //ensure the message is actually coming from $userfrom, default to support
-            $event->userfrom = ($USER->id == $userfrom->id) ? $userfrom : generate_email_supportuser();
+            $event->userfrom = ($USER->id == $userfrom->id) ? $userfrom : core_user::get_support_user();
             $event->contexturl = $this->get_display_url();
             $event->contexturlname = $this->name;
             $event->icon = $icon;
@@ -1584,7 +1584,7 @@ class development_plan {
             $event = new stdClass();
             $event->userto = $manager;
             //ensure the message is actually coming from $learner, default to support
-            $event->userfrom = ($USER->id == $learner->id) ? $learner : generate_email_supportuser();
+            $event->userfrom = ($USER->id == $learner->id) ? $learner : core_user::get_support_user();
             $event->icon = 'learningplan-complete';
             $event->contexturl = $CFG->wwwroot.'/totara/plan/view.php?id='.$this->id;
             $a = new stdClass();

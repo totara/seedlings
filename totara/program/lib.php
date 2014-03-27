@@ -1368,7 +1368,7 @@ function prog_process_extensions($extensions, $reasonfordecision = array()) {
                 $userto = $DB->get_record('user', array('id' => $extension->userid));
                 $stringmanager = get_string_manager();
                 //ensure the message is actually coming from $user's manager, default to support
-                $userfrom = totara_is_manager($extension->userid, $USER->id) ? $USER : generate_email_supportuser();
+                $userfrom = totara_is_manager($extension->userid, $USER->id) ? $USER : core_user::get_support_user();
 
                 $program = $DB->get_record('prog', array('id' => $extension->programid), 'fullname');
 
@@ -1432,7 +1432,7 @@ function prog_process_extensions($extensions, $reasonfordecision = array()) {
                     }
 
                     // Ensure the message is actually coming from $user's manager, default to support.
-                    $userfrom = totara_is_manager($extension->userid, $USER->id) ? $USER : generate_email_supportuser();
+                    $userfrom = totara_is_manager($extension->userid, $USER->id) ? $USER : core_user::get_support_user();
                     $stringmanager = get_string_manager();
                     $messagedata = new stdClass();
                     $messagedata->userto           = $userto;

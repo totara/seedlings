@@ -537,7 +537,7 @@ function reminder_cron() {
                         if ($rusers) {
                             $contact = reset($rusers);
                         } else {
-                            $contact = generate_email_supportuser();
+                            $contact = core_user::get_support_user();
                         }
 
                         // Prepare message object.

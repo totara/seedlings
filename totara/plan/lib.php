@@ -1465,7 +1465,7 @@ function totara_plan_comment_add($comment) {
         $userto = $DB->get_record('user', array('id' => $sid));
         $event = new stdClass();
         //ensure the message is actually coming from $commentuser, default to support
-        $event->userfrom = ($USER->id == $commentuser->id) ? $commentuser : generate_email_supportuser();
+        $event->userfrom = ($USER->id == $commentuser->id) ? $commentuser : core_user::get_support_user();
         $event->userto = $userto;
         $event->contexturl = $contexturl;
         $event->contexturlname = $contexturlname;

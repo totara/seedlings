@@ -59,7 +59,7 @@ $subject = format_string($msg->subject);
 $type_alt = $display['text'];
 
 if ($msg->useridfrom == 0) {
-    $from = generate_email_supportuser();
+    $from = core_user::get_support_user();
 } else {
     $from = $DB->get_record('user', array('id' => $msg->useridfrom));
 }

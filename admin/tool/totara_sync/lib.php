@@ -397,7 +397,7 @@ function totara_sync_notify() {
     // Send emails.
     mtrace("\n{$logcount} relevant totara sync log messages since " .
             date_format_string($lastnotify, $dateformat)) . ". Sending notifications...";
-    $supportuser = generate_email_supportuser();
+    $supportuser = core_user::get_support_user();
     foreach ($notifyemails as $emailaddress) {
         $userto = totara_generate_email_user(trim($emailaddress));
         email_to_user($userto, $supportuser, $subject, $message);

@@ -413,7 +413,7 @@ class appraisal {
 
         if (isset($formdata->sendalert) && $formdata->sendalert) {
             $alert = new stdClass();
-            $alert->userfrom = generate_email_supportuser();
+            $alert->userfrom = core_user::get_support_user();
             $alert->fullmessageformat = FORMAT_HTML;
             $formdata->alertbody = $formdata->alertbody_editor['text'];
 
