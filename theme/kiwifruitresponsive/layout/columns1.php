@@ -84,7 +84,11 @@ echo $OUTPUT->doctype() ?>
                 <?php
                 if ($haslogininfo) {
                     echo $OUTPUT->login_info();
-                }
+                } else { ?>
+                    <div class="logininfo">
+                        <?php echo get_string('loginmessage', 'theme_kiwifruitresponsive'); ?>
+                    </div>
+                <?php }
                 if ($haslangmenu) {
                     echo $OUTPUT->lang_menu();
                 }

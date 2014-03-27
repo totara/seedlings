@@ -629,10 +629,10 @@ p.errormessage {
 }
 
 /* Langmenu */
-.langmenu {
-    float:right;
-    margin:10px 0 0 0;
-    padding: 0 6px;
+select.langmenu {
+    float: right;
+    margin: 8px 0 0 0;
+    height: 32px;
 }
 .dir-rtl .langmenu {
     float:left;

@@ -26,13 +26,14 @@
  * Strings for component 'theme_kiwifruitresponsive', language 'en', branch 'MOODLE_20_STABLE'
  */
 
-$string['pluginname'] = 'Kiwifruit Responsive';
-$string['region-side-post'] = 'Right';
-$string['region-side-pre'] = 'Left';
-$string['logo'] = 'Logo';
-$string['logodesc'] = 'Select or upload the image file to be used as the site\'s logo';
-$string['favicon'] = 'Favicon';
-$string['favicondesc'] = 'Select or upload the image file to be used as the site\'s favicon, the icon must be *.ico format';
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Any CSS you enter here will be added to every page allowing you to easily customise this theme.';
 $string['choosereadme'] = 'Kiwifruit Responsive is a responsive theme, based on Standard Totara Responsive.  Note that currently this theme is experimental. Please report any issues found via the normal support channels.';
+$string['favicon'] = 'Favicon';
+$string['favicondesc'] = 'Select or upload the image file to be used as the site\'s favicon, the icon must be *.ico format';
+$string['loginmessage'] = "Please log in to continue";
+$string['logo'] = 'Logo';
+$string['logodesc'] = 'Select or upload the image file to be used as the site\'s logo';
+$string['pluginname'] = 'Kiwifruit Responsive';
+$string['region-side-post'] = 'Right';
+$string['region-side-pre'] = 'Left';
