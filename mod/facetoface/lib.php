@@ -1242,12 +1242,13 @@ function facetoface_get_attendees($sessionid, $status = array(MDL_F2F_STATUS_BOO
  */
 function facetoface_get_attendee($sessionid, $userid) {
     global $DB;
+
+    $usernamefields = get_all_user_name_fields(true, 'u');
     $record = $DB->get_record_sql("
         SELECT
             u.id,
             su.id AS submissionid,
-            u.firstname,
-            u.lastname,
+            {$usernamefields},
             u.email,
             s.discountcost,
             su.discountcode,
