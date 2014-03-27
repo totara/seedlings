@@ -395,9 +395,9 @@ class mod_facetoface_session_form extends moodleform {
                 $idx = substr($key, $idx1 + 1, ($idx2 - $idx1) - 1);
                 $tz = ($val == 'UTC') ? 0 : $val;
                 $el = $mform->getElement('timestart['.$idx. ']');
-                $el->_options['timezone'] = $tz;
+                $el->set_option('timezone', $tz);
                 $el = $mform->getElement('timefinish['.$idx. ']');
-                $el->_options['timezone'] = $tz;
+                $el->set_option('timezone', $tz);
             }
         }
         parent::set_data($values);

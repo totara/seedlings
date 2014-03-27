@@ -320,4 +320,14 @@ class MoodleQuickForm_date_time_selector extends MoodleQuickForm_group {
             return null;
         }
     }
+
+    /**
+     * Set an option in the $_options array
+     *
+     * @param string $key
+     * @param string|int $value
+     */
+    public function set_option($key, $value) {
+        $this->_options[$key] = $value;
+    }
 }
