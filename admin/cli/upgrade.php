@@ -43,6 +43,8 @@ require_once($CFG->libdir.'/adminlib.php');       // various admin-only function
 require_once($CFG->libdir.'/upgradelib.php');     // general upgrade/install related functions
 require_once($CFG->libdir.'/clilib.php');         // cli only functions
 require_once($CFG->libdir.'/environmentlib.php');
+require_once($CFG->libdir.'/pluginlib.php');
+require_once($CFG->dirroot.'/totara/core/db/utils.php');
 
 // now get cli options
 list($options, $unrecognized) = cli_get_params(
@@ -96,16 +98,16 @@ if ($version < $CFG->version) {
 }
 
 //setup totara version variables
-$a = totara_version_info($version, $release);
-if (!empty($a->totaraupgradeerror)){
-    print_error($a->totaraupgradeerror, 'totara_core');
+$totarainfo = totara_version_info($version, $release);
+if (!empty($totarainfo->totaraupgradeerror)){
+    print_error($totarainfo->totaraupgradeerror, 'totara_core');
 }
 
 //check that neither moodle nor totara need upgrading
 //cli installs and upgrades prior to T-10001 bugfix will not have the totara CFG values set - run the upgrade anyway to get those variables in
 $totara_needs_upgrade = (!isset($CFG->totara_build) || (isset($CFG->totara_build) && $TOTARA->build > $CFG->totara_build));
 if (!moodle_needs_upgrading() && !($version > $CFG->version) && !$totara_needs_upgrade) {
-    cli_error(get_string('cliupgradenoneed', 'core_admin', $a->newtotaraversion), 0);
+    cli_error(get_string('cliupgradenoneed', 'core_admin', $totarainfo->newtotaraversion), 0);
 }
 
 // Test environment first.
@@ -128,7 +130,7 @@ if (!core_plugin_manager::instance()->all_plugins_ok($version, $failed)) {
 }
 
 if ($interactive) {
-    echo cli_heading(get_string('databasechecking', '', $a)) . PHP_EOL;
+    echo cli_heading(get_string('databasechecking', '', $totarainfo)) . PHP_EOL;
 }
 
 // make sure we are upgrading to a stable release or display a warning
@@ -150,13 +152,15 @@ if (isset($maturity)) {
 }
 
 if ($interactive) {
-    echo html_to_text(get_string('cliupgradesure', 'totara_core', $a))."\n";
+    echo html_to_text(get_string('cliupgradesure', 'totara_core', $totarainfo))."\n";
     $prompt = get_string('cliyesnoprompt', 'admin');
     $input = cli_input($prompt, '', array(get_string('clianswerno', 'admin'), get_string('cliansweryes', 'admin')));
     if ($input == get_string('clianswerno', 'admin')) {
         exit(1);
     }
 }
+// Run any pre-upgrade special fixes that may be required.
+totara_preupgrade($totarainfo);
 
 if ($version > $CFG->version) {
     // We purge all of MUC's caches here.

@@ -544,7 +544,34 @@ function totara_cohort_is_rule_fixable($brokenrule) {
  * @return void.
  */
 function totara_preupgrade($totarainfo) {
-
+    global $CFG, $version;
+    print_upgrade_part_start('totara_core', false, true);
     // Save a copy of the version they are upgrading from.
     set_config('previous_version', $totarainfo->existingtotaraversion, 'totara_core');
+    // Check for existence of the three upgrade scripts as necessary - first the any upgrade script.
+    $upgradefile = "{$CFG->dirroot}/totara/core/db/pre_any_upgrade.php";
+    if (file_exists($upgradefile)) {
+        set_time_limit(0);
+        require($upgradefile);
+    }
+    // Is this a Moodle upgrade?
+    if ($version > $CFG->version) {
+        $upgradefile = "{$CFG->dirroot}/totara/core/db/pre_moodle_upgrade.php";
+        if (file_exists($upgradefile)) {
+            set_time_limit(0);
+            require($upgradefile);
+        }
+    }
+    // Is this a Totara upgrade?
+    // Need to remove any plus bump as version_compare does not understand it.
+    $oldversion = str_replace('+', '', $totarainfo->existingtotaraversion);
+    $newversion = str_replace('+', '', $totarainfo->newtotaraversion);
+    if (version_compare($newversion, $oldversion, '>')) {
+        $upgradefile = "{$CFG->dirroot}/totara/core/db/pre_totara_upgrade.php";
+        if (file_exists($upgradefile)) {
+            set_time_limit(0);
+            require($upgradefile);
+        }
+    }
+    print_upgrade_part_end('totara_core', false, true);
 }

@@ -1519,15 +1519,6 @@ function upgrade_core($version, $verbose) {
 
         print_upgrade_part_start('moodle', false, $verbose);
 
-        // Special upgrade script for items that need fixing before main upgrade runs.
-        $initialupgradefile = "{$CFG->dirroot}/totara/core/db/upgrade_initialise.php";
-        if (file_exists($initialupgradefile)) {
-            set_time_limit(0);
-            require($initialupgradefile);
-            // Reset upgrade timeout to default.
-            upgrade_set_timeout();
-        }
-
         // Pre-upgrade scripts for local hack workarounds.
         $preupgradefile = "$CFG->dirroot/local/preupgrade.php";
         if (file_exists($preupgradefile)) {

@@ -169,9 +169,9 @@ if (!isset($maturity)) {
 // core downgrade and throw and exception
 
 //setup totara version variables
-$a = totara_version_info($version, $release);
-if (!empty($a->totaraupgradeerror)){
-    print_error($a->totaraupgradeerror, 'totara_core');
+$totarainfo = totara_version_info($version, $release);
+if (!empty($totarainfo->totaraupgradeerror)){
+    print_error($totarainfo->totaraupgradeerror, 'totara_core');
 }
 
 // Turn off xmlstrictheaders during upgrade.
@@ -276,8 +276,10 @@ if ($CFG->version != $DB->get_field('config', 'value', array('name'=>'version'))
     purge_all_caches();
     redirect(new moodle_url('/admin/index.php'), 'Config cache inconsistency detected, resetting caches...');
 }
-if (!$cache && ($version > $CFG->version || (isset($CFG->totara_build) && 
-    version_compare($a->newtotaraversion, $a->existingtotaraversion, '>')))) {  // upgrade
+
+if (!$cache && ($version > $CFG->version
+        || (isset($CFG->totara_build) && version_compare($totarainfo->newtotaraversion, $totarainfo->existingtotaraversion, '>')))) {  // upgrade
+
     // Warning about upgrading a test site.
     $testsite = false;
     if (defined('BEHAT_SITE_RUNNING')) {
@@ -292,8 +294,6 @@ if (!$cache && ($version > $CFG->version || (isset($CFG->totara_build) &&
     cache_helper::purge_all(true);
     // We then purge the regular caches.
     purge_all_caches();
-
-    totara_preupgrade($a);
 
     $PAGE->set_pagelayout('maintenance');
     $PAGE->set_popup_notification_allowed(false);
@@ -310,13 +310,13 @@ if (!$cache && ($version > $CFG->version || (isset($CFG->totara_build) &&
     }
 
     if (empty($confirmupgrade)) {
-        $strdatabasechecking = get_string('databasechecking', '', $a);
+        $strdatabasechecking = get_string('databasechecking', '', $totarainfo);
 
         $PAGE->set_title($stradministration);
         $PAGE->set_heading($strdatabasechecking);
         $PAGE->set_cacheable(false);
 
-        echo $output->upgrade_confirm_page(get_string('cliupgradesure', 'totara_core', $a), $maturity, $testsite);
+        echo $output->upgrade_confirm_page(get_string('cliupgradesure', 'totara_core', $totarainfo), $maturity, $testsite);
         die();
 
     } else if (empty($confirmrelease)){
@@ -379,7 +379,8 @@ if (!$cache && ($version > $CFG->version || (isset($CFG->totara_build) &&
             die();
         }
         unset($failed);
-
+        // Launch pre-upgrade checks.
+        totara_preupgrade($totarainfo);
         // Launch main upgrade.
         upgrade_core($version, true);
     }

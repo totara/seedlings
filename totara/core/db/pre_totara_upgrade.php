@@ -28,8 +28,8 @@
 // print_upgrade_separator();
 
 defined('MOODLE_INTERNAL') || die();
+global $OUTPUT, $DB, $CFG, $TOTARA, $totarainfo;
 
-global $OUTPUT, $DB, $CFG, $TOTARA;
 require_once ("$CFG->dirroot/totara/core/db/utils.php");
 
 $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
@@ -89,6 +89,22 @@ if ($CFG->version < 2013111801.00) {
                 opcache_reset();
             }
             print_upgrade_separator();
+        }
+    }
+}
+
+// Fix Facetoface error on upgrade from 2.2 or 2.4.
+if (isset($CFG->totara_release)){
+    // Need to remove any plus bump as version_compare does not understand it.
+    $oldversion = str_replace('+', '', $totarainfo->existingtotaraversion);
+    $newversion = str_replace('+', '', $totarainfo->newtotaraversion);
+    //If current version < 2.5.0 and attempted version >= 2.5.10 then add the invalidatecache field to course_completions.
+    if (version_compare($oldversion, '2.5.0', '<') && version_compare($newversion, '2.5.10', '>=')) {
+        // Define field invalidatecache to be added to course_completions.
+        $table = new xmldb_table('course_completions');
+        $field = new xmldb_field('invalidatecache', XMLDB_TYPE_INTEGER, '1', null, null, null, '0', 'status');
+        if (!$dbman->field_exists($table, $field)) {
+            $dbman->add_field($table, $field);
         }
     }
 }
