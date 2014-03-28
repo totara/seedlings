@@ -1332,3 +1332,13 @@ select.totara-expanded-width {
     width: auto;
     position: absolute;
 }
+
+#rb-search-controls .singleselect label {
+    display: inline-block;
+    margin-top:5px;
+    float: left
+}
+
+#rb-search-controls .singleselect {
+    margin-bottom: 10px;
+}
