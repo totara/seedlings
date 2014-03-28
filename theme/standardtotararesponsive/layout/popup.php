@@ -44,7 +44,7 @@ echo $OUTPUT->doctype() ?>
 // If on desktop, then hide the header/footer.
 $hideclass = '';
 $bodynoheader = '';
-$devicetype = get_device_type();
+$devicetype = core_useragent::get_device_type();
 if ($devicetype !== 'mobile' and $devicetype !== 'tablet') {
     // We can not use the Bootstrap responsive css classes because popups are phone sized on desktop.
     $hideclass = 'hide';

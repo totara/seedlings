@@ -190,7 +190,6 @@ $PAGE->set_heading('');
 $PAGE->set_focuscontrol('');
 $PAGE->set_cacheable(true);
 $PAGE->set_button($button);
-$PAGE->set_headingmenu(navmenu($course, $cm));
 echo $OUTPUT->header();
 
 if ($id) {
