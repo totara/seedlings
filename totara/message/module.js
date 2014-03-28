@@ -266,7 +266,8 @@ totaraDialog_handler_confirm.prototype._confirm = function(url, returnto, extrab
     this.setReturnTo(returnto);
 
     var reasonfordecision = $('#reasonfordecision', this._container);
-    if (((url.indexOf("reject") >= 0 || (url.indexOf("accept") >= 0)) && extrabutton && reasonfordecision.val().length > 0)) {
+    if (extrabutton && reasonfordecision.length > 0 && reasonfordecision.val().trim().length > 0
+        && (url.indexOf("reject") >= 0 || (url.indexOf("accept") >= 0))) {
         addreasonparam = true;
     }
 
