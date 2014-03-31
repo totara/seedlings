@@ -28,7 +28,7 @@
 // print_upgrade_separator();
 
 defined('MOODLE_INTERNAL') || die();
-global $OUTPUT, $DB, $CFG, $TOTARA, $totarainfo;
+global $OUTPUT, $DB, $CFG, $TOTARA;
 
 require_once ("$CFG->dirroot/totara/core/db/utils.php");
 
