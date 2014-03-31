@@ -408,7 +408,7 @@ class facetoface_notification extends data_object {
         // Get recipients
         $recipients = $this->_get_recipients($sessionid);
 
-        if (!$recipients) {
+        if (!$recipients->valid()) {
             echo get_string('norecipients', 'facetoface') . "\n";
         } else {
             $count = 0;
