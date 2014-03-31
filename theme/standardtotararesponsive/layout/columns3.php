@@ -41,18 +41,13 @@ $hascustommenu = !empty($custommenu);
 $haslogininfo = empty($PAGE->layout_options['nologininfo']);
 $showmenu = empty($PAGE->layout_options['nocustommenu']);
 $haslangmenu = (!isset($PAGE->layout_options['langmenu']) || $PAGE->layout_options['langmenu'] );
+$left = (!right_to_left());
 
 if ($showmenu && !$hascustommenu) {
     // load totara menu
     $menudata = totara_build_menu();
     $totara_core_renderer = $PAGE->get_renderer('totara_core');
     $totaramenu = $totara_core_renderer->print_totara_menu($menudata);
-}
-
-if (right_to_left()) {
-    $regionbsid = 'region-bs-main-and-post';
-} else {
-    $regionbsid = 'region-bs-main-and-pre';
 }
 
 echo $OUTPUT->doctype() ?>
@@ -82,7 +77,7 @@ echo $OUTPUT->doctype() ?>
                 <span class="icon-bar"></span>
             </a>
             <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
+                <ul class="nav <?php echo $left ? "pull-right" : "pull-left" ?>">
                     <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
                     <?php if ($haslogininfo) { ?>
                         <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
@@ -116,19 +111,19 @@ echo $OUTPUT->doctype() ?>
     </header>
 
     <div id="page-content" class="row-fluid">
-        <div id="<?php echo $regionbsid ?>" class="span9">
+        <div id="region-bs-main-and-pre" class="span9 <?php echo $left ? "pull-left" : "pull-right" ?>">
             <div class="row-fluid">
-                <section id="region-main" class="span8 pull-right">
+                <section id="region-main" class="span8 <?php echo $left ? "pull-right" : "pull-left" ?>">
                     <?php
                     echo $OUTPUT->course_content_header();
                     echo $OUTPUT->main_content();
                     echo $OUTPUT->course_content_footer();
                     ?>
                 </section>
-                <?php echo $OUTPUT->blocks('side-pre', 'span4 desktop-first-column'); ?>
+                <?php echo $OUTPUT->blocks('side-pre', 'span4' . ($left ? ' desktop-first-column' : '')); ?>
             </div>
         </div>
-        <?php echo $OUTPUT->blocks('side-post', 'span3'); ?>
+        <?php echo $OUTPUT->blocks('side-post', 'span3' . (!$left ? ' desktop-first-column pull-left' : '')); ?>
     </div>
 
 </div>

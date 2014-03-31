@@ -27,6 +27,7 @@ if (!empty($PAGE->theme->settings->favicon)) {
 } else {
     $faviconurl = $OUTPUT->favicon();
 }
+$left = (!right_to_left());
 
 echo $OUTPUT->doctype() ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
@@ -51,7 +52,7 @@ echo $OUTPUT->doctype() ?>
                 <span class="icon-bar"></span>
             </a>
             <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
+                <ul class="nav <?php echo $left ? "pull-right" : "pull-left" ?>">
                     <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
                 </ul>
             </div>
@@ -68,7 +69,7 @@ echo $OUTPUT->doctype() ?>
     <div id="page-content" class="row-fluid">
         <div id="region-bs-main-and-pre" class="span9">
             <div class="row-fluid">
-                <section id="region-main" class="span8 pull-right">
+                <section id="region-main" class="span8 <?php echo $left ? "pull-right" : "pull-left" ?>">
                     <?php echo $OUTPUT->main_content(); ?>
                 </section>
                 <?php echo $OUTPUT->blocks('side-pre', 'span4 desktop-first-column'); ?>

@@ -77,7 +77,7 @@ echo $OUTPUT->doctype() ?>
                 <span class="icon-bar"></span>
             </a>
             <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
+                <ul class="nav <?php echo $left ? "pull-right" : "pull-left" ?>">
                     <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
                     <?php if ($haslogininfo) { ?>
                         <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
@@ -111,7 +111,7 @@ echo $OUTPUT->doctype() ?>
     </header>
 
     <div id="page-content" class="row-fluid">
-        <section id="region-main" class="span9<?php if ($left) { echo ' pull-right'; } ?>">
+        <section id="region-main" class="span9 <?php echo $left ? "pull-right" : "pull-left" ?>">
             <?php
             echo $OUTPUT->course_content_header();
             echo $OUTPUT->main_content();

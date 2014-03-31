@@ -24,6 +24,7 @@
 
 $hasfooter = (!isset($PAGE->layout_options['nofooter']) || !$PAGE->layout_options['nofooter'] );
 $hasnavbar = (!isset($PAGE->layout_options['nonavbar']) || !$PAGE->layout_options['nonavbar'] );
+$left = (!right_to_left());
 
 if (!empty($PAGE->theme->settings->favicon)) {
     $faviconurl = $PAGE->theme->setting_file_url('favicon', 'favicon');
@@ -68,7 +69,7 @@ if ($devicetype !== 'mobile' and $devicetype !== 'tablet') {
             </a>
             <div class="nav-collapse collapse">
                 <?php echo $OUTPUT->custom_menu(); ?>
-                <ul class="nav pull-right">
+                <ul class="nav <?php echo $left ? "pull-right" : "pull-left" ?>">
                     <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
                     <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
                 </ul>

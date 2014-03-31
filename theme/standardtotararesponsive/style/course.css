@@ -58,6 +58,12 @@
     min-height: 32px;
 }
 
+.dir-rtl .coursebox > .info > .coursename a,
+.dir-rtl .coursebox > .info > .name a {
+    padding-right:40px;
+    background-position:right top;
+}
+
 .coursebox .coursename {
     margin-bottom: 5px;
 }
