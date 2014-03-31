@@ -57,7 +57,7 @@ $PAGE->set_url('/totara/plan/record/evidence/edit.php',
         array('id' => $evidenceid, 'userid' => $userid, 'status' => $rolstatus));
 
 if (!$user = $DB->get_record('user', array('id' => $userid))) {
-    print_error('usernotfound', 'totara_plan');
+    print_error('error:usernotfound', 'totara_plan');
 }
 
 if (!empty($evidenceid)) {

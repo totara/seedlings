@@ -45,7 +45,7 @@ if (!$evidence = $DB->get_record('dp_plan_evidence', array('id' => $evidenceid))
 $userid = $evidence->userid;
 
 if (!$user = $DB->get_record('user', array('id' => $userid))) {
-    print_error('usernotfound', 'totara_plan');
+    print_error('error:usernotfound', 'totara_plan');
 }
 
 $systemcontext = context_system::instance();

@@ -39,7 +39,7 @@ if (!in_array($rolstatus, array('active','completed','all'))) {
 }
 
 if (!$user = $DB->get_record('user', array('id' => $userid))) {
-    print_error(get_string('usernotfound', 'totara_plan'));
+    print_error('error:usernotfound', 'totara_plan');
 }
 
 $context = context_system::instance();
