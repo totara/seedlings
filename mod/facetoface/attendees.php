@@ -156,7 +156,7 @@ if ($facetoface->approvalreqd && $staff = totara_get_staff()) {
     // Check if any staff have requests awaiting approval
     $get_requests = facetoface_get_requests($session->id);
     if ($get_requests) {
-        $requests = array_intersect_key($get_requests, array_flip($staff));
+        $requests = (is_siteadmin() ? $get_requests : array_intersect_key($get_requests, array_flip($staff)));
 
         if ($requests) {
             $allowed_actions[] = 'approvalrequired';
