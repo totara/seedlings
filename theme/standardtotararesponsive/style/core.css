@@ -847,6 +847,10 @@ input[type="checkbox"] {
     float: right;
     clear: right;
 }
+.dir-rtl .navbar .nav li {
+    float: left;
+    clear: left;
+}
 .navbar .nav li label {
     display: none;
 }

@@ -6,6 +6,9 @@ body {
   float: left;
   margin: 10px 0;
 }
+.dir-rtl #logo {
+    float: right;
+}
 
 #page-footer {
   background-color: #f5f5f5;

@@ -15,6 +15,10 @@
     padding-left: 0;
 }
 
+.navbar .nav.pull-left {
+    float: left;
+}
+
 div#totaramenu  {
     clear:both;
     width:100%;
@@ -147,7 +151,8 @@ div#totaramenu ul li.selected li.selected a:hover {
 }
 
 @media screen and (max-width:979px) {
-  div#totaramenu ul li {
+  div#totaramenu ul li,
+  .dir-rtl div#totaramenu ul li {
     float: none;
   }
 
