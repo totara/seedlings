@@ -178,7 +178,7 @@ $PAGE->requires->js_init_call('M.totara_appraisal_stage.init', $args, false, $js
 // question dialog.
 $editor = editors_get_preferred_editor(FORMAT_HTML);
 if (($editor instanceof tinymce_texteditor)) {
-    $filename = (debugging('', DEBUG_DEVELOPER)) ? 'tiny_mce_src.js' : 'tiny_mce.js';
+    $filename = $CFG->debugdeveloper ? 'tiny_mce_src.js' : 'tiny_mce.js';
     $PAGE->requires->js(new moodle_url($CFG->httpswwwroot.'/lib/editor/tinymce/tiny_mce/'.$editor->version.'/' . $filename));
 }
 

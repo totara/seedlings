@@ -144,15 +144,15 @@ function tm_message_send($eventdata) {
 
     // must have msgtype, urgency and msgstatus
     if (!isset($eventdata->msgstatus)) {
-        debugging('tm_message_send() msgstatus not set');
+        debugging('tm_message_send() msgstatus not set', DEBUG_DEVELOPER);
         return false;
     }
     if (!isset($eventdata->urgency)) {
-        debugging('tm_message_send() urgency not set');
+        debugging('tm_message_send() urgency not set', DEBUG_DEVELOPER);
         return false;
     }
     if (!isset($eventdata->msgtype)) {
-        debugging('tm_message_send() msgtype not set');
+        debugging('tm_message_send() msgtype not set', DEBUG_DEVELOPER);
         return false;
     }
 
@@ -209,7 +209,7 @@ function tm_message_send($eventdata) {
     $eventdata->savedmessageid = message_send($eventdata);
 
     if (!$eventdata->savedmessageid || $eventdata->savedmessageid == 0) {
-        debugging('Error inserting message: '.var_export($eventdata, TRUE));
+        debugging('Error inserting message: '.var_export($eventdata, TRUE), DEBUG_DEVELOPER);
         return false;
     }
 
@@ -284,7 +284,7 @@ function tm_alert_send($eventdata) {
 
     if (!isset($eventdata->userto)) {
         // cant send without a target user
-        debugging('tm_alert_send() userto is not set');
+        debugging('tm_alert_send() userto is not set', DEBUG_DEVELOPER);
         return false;
     }
     (!isset($eventdata->msgtype)) && $eventdata->msgtype = TOTARA_MSG_TYPE_UNKNOWN;
@@ -396,7 +396,7 @@ function tm_task_send($eventdata) {
 
     if (!isset($eventdata->userto)) {
         // cant send without a target user
-        debugging('tm_task_send() userto is not set');
+        debugging('tm_task_send() userto is not set', DEBUG_DEVELOPER);
         return false;
     }
     (!isset($eventdata->msgtype)) && $eventdata->msgtype = TOTARA_MSG_TYPE_UNKNOWN;
@@ -477,7 +477,7 @@ function tm_workflow_send($eventdata) {
 
     if (!isset($eventdata->userto)) {
         // cant send without a target user
-        debugging('tm_task_send() userto is not set');
+        debugging('tm_task_send() userto is not set', DEBUG_DEVELOPER);
         return false;
     }
     $eventdata->msgtype = TOTARA_MSG_TYPE_LINK; // tells us how to treat the display
@@ -502,7 +502,7 @@ function tm_workflow_send($eventdata) {
     $eventdata->notification = 1;
 
     if (!isset($eventdata->contexturl)) {
-        debugging('tm_message_workflow_send() must have have contexturl');
+        debugging('tm_message_workflow_send() must have have contexturl', DEBUG_DEVELOPER);
         return false;
     }
     if (!empty($eventdata->acceptbutton)) {
@@ -684,7 +684,7 @@ function tm_message_workflow_object($action) {
     require_once($CFG->dirroot.'/totara/message/workflow/lib.php');
     $file = $CFG->dirroot.'/totara/message/workflow/plugins/'.$action.'/workflow_'.$action.'.php';
     if (!file_exists($file)) {
-        debugging('tm_message_task_accept() plugin does not exist: '.$action);
+        debugging('tm_message_task_accept() plugin does not exist: '.$action, DEBUG_DEVELOPER);
         return false;
     }
     require_once($file);
@@ -696,7 +696,7 @@ function tm_message_workflow_object($action) {
         return $plugin;
     }
     else {
-        debugging('tm_message_task_accept() plugin class does not exist: '.$ctlclass);
+        debugging('tm_message_task_accept() plugin class does not exist: '.$ctlclass, DEBUG_DEVELOPER);
         return false;
     }
 }

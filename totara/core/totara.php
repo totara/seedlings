@@ -1465,7 +1465,7 @@ function totara_print_edit_button($settingname, $params = array()) {
  *
  */
 function get_string_in_user_lang($user, $identifier, $module='', $a=NULL, $extralocations=NULL) {
-    debugging('get_string_in_user_lang() is deprecated. Use get_string() with 4th param instead');
+    debugging('get_string_in_user_lang() is deprecated. Use get_string() with 4th param instead', DEBUG_DEVELOPER);
     return get_string($identifier, $module, $a, $user->lang);
 }
 
@@ -1948,7 +1948,7 @@ function totara_brightness($color, $percent) {
     // don't change if color format not recognised
     $pattern = '/^#([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})$/';
     if (!preg_match($pattern, $color, $matches)) {
-        debugging("Bad hex color '{$color}' passed to totara_brightness().");
+        debugging("Bad hex color '{$color}' passed to totara_brightness().", DEBUG_DEVELOPER);
         return $color;
     }
     $red = hexdec($matches[1]);
@@ -1992,7 +1992,7 @@ function totara_brightness_linear($color, $amount) {
     // don't change if color format not recognised
     $pattern = '/^#([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})$/';
     if (!preg_match($pattern, $color, $matches)) {
-        debugging("Bad hex color '{$color}' passed to totara_brightness_linear().");
+        debugging("Bad hex color '{$color}' passed to totara_brightness_linear().", DEBUG_DEVELOPER);
         return $color;
     }
     $red = hexdec($matches[1]);
@@ -2025,7 +2025,7 @@ function totara_readable_text($color) {
     // don't change if color format not recognised
     $pattern = '/^#([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})$/';
     if (!preg_match($pattern, $color, $matches)) {
-        debugging("Bad hex color '{$color}' passed to totara_readable_text().");
+        debugging("Bad hex color '{$color}' passed to totara_readable_text().", DEBUG_DEVELOPER);
         return $color;
     }
     $red = hexdec($matches[1]);
@@ -2068,7 +2068,7 @@ function totara_desaturate($color) {
     // don't change if color format not recognised
     $pattern = '/^#([[:xdigit:]]{2})([[:xdigit:]]{2})([[:xdigit:]]{2})$/';
     if (!preg_match($pattern, $color, $matches)) {
-        debugging("Bad hex color '{$color}' passed to desaturate().");
+        debugging("Bad hex color '{$color}' passed to desaturate().", DEBUG_DEVELOPER);
         return $color;
     }
     $red = hexdec($matches[1]);

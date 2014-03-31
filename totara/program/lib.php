@@ -1858,7 +1858,7 @@ class program_in_list implements IteratorAggregate {
             $this->record->$name = $DB->get_field('prog', $name, array('id' => $this->record->id), MUST_EXIST);
             return $this->record->$name;
         }
-        debugging('Invalid program property accessed! ' . $name);
+        debugging('Invalid program property accessed! ' . $name, DEBUG_DEVELOPER);
         return null;
     }
 
@@ -1867,7 +1867,7 @@ class program_in_list implements IteratorAggregate {
      * @param string $name
      */
     public function __unset($name) {
-        debugging('Can not unset ' . get_class($this) . ' instance properties!');
+        debugging('Can not unset ' . get_class($this) . ' instance properties!', DEBUG_DEVELOPER);
     }
 
     /**
@@ -1876,7 +1876,7 @@ class program_in_list implements IteratorAggregate {
      * @param mixed $value
      */
     public function __set($name, $value) {
-        debugging('Can not change ' . get_class($this) . ' instance properties!');
+        debugging('Can not change ' . get_class($this) . ' instance properties!', DEBUG_DEVELOPER);
     }
 
     /**

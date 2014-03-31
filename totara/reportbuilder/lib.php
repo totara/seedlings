@@ -305,7 +305,7 @@ class reportbuilder {
                 }
             } else {
                 debugging('This report doesn\'t implement is_capable().
-                    Sidebar filters will only use form submission rather than instant filtering.');
+                    Sidebar filters will only use form submission rather than instant filtering.', DEBUG_DEVELOPER);
             }
         }
 
@@ -5373,7 +5373,7 @@ function reportbuilder_get_embedded_report($embedname, $data = array(), $nocache
     if ($sid === 'nosidsupplied') {
         debugging('Call to reportbuilder_get_embedded_report without supplying $sid is probably an error - if you
             want to save searches on your embedded report then you must pass in $sid here, otherwise pass 0 to remove
-            this warning');
+            this warning', DEBUG_DEVELOPER);
         $sid = 0;
     }
     return new reportbuilder(null, $embedname, false, $sid, null, $nocache, $data);

@@ -113,7 +113,7 @@ function sql_sequence($field, $items, $type=SQL_PARAMS_QM, $negate = false) {
  * @deprecated Use string_exists() instead
  */
 function check_string($identifier, $module='', $extralocations=null) {
-    debugging('The function check_string() is deprecated. Use string_exists() instead.');
+    debugging('The function check_string() is deprecated. Use string_exists() instead.', DEBUG_DEVELOPER);
     return string_exists($identifier, $module);
 }
 

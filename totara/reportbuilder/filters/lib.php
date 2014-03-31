@@ -156,7 +156,7 @@ class rb_filter_type {
             $a->type = $type;
             $a->value = $value;
             $a->source = $sourcename;
-            debugging(get_string('error:filteroptiontypexandvalueynotfoundinz', 'totara_reportbuilder', $a));
+            debugging(get_string('error:filteroptiontypexandvalueynotfoundinz', 'totara_reportbuilder', $a), DEBUG_DEVELOPER);
             return false;
         }
 
@@ -181,7 +181,7 @@ class rb_filter_type {
             $a->type = $type;
             $a->value = $value;
             $a->source = $sourcename;
-            debugging(get_string('error:columnoptiontypexandvalueynotfoundinz', 'totara_reportbuilder', $a));
+            debugging(get_string('error:columnoptiontypexandvalueynotfoundinz', 'totara_reportbuilder', $a), DEBUG_DEVELOPER);
             return false;
         }
 
@@ -243,7 +243,7 @@ class rb_filter_type {
             $a->type = $option->type;
             $a->value = $option->value;
             $a->source = get_class($this->report->src);
-            debugging(get_string('error:joinsforfiltertypexandvalueynotfoundinz', 'totara_reportbuilder', $a));
+            debugging(get_string('error:joinsforfiltertypexandvalueynotfoundinz', 'totara_reportbuilder', $a), DEBUG_DEVELOPER);
             return false;
         }
 
@@ -276,7 +276,8 @@ class rb_filter_type {
             if (method_exists($this->report->src, $selectfunc)) {
                 $selectchoices = $this->report->src->$selectfunc($this->report);
             } else {
-                debugging("Filter function '{$selectfunc}' not found for filter '{$this->name}}' in source '" . get_class($this->report->src) . "'");
+                debugging("Filter function '{$selectfunc}' not found for filter '{$this->name}}' in source '" .
+                    get_class($this->report->src) . "'", DEBUG_DEVELOPER);
                 $selectchoices = array();
             }
             return $selectchoices;

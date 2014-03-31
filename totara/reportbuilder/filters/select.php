@@ -49,7 +49,8 @@ class rb_filter_select extends rb_filter_type {
         }
         if (!isset($this->options['selectfunc'])) {
             if (!isset($this->options['selectchoices'])) {
-                debugging("No selectchoices provided for filter '{$this->name}' in source '" . get_class($report->src) . "'");
+                debugging("No selectchoices provided for filter '{$this->name}' in source '" .
+                    get_class($report->src) . "'", DEBUG_DEVELOPER);
                 $this->options['selectchoices'] = array();
             }
         }
