@@ -150,7 +150,8 @@ $cancellations = array();
 $requests = array();
 
 // Check if the user is manager with staff
-if ($facetoface->approvalreqd && $staff = totara_get_staff()) {
+if (($facetoface->approvalreqd && $staff = totara_get_staff()) ||
+        ($facetoface->approvalreqd && is_siteadmin())) {
     // Lets check to see what state their staff are in
 
     // Check if any staff have requests awaiting approval
