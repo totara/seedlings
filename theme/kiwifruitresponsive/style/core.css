@@ -97,11 +97,8 @@ h6.main {
 .dir-rtl h6.main {
     text-align:right;
 }
-h1.main,
-h2.main,
-h2.header,
-#region-main h2,
-#region-main h1 {
+h2,
+h1 {
     font-size:200%;
     font-size:1.9em;
     font-weight:300;
