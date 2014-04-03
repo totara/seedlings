@@ -6,14 +6,14 @@ Before installing Totara you should have a server with:
 * System clock synchronised with internet time servers.
 * Functional outbound email
 * Supported webserver software (Apache 2.x.x or IIS only at this stage although nginx should also work)
-* PHP (5.3.3 minimum).
+* PHP (5.3.3 minimum on Linux, 5.4 minimum on Windows).
 * Required PHP modules: iconv, curl, ctype, zip, simplexml, spl, pcre, dom, xml, json, GD (new)
-* Recommended PHP modules: mbstring, openssl, tokenizer, xmlrpc, soap, gd, intl
+* Recommended PHP modules: mbstring, openssl, tokenizer, xmlrpc, soap, gd, intl, zlib, opcache
 * PHP Memory limit of at least 256MB
-* Access to a supported database (Postgres 8.3 or greater, Mysql 5.1.33 or greater, MariaDB 5.2, MSSQL 2008 or greater).
+* Access to a supported database (Postgres 8.3 or greater, Mysql 5.1.33 or greater, MariaDB 5.3.5, MSSQL 2008 or greater).
   If your database is Postgres you must set standard_conforming_strings to off and escape_string_warning to off in your postgresql.conf file
 * A domain name that resolves to your server
-* Recommended minimum browser: Google Chrome 11, Firefox 4, Safari 5, Internet Explorer 8 (IE 10 required for drag and drop of files from outside the browser into Totara)
+* Recommended minimum browser: Recent Google Chrome, Recent Firefox, Safari 6, Internet Explorer 9 (IE 10 required for drag and drop of files from outside the browser into Totara)
 
 1. If you are planning to use Totara in multiple user languages, you should ensure that the server is properly configured with the correct locales.
    This is important to ensure that date, number and currency data is displayed correctly for each language.

@@ -3,17 +3,18 @@ UPGRADING A MOODLE SITE TO TOTARA
 
 These instructions detail the process for upgrading a Moodle site to Totara.
 
-New requirements in Totara 2.5:
+New requirements in Totara 2.6:
 
-* PHP version 5.3.3.
-* PHP GD module now required.
+* PHP version 5.4 required for Windows. PHP version 5.3.3 still supported on Linux.
+* PHP zlib and OPcache modules now recommended.
+* MariaDB 5.3.5 now required (was 5.2 in Totara 2.5).
 
 NOTE: Additional plugins, custom themes or customised Moodle code are likely to
     cause conflicts in the upgrade process.
     Review possible conflicts before upgrading to prevent site stability issues.
 
-    As of Totara 2.4 you can no longer upgrade from versions of Moodle prior to 2.2.7.
-    Ensure the Moodle site is updated to Moodle version 2.2.7+ before upgrading to Totara 2.5.
+    As of Totara 2.6 you can no longer upgrade from versions of Moodle prior to 2.2.11.
+    Ensure the Moodle site is updated to Moodle version 2.2.11+ before upgrading to Totara 2.6.
 
     For more information see http://docs.moodle.org/en/Upgrading
 
