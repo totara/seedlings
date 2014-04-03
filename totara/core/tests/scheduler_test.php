@@ -46,15 +46,17 @@ class scheduler_test extends PHPUnit_Framework_TestCase {
         $row->timezone = 'UTC';
 
         $scheduler = new scheduler($row);
+        $timestamp = time();
+        $scheduler->set_time($timestamp);
         $this->assertFalse($scheduler->is_changed());
 
         $scheduler->do_asap();
-        $this->assertLessThan(time(), $scheduler->get_scheduled_time());
+        $this->assertLessThan($timestamp, $scheduler->get_scheduled_time());
         $this->assertTrue($scheduler->is_changed());
         $this->assertTrue($scheduler->is_time());
 
-        $scheduler->next();
-        $this->assertGreaterThan(time(), $scheduler->get_scheduled_time());
+        $scheduler->next($timestamp);
+        $this->assertGreaterThan($timestamp, $scheduler->get_scheduled_time());
         $this->assertTrue($scheduler->is_changed());
         $this->assertFalse($scheduler->is_time());
         date_default_timezone_set($tz);
@@ -109,13 +111,15 @@ class scheduler_test extends PHPUnit_Framework_TestCase {
         $map = array(
             'nextevent' => 'test_event',
             'frequency' => 'test_frequency',
-            'schedule' => 'test_schedule'
+            'schedule' => 'test_schedule',
+            'timezone' => 'test_timezone'
         );
         $row = new stdClass();
         $row->data = 'Some data';
         $row->test_schedule = 0;
         $row->test_frequency = 0;
         $row->test_event = 0;
+        $row->test_timezone = 'Pacific/Auckland';
 
         $scheduler = new scheduler($row, $map);
         $scheduler->from_array(array(
@@ -129,5 +133,6 @@ class scheduler_test extends PHPUnit_Framework_TestCase {
         $this->assertEquals(10, $row->test_schedule);
         $this->assertEquals(scheduler::DAILY, $row->test_frequency);
         $this->assertEquals($scheduler->get_scheduled_time(), $row->test_event);
+        $this->assertEquals('UTC', $row->test_timezone);
     }
 }
