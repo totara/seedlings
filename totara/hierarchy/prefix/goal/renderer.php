@@ -31,7 +31,7 @@ require_once('lib.php');
 /**
  * Output renderer for totara_appraisals module
  */
-class totara_goal_renderer extends plugin_renderer_base {
+class hierarchy_goal_renderer extends plugin_renderer_base {
 
     /**
      * Renders a table that allow selection of a frameworks and link to the goals summary report.

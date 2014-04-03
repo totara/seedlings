@@ -35,7 +35,7 @@ $systemcontext = context_system::instance();
 
 require_capability('totara/hierarchy:viewgoalreport', $systemcontext);
 
-$output = $PAGE->get_renderer('totara_goal');
+$output = $PAGE->get_renderer('hierarchy_goal');
 
 echo $output->header();
 

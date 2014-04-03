@@ -34,7 +34,7 @@ $summaryreportid = required_param('summaryreportid', PARAM_INT);
 $systemcontext = context_system::instance();
 $PAGE->set_context($systemcontext);
 
-$output = $PAGE->get_renderer('totara_goal');
+$output = $PAGE->get_renderer('hierarchy_goal');
 
 $report = new reportbuilder($summaryreportid, null, false, null, 'setup');
 
