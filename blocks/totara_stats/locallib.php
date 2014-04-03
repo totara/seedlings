@@ -202,30 +202,6 @@ function totara_stats_sql_helper($statsql) {
 }
 
 /**
- * used to display stats in a block. - takes input from a call to totara_stats_helper
- *
- * @param array $stats - array from totara_stats_helper
- * @return string
- */
-function totara_stats_output($stats) {
-    $return = '';
-    if (!empty($stats)) {
-        $table = new html_table();
-        foreach ($stats as $key => $stat) {
-            $rowclass = ($key % 2) ? 'noshade' : 'shade';
-            $cell1 = new html_table_cell($stat->icon);
-            $cell1->attributes['class'] = 'staticon';
-            $cell2 = new html_table_cell(html_writer::tag('p', $stat->displaystring));
-            $row = new html_table_row(array($cell1, $cell2));
-            $row->attributes['class'] = $rowclass;
-            $table->data[] = $row;
-        }
-        $return = html_writer::table($table);
-    }
-    return $return;
-}
-
-/**
  * obtains log data from logs tables - used by totara_stats_timespent
  *
  * @param int $from - timestamp for start of stats generation

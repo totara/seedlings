@@ -67,9 +67,8 @@ class block_totara_stats extends block_base {
             // now get sql required to return stats
             $stats = totara_stats_manager_stats($USER, $this->config);
             if (!empty($stats)) {
-                $this->content->text .= get_string('statdesc', 'block_totara_stats').
-                    html_writer::empty_tag('br').html_writer::empty_tag('br').
-                    totara_stats_output(totara_stats_sql_helper($stats));
+                $renderer = $this->page->get_renderer('block_totara_stats');
+                $this->content->text .= $renderer->display_stats_list(totara_stats_sql_helper($stats));
             }
         }
 
