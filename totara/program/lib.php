@@ -179,9 +179,12 @@ function prog_get_certification_programs($userid, $sort='', $limitfrom='', $limi
         $where .= "AND p.visible = :visible ";
         $params['visible'] = 1;
     }
+
     if ($activeonly) {
-        $where .= "AND pc.status <> :status ";
-        $params['status'] = STATUS_PROGRAM_COMPLETE;
+        // This should only show non complete certifications and due/expired recertifications.
+        $where .= "AND (cfc.status <> :cstatus OR cfc.renewalstatus <> :rstatus) ";
+        $params['cstatus'] = CERTIFSTATUS_COMPLETED;
+        $params['rstatus'] = CERTIFRENEWALSTATUS_NOTDUE;
     }
 
     if ($returncount) {
