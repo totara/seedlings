@@ -62,3 +62,18 @@ table.namewithlinks-layout {
     height: auto;
     width: auto;
 }
+
+div#seedlings-message {
+    background: #F8E9E9 url([[pix:theme|error]]) no-repeat 8px 11px;
+    border-bottom: 1px solid #EED3D7;
+    color: #BF2C11;
+    padding: 10px 10px 10px 35px;
+}
+
+.seedlings-dismiss {
+    float: right;
+}
+
+.dir-rtl .seedlings-dismiss {
+    float: left;
+}

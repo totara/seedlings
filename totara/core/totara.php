@@ -2338,3 +2338,23 @@ function totara_feature_disabled($feature) {
 function totara_feature_hidden($feature) {
     return totara_feature_check_state($feature, TOTARA_HIDEFEATURE);
 }
+
+function totara_seedlings_header() {
+    global $OUTPUT, $CFG, $PAGE, $USER;
+    $seedlingsdismissed = get_user_preferences('seedlingsdismissed', false);
+
+    $html = '';
+    if (!$seedlingsdismissed) {
+        $html .= $OUTPUT->container_start('container-fluid', 'seedlings-message');
+        if ($USER->id) {
+            $PAGE->requires->js('/totara/core/module.js');
+            $action = new component_action('click', 'M.totara_core.dismiss_seedlings');
+            $dismissicon = new pix_icon('t/delete', get_string('dismiss', 'totara_core'), 'moodle', array('class' => 'seedlings-dismiss'));
+            $html .= $OUTPUT->action_icon($CFG->wwwroot, $dismissicon, $action);
+        }
+        $html .= get_string('seedlingsmessage', 'totara_core');
+        $html .= $OUTPUT->container_end();
+    }
+
+    return $html;
+}

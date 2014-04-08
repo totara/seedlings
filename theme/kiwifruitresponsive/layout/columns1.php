@@ -121,7 +121,7 @@ echo $OUTPUT->doctype() ?>
         <?php echo $OUTPUT->course_header(); ?>
     </div>
 
-
+    <?php echo totara_seedlings_header(); ?>
     <div id="page-content" class="row-fluid">
         <section id="region-main" class="span12">
             <?php

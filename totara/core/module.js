@@ -77,5 +77,21 @@ M.totara_core = M.totara_core || {
                 isRTL: direction
             }
         );
+    },
+
+    dismiss_seedlings: function(e) {
+        e.preventDefault();
+        var callback = {
+                method: "POST",
+                on: {
+                    success: function(id, o, args) {
+                        Y.one('#seedlings-message').hide();
+                    },
+                    failure: function(o) { }
+                }
+            };
+        Y.use('io-base', function(Y) {
+            Y.io(M.cfg.wwwroot + '/totara/core/dismiss_seedlings.php', callback);
+        });
     }
 };

@@ -162,6 +162,7 @@ echo $OUTPUT->doctype() ?>
           <div class="navbutton"> <?php echo $OUTPUT->page_heading_button(); ?></div>
           <?php } ?>
         </div>
+        <?php echo totara_seedlings_header(); ?>
         <div id="region-main-box">
           <div id="region-post-box">
             <div id="region-main-wrap">

@@ -66,7 +66,6 @@ echo $OUTPUT->doctype() ?>
 <?php echo $OUTPUT->standard_top_of_body_html(); ?>
 <div id="page">
   <div id="wrapper" class="clearfix">
-
 <!-- START OF HEADER -->
     <div id="page-header" class="clearfix">
       <div class="page-header-inner">
@@ -119,6 +118,7 @@ echo $OUTPUT->doctype() ?>
         <?php echo $OUTPUT->course_header(); ?>
     </div>
 
+    <?php echo totara_seedlings_header(); ?>
     <div id="page-content" class="row-fluid">
         <section id="region-main" class="span9<?php if ($left) { echo ' pull-right'; } ?>">
             <?php

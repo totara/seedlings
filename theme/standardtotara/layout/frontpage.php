@@ -99,6 +99,7 @@ echo $OUTPUT->doctype() ?>
 <!-- START OF HEADER -->
 
     <div id="page-header" class="clearfix">
+<?php echo totara_seedlings_header(); ?>
       <div class="page-header-inner">
         <div id="page-header-wrapper" class="clearfix">
           <?php if ($logourl == NULL) { ?>
