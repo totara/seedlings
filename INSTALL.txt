@@ -1,6 +1,10 @@
 TOTARA INSTALL PROCESS
 ======================
 
+
+Warning: Totara Seedlings is NOT suitable for running in production. See README.txt for more details.
+
+
 Before installing Totara you should have a server with:
 * A supported OS - Windows or Linux (Ubuntu, Debian, Suse, Redhat), Solaris10, other Unix variant
 * System clock synchronised with internet time servers.

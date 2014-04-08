@@ -1,6 +1,10 @@
 UPGRADING A MOODLE SITE TO TOTARA
 =================================
 
+
+Warning: Totara Seedlings is NOT suitable for running in production. See README.txt for more details.
+
+
 These instructions detail the process for upgrading a Moodle site to Totara.
 
 New requirements in Totara 2.6:
