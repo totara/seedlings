@@ -494,6 +494,12 @@ from
                 )
         );
         $filteroptions[] = new rb_filter_option(
+                'course_completion',
+                'timecompleted',
+                get_string('coursecompletedate', 'rb_source_dp_course'),
+                'date'
+        );
+        $filteroptions[] = new rb_filter_option(
                 'plan',
                 'name',
                 get_string('planname', 'rb_source_dp_course'),
