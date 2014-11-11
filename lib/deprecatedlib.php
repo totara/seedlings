@@ -45,7 +45,7 @@ defined('MOODLE_INTERNAL') || die();
  * @return void
  */
 function add_to_log($courseid, $module, $action, $url='', $info='', $cm=0, $user=0) {
-    debugging('add_to_log() has been deprecated, please rewrite your code to the new events API', DEBUG_DEVELOPER);
+//    debugging('add_to_log() has been deprecated, please rewrite your code to the new events API', DEBUG_DEVELOPER);
 
     // This is a nasty hack that allows us to put all the legacy stuff into legacy storage,
     // this way we may move all the legacy settings there too.

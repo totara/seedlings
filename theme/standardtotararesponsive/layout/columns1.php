@@ -73,6 +73,7 @@ echo $OUTPUT->doctype() ?>
 
 <header role="banner" class="navbar">
     <nav role="navigation" class="navbar-inner">
+<?php echo totara_seedlings_header(); ?>
         <div class="container-fluid">
             <?php if ($logourl == NULL) { ?>
             <div id="logo"><a href="<?php echo $CFG->wwwroot; ?>">&nbsp;</a></div>

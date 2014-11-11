@@ -93,6 +93,7 @@ echo $OUTPUT->doctype() ?>
         <?php echo $OUTPUT->course_header(); ?>
     </div>
 
+    <?php echo totara_seedlings_header(); ?>
     <div id="page-content" class="row-fluid">
         <div id="region-bs-main-and-pre" class="span9 <?php echo ($left ? '' : 'pull-right'); ?>">
             <section id="region-main" class="span8 <?php echo ($left ? 'pull-right' : ''); ?>">
