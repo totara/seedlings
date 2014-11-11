@@ -1,3 +1,20 @@
+TOTARA SEEDLINGS 2.7
+====================
+
+Totara Seedlings is a developer-only, open edition of
+Totara LMS released as a way of sharing our latest code
+and innovations with the community.
+
+Totara Seedlings includes beta code and experimental
+features. Seedlings is NOT suitable for running in a
+production environment and is not supported.
+
+For a production installation we strongly recommend
+the Totara LMS Enterprise edition to receive stable
+releases via the Software Update Service including
+ticketed technical support and bug fixes (including
+security fixes).
+
 QUICK INSTALL
 =============
 
