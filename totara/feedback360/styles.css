@@ -1,0 +1,129 @@
+.empty {
+    height: 0px;
+}
+
+.dir-ltr div.previewer {
+    float: right;
+}
+.dir-rtl div.previewer {
+    float: left;
+}
+
+.dir-ltr div.requestbutton {
+    float: right;
+}
+.dir-rtl div.requestbutton {
+    float: left;
+}
+
+.quest-container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ul.feedback360-quest-list {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    margin-bottom: 0.5em;
+    background-color: white;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.dir-rtl ul.feedback360-quest-list {
+    border-right: 1px solid #eeeeee;
+}
+
+ul.feedback360-quest-list {
+    border: none;
+}
+
+ul.feedback360-quest-list li {
+    padding: 6px;
+}
+
+a.previewlink {
+    padding: 10px;
+}
+
+ul.feedback360-quest-list a.feedback360-quest-list-name {
+    max-width:250px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.dir-ltr span.feedback360-quest-actions {
+    float: right;
+}
+
+.dir-rtl span.feedback360-quest-actions {
+    float: left;
+}
+
+ul.feedback360-quest-list li{
+    background-color: #ffffff;
+    -webkit-transition: background-color 250ms linear;
+    -moz-transition: background-color 250ms linear;
+    -ms-transition: background-color 250ms linear;
+    -o-transition: background-color 250ms linear;
+    transition: background-color 250ms linear;
+}
+
+ul.feedback360-quest-list li:hover {
+    background-color: #f5f5f5;
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+}
+
+ul.feedback360-quest-list li.selected {
+    background-color: #e6e6e6;
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+}
+
+li.yui3-dd-draggable {
+    cursor: move;
+}
+
+.move-target {
+    background-color: #ddffd6 !important;
+}
+
+#id_requestedemails{
+    width: 60%;
+}
+
+#id_requestemails{
+    width: 60%;
+}
+
+.viewing-xs-feedback360 {
+    margin-bottom: 0;
+}
+
+.feedback360-save {
+    float: right;
+}
+
+@media print {
+    img {
+        max-width: 100%;
+    }
+
+    form img.userpicture {
+        display: none;
+    }
+
+    div.stageinfo {
+        font-size: 8pt;
+        margin-left: 150px;
+    }
+}

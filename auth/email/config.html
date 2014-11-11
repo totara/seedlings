@@ -1,0 +1,74 @@
+<!-- No config needed -->
+<?php
+    // set to defaults if undefined
+    if (!isset($config->recaptcha)) {
+        $config->recaptcha = false;
+    }
+
+    $yesno = array( get_string('no'), get_string('yes') );
+
+    // Allow position field (primary position).
+    $allowsignupposition = get_config('totara_hierarchy', 'allowsignupposition');
+
+    // Allow organisation field (primary position).
+    $allowsignuporganisation = get_config('totara_hierarchy', 'allowsignuporganisation');
+
+    // Allow manager field (primary position).
+    $allowsignupmanager = get_config('totara_hierarchy', 'allowsignupmanager');
+
+?>
+
+<table cellspacing="0" cellpadding="5" border="0">
+<tr>
+   <td colspan="3">
+        <h2 class="main"><?php print_string('auth_emailsettings', 'auth_email') ?> </h2>
+   </td>
+</tr>
+<tr>
+    <td align="right"><label for="menurecaptcha"><?php print_string('auth_emailrecaptcha_key', 'auth_email') ?></label></td>
+    <td><?php
+        global $OUTPUT;
+        echo html_writer::select($yesno, 'recaptcha', $config->recaptcha, false);
+        ?></td>
+    <td><?php print_string('auth_emailrecaptcha', 'auth_email') ?></td>
+</tr>
+<tr>
+    <td colspan="3">
+        <h2 class="main"><?php print_string('allowsignuppositionfields', 'totara_hierarchy') ?> </h2>
+    </td>
+</tr>
+<tr>
+    <td align="right"><label for="allowsignupposition"><?php print_string('allowsignupposition', 'totara_hierarchy') ?></label></td>
+    <td><?php
+    echo html_writer::select($yesno, 'allowsignupposition', $allowsignupposition, false);
+    ?></td>
+    <td>
+        <span><?php print_string('allowsignupposition_help', 'totara_hierarchy') ?></span>
+        <br><strong class="error"><?php print_string('allowsignuppositionsecurityrisk', 'totara_hierarchy') ?></strong>
+    </td>
+</tr>
+<tr>
+    <td align="right"><label for="allowsignuporganisation"><?php print_string('allowsignuporganisation', 'totara_hierarchy') ?></label></td>
+    <td><?php
+    echo html_writer::select($yesno, 'allowsignuporganisation', $allowsignuporganisation, false);
+    ?></td>
+    <td>
+        <span><?php print_string('allowsignuporganisation_help', 'totara_hierarchy') ?></span>
+        <br><strong class="error"><?php print_string('allowsignuporganisationsecurityrisk', 'totara_hierarchy') ?></strong>
+    </td>
+</tr>
+    <td align="right"><label for="allowsignupmanager"><?php print_string('allowsignupmanager', 'totara_hierarchy') ?></label></td>
+    <td><?php
+    echo html_writer::select($yesno, 'allowsignupmanager', $allowsignupmanager, false);
+    ?></td>
+    <td>
+        <span><?php print_string('allowsignupmanager_help', 'totara_hierarchy') ?></span>
+        <br><strong class="error"><?php print_string('allowsignupmanagersecurityrisk', 'totara_hierarchy') ?></strong>
+    </td>
+</tr>
+<?php
+
+print_auth_lock_options($this->authtype, $user_fields, get_string('auth_fieldlocks_help', 'auth'), false, false);
+
+?>
+</table>

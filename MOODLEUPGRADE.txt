@@ -1,0 +1,69 @@
+UPGRADING A MOODLE SITE TO TOTARA
+=================================
+
+These instructions detail the process for upgrading a Moodle site to Totara.
+
+New requirements in Totara 2.7:
+
+* PHP version 5.4.4 required.
+* PHP zlib and OPcache modules now recommended.
+* MariaDB 5.5.31 now required (was 5.3.5 in Totara 2.6).
+
+NOTE: Additional plugins, custom themes or customised Moodle code are likely to
+    cause conflicts in the upgrade process.
+    Review possible conflicts before upgrading to prevent site stability issues.
+
+    As of Totara 2.7 you can no longer upgrade from versions of Moodle prior to 2.2.11.
+    Ensure the Moodle site is updated to Moodle version 2.2.11+ before upgrading to Totara 2.7.
+
+    For more information see http://docs.moodle.org/en/Upgrading
+
+1.  Check the live logs to check if any users are currently using the site.
+    The site will be offline while the upgrades are performed.
+    Reports -> Live Logs
+
+2.  Enable maintenance mode in Moodle.
+    Server -> Maintenance Mode
+
+3.  Backup the Moodle database.
+
+4.  Backup the moodledata directory.
+
+5.  Backup the Moodle source code directory.
+
+6a. If your Moodle site is not customised you can replace your moodle code
+    folder with the new moodle code folder and copy your old config.php file
+    to the new folder.
+
+6b. If you have customised moodle you will need to merge your existing Moodle
+    source code and new Totara code. This is best accomplished using a version
+    control tool like GIT or SVN. You will need to:
+    - Reuse the existing Moodle's config.php file
+    - Ensure any themes are updated to work with Totara
+    - Include any existing modules and filters remain in the code
+    - Resolve any merge conflicts caused by existing local customisations
+
+7.  Navigate to admin/index.php using a web browser and perform the install process.
+
+8.  Click Yes on the Upgrade page.
+
+9. Confirm the server status checks.
+
+10. Confirm the plugin status checks.
+
+11. Proceed with the initial database upgrades.
+
+12. Edit the New Admin Settings page if required.
+
+13. Continue the database upgrades.
+
+14. Check for Warnings or Errors on the upgrade review page.
+
+15. Edit the New Site Settings page if required.
+
+16. Test the site functionality. The site should now be displayed with the
+    Totara logos and theme.
+
+17. Disable server maintenance mode.
+
+18. Congratulations, your site is now running Totara.

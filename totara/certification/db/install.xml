@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/certification/db" VERSION="20130822" COMMENT="XMLDB file for Moodle totara/certification"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="certif" COMMENT="Certifications">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="learningcomptype" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="Type of component - program, course, competency"/>
+        <FIELD NAME="activeperiod" TYPE="char" LENGTH="20" NOTNULL="false" SEQUENCE="false" COMMENT="How long is the certificate active for - stored as seconds"/>
+        <FIELD NAME="windowperiod" TYPE="char" LENGTH="20" NOTNULL="false" SEQUENCE="false" COMMENT="How long before a learners certification is due for renewal and that the recertification window should open - stored as seconds"/>
+        <FIELD NAME="recertifydatetype" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false" COMMENT="Indicator for which date is used for the recertification, either the completion date or the certificate expiry date"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="certif_completion" COMMENT="Certifications completed">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="certifid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Certification ID"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Users id"/>
+        <FIELD NAME="certifpath" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="CERT/RECET"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="Certification status"/>
+        <FIELD NAME="renewalstatus" TYPE="int" LENGTH="2" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timewindowopens" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Date the window opens"/>
+        <FIELD NAME="timeexpires" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Date the certificate expires"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="certif_completion_cert_ix" TYPE="foreign" FIELDS="certifid" REFTABLE="certif" REFFIELDS="id"/>
+        <KEY NAME="certif_completion_user_ix" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="certif_completion_unq_ix" TYPE="unique" FIELDS="certifid, userid"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="certif_completion_history" COMMENT="Previous completed certifications">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="certifid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Certification ID"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Users id"/>
+        <FIELD NAME="certifpath" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="Certification status"/>
+        <FIELD NAME="renewalstatus" TYPE="int" LENGTH="2" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timewindowopens" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Date the window opens"/>
+        <FIELD NAME="timeexpires" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Date the certificate expires"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="unassigned" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Unassigned from certification"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="certif_comp_hist_certifid_ix" TYPE="foreign" FIELDS="certifid" REFTABLE="certif" REFFIELDS="id"/>
+        <KEY NAME="certif_comp_hist_userid_ix" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="certif_comp_hist_unq_ix" TYPE="unique" FIELDS="certifid, userid, timeexpires"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="course_completion_history" COMMENT="Course completion history archive">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="grade" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" DECIMALS="5"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="courcomphist_usr_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="courcomphist_cou_fk" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

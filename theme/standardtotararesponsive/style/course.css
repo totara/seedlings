@@ -1,0 +1,92 @@
+/** Course **/
+.coursebox {
+    width: inherit;
+}
+.coursebox .name img.smallicon {
+    vertical-align: middle;
+}
+
+.path-course-view .current td.side {
+    background: #EBEBEB;
+}
+
+.course_category_tree .category {
+    background-image: none;
+}
+
+.pagelayout-frontpage #region-main .coursebox .info h3.name {
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1.4em;
+}
+
+.dir-rtl .course-content ul.section li.activity span.autocompletion,
+.dir-rtl .course-content ul.section li.activity form.togglecompletion {right:auto;left:0px;}
+
+.dir-rtl .course-content ul.weeks li.section .left,
+.dir-rtl .course-content ul.topics li.section .left,
+.dir-rtl .course-content ul.demo li.section .left {float:right;}
+.dir-rtl .course-content ul.weeks li.section .right,
+.dir-rtl .course-content ul.topics li.section .right,
+.dir-rtl .course-content ul.demo li.section .right {float:left;}
+
+.dir-rtl .showadvancedbtn {
+    float:left;
+    margin-top:0px;
+}
+
+.dir-rtl .mform fieldset .advancedbutton {
+    text-align:left;
+}
+
+.courses .coursebox.even:hover {
+    background-color:#f6f6f6;
+}
+
+.courses .coursebox.odd:hover {
+    background-color:transparent;
+}
+
+.course_category_tree .courses > .paging.paging-morelink:hover {background-color:inherit;}
+.coursebox > .info > .coursename a,
+.coursebox > .info > .name a {
+    display:block;
+    background-repeat:no-repeat;
+    padding-left:40px;
+    background-position:left top;
+    line-height:2em;
+    min-height: 32px;
+}
+
+.dir-rtl .coursebox > .info > .coursename a,
+.dir-rtl .coursebox > .info > .name a {
+    padding-right:40px;
+    background-position:right top;
+}
+
+.coursebox .coursename {
+    margin-bottom: 5px;
+}
+
+/* Remove collapsible style images from everywhere except for index page */
+/* This overrides Moodle course core style */
+#page-site-index .course_category_tree .category>.info .name {background-image:url(/theme/image.php?theme=standardtotara&component=core&image=t%2Fcollapsed_empty);background-repeat: no-repeat;background-position:center left;padding:2px 18px;}
+#page-site-index .dir-rtl .course_category_tree .category>.info .name {background-image:url(/theme/image.php?theme=standardtotara&component=core&image=t%2Fcollapsed_empty_rtl);background-position:center right;}
+#page-site-index .course_category_tree .category.with_children>.info .name {background-image:url(/theme/image.php?theme=standardtotara&component=core&image=t%2Fexpanded);}
+#page-site-index .course_category_tree .category.with_children.collapsed>.info .name {background-image:url(/theme/image.php?theme=standardtotara&component=core&image=t%2Fcollapsed);}
+#page-site-index .dir-rtl .course_category_tree .category.with_children.collapsed>.info .name {background-image:url(/theme/image.php?theme=standardtotara&component=core&image=t%2Fcollapsed_rtl);}
+
+.course_category_tree .category>.info .name {background-image:none;padding:2px 2px;}
+.dir-rtl .course_category_tree .category>.info .name {background-image:none;}
+.course_category_tree .category.with_children>.info .name {background-image:none;}
+.course_category_tree .category.with_children.collapsed>.info .name {background-image:none;}
+.dir-rtl .course_category_tree .category.with_children.collapsed>.info .name {background-image:none;}
+
+/* Changing margin bottom in course category list */
+#course-category-listings {margin-bottom:20px;}
+
+#id_criteria_course_value {max-width:500px}
+
+.ie8 .course-detail .row {
+    margin-left: 0;
+}

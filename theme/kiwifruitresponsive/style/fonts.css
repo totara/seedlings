@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'Open Sans';
+    src : url([[font:theme|opensans-bold.ttf]]);
+    src : url([[font:theme|opensans-bold.eot]]) format('embedded-opentype'),
+         url([[font:theme|opensans-bold.woff]]) format('woff'),
+         url([[font:theme|opensans-bold.ttf]]) format('truetype'),
+         url([[font:theme|opensans-bold.svg#open_sansbold]]) format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src : url([[font:theme|opensans-bolditalic.ttf]]);
+    src : url([[font:theme|opensans-bolditalic.eot]]) format('embedded-opentype'),
+         url([[font:theme|opensans-bolditalic.woff]]) format('woff'),
+         url([[font:theme|opensans-bolditalic.ttf]]) format('truetype'),
+         url([[font:theme|opensans-bolditalic.svg#open_sansbold_italic]]) format('svg');
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src : url([[font:theme|opensans-lightitalic.ttf]]);
+    src : url([[font:theme|opensans-lightitalic.eot]]) format('embedded-opentype'),
+         url([[font:theme|opensans-lightitalic.woff]]) format('woff'),
+         url([[font:theme|opensans-lightitalic.ttf]]) format('truetype'),
+         url([[font:theme|opensans-lightitalic.svg#open_sans_lightitalic]]) format('svg');
+    font-weight: light;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src : url([[font:theme|opensans-light.ttf]]);
+    src : url([[font:theme|opensans-light.eot]]) format('embedded-opentype'),
+         url([[font:theme|opensans-light.woff]]) format('woff'),
+         url([[font:theme|opensans-light.ttf]]) format('truetype'),
+         url([[font:theme|opensans-light.svg#open_sans_lightregular]]) format('svg');
+    font-weight: light;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src : url([[font:theme|opensans-italic.ttf]]);
+    src : url([[font:theme|opensans-italic.eot]]) format('embedded-opentype'),
+         url([[font:theme|opensans-italic.woff]]) format('woff'),
+         url([[font:theme|opensans-italic.ttf]]) format('truetype'),
+         url([[font:theme|opensans-italic.svg#open_sansitalic]]) format('svg');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src : url([[font:theme|opensans-regular.ttf]]);
+    src : url([[font:theme|opensans-regular.eot]]) format('embedded-opentype'),
+         url([[font:theme|opensans-regular.woff]]) format('woff'),
+         url([[font:theme|opensans-regular.ttf]]) format('truetype'),
+         url([[font:theme|opensans-regular.svg#open_sansregular]]) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

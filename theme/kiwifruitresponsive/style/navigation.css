@@ -1,0 +1,408 @@
+/**
+ * Totara Navigation
+ */
+#navbar ul {
+    margin-left: 10px;
+}
+#login-info {
+    width: 100%;
+    background-color: #ffffff;
+    text-align: right;
+}
+.dir-rtl #login-info {
+    text-align: left;
+}
+#login-info .logininfo {
+    padding-right: 20px;
+    color: #999999;
+}
+.dir-rtl #login-info .logininfo {
+    padding-left: 20px;
+}
+#login-info a {
+    color: #999999;
+    text-decoration: underline;
+}
+#login-info a:hover {
+    color: #b8b8b7;
+}
+#login-info .loginstatus {
+    background-color: #999999;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 3px 7px 4px;
+    margin-left: 2px;
+}
+#login-info .loginstatus:hover {
+    background-color: #bbbbbb;
+    color: #ffffff;
+}
+/* Langmenu */
+select.langmenu {
+    float: right;
+    margin: 4px 0 0 0;
+    height: 32px;
+}
+.dir-rtl .langmenu {
+    float:left;
+}
+#main-menu {
+    clear:both;
+    background: #b1bb1a;
+    height: 60px;
+    margin-bottom: 5px;
+}
+#main-menu .logo {
+    float: left;
+    padding: 0 20px 0 15px;
+}
+.dir-rtl #main-menu .logo {
+    float: right;
+    padding: 0 15px 0 20px;
+}
+div#totaramenu {
+    clear: none;
+}
+div#totaramenu ul li,
+.dir-rtl div#totaramenu ul li {
+    /* .dir-rtl needed here as otherwise it gets overwritten from standard totara responsive */
+   font-weight:700;
+   margin:-4px 0 0;
+}
+div#totaramenu ul li a {
+    text-align:center;
+    display:block;
+    color:#FFFFFF;
+    border:none;
+    padding:28px 5px 20px;
+    background:transparent;
+}
+@media only screen and (min-width: 1200px) {
+    div#totaramenu ul li a {
+        padding:28px 10px 20px;
+        min-width: 90px;
+    }
+}
+div#totaramenu ul li a:hover {
+    color:#666666;
+    background:#E0E1Cf;
+}
+div#totaramenu ul li.selected a {
+    color:#666666;
+    border:none;
+    background:#F2F3E1;
+}
+div#totaramenu ul li ul {
+    width:auto;
+    min-width:180px;
+    margin-top:-12px;
+    padding:10px 0 0;
+    border:none !important;
+    background:transparent url([[pix:theme|menu-sub-bg]]) no-repeat 10% 0;
+}
+.dir-rtl div#totaramenu ul li ul {
+    background:transparent url([[pix:theme|menu-sub-bg]]) no-repeat 90% 0;
+}
+div#totaramenu ul li ul li {
+    font-size:0.9em;
+    font-weight:normal;
+    text-transform:none;
+    border:none;
+    margin:0;
+    box-shadow:0 3px 3px 0 #888;
+}
+div#totaramenu ul li li a,
+div#totaramenu ul li.selected li a {
+    text-align:left;
+    padding:0.6em 0.7em 0.4em;
+    border:none;
+    background:#FFFFFF;
+}
+.dir-rtl div#totaramenu ul li li a,
+.dir-rtl div#totaramenu ul li.selected li a {
+    text-align:right;
+}
+div#totaramenu ul li li a:hover,
+div#totaramenu ul li.selected li a:hover {
+    color:#666666;
+    background:#E0E1CF;
+}
+
+/* Totara Footer Navigation */
+#page-footer div#totaramenu {
+    float:right;
+    text-align:right;
+}
+.dir-rtl #page-footer div#totaramenu {
+    float:left;
+    text-align:left;
+}
+#page-footer div#totaramenu ul {
+   width:auto;
+   float:right;
+   padding-bottom: 5px;
+}
+.dir-rtl #page-footer div#totaramenu ul {
+   float:left;
+}
+#page-footer div#totaramenu ul li {
+   width:auto;
+   margin:12px 0 0;
+   float: left;
+}
+.dir-rtl #page-footer div#totaramenu ul li {
+    float: right;
+}
+#page-footer div#totaramenu ul li a,
+#page-footer div#totaramenu ul li.selected a {
+    font-size:0.95em;
+    min-width:0;
+    line-height:1em;
+    display:block;
+    color:#FFFFFF;
+    padding:0 10px 0;
+    background:transparent;
+}
+.dir-ltr #page-footer div#totaramenu ul li a,
+.dir-ltr #page-footer div#totaramenu ul li.selected a {
+    text-align:left;
+    border-right:1px solid #FFFFFF;
+}
+.dir-rtl #page-footer div#totaramenu ul li a,
+.dir-rtl #page-footer div#totaramenu ul li.selected a {
+    text-align:right;
+    border-left:1px solid #FFFFFF;
+}
+#page-footer div#totaramenu ul li a:hover,
+#page-footer div#totaramenu ul li.selected a:hover {
+    color:#DDDDDD;
+    text-decoration:underline;
+    background:transparent;
+}
+#page-footer div#totaramenu ul li.last a {
+    border:none;
+}
+#page-footer div#totaramenu ul ul {
+    display: none;
+}
+.dir-ltr #page-footer div#totaramenu ul li.last a {
+    padding-right:0;
+}
+.dir-rtl #page-footer div#totaramenu ul li.last a {
+    padding-left:0;
+}
+
+/* Custom Menu Navigation */
+
+div#custommenu {
+    float:left;
+    width:auto;
+    height:62px;
+    margin-top:0;
+    background:transparent;
+}
+.dir-rtl div#custommenu {
+    float:right;
+}
+div#custommenu ul {
+    margin:0 0 0 15px;
+}
+.dir-rtl div#custommenu ul {
+    margin:0 15px 0 0;
+}
+div#custommenu ul li {
+   font-weight:700;
+   font-size:1.05em;
+   padding:0;
+   margin:-4px 0 0;
+   list-style-type: none;
+   text-transform: uppercase;
+}
+div#custommenu ul li a {
+    min-width:100px;
+    text-align:center;
+    display:block;
+    color:#FFFFFF;
+    border:none;
+    margin:0;
+    padding:25px 10px 17px;
+    background:transparent;
+}
+div#custommenu ul li a:hover {
+    color:#666666;
+    background:#E0E1Cf;
+}
+div#custommenu ul li.selected a {
+    color:#666666;
+    border:none;
+    background:#F2F3E1;
+}
+div#custommenu ul li ul {
+    width:auto;
+    min-width:180px;
+    margin-top:-17px;
+    padding:10px 0 0;
+    border:none !important;
+    background:transparent url([[pix:theme|menu-sub-bg]]) no-repeat 15px 0;
+}
+.dir-ltr div#custommenu ul li ul {
+    margin-left:0;
+}
+.dir-rtl div#custommenu ul li ul {
+    margin-right:0;
+}
+div#custommenu ul li ul li,
+div#custommenu ul li.selected li {
+    font-size:0.95em;
+    font-weight:normal;
+    text-transform:none;
+    border:none;
+    margin:0;
+    box-shadow:0 3px 3px 0 #888;
+}
+div#custommenu ul li li a,
+div#custommenu ul li.selected li a {
+    color:#666666;
+    text-align:left;
+    padding:0.6em 0.7em 0.4em;
+    border:none;
+    background:#FFFFFF;
+}
+.dir-rtl div#custommenu ul li li a,
+.dir-rtl div#custommenu ul li.selected li a {
+    text-align:right;
+}
+div#custommenu ul li li a:hover,
+div#custommenu ul li.selected li a:hover {
+    color:#666666;
+    background:#E0E1CF;
+}
+div#custommenu ul li ul ul {
+    margin-top:-13px;
+    background:transparent
+}
+div#custommenu ul li ul ul li {
+    font-size:1em;
+    background:transparent;
+}
+#custommenu .yui3-menu,
+#custommenu .yui3-menu ul li,
+#custommenu .yui3-menu ul ul ul,
+#custommenu .yui3-menu .yui3-menu-content {
+    border:none;
+    background:transparent;
+}
+#custommenu .yui3-menu ul li a {
+    background-image:none;
+}
+#custommenu .yui3-menu .yui3-menuitem-active,
+#custommenu .yui3-menu .yui3-menu-label-menuvisible {
+    color:#666666;
+}
+
+/* Custom Menu Footer Navigation */
+#page-footer div#custommenu {
+    float:right;
+    text-align:right;
+}
+.dir-rtl #page-footer div#custommenu {
+    float:left;
+    text-align:left;
+}
+#page-footer div#custommenu ul {
+   width:auto;
+   float:right;
+}
+.dir-rtl #page-footer div#custommenu ul {
+   float:left;
+}
+#page-footer div#custommenu ul li {
+   width:auto;
+   margin:12px 0 0;
+}
+#page-footer div#custommenu ul li a,
+#page-footer div#custommenu ul li.selected a {
+    font-size:0.95em;
+    min-width:0;
+    line-height:1em;
+    text-align:left;
+    display:block;
+    color:#FFFFFF;
+    padding:0 10px 0;
+    background:transparent;
+}
+.dir-rtl #page-footer div#custommenu ul li a,
+.dir-rtl #page-footer div#custommenu ul li.selected a {
+    text-align:right;
+}
+#page-footer div#custommenu ul li a:hover,
+#page-footer div#custommenu ul li.selected a:hover {
+    color:#DDDDDD;
+    text-decoration:underline;
+    background:transparent;
+}
+#main-menu .btn-navbar {
+    float: right;
+    margin: 20px 5px 0 0;
+    padding-top: 8px
+}
+
+.dir-rtl #main-menu .btn-navbar {
+    float: left;
+    margin-left: 5px;
+}
+
+#main-menu .btn-navbar .icon-bar {
+    border-top: 1px solid #b1bb1a;
+    display: block;
+    height: 3px;
+    margin: 0;
+}
+
+@media screen and (max-width: 979px) {
+    div#main-menu ul li ul {
+        margin: 0 5px;
+        background: transparent url([[pix:theme|menu-sub-bg]]) no-repeat 10% 0;
+    }
+    div#main-menu ul li ul li,
+    div#main-menu ul li ul li:last-child a {
+        box-shadow: none;
+    }
+
+    div#main-menu ul li ul li:last-child a {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+    div#main-menu ul li ul li:first-child a {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    div#main-menu ul li a {
+        color: #ffffff;
+        text-align: left;
+        padding: 5px 5px 10px;
+    }
+    .dir-rtl div#main-menu ul li a {
+        text-align: right;
+    }
+    div#totaramenu > ul > li.last > a {
+        border-bottom: none;
+        border-radius: 0;
+    }
+    #main-menu {
+        height: auto;
+    }
+}
+@media screen and (min-width: 980px) {
+    #main-menu .btn-navbar {
+        display: none;
+    }
+}
+@media screen and (max-width: 767px) {
+    #main-menu {
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+}

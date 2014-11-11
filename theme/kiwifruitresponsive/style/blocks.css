@@ -1,0 +1,185 @@
+/**
+ * Blocks
+ */
+.block {
+   border:none;
+   margin:0 0 14px;
+   padding-top: 0;
+}
+.block .header {
+   border:none;
+   padding:0;
+   background:#b1bb1a;
+}
+.block .header a {
+   color:#FFFFFF;
+}
+.block .header .title h2 {
+   font-size:1.2em;
+   font-weight:normal;
+   color:#FFFFFF;
+   padding:8px 5px 8px 10px;
+   border:none;
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+}
+.dir-rtl .block .title h2 {
+   padding:8px 10px 8px 5px;
+}
+.block .header .block_action {
+   margin:0 10px;
+   padding-top:10px;
+}
+.block .header .block_action input {
+   border:none;
+   margin-top:1px;
+}
+.block .header .block_action .block-hider-hide,
+.block .header .block_action .block-hider-show {
+   margin-top:2px;
+}
+.dir-ltr .block .header .block_action .block-hider-hide,
+.dir-ltr .block .header .block_action .block-hider-show {
+   margin-left:5px;
+}
+.dir-rtl .block .header .block_action .block-hider-hide,
+.dir-rtl .block .header .block_action .block-hider-show {
+   margin-right:5px;
+}
+.block .content {
+   border:none;
+}
+.block .content h3 {
+    font-size:1em;
+    font-weight:600;
+    color:#444444;
+    margin:5px 0 10px
+}
+.block .content ol,
+.block .content ul {
+   margin-top:5px;
+   margin-bottom:5px;
+}
+.block .content .generalbox {
+   border:none;
+   padding:0;
+}
+.block .content .generaltable {
+   width:100%;
+   border:none;
+}
+.block .content .generaltable .cell {
+   border:none;
+   padding:0 0 4px;
+}
+.block .footer {
+   font-size:1em;
+}
+.block .footer input#adminsearchquery {
+   width:57%;
+}
+.block_search_forums #searchform_search {
+   width:118px;
+}
+.block_totara_recent_learning .content .cell {
+   padding:3px 0;
+}
+.block_online_users .content .list li.listentry {
+   font-size:0.9em;
+}
+.block_online_users .content .list li.listentry .user {
+    width:165px;
+}
+.block_settings .block_tree .tree_item.branch,
+.block_navigation .block_tree .tree_item.branch {
+   background-position:0 3px;
+}
+.block_settings .block_tree li.item_with_icon > p img,
+.block_navigation .block_tree li.item_with_icon > p img {
+   top:0px;
+   width:16px;
+   height:16px;
+}
+#region-main .block_totara_tasks h2,
+#region-main .block_totara_tasks .title {
+   background-color:#2fbce8;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+#region-main .block_totara_quicklinks h2,
+#region-main .block_totara_quicklinks .title {
+   background-color:#ee2b74;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+#region-main .block_totara_alerts h2,
+#region-main .block_totara_alerts .title {
+   background-color:#004958;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+.block_totara_alerts table.fullwidth {
+    border:none;
+}
+.block_totara_alerts table.fullwidth td {
+    padding:0 5px;
+}
+.block_totara_alerts table.fullwidth td.status a {
+    display:block;
+}
+.block_totara_alerts table.fullwidth td.action,
+.block_totara_alerts table.fullwidth td.statement {
+    vertical-align:middle;
+    line-height:1.2em;
+    padding-bottom:5px;
+}
+.block_totara_stats .content img.smallicon {
+    width:20px;
+    height:auto;
+}
+#region-main .block_completionstatus h2,
+#region-main .block_completionstatus .title,
+#region-main .block_totara_recent_learning h2,
+#region-main .block_totara_recent_learning .title {
+   background-color:#f47920;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+#region-main .block_course_list h2,
+#region-main .block_course_list .title,
+#region-main .block_course_overview h2,
+#region-main .block_course_overview .title {
+   background-color:#a22485;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+.block_course_list .content .coursebox,
+.block_course_overview .content .coursebox {
+    border:none;
+}
+.block_course_list .content li {
+    margin-bottom:6px;
+}
+.block_calendar_month .minicalendar td.today {
+    font-weight:400;
+    color:#FFFFFF;
+    background:#00ACA8;
+}
+.block_calendar_month .minicalendar td.today a {
+    color:#FFFFFF;
+}
+.block_calendar_month .minicalendar .calendar-event-panel {
+    z-index:1 !important;
+}
+.block_calendar_month .minicalendar .calendar-event-panel .eventcontent {
+    color:#333;
+}
+.block_calendar_month .minicalendar .calendar-event-panel .eventcontent a {
+    color:#00ACA8;
+}
+.block_calendar_month .minicalendar .calendar-event-panel .eventcontent {
+    text-align:left;.block_calendar_month .minicalendar .
+}
+.dir-rtl .block_calendar_month .minicalendar .calendar-event-panel .eventcontent {
+    text-align:right;.block_calendar_month .minicalendar .
+}

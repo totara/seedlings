@@ -1,0 +1,190 @@
+<?php
+
+// Template of new report builder source class
+//
+// Outlines the basic structure of a source, fill in
+// and save into a rb_sources directory inside /mod or /local
+// to install
+//
+// replace [source_name] with the name of the source and name
+// the file rb_source_[source_name].php
+
+class rb_source_[source_name] extends rb_base_source {
+    public $base, $joinlist, $columnoptions, $filteroptions;
+    public $contentoptions, $paramoptions, $requiredcolumns;
+
+    function __construct() {
+        $this->base = ''; // a {tablename}, or subquery
+        $this->joinlist = $this->define_joinlist();
+        $this->columnoptions = $this->define_columnoptions();
+        $this->filteroptions = $this->define_filteroptions();
+        $this->contentoptions = $this->define_contentoptions();
+        $this->paramoptions = $this->define_paramoptions();
+        $this->requiredcolumns = $this->define_requiredcolumns();
+        parent::__construct();
+    }
+
+    //
+    //
+    // Methods for defining contents of source
+    //
+    //
+
+    protected function define_joinlist() {
+        $joinlist = array(
+        /*
+            // rb_join object
+            new rb_join(
+                'joinname', // unique identifier
+                'LEFT',     // type of join
+                'joinname.foreignkey = anotherjoin.primarykey', // what to join on
+                REPORT_BUILDER_ONE_TO_MANY, // type of relationship between two tables
+                array('anotherjoin', 'onemore'), // dependencies (required by this join)
+        */
+        );
+
+        return $joinlist;
+    }
+
+    protected function define_columnoptions() {
+        $columnoptions = array(
+            /*
+            // array of rb_column_option objects, e.g:
+            new rb_column_option(
+                '',         // type
+                '',         // value
+                '',         // name
+                '',         // field
+                array(      // options (defaults shown)
+                    'joins' => null,
+                    'displayfunc' => null,
+                    'defaultheading' =>null,
+                    'extrafields' => null,
+                    'capability' => null,
+                    'noexport' => false,
+                    'grouping' => 'none',
+                    'style' => null,
+                    'class' => null
+                )
+            )
+            */
+        );
+
+        // optionally include some standard columns
+        //$this->add_user_fields_to_columns($columnoptions);
+        //$this->add_position_info_to_columns($columnoptions);
+
+        return $columnoptions;
+    }
+
+    protected function define_filteroptions() {
+        $filteroptions = array(
+            /*
+            // array of rb_filter_option objects, e.g:
+            new rb_filter_option(
+                '',       // type
+                '',       // value
+                '',       // label
+                '',       // filtertype
+                array(),  // filteroptions
+            )
+            */
+        );
+
+        // optionally include some standard filters
+        //$this->add_user_fields_to_filters($filteroptions);
+        //$this->add_position_fields_to_filters($filteroptions);
+
+        return $filteroptions;
+    }
+
+    protected function define_contentoptions() {
+        $contentoptions = array(
+            /*
+            // array of rb_content_option objects, e.g:
+            // see classes/rb_base_content.php for some you can use
+            new rb_content_option(
+                '',     // class name
+                '',     // title
+                '',     // field
+                ''      // joins
+            )
+            */
+        );
+        return $contentoptions;
+    }
+
+    protected function define_paramoptions() {
+        $paramoptions = array(
+            /*
+            // array of rb_param_option objects, e.g:
+            new rb_param_option(
+                '',     // parameter name
+                '',     // field
+                ''      // joins
+            )
+            */
+        );
+
+        return $paramoptions;
+    }
+
+    protected function define_requiredcolumns() {
+        $requiredcolumns = array(
+            /*
+            // array of rb_column objects, e.g:
+            // these columns will always appear in the report
+            // with no option to remove them on the columns tab
+            new rb_column(
+                '',         // type
+                '',         // value
+                '',         // heading
+                '',         // field
+                '',         // joins
+                null,       // displayfunc
+                null,       // extrafields
+                true,       // required
+                '',         // capability
+                true        // noexport
+                null,       // grouping
+                null        // style info (CSS property/value as associative array)
+            )
+            */
+        );
+        return $requiredcolumns;
+    }
+
+    //
+    //
+    // Source specific column display methods
+    //
+    //
+
+    // add methods here with [name] matching column option displayfunc
+    /*
+    function rb_display_[name]($item, $row, $isexport) {
+        // variable $item refers to the current item
+        // $row is an object containing the whole row
+        // which will include any extrafields
+        // $isexport is true when exporting
+        //
+        // should return a string containing what should be displayed
+    }
+    */
+
+    //
+    //
+    // Source specific filter display methods
+    //
+    //
+
+    // add methods here with [name] matching filter option filterfunc
+    /*
+    function rb_filter_[name]() {
+        // should return an associative array
+        // suitable for use in a select form element
+    }
+    */
+
+} // end of rb_source_[source_name] class
+

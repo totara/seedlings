@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/program/db" VERSION="20130828" COMMENT="XMLDB file for Moodle totara/program"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="prog" COMMENT="Stores elemental details about programs">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="category" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="fullname" TYPE="char" LENGTH="254" NOTNULL="false" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="100" NOTNULL="false" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="idnumber" TYPE="char" LENGTH="100" NOTNULL="false" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="summary" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="endnote" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="availablefrom" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="availableuntil" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="available" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="icon" TYPE="char" LENGTH="255" NOTNULL="false" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="exceptionssent" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="audiencevisible" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="2" SEQUENCE="false"/>
+        <FIELD NAME="certifid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="FK to certification table"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="category" TYPE="foreign" FIELDS="category" REFTABLE="course_categories" REFFIELDS="id"/>
+        <KEY NAME="cerifid" TYPE="foreign" FIELDS="certifid" REFTABLE="certif" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="prog_idn_ix" UNIQUE="false" FIELDS="idnumber"/>
+        <INDEX NAME="prog_sho_ix" UNIQUE="false" FIELDS="shortname"/>
+        <INDEX NAME="prog_cat_ix" UNIQUE="false" FIELDS="category"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_assignment" COMMENT="Stores details of the assignments defined within a program">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="assignmenttype" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="assignmenttypeid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="includechildren" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completiontime" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completionevent" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completioninstance" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="programid" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progassi_pro_ix" UNIQUE="false" FIELDS="programid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_completion" COMMENT="Stores details of user's program and course set completions">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="coursesetid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timestarted" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timedue" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="organisationid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="positionid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="programid" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="coursesetid" TYPE="foreign" FIELDS="coursesetid" REFTABLE="prog_courseset" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progcomp_pro_ix" UNIQUE="false" FIELDS="programid"/>
+        <INDEX NAME="progcomp_use_ix" UNIQUE="false" FIELDS="userid"/>
+        <INDEX NAME="progcomp_cou_ix" UNIQUE="false" FIELDS="coursesetid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_completion_history" COMMENT="Stores details of user's program and course set completions history">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="coursesetid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timestarted" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timedue" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="recurringcourseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="organisationid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="positionid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="programid" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="coursesetid" TYPE="foreign" FIELDS="coursesetid" REFTABLE="prog_courseset" REFFIELDS="id"/>
+        <KEY NAME="recurringcourseid" TYPE="foreign" FIELDS="recurringcourseid" REFTABLE="course" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progcomphist_pro_ix" UNIQUE="false" FIELDS="programid"/>
+        <INDEX NAME="progcomphist_use_ix" UNIQUE="false" FIELDS="userid"/>
+        <INDEX NAME="progcomphist_cou_ix" UNIQUE="false" FIELDS="coursesetid"/>
+        <INDEX NAME="progcomphist_rec_ix" UNIQUE="false" FIELDS="recurringcourseid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_courseset" COMMENT="Stores details of the sets of courses and competencies contained within a program">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="competencyid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="nextsetoperator" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completiontype" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timeallowed" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="recurrencetime" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="recurcreatetime" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="contenttype" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="label" TYPE="char" LENGTH="255" NOTNULL="false" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="certifpath" TYPE="int" LENGTH="2" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="1=standard program path or certify path, 2=recertify path"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="programid" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progcour_pro_ix" UNIQUE="false" FIELDS="programid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_courseset_course" COMMENT="Stores the details of the individual courses contained in a course set">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="coursesetid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="coursesetid" TYPE="foreign" FIELDS="coursesetid" REFTABLE="prog_courseset" REFFIELDS="id"/>
+        <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progcourcour_cou_ix" UNIQUE="false" FIELDS="coursesetid"/>
+        <INDEX NAME="progcourcour_cou2_ix" UNIQUE="false" FIELDS="courseid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_exception" COMMENT="Stores details of any exceptions raised relating to a program">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="exceptiontype" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timeraised" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="assignmentid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="programid" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progexce_exc_ix" UNIQUE="false" FIELDS="exceptiontype"/>
+        <INDEX NAME="progexce_pro_ix" UNIQUE="false" FIELDS="programid"/>
+        <INDEX NAME="progexce_use_ix" UNIQUE="false" FIELDS="userid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_extension" COMMENT="Stores extension requests for programs">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="extensiondate" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="extensionreason" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="reasonfordecision" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="programid" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progexte_pro_ix" UNIQUE="false" FIELDS="programid"/>
+        <INDEX NAME="progexte_use_ix" UNIQUE="false" FIELDS="userid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_future_user_assignment" COMMENT="Future user assignments such as from first login">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="assignmentid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progfutuuserassi_pro_ix" UNIQUE="false" FIELDS="programid"/>
+        <INDEX NAME="progfutuuserassi_use_ix" UNIQUE="false" FIELDS="userid"/>
+        <INDEX NAME="progfutuuserassi_ass_ix" UNIQUE="false" FIELDS="assignmentid"/>
+        <INDEX NAME="progfutuuserassi_prous_uix" UNIQUE="true" FIELDS="programid, userid, assignmentid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_info_data" COMMENT="Stores custom field data related to programs">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="data" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="fieldid" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+         <KEY NAME="proginfodata_fie_fk" TYPE="foreign" FIELDS="fieldid" REFTABLE="prog_info_field" REFFIELDS="id"/>
+         <KEY NAME="proginfodata_com_fk" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="prog_info_data_param" COMMENT="Custom programs fields data parameters">
+        <FIELDS>
+            <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+            <FIELD NAME="dataid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+            <FIELD NAME="value" TYPE="char" LENGTH="32" NOTNULL="true" SEQUENCE="false"/>
+        </FIELDS>
+        <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            <KEY NAME="proginfodatapara_dat_fk" TYPE="foreign" FIELDS="dataid" REFTABLE="prog_info_data" REFFIELDS="id"/>
+        </KEYS>
+        <INDEXES>
+            <INDEX NAME="proginfodatapara_val_ix" UNIQUE="false" FIELDS="value"/>
+        </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_info_field" COMMENT="Stores the custom fields for each program type">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="datatype" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="18" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="hidden" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="locked" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="required" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="forceunique" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="defaultdata" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param1" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param2" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param3" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param4" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param5" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="fullname" TYPE="char" LENGTH="1024" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="prog_message" COMMENT="Stores details of the messages defined within a program">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="messagetype" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="messagesubject" TYPE="char" LENGTH="255" NOTNULL="false" DEFAULT="" SEQUENCE="false"/>
+        <FIELD NAME="mainmessage" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="notifymanager" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="managermessage" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="triggertime" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="programid" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progmess_pro_ix" UNIQUE="false" FIELDS="programid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_messagelog" COMMENT="Stores details of program-related messages that have been issued to a user">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="messageid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="coursesetid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timeissued" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="messageid" TYPE="foreign" FIELDS="messageid" REFTABLE="prog_message" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="coursesetid" TYPE="foreign" FIELDS="coursesetid" REFTABLE="prog_courseset" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progmess_mes_ix" UNIQUE="false" FIELDS="messageid"/>
+        <INDEX NAME="progmess_use_ix" UNIQUE="false" FIELDS="userid"/>
+        <INDEX NAME="progmess_cou_ix" UNIQUE="false" FIELDS="coursesetid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_pos_assignment" COMMENT="Stores when users were last assigned a position">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="positionid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="type" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="timeassigned" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="prog_recurrence" COMMENT="Store the id numbers of the courses that will replace existing courses in a recurring program so that the system can know which course will be used when the current course ends">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="currentcourseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="nextcourseid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="programid" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+        <KEY NAME="currentcourseid" TYPE="foreign" FIELDS="currentcourseid" REFTABLE="course" REFFIELDS="id"/>
+        <KEY NAME="nextcourseid" TYPE="foreign" FIELDS="nextcourseid" REFTABLE="course" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="progrecu_pro_ix" UNIQUE="false" FIELDS="programid"/>
+        <INDEX NAME="progrecu_cur_ix" UNIQUE="false" FIELDS="currentcourseid"/>
+        <INDEX NAME="progrecu_nex_ix" UNIQUE="false" FIELDS="nextcourseid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="prog_user_assignment" COMMENT="Stores details of the user assignments that have been made for a program based on the program's assignment criteria">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="assignmentid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timeassigned" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="exceptionstatus" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="proguserassi_pro_ix" UNIQUE="false" FIELDS="programid"/>
+        <INDEX NAME="proguserassi_use_ix" UNIQUE="false" FIELDS="userid"/>
+        <INDEX NAME="proguserassi_ass_ix" UNIQUE="false" FIELDS="assignmentid"/>
+        <INDEX NAME="proguserassi_exc_ix" UNIQUE="false" FIELDS="exceptionstatus"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

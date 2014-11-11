@@ -1,0 +1,38 @@
+{
+    "moodle-editor_atto-editor": {
+        "requires": [
+            "node",
+            "io",
+            "overlay",
+            "escape",
+            "event",
+            "event-simulate",
+            "event-custom",
+            "yui-throttle",
+            "moodle-core-notification-dialogue",
+            "moodle-editor_atto-rangy",
+            "handlebars",
+            "timers"
+        ]
+    },
+    "moodle-editor_atto-plugin": {
+        "requires": [
+            "node",
+            "base",
+            "escape",
+            "event",
+            "event-outside",
+            "handlebars",
+            "event-custom",
+            "timers"
+        ]
+    },
+    "moodle-editor_atto-menu": {
+        "requires": [
+            "moodle-core-notification-dialogue",
+            "node",
+            "event",
+            "event-custom"
+        ]
+    }
+}

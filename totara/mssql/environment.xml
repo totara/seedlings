@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<COMPATIBILITY_MATRIX>
+    <MOODLE version="2.7" requires="2.2">
+        <CUSTOM_CHECKS>
+            <CUSTOM_CHECK level="required" file="/totara/mssql/db/install.php" function="totara_mssql_environment_check"/>
+        </CUSTOM_CHECKS>
+    </MOODLE>
+</COMPATIBILITY_MATRIX>

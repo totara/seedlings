@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/reportbuilder/db" VERSION="20140828" COMMENT="XMLDB file for Report Builder Totara module"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="report_builder" COMMENT="Each report has an entry here">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="ID of the table"/>
+        <FIELD NAME="fullname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Title of report, displayed on page and used to refer to a report instance"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Unique shortname used internally as a unique way of identifying a report"/>
+        <FIELD NAME="source" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Data source on which the report is based"/>
+        <FIELD NAME="hidden" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If set to 1, report not shown on My Reports page but still accessible at URL"/>
+        <FIELD NAME="cache" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If set to 1, report will be generated once per scheduled period and cached. Users will see only cached results"/>
+        <FIELD NAME="accessmode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Controls how access to the report is determined"/>
+        <FIELD NAME="contentmode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Controls how the content of the report is determined"/>
+        <FIELD NAME="description" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" COMMENT="Description of the report"/>
+        <FIELD NAME="recordsperpage" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="40" SEQUENCE="false" COMMENT="Number of records to show on a single page of results for this report"/>
+        <FIELD NAME="defaultsortcolumn" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Name of the column (type_value) to use to initially sort the report"/>
+        <FIELD NAME="defaultsortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="4" SEQUENCE="false" COMMENT="Integer representing the direction that default sorting should be done"/>
+        <FIELD NAME="embedded" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Indicates whether the report is an embedded report. Set to 1 for embedded, 0 otherwise."/>
+        <FIELD NAME="initialdisplay" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Indicated whether to wait for filters to be applied before generating the report"/>
+        <FIELD NAME="toolbarsearch" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Indicates if toolbarsearch should be enabled"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Updated when the report, column or setting changes"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for report builder"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="shortname" UNIQUE="true" FIELDS="shortname" COMMENT="Ensure that shortname remains a unique identifier"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="report_builder_columns" COMMENT="Defines columns belonging to each report">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="reportid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the report this column belongs to"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Type of column, used with value to identify the column option"/>
+        <FIELD NAME="value" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Value of column, used with type to identify the column option"/>
+        <FIELD NAME="transform" TYPE="char" LENGTH="30" NOTNULL="false" SEQUENCE="false" COMMENT="Column transform function, null means none"/>
+        <FIELD NAME="aggregate" TYPE="char" LENGTH="30" NOTNULL="false" SEQUENCE="false" COMMENT="Aggregation type, null means none"/>
+        <FIELD NAME="heading" TYPE="char" LENGTH="1024" NOTNULL="false" SEQUENCE="false" COMMENT="Visible heading describing the column to report users"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Determines the order that the columns appear in the report"/>
+        <FIELD NAME="hidden" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If non zero then column is hidden from users by default"/>
+        <FIELD NAME="customheading" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Indicates whether the user has customised a heading or if they are still using the default column heading value"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilcolu_rep_fk" TYPE="foreign" FIELDS="reportid" REFTABLE="report_builder" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_graph" COMMENT="Report graphs">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="reportid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the report this graph belongs to"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="20" NOTNULL="true" SEQUENCE="false" COMMENT="Type of graph, empty means none"/>
+        <FIELD NAME="stacked" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Stack data series? Only some types support this."/>
+        <FIELD NAME="maxrecords" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="500" SEQUENCE="false" COMMENT="Maximum of records used in a graph?"/>
+        <FIELD NAME="category" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="none,reversed or name of one column"/>
+        <FIELD NAME="legend" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="name of one column, used when axis are reversed"/>
+        <FIELD NAME="series" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false" COMMENT="Series info encoded in json format"/>
+        <FIELD NAME="settings" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false" COMMENT="Custom graph configuration in INI format"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="udpated when graph changes"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilcolu_rep_fk" TYPE="foreign" FIELDS="reportid" REFTABLE="report_builder" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_filters" COMMENT="Defines filters belonging to each report">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="reportid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the report this column belongs to"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Type of filter, used with value to identify the filter option"/>
+        <FIELD NAME="value" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Value of filter, used with type to identify the filter option"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Determines the order that the filters appear in the report"/>
+        <FIELD NAME="advanced" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If none zero then the filter is an advanced option"/>
+        <FIELD NAME="filtername" TYPE="char" LENGTH="1024" NOTNULL="false" SEQUENCE="false" COMMENT="Visible name describing the filter to report users"/>
+        <FIELD NAME="customname" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Indicates whether the user has customised a name or if they are still using the default filter name value"/>
+        <FIELD NAME="region" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Indicates whether filter appears at the top or in the sidebar"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilfilt_rep_fk" TYPE="foreign" FIELDS="reportid" REFTABLE="report_builder" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_search_cols" COMMENT="Defines search columns belonging to each report">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="reportid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="value" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilsear_rep_fk" TYPE="foreign" FIELDS="reportid" REFTABLE="report_builder" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_settings" COMMENT="Contains settings for individual reports">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="reportid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the report the setting belongs to"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Component of report builder that the setting is for"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="100" NOTNULL="true" SEQUENCE="false" COMMENT="Name of the setting"/>
+        <FIELD NAME="value" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Value of the setting"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilsett_rep_fk" TYPE="foreign" FIELDS="reportid" REFTABLE="report_builder" REFFIELDS="id"/>
+        <KEY NAME="reportid-type-name" TYPE="unique" FIELDS="reportid, type, name" COMMENT="Each setting should only be set once"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_saved" COMMENT="Stores saved searches for reports">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="reportid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the report this saved search belongs to"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="User who saved the search"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="A name describing the saved search"/>
+        <FIELD NAME="search" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" COMMENT="Serialized data containing the search details"/>
+        <FIELD NAME="ispublic" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If none zero, the saved search is visible to all users, not just the creator"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="udpated when saved changes"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilsave_rep_fk" TYPE="foreign" FIELDS="reportid" REFTABLE="report_builder" REFFIELDS="id"/>
+        <KEY NAME="repobuilsave_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="reportid" UNIQUE="false" FIELDS="reportid" COMMENT="Index on reportid field"/>
+        <INDEX NAME="userid" UNIQUE="false" FIELDS="userid" COMMENT="Index on the userid field"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="report_builder_group" COMMENT="Defines activity groups">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Name of the activity group"/>
+        <FIELD NAME="preproc" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Name of the pre-processor used by this activity group"/>
+        <FIELD NAME="baseitem" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Unique reference to the base item for this activity group"/>
+        <FIELD NAME="assigntype" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Name of the method for assigning activities to this group"/>
+        <FIELD NAME="assignvalue" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Value used by some assign types to store information about assignments"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_group_assign" COMMENT="Assigns activities to groups">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the group to assign an activity to"/>
+        <FIELD NAME="itemid" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the item to assign to the group"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilgrouassi_gro_fk" TYPE="foreign" FIELDS="groupid" REFTABLE="report_builder_group" REFFIELDS="id"/>
+        <KEY NAME="groupid-itemid" TYPE="unique" FIELDS="groupid, itemid" COMMENT="Prevent an item being assigned to the same group multiple times"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_preproc_track" COMMENT="Stores which items have been preprocessed and when, to avoid processing unchanged items">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the group the item belongs to"/>
+        <FIELD NAME="itemid" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the item that has been processed"/>
+        <FIELD NAME="lastchecked" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Timestamp of when the item was last checked"/>
+        <FIELD NAME="disabled" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="If none zero, the item is disabled, so will no longer be processed. This is used to prevent repeatedly attempting to process items which have a problem."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilpreptrac_gro_fk" TYPE="foreign" FIELDS="groupid" REFTABLE="report_builder_group" REFFIELDS="id"/>
+        <KEY NAME="groupid-itemid" TYPE="unique" FIELDS="groupid, itemid" COMMENT="To prevent an item being tracked twice within the same group"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_schedule" COMMENT="Storing details of scheduled reports">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="reportid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="savedsearchid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="format" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="frequency" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="exporttofilesystem" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="schedule" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="nextreport" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="repobuilsche_rep_fk" TYPE="foreign" FIELDS="reportid" REFTABLE="report_builder" REFFIELDS="id"/>
+        <KEY NAME="repobuilsche_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="repobuilsche_sav_fk" TYPE="foreign" FIELDS="savedsearchid" REFTABLE="report_builder_saved" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="report_builder_cache" COMMENT="Storing details of scheduled reports caching">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="reportid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="cachetable" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Table name with cached data for report"/>
+        <FIELD NAME="frequency" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="schedule" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="lastreport" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="nextreport" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="queryhash" TYPE="char" LENGTH="40" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="changed" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="genstart" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="reportid" TYPE="foreign" FIELDS="reportid" REFTABLE="report_builder" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="nextreport" UNIQUE="false" FIELDS="nextreport"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

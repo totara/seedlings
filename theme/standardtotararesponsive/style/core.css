@@ -1,0 +1,1469 @@
+html {
+    background:#F5F5F5;
+}
+body#tinymce {
+    background:#F5F5F5;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+input,
+textarea {
+    font-family:Arial, Helvetica, sans-serif;
+    color:#6b6b6b;
+}
+body.lang-vi {
+    font-family:Arial, Verdana, Helvetica, sans-serif;
+}
+/**
+ * Links
+ */
+a {
+    color: #087BB1;
+}
+a:visited {
+    color: #087BB1;
+}
+a:hover {
+    color:#087BB1;
+}
+/**
+ * Headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #444444;
+}
+h1 {
+    font-size:1.9em;
+    margin:5px 0 15px;
+}
+header h1 {
+    float: left;
+    padding: 10px;
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute;
+    margin: 10px 0;
+}
+.dir-rtl header h1 {
+    float: right;
+}
+.pagelayout-course header h1,
+.pagelayout-incourse header h1 {
+    clip: auto;
+    position: relative;
+}
+@media screen and (max-width: 540px) {
+    h1 {
+        clear: left;
+    }
+}
+h2 {
+    font-size:1.5em;
+    line-height:1em;
+    border:none;
+    padding:0;
+    margin:5px 0 15px;
+}
+h3 {
+    font-size:1.35em;
+    padding:0;
+    margin:5px 0 15px;
+}
+h4 {
+    font-size:1.2em;
+    font-weight:normal;
+    padding:0;
+    margin:5px 0 10px;
+}
+h5 {
+    font-size:1.1em;
+    margin:5px 0 5px;
+}
+h6 {
+    font-size:1em;
+    margin:5px 0 5px;
+}
+h1.centered,
+h2.centered,
+h3.centered,
+h4.centered,
+h5.centered,
+h6.centered {
+    text-align: center;
+}
+th.header,
+td.header,
+div.header,
+.navbar {
+    background-color:#eeeeee;
+}
+/**
+ * Tables
+ */
+th,
+td,
+.formtable tbody th {
+    text-align: left;
+    border: none;
+}
+.dir-rtl th,
+.dir-rtl td,
+.dir-rtl .formtable tbody th {
+    text-align: right;
+}
+.generaltable,
+.flexible,
+.dataTable {
+    border: 1px solid #bbbbbb;
+    border-collapse: initial;
+    background-color: #ffffff;
+}
+.generaltable.mdl-align {
+    margin:0 auto;
+}
+
+.flexible td,
+.generaltable td,
+.flexible th,
+.generaltable th {
+    border: none;
+    border-top:1px solid #dddddd;
+    vertical-align:top;
+}
+.dir-ltr .flexible td,
+.dir-ltr .generaltable td,
+.dir-ltr .flexible th,
+.dir-ltr .generaltable th {
+    border-left:1px solid #dddddd;
+}
+.dir-rtl .flexible td,
+.dir-rtl .generaltable td,
+.dir-rtl .flexible th,
+.dir-rtl .generaltable th {
+    border-right:1px solid #dddddd;
+}
+.flexible tr:first-child td,
+.generaltable tr:first-child td,
+.flexible tr:first-child th,
+.generaltable tr:first-child th {
+    border-top: none
+}
+.dir-ltr .flexible td:first-child,
+.dir-ltr .generaltable td:first-child,
+.dir-ltr .flexible th:first-child,
+.dir-ltr .generaltable th:first-child {
+    border-left: none;
+}
+.dir-rtl .flexible td:first-child,
+.dir-rtl .generaltable td:first-child,
+.dir-rtl .flexible th:first-child,
+.dir-rtl .generaltable th:first-child {
+    border-right: none;
+}
+.flexible thead tr:last-child th,
+.generaltable thead tr:last-child th {
+    border-bottom: 1px solid #dddddd;
+}
+
+.generaltable .cell {
+    background-color:#FFFFFF;
+}
+table.generaltable tbody>tr.r0>td,
+table.flexible tbody>tr.r0>td,
+table.generaltable tbody>tr.r0>th,
+table.flexible tbody>tr.r0>th {
+    background-color: #ffffff;
+}
+.generaltable .r1 td,
+.flexible .r1 td,
+.generaltable .r1 th,
+.flexible .r1 th {
+    background-color: #f9f9f9;
+}
+
+table.generaltable tbody>tr.r0:hover > td,
+table.flexible tbody>tr.r0:hover > td,
+table.generaltable tbody>tr.r0:hover > th,
+table.flexible tbody>tr.r0:hover > th,
+table.generaltable tbody>tr.r1:hover > td,
+table.flexible tbody>tr.r1:hover > td,
+table.generaltable tbody>tr.r1:hover > th,
+table.flexible tbody>tr.r1:hover > th {
+    background-color: #f5f5f5;
+}
+
+table.invisible th.header {
+    background: none;
+    padding: 0;
+}
+table.invisible td {
+    padding: 0;
+}
+table.invisible {
+    visibility: visible;
+    padding: 0;
+    margin: 0;
+}
+table.invisiblepadded th.header {
+    background: none;
+    padding: 5px;
+}
+table.invisiblepadded td {
+   padding: 5px;
+}
+/* Ensure rounded corners are kept with background colors. */
+table.generalbox :first-child tr:first-child th:first-child,
+table.generalbox :first-child tr:first-child td:first-child {
+    border-top-left-radius: 4px;
+}
+table.generalbox :first-child tr:first-child th:last-child,
+table.generalbox :first-child tr:first-child td:last-child {
+    border-top-right-radius: 4px;
+}
+table.generalbox :last-child .last th:first-child,
+table.generalbox :last-child .last td:first-child {
+    border-bottom-left-radius: 4px;
+}
+table.generalbox :last-child .last th:last-child,
+table.generalbox :last-child .last td:last-child {
+    border-bottom-right-radius: 4px;
+}
+
+.dir-rtl table.generalbox :first-child tr:first-child th:first-child,
+.dir-rtl table.generalbox :first-child tr:first-child td:first-child {
+    border-top-right-radius: 4px;
+}
+.dir-rtl table.generalbox :first-child tr:first-child th:last-child,
+.dir-rtl table.generalbox :first-child tr:first-child td:last-child {
+    border-top-left-radius: 4px;
+}
+.dir-rtl table.generalbox :last-child .last th:first-child,
+.dir-rtl table.generalbox :last-child .last td:first-child {
+    border-bottom-right-radius: 4px;
+}
+.dir-rtl table.generalbox :last-child .last th:last-child,
+.dir-rtl table.generalbox :last-child .last td:last-child {
+    border-bottom-left-radius: 4px;
+}
+
+.paging a,
+.paging span {
+    margin: 3px;
+    display: inline-block;
+}
+
+/* Form elements in totaratables toolbar. */
+.totaratable .toolbar .mform .fitem .fitemtitle,
+.totaratable .toolbar .mform .fitem .felement {
+    width: auto;
+    float: left;
+}
+.dir-rtl .totaratable .toolbar .mform .fitem .fitemtitle,
+.dir-rtl .totaratable .toolbar .mform .fitem .felement {
+    width: auto;
+    float: right;
+}
+.totaratable .toolbar .mform .fitem .fsubmit {
+    padding: 0;
+}
+.totaratable .toolbar .mform .fsubmit input {
+    margin: 0;
+}
+
+.action-icon img.iconsmall,
+.action-icon img.smallicon,
+.action-icon.iconsmall {
+    height: 11px;
+    width: 11px;
+    padding: 2px;
+    margin: 3px;
+}
+
+img.iconsmall.disabled {
+    padding: 2px;
+    margin: 0 3px;
+    height: 11px;
+    width: 11px;
+}
+
+.course_icon,
+.program_icon {
+    padding-right: 5px;
+    vertical-align: top;
+}
+table#hierarchy-bulk-action {
+    border: 0px;
+    margin-top: 5px;
+}
+table#hierarchy-bulk-action td.option-column div.fitem div.fitemtitle,
+table#hierarchy-bulk-action td.action-column div.fitem div.fitemtitle {
+    display: none;
+}
+
+.reportbuilderform .spacer,
+.flexible .spacer,
+.generaltable .spacer,
+.flexible .iconsmall.action-icon,
+.generaltable .iconsmall.action-icon {
+    margin: 0 5px;
+}
+.flexible .iconsmall.action-icon,
+.generaltable .iconsmall.action-icon {
+    height: auto;
+    width: auto;
+    margin: auto 3px;
+}
+.action-icon img.smallicon {
+    margin: 0 3px;
+}
+
+.buttons .singlebutton,
+.buttons .singlebutton form,
+.buttons .singlebutton div {
+    display: inline;
+}
+
+.messagesettingcomponent th,
+.messagesettingcomponent td {
+    width: 75px;
+}
+.messagesettingcomponent th:first-child,
+.messagesettingcomponent td:first-child {
+    width: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .messagesettingcomponent th,
+    .messagesettingcomponent td {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .messagesettingcomponent th,
+    .messagesettingcomponent td {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .messagesettingcomponent th,
+    .messagesettingcomponent td {
+        width: 125px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .messagesettingcomponent th,
+    .messagesettingcomponent td {
+        width: 150px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .messagesettingcomponent th,
+    .messagesettingcomponent td {
+        width: 200px;
+    }
+}
+/*IE7 fixes*/
+body.ie7 table#hierarchy-bulk-action td.label-column {
+    word-wrap: normal;
+}
+body.ie7 table#hierarchy-bulk-action td.option-column {
+    width: 220px;
+}
+body.ie7 table#hierarchy-bulk-action td.action-column div.fitem div.felement {
+    margin-left: 0px;
+}
+/**
+ * Boxes
+ */
+.headingblock {
+    border:none;
+    background:transparent;
+}
+h2.headingblock {
+    font-size:2em;
+    font-weight:normal;
+}
+/**
+ * Error & Warning Boxes
+ */
+.error {
+    color: #BF2C11;
+}
+.notifysuccess,
+.notifyproblem,
+.notifymessage,
+.notifynotice,
+.notice,
+.loginerrors,
+.errorbox {
+    width:auto;
+    color: #333333;
+    margin:1em 0;
+    text-align:left !important;
+    border:1px solid #DDDDDD;
+    padding:10px 10px 10px 30px !important;
+    -moz-border-radius:4px 4px 4px 4px;
+    -webkit-border-radius:4px 4px 4px 4px;
+    -o-border-radius:4px 4px 4px 4px;
+    border-radius:4px 4px 4px 4px;
+}
+
+.dir-rtl .notifysuccess,
+.dir-rtl .notifyproblem,
+.dir-rtl .notifymessage,
+.dir-rtl .notifynotice,
+.dir-rtl .notice,
+.dir-rtl .loginerrors,
+.dir-rtl .errorbox {
+    text-align: right !important;
+    padding:10px 35px 10px !important;
+    background-position: right 11px;
+}
+
+.notifymessage {
+    background: #e9f3f8 url([[pix:theme|information]]) no-repeat 8px 11px;
+    color: #3060a0;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-color:#BBD7E4;
+}
+.notifysuccess {
+    background: #dff0d8 url([[pix:theme|tick]]) no-repeat 8px 11px;
+    color: #337733;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-color: #C2D6B2;
+}
+#notice {
+    min-width: 0;
+}
+.notice,
+.notifynotice {
+    background: #fffbe7 url([[pix:theme|notifynotice]]) no-repeat 8px 11px;
+    color: #885600;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-color:#F1E5B1;
+}
+.totara-dialog.notifynotice h2,
+.totara-dialog.notifynotice div {
+    border: none;
+    background: transparent;
+}
+.errorbox,
+.notifyproblem {
+    color: #BF2C11;
+    border-color:#EED3D7;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background:#F8E9E9 url([[pix:theme|error]]) no-repeat 8px 11px;
+}
+p.errormessage {
+    color:#333333;
+}
+.notifysuccess a,
+.notifyproblem a,
+.notifymessage a,
+.notice a,
+.notifynotice a,
+.errorbox a {
+    color:#555555;
+    text-decoration:underline;
+}
+
+.notifysuccess input[type="submit"],
+.notifyproblem input[type="submit"],
+.notifymessage input[type="submit"],
+.notice input[type="submit"],
+.notifynotice input[type="submit"],
+.errorbox input[type="submit"] {
+    margin: 0;
+    margin-left: 5px;
+}
+
+/* Don't include the box border/background inside this class
+ * Useful for showing warnings inside table cells, etc where
+ * there isn't enough room for a full boxed notification
+ * */
+.nobox .notifysuccess,
+.nobox .notifyproblem,
+.nobox .notifymessage,
+.nobox .notifynotice,
+.nobox .notice,
+.nobox .loginerrors,
+.nobox .errorbox {
+    margin:1em 0;
+    border: 0;
+    background-color: transparent;
+    text-shadow: none;
+    padding-left: 30px !important;
+}
+/* and RTL support */
+.dir-rtl .nobox .notifysuccess,
+.dir-rtl .nobox .notifyproblem,
+.dir-rtl .nobox .notifymessage,
+.dir-rtl .nobox .notifynotice,
+.dir-rtl .nobox .notice,
+.dir-rtl .nobox .loginerrors,
+.dir-rtl .nobox .errorbox {
+    padding-left: 0px !important;
+    padding-right: 30px !important;
+}
+
+
+/* Langmenu */
+.langmenu {
+    float:right;
+    padding: 6px;
+}
+.dir-rtl .langmenu {
+    float: left;
+}
+.langmenu select {
+    height: 20px;
+}
+.mform select {
+    max-width: 250px;
+}
+
+/* Profileblock */
+
+.profileblock {
+    float:right;
+    text-align:right;
+    right: 0px;
+}
+#profilename {
+    float: right;
+    font-size:100%;
+    font-weight:normal;
+    margin:7px 0 0;
+    background-color: transparent;
+}
+#profileoptions {
+    float: right;
+    text-align:right;
+    margin:5px 5px 0;
+    text-align:right;
+    background-color: transparent;
+}
+#profileoptions ul {
+    margin:0;
+    padding:0;
+}
+#profileoptions li {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+    display: inline;
+    margin-right:0;
+    font-size: 85%;
+    font-weight:normal;
+    text-decoration: none;
+    list-style-type:none;
+}
+/**
+ * General
+ */
+hr {
+    display: block;
+    color:#DDD;
+    background: #DDD;
+    position: relative;
+    padding: 0;
+    margin: 8px auto;
+    width: 100%;
+    clear: both;
+    border: none;
+    border-top: 1px solid #BFBFBF;
+    border-bottom: 1px solid #FFFFFF;
+    font-size: 1px;
+    line-height: 0;
+    overflow: visible;
+}
+.helplink img {
+    vertical-align: text-top;
+}
+.arrow {
+    font-size: 0.85em;
+}
+.calendartable a {
+    color:#087BB1;
+}
+/**
+ * Fieldset class with borders shown by default
+ */
+fieldset.surround,
+.mform fieldset.surround {
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border: 1px solid #000000;
+    padding: 5px;
+}
+fieldset.surround legend,
+.mform fieldset.surround legend {
+    font-weight:bold;
+    font-size:16px;
+    padding: 0px 5px;
+    border: none;
+    width: auto;
+    margin: 0;
+}
+
+/**
+ * Course layout fixes
+ */
+.coursebox .info {
+    position: relative;
+}
+.coursebox .info h3.name {
+    margin-right: 25px;
+}
+.coursebox .content .summary {
+    float: none;
+    width: auto;
+}
+
+/**
+ * Moodle Forms
+ */
+input,
+textarea,
+select {
+    margin: 5px 5px 5px 0;
+}
+.ie7 input[type="radio"] {
+    margin: 0;
+}
+.mform .btn-cancel {
+    text-decoration: none;
+}
+.mform .btn-cancel:hover,
+.mform .btn-cancel:focus {
+    text-decoration: none;
+}
+
+/**
+ * Buttons and button-like links
+ * see also css3.css
+ */
+button,
+input.submit,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+#id_buttonfield,
+a.link-as-button {
+    color: #FFF;
+    padding: 0.3em 0.6em;
+    border:1px solid #ccc;
+}
+.yui-skin-sam .yui-button button,
+.yui-skin-sam .yui-button-hover button,
+.yui-skin-sam .yui-dialog .ft span.default button {
+    color:#6b6b6b;
+}
+body.ie7 button,
+body.ie7 input.submit,
+body.ie7 input[type="submit"],
+body.ie7 input[type="button"],
+body.ie7 input[type="reset"],
+body.ie7 #id_buttonfield,
+body.ie7 a.link-as-button {
+    padding: 0 0.2em;
+}
+button:hover,
+input.submit:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+#id_buttonfield:hover,
+a.link-as-button:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    padding:2px;
+    margin:2px 2px 0;
+    color: #4b4b4b;
+}
+input.form-submit:hover,
+input#id_submitbutton:hover,
+input#id_submitbutton2:hover,
+.path-admin .buttons input[type="submit"]:hover,
+td.submit input:hover,
+input.form-submit:focus,
+input#id_submitbutton:focus,
+input#id_submitbutton2:focus,
+.path-admin .buttons input[type="submit"]:focus,
+td.submit input:focus,
+input.form-submit:active,
+input#id_submitbutton:active,
+input#id_submitbutton2:active,
+.path-admin
+.buttons input[type="submit"]:active,
+td.submit input:active,
+input.form-submit.active,
+input#id_submitbutton.active,
+input#id_submitbutton2.active,
+.path-admin .buttons input[type="submit"].active,
+td.submit input.active,
+input.form-submit.disabled,
+input#id_submitbutton.disabled,
+input#id_submitbutton2.disabled,
+.path-admin .buttons input[type="submit"].disabled,
+td.submit input.disabled,
+input.form-submit[disabled],
+input#id_submitbutton[disabled],
+input#id_submitbutton2[disabled],
+.path-admin .buttons input[type="submit"][disabled],
+td.submit input[disabled] {
+    color: #333333;
+    background-color: inherit;
+}
+input#id_submitbutton2:active,
+input#id_submitbutton2:focus,
+input#id_submitbutton2:hover {
+    background-image: -webkit-gradient(linear,0 0,0 100%,from(#006498),to(#003298));
+    background-image: -webkit-linear-gradient(top,#006498,#003298);
+    background-image: -o-linear-gradient(top,#006498,#003298);
+    background-image: linear-gradient(to bottom,#006498,#003298);
+    background-position: 0;
+    color: #ffffff;
+    background-color: #005aa8;
+}
+
+input[type="checkbox"] {
+    margin: 0 5px 0 0;
+}
+.dir-rtl input[type="checkbox"],
+.dir-rtl input[type="radio "] {
+    margin: 0 0 0 5px;
+}
+.mform fieldset {
+    padding:5px 0;
+    border:none;
+}
+.mform fieldset.collapsible legend a.fheader {
+    margin-left: 0;
+    font-size: 13px;
+    color: #087bb1;
+    font-weight: bold;
+}
+.mform fieldset legend {
+    width:100%;
+    color:#333333;
+    padding-bottom:3px;
+    border-bottom:1px solid #BFBFBF;
+    margin-left: 0;
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: inherit;
+}
+.mform .required,
+.mform .fdescription.required {
+    color:#6b6b6b;
+}
+.mform .fdescription.required {
+    text-align: right;
+    margin-left: 0;
+}
+.mform .fitem {
+    padding-bottom:5px;
+    margin-bottom:5px;
+    border:none;
+}
+.mform .fitem div.fitemtitle {
+    text-align:left;
+    font-weight:bold;
+    margin-top:2px;
+    width: auto;
+}
+.dir-rtl .mform .fitem div.fitemtitle {
+    text-align: right;
+}
+.mform .fitem .felement {
+    width: 74%;
+    float: right;
+    margin-left: 0;
+}
+.dir-rtl .mform .fitem .felement {
+    float: left;
+    margin-right: 0;
+}
+.mform .fitem fieldset {
+    padding: 0;
+}
+.mform .fitem .feditor {
+    clear: none;
+    margin:0;
+    padding:10px 0;
+    min-width: 425px;
+}
+.mform .fitem .feditor textarea {
+    width:98% !important;
+}
+.mform .fitem .feditor table.mceLayout {
+    width:100% !important;
+}
+.mform .ftextarea textarea {
+    width: 95%;
+    max-width: 600px;
+}
+#fgroup_id_buttonar {
+  margin: 5px 0;
+  padding: 0 0 5px;
+  background: none;
+  border: none;
+}
+.mform .fdate_selector img.smallicon,
+.mform .fdate_time_selector img.smallicon {
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 979px) {
+    .mform .fitem div.fitemtitle,
+    .mform .fitem .felement {
+        float: none;
+        width: 100%;
+        text-align: left;
+    }
+
+    .dir-rtl .mform .fitem div.fitemtitle,
+    .dir-rtl .mform .fitem .felement {
+        text-align: right;
+    }
+
+    /* this definition is required to fix the menu expand and collapse on the iPhone
+     * have upstreamed this (MDL-43989)
+     */
+    .nav-collapse.collapse.active {
+        display: block;
+    }
+    .nav-collapse.collapse {
+        height: auto;
+        display: none;
+    }
+}
+@media screen and (max-width: 1199px) {
+    .visibleto,
+    .visibleto-review {
+        position: static;
+        display: block;
+    }
+}
+/**
+ * Help
+ */
+
+#helppopupbox {
+    background:#F5F5F5;
+}
+#helppopupbox .helpheading {
+    font-size:1.5em;
+    color:#333333;
+}
+/**
+ * Overriding base
+ */
+.pagelayout-popup #page {
+    padding-top: 10px;
+}
+
+.pagelayout-frontpage #page-header {
+    margin:0 0;
+    width:100%;
+    border-bottom: 0;
+}
+.navbar
+.navbar .breadcrumb {
+    font-weight: normal;
+    font-size: .9em;
+    margin-top:2px;
+    margin-left: 7px;
+}
+.navbar .breadcrumb ul {
+    color: #666;
+}
+.navbar .navbutton {
+    margin-top:-2px;
+}
+.navbar .nav {
+    clear: none;
+}
+.navbar .nav li {
+    float: right;
+    clear: right;
+}
+.dir-rtl .navbar .nav li {
+    float: left;
+    clear: left;
+}
+.navbar .nav li label {
+    display: none;
+}
+.navbar .nav li select {
+    padding: 0;
+    font-size: 10px;
+}
+.collapse {
+    position: initial;
+}
+/**
+ * Moodle Tabs
+ */
+
+.tabtree {
+  position: relative;
+}
+div.tabtree2 {
+    margin-bottom: 24px;
+}
+.tabtree .tabrow0 {
+  margin: 0;
+}
+
+.tabtree .tabrow0:after {
+    clear: both;
+    content: " ";
+    display: block;
+}
+/* Removes core tab backgrounds */
+.tabtree .tabrow0 ul,
+.tabtree .tabrow0 li a,
+.tabtree .tabrow0 li a:hover,
+.tabtree .tabrow0 li a:hover span,
+.tabtree .tabrow0 li a span,
+.tabtree .tabrow0 li a span:hover {
+    background-image: none;
+}
+.tabtree .tabrow0 li a span {
+    padding: 0;
+}
+.tabtree .tabrow0 li:after {
+    clear: both;
+}
+.tabtree .tabrow0 li a {
+    color: #666666;
+    font-weight: bold;
+    margin-bottom: -1px;
+    padding: 5px 10px 4px;
+    display: block;
+    background-image: none;
+    border-left: 1px solid #D0D0D0;
+    border-top: 1px solid #D0D0D0;
+    border-right: 1px solid #D0D0D0;
+    border-bottom: transparent;
+    border-radius: 3px 3px 0 0;
+    float: left;
+    background: #E8E8E8;
+    margin-right: 3px;
+}
+.tabtree .tabrow0 li.here a {
+    position: relative;
+    z-index: 1;
+}
+.dir-rtl .tabtree .tabrow0 li a {
+    margin-left: 3px;
+}
+.tabtree .tabrow0 li a:hover {
+    text-decoration: none;
+    color: #333333;
+    background-color: #EEEEEE;
+}
+.dir-rtl .tabtree li {
+    float: right;
+}
+.tabtree li.active a,
+.tabtree li.active .nolink,
+.tabtree li.active .nolink:hover,
+.tabtree li.selected a,
+.tabtree li.selected a.nolink,
+.tabtree li.selected a.nolink:hover,
+.tabtree li.here a,
+.tabtree li.here.selected a,
+.tabtree li.here.selected a:hover,
+.tabtree li.here a.nolink,
+.tabtree li.here a.nolink:hover {
+    border-left: 1px solid #AAAAAA;
+    border-top: 1px solid #AAAAAA;
+    border-right: 1px solid #AAAAAA;
+    border-bottom: transparent;
+    background: #FFFFFF;
+    color: #333333;
+}
+.tabtree li a.nolink,
+.tabtree li a.nolink:hover {
+    color: #D8D8D8;
+    background: #F8F8F8;
+    border-left: 1px solid #E8E8E8;
+    border-top: 1px solid #E8E8E8;
+    border-right: 1px solid #E8E8E8;
+    border-bottom: transparent;
+}
+.tabtree .tabrow0 li.active ul li > a {
+    border: none;
+    background: transparent;
+    color: #087BB1;
+}
+.tabtree .tabrow0 li.active ul li.selected > a {
+    border: none;
+    color: #333333;
+}
+.tabtree .tabrow0 div {
+    display:block;
+    overflow:hidden;
+    padding:0px;
+    position:absolute;
+    width:100%;
+    top: 29px;
+    bottom: -4px;
+    height: 1px;
+    background: transparent;
+    border-top: 1px solid #aaa;
+}
+.tabtree .tabrow1 {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-top: 1px solid #bbbbbb;
+}
+.tabtree .tabrow1 li.here .empty {
+    display: none;
+}
+.tabtree .tabrow1 li {
+    line-height: 20px;
+}
+.dir-rtl .tabtree .tabrow0 li.here .empty {
+    right: 0;
+}
+.tabtree .tabrow0 li ul li .empty {
+    border: none;
+}
+.ie7 .tabtree .tabrow0 li.here .empty,
+.ie7 .tabtree .tabrow1 {
+    top: 33px;
+    left: 0;
+}
+
+/**
+ * Styles for 'totara-item-group' and related. Used in programs to surround individual items.
+ */
+.totara-item-group {
+    background-color: #f7f8e8;
+    border: 1px solid #d0d676;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    padding: 6px 10px;
+    width: 90%;
+    overflow: auto;
+    color: #000;
+    margin: 3px 0px;
+}
+
+.totara-item-group .totara-item-group-icon {
+    border: none;
+    background: none;
+    padding: 5px 0 0 0;
+    line-height: 11px;
+}
+
+.dir-ltr .totara-item-group .totara-item-group-icon {
+    float: right;
+}
+.dir-rtl .totara-item-group .totara-item-group-icon {
+    float: left;
+}
+
+@media screen and (max-width:768px) {
+    .tabtree {
+        clear: both;
+    }
+
+    .tabtree .tabrow0 li a {
+        float: none;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .tabtree .tabrow0 li.here .empty {
+        display: none;
+    }
+
+    .tabtree .tabrow0 {
+        border-bottom: 1px solid #D0D0D0;
+    }
+}
+
+@media screen and (min-width:769px) {
+
+    /* Vertical tab tree */
+    .verticaltabtree-wrapper {
+      border-right: 1px solid #999999;
+      background: #ffffff url('[[pix:theme|vtt_border_grey]]') bottom repeat-x;
+      margin-bottom: 10px;
+      zoom: 1;
+    }
+    .dir-ltr .verticaltabtree-wrapper {
+      margin-left: 200px;
+    }
+    .dir-rtl .verticaltabtree-wrapper {
+      margin-right: 200px;
+    }
+    /* clearfix stuff start */
+    .verticaltabtree-wrapper:before,
+    .verticaltabtree-wrapper:after {
+        content:"";
+        display:table;
+    }
+    .verticaltabtree-wrapper:after {
+        clear:both;
+    }
+    /* clearfix stuff end */
+    .verticaltabtree {
+        width: 201px;
+    }
+
+    .dir-ltr .verticaltabtree {
+      float: left;
+      margin-left: -200px;
+    }
+
+    .dir-rtl .verticaltabtree {
+      float: right;
+      margin-right: -200px;
+    }
+
+    .verticaltabtree div.tabtree {
+        margin: 0;
+    }
+
+    .verticaltabtree .tabtree li {
+        border-top: 1px solid #999999;
+        display: list-item;
+        overflow: hidden;
+        float: none !important;
+    }
+    .dir-ltr .verticaltabtree .tabtree li {
+        border-right: 1px solid #999999;
+    }
+    .dir-rtl .verticaltabtree .tabtree li {
+        border-left: 1px solid #999999;
+    }
+
+    .verticaltabtree .tabtree li.first {
+        border-top: none;
+    }
+
+    .dir-ltr .verticaltabtree .tabtree li.selected {
+        border-right: none;
+    }
+    .dir-rtl .verticaltabtree .tabtree li.selected {
+        border-left: none;
+    }
+
+    .verticaltabtree .tabtree .tabrow0 li,
+    .verticaltabtree .tabtree ul {
+        margin: 0;
+    }
+
+    .verticaltabtree .tabtree ul {
+        border: 1px solid #999999;
+    }
+    .dir-ltr .verticaltabtree .tabtree ul {
+        border-right: none;
+    }
+    .dir-rtl .verticaltabtree .tabtree ul {
+        border-left: none;
+    }
+
+    .verticaltabtree .tabtree ul li.here .empty {
+        display: none;
+    }
+
+    .verticaltabtree .tabtree ul li a {
+      background-color: #e8e8e8;
+    }
+
+    .verticaltabtree .tabtree ul li a,
+    .verticaltabtree .tabtree ul li a:hover {
+        border: none !important;
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        -o-border-radius: 0;
+        border-radius: 0;
+        display: block;
+        margin: 0 !important;
+        float: none !important;
+        text-align: left;
+        color: #666666;
+    }
+    .dir-rtl .verticaltabtree .tabtree ul li a,
+    .dir-rtl .verticaltabtree .tabtree ul li a:hover {
+        text-align: right;
+    }
+
+    .verticaltabtree .tabtree ul li a.nolink,
+    .verticaltabtree .tabtree ul li a.nolink:hover {
+      background-color: #e8e8e8;
+      color: #999999;
+    }
+
+    .verticaltabtree .tabtree ul li.selected a.nolink,
+    .verticaltabtree .tabtree ul li.selected a.nolink:hover {
+      background-color: #ffffff;
+      color: #666666;
+    }
+
+    .verticaltabtree-content {
+        padding: 10px;
+        border-top: 1px solid #999999;
+        border-left: 1px solid #999999;
+        margin-bottom: 1px;
+    }
+
+    .verticaltabtree > .clearer {
+      display: none;
+    }
+
+}
+/**
+ * Totara Dialog boxes
+ *
+ * These changes override the default dialog styles from jquery in
+ * theme/base/styles/totara_dialog_*.css
+ */
+
+/* Dialog heading */
+
+.totara-dialog .ui-dialog-titlebar h2 {
+    margin-bottom: 5px;
+}
+.ui-dialog-title label {
+    display: inline-block;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+.ui-dialog-title  em {
+    font-weight: inherit;
+}
+
+.ui-dialog .dialog-content .header {
+    background: none;
+}
+/* Dialog RTL */
+.dir-rtl .ui-dialog .ui-dialog-title {
+    float: right;
+}
+.dir-rtl .ui-dialog .ui-dialog-titlebar-close {
+    left: 5px;
+    right: inherit;
+}
+.dir-rtl #dialog-tabs ul li.ui-state-default {
+    float: right;
+}
+.dir-rtl div.ui-dialog .ui-dialog-buttonpane button {
+    float: left;
+}
+.dir-rtl div.totara-dialog .selected span a {
+    float: right;
+}
+.dir-rtl div.totara-dialog table.dialog-content td.selected {
+    border-right: 1px solid #CCC;
+    border-left: none;
+}
+.dir-rtl .treeview .hitarea {
+    float: right;
+    background: url([[pix:totara_core|jquery_treeview/treeview-default-rtl]]);
+}
+.dir-rtl .treeview li {
+    background: url([[pix:totara_core|jquery_treeview/treeview-default-line-rtl]]) right 0  no-repeat;
+}
+.dir-rtl .filetree li {
+    padding: 0 16px 0 0;
+}
+.dir-rtl .treeview li.lastCollapsable {}
+.dir-rtl .treeview li.lastExpandable {
+    background: url([[pix:totara_core|jquery_treeview/treeview-default-rtl]]) no-repeat 8px 11px;
+}
+.dir-rtl .treeview li.collapsable,
+.dir-rtl .treeview li.expandable {
+    padding-right: 0px;
+    background-position: right -176px
+}
+.dir-rtl .treeview li.last {
+    background-position: right -1766px;
+}
+.dir-rtl .treeview li.collapsable .hitarea {
+    background-position: -16px -24px;
+}
+.dir-rtl .treeview li.expandable .hitarea {
+    background-position: 0 -2px;
+}
+.dir-rtl .filetree li.expandable span.folder {
+    background-position: right 0;
+    margin-right: 15px;
+}
+.dir-rtl .filetree span.folder,
+.dir-rtl .filetree span.file {
+    padding: 1px 16px 1px 0px;
+    background-position: right 0;
+    margin-right: 15px;
+}
+.dir-rtl .filetree li ul {
+    margin-right: 16px;
+}
+
+/* Dialog tabs (e.g. Browse, Search) */
+#dialog-tabs ul {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}
+#dialog-tabs li {
+    margin-bottom: 0;
+}
+/* selected items in multi-select dialogs (improve spacing) */
+.ui-dialog .dialog-content td.selected span.clickable {
+    margin: 0;
+    padding: 3px 0;
+}
+.ui-dialog .dialog-content td.selected span.clickable a:hover {
+    color: inherit;
+    cursor: default;
+}
+/* dialog search form (improve spacing) */
+div.totara-dialog td.select #search-tab,
+div.totara-dialog td.select #browse-tab {
+    padding: 0;
+}
+/*Icon picker for programs and courses*/
+#icon-selectable {
+    list-style-type: none;
+}
+#icon-selectable .ui-selected,
+#icon-selectable .ui-selecting {
+    background: #FFFFFF;
+    border: 2px solid #087BB1;
+    margin: 2px;
+}
+#icon-selectable li {
+    border: 1px solid #DDDDDD;
+    background: #FFFFFF;
+    margin: 3px;
+    padding: 1px;
+    float: left;
+    width: 40px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+
+table.namewithlinks-layout td.user-links a {
+    font-size: 1.4em;
+}
+
+table.namewithlinks-layout td.user-name {
+    font-size: 1.3em;
+}
+
+.comment-userpicture {padding:0 !important;}
+.comment-delete {float:right;text-align:right;}
+.dir-rtl .comment-userpicture {padding:0 !important;}
+.dir-rtl .comment-delete {float:left;text-align:left;right:auto !important;left:4px !important;}
+.dir-rtl ul.comment-list li.comment-own-post .comment-userpicture {
+    background: url([[pix:totara_core|comment-point-blue-rtl]]) no-repeat scroll left center transparent;
+    float: right !important;
+    left: auto;
+    right: 0;
+    text-align: right;
+}
+.dir-rtl ul.comment-list li.comment-others-post .comment-userpicture {
+    background: url([[pix:totara_core|comment-point-grey-rtl]]) no-repeat scroll right center transparent;
+    float: left !important;
+    left: 0;
+    right: auto;
+    text-align: left;
+}
+
+.dir-rtl.path-course-view .completionprogress {float: left;}
+
+/* shrink select boxes to fit in filter */
+
+select.totara-limited-width-150 {
+    position: static;
+    width: 150px;
+}
+select.totara-limited-width {
+    width: 200px;
+    position: static;
+}
+/* expand while selecting option (IE only) */
+.ie select.totara-limited-width:hover option,
+.ie select.totara-limited-width:focus option,
+.ie select.totara-limited-width:active option,
+.ie8 select.totara-limited-width:hover,
+.ie8 select.totara-limited-width:focus,
+.ie8 select.totara-limited-width:active {
+    width: auto;
+    min-width: 200px;
+}
+.ie select.totara-limited-width-150:hover option,
+.ie select.totara-limited-width-150:focus option,
+.ie select.totara-limited-width-150:active option,
+.ie8 select.totara-limited-width-150:hover,
+.ie8 select.totara-limited-width-150:focus,
+.ie8 select.totara-limited-width-150:active {
+    width: auto;
+    min-width: 150px;
+}
+
+#rb-search-controls .singleselect label {
+    display: inline-block;
+    margin-top:5px;
+    float: left
+}
+
+#rb-search-controls .singleselect {
+    margin-bottom: 10px;
+}
+
+.ie8 .helptooltip {
+    display: block;
+    float: right;
+}
+
+.ie8 .row {
+    margin-left: 0;
+}
+
+.ie8 .mform select {
+    max-width: 500px;
+}
+
+.ie8 .mform select:focus {
+    width: auto;
+    position: relative;
+}

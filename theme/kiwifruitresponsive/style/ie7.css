@@ -1,0 +1,83 @@
+/* Layout */
+html {
+    *height:auto; /* Uses IE7 specific hack as cannot target body */
+}
+body.ie7 #page-content-wrapper {
+    margin-bottom:15px;
+}
+
+/* Totara Menu */
+body.ie7 div#totaramenu ul li {
+    position:relative;
+}
+body.ie7 div#totaramenu ul li ul {
+    width:200px;
+    top:67px;
+}
+.dir-ltr body.ie7 div#totaramenu ul li ul {
+    left:-1px;
+}
+.dir-rtl body.ie7 div#totaramenu ul li ul {
+    right:-1px;
+}
+body.ie7 div#totaramenu ul li li a,
+body.ie7 div#totaramenu ul li.selected li a {
+    padding-bottom:0.3em;
+}
+
+/* Blocks */
+body.ie7 #middle-blocks .block {
+   border:1px solid #F2F3E1;
+}
+
+/* Form Items */
+body.ie7 button,
+body.ie7 input.submit,
+body.ie7 input[type="submit"],
+body.ie7 input[type="button"],
+body.ie7 input[type="reset"],
+body.ie7 #id_buttonfield,
+body.ie7 a.link-as-button {
+    padding:0.3em 0.4em;
+}
+body.ie7 input[type="password"],
+body.ie8 input[type="password"] {
+    padding:0.4em 0.2em !important;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Tabs */
+body.ie7 .tabtree .tabrow0 li a {
+    padding:7px 15px 12px;
+}
+.dir-ltr body.ie7 .tabtree .tabrow0 li a span {
+    padding-right:0;
+}
+.dir-rtl body.ie7 .tabtree .tabrow0 li a span {
+    padding-left:0;
+}
+
+/* Misc */
+body.ie7 .userprofilebox .descriptionbox {
+    float:none;
+}
+
+/* Docking */
+body.ie7 #dock .dockeditem .dockedtitle h2 {
+    font-size:0.8em;
+}
+body.ie7 #dock .dockeditempanel_hd {
+    margin-top:1px;
+}
+body.ie7 #dock .dockeditempanel_hd .commands {
+   margin-top:-20px;
+}
+.dir-ltr body.ie7 #dock .dockeditempanel_hd .commands {
+   margin-right:5px;
+}
+.dir-rtl body.ie7 #dock .dockeditempanel_hd .commands {
+   margin-left:5px;
+}
+
+
+

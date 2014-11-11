@@ -1,0 +1,301 @@
+/***
+ ***  Study Group Base Menu
+ ***/
+
+.navbar-inner {
+    background: #f5f5f5;
+    -webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border-width: 0 0 1px;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbar .nav.pull-left {
+    float: left;
+}
+
+div#totaramenu,
+div#custommenu  {
+    clear:both;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    z-index:1;
+}
+div#totaramenu ul,
+div#custommenu ul  {
+    padding:0;
+    margin:0;
+}
+div#totaramenu ul li,
+div#custommenu ul li {
+    float:left;
+    font-size:1em;
+    font-weight:bold;
+    text-transform:uppercase;
+    margin:0 1px 0 0;
+    list-style-type:none;
+    border:none;
+}
+.dir-rtl div#totaramenu ul li,
+.dir-rtl div#custommenu ul li {
+    float: right;
+    margin: 0 0 0 1px;
+}
+div#totaramenu ul li a,
+div#custommenu ul li a {
+    display:block;
+    padding:8px 35px 7px;
+}
+
+div#totaramenu ul ul,
+div#custommenu ul ul {
+    display:none;
+    width:auto;
+    min-width:200px;
+    position:absolute;
+    z-index:100;
+    margin: 0 0 0 1px;
+}
+
+.ie8 div#totaramenu ul ul,
+.ie8 div#custommenu ul ul {
+    border: 1px solid #ddd;
+}
+
+.ie div#totaramenu ul ul,
+.ie div#custommenu ul ul {
+    border-left: 1px solid #ddd;
+}
+
+div#totaramenu ul ul li,
+div#custommenu ul ul li {
+    font-size:0.8em;
+    float:none;
+    margin:0;
+}
+.dir-rtl #totaramenu ul ul li,
+.dir-rtl #custommenu ul ul li {
+    float: none;
+}
+
+div#totaramenu ul ul li a,
+div#custommenu ul ul li a {
+    padding:5px 35px;
+    display: block;
+}
+
+div#totaramenu ul li:hover ul,
+div#custommenu ul li:hover ul {
+    display:block
+}
+
+/* styling of menu states */
+
+/* primary nav - not selected */
+div#totaramenu ul li a,
+div#custommenu ul li a {
+    color: #888;
+    border: 1px solid #DDD;
+    border-bottom: 0px;
+    background: #FFF;
+}
+/* primary nav - not selected - hover */
+div#totaramenu ul li a:hover,
+div#custommenu ul li a:hover {
+    color: #333;
+    background: #F9F9F9;
+    text-decoration: none;
+}
+/* primary nav - selected */
+div#totaramenu ul li.selected a,
+div#custommenu ul li.selected a {
+    background: #FFF;
+    color: #333;
+}
+
+div#totaramenu ul li ul,
+div#custommenu ul li ul {
+    border-top: 1px solid #DDD;
+}
+
+/* secondary nav - not selected child of unselected parent */
+div#totaramenu ul li li a,
+div#custommenu ul li li a {
+    border: none;
+    border-bottom: 1px solid #DDD;
+    color: #888;
+    background: #FFF;
+}
+/* secondary nav - not selected child of unselected parent - hover */
+div#totaramenu ul li li a:hover,
+div#custommenu ul li li a:hover {
+    color: #333;
+    background: #F9F9F9;
+}
+/* secondary nav - not selected child of selected parent */
+div#totaramenu ul li.selected li a,
+div#custommenu ul li.selected li a {
+    color: #888;
+    background: #FFF;
+    border: none;
+    border-bottom: 1px solid #DDD;
+}
+/* secondary nav - not selected child of selected parent - hover */
+div#totaramenu ul li.selected li a:hover,
+div#custommenu ul li.selected li a:hover {
+    color: #333;
+    background: #F9F9F9;
+}
+/* secondary nav - selected child of selected parent */
+div#totaramenu ul li.selected li.selected a,
+div#custommenu ul li.selected li.selected a {
+    color: #333;
+    background: #FFF;
+    cursor: default;
+}
+
+#page-navbar .singlebutton {
+    float: left;
+}
+
+.dir-rtl #page-navbar .singlebutton {
+    float: right;
+}
+
+@media screen and (max-width:979px) {
+  div#totaramenu ul li,
+  .dir-rtl div#totaramenu ul li,
+  div#custommenu ul li,
+  .dir-rtl div#custommenu ul li {
+    float: none;
+  }
+
+  div#totaramenu > ul > li.last > a,
+  div#custommenu > ul > li.last > a {
+    border-bottom: 1px solid #DDD;
+  }
+
+  div#totaramenu ul ul,
+  div#custommenu ul ul {
+    display: block;
+    position: static;
+    margin: 0;
+  }
+
+  div#totaramenu ul ul li a,
+  div#custommenu ul ul li a {
+    padding:5px 35px 5px 45px;
+  }
+
+  div#totaramenu ul li li a,
+  div#custommenu ul li li a {
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+  }
+
+  div#totaramenu ul li li.last a,
+  div#custommenu ul li li.last a {
+    border-bottom: none;
+  }
+}
+
+/** breadcrumb navigation **/
+
+.breadcrumb-nav ul {
+    padding: 0;
+    margin: 0;
+    text-indent: 0;
+    list-style: none;
+}
+
+.breadcrumb-nav li {
+  display: inline;
+}
+
+/** Page footer navigation **/
+
+#page-footer div#footer_menu,
+#page-footer div#footer_menu ul {
+    margin:0;
+    padding:0;
+}
+#page-footer div#footer_menu li {
+    float:left;
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    text-transform:uppercase;
+    background:transparent;
+}
+#page-footer div#footer_menu li a {
+    font-weight:bold;
+    padding:0 30px;
+    margin:0;
+    border-right:1px solid #6B6B6B;
+}
+#page-footer div#footer_menu li a.first {
+    padding-left:5px;
+}
+#page-footer div#footer_menu li a.last {
+    border:none;
+}
+#page-footer div#footer_menu li ul {
+    display:none;
+}
+
+
+/***
+ ***  yui3 Menu
+ ***/
+
+
+.yui3-skin-sam .yui3-menu-content,
+.yui3-skin-sam .yui3-menu .yui3-menu .yui3-menu-content,
+.yui3-skin-sam .yui3-menu-horizontal .yui3-menu-label,.yui3-skin-sam .yui3-menu-horizontal .yui3-menuitem-content{
+    border: 0px none;
+}
+
+.yui3-menu ul {
+    background:transparent;
+}
+
+.yui3-menu ul li ul {
+    top:0px;
+    background:#fff;
+}
+
+.yui3-menu ul li {
+    border-right: 1px solid #ccc;
+}
+
+.yui3-menu ul li ul li {
+    border-right: none;
+    border-bottom: 1px dashed #ccc;
+    padding: 3px;
+}
+div.yui3-menu-content {
+    border: none !important;
+}
+
+ul.first-of-type li a {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+ul.first-of-type li a:hover {
+    color: #003466;
+
+}
+
+@media screen and (max-width:1200px) and (min-width:769px) {
+    div#totaramenu ul li a,
+    div#custommenu ul li a {
+        padding: 8px 20px 7px;
+    }
+}

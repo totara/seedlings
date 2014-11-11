@@ -1,0 +1,180 @@
+.no-overflow {
+    overflow: auto;
+    padding-bottom: 1px;
+}
+
+/**
+ * Learning Plans
+ **/
+div#dp-plan-content {
+
+}
+table.dp-templates th {
+    text-align:left;
+}
+
+table.dp-plan-component-items {
+    width: 100%;
+}
+
+table.dp-plan-component-items td {
+    padding:5px;
+}
+
+table.dp-plan-component-items td img {
+    margin:0 5px;
+}
+
+table.dp-plan-component-items td img,
+table.dp-plan-component-items td a {
+    vertical-align:middle;
+}
+/**
+ * Learning Plans - Evidence - can't have 2 dp-plan-component-items on the same page so this is a clone
+ **/
+table.dp-plan-evidence-items {
+    width: 100%;
+}
+
+table.dp-plan-evidence-items td {
+    padding:5px;
+}
+
+table.dp-plan-evidence-items td img {
+    margin:0 5px;
+}
+
+table.dp-plan-evidence-items td img,
+table.dp-plan-evidence-items td a {
+    vertical-align:middle;
+}
+
+.plan-launch-course-button {
+    float:right;
+    margin-top:4px;
+}
+
+.dir-rtl .plan-launch-course-button {
+    float:left;
+}
+
+img.disabled_action_icon {
+    vertical-align: text-bottom;
+    padding: 2px;
+    padding-left: 5px;
+}
+
+/**
+ * My Learning > LP and RoL layouts
+ **/
+
+#recordoflearning-menu,
+#dp-plans-menu {
+    float:left;
+    width:28%;
+}
+.dir-rtl #recordoflearning-menu,
+.dir-rtl #dp-plans-menu {
+    float:right;
+}
+
+#recordoflearning-menu h3,
+#dp-plans-menu h3,
+#recordoflearning-menu h4,
+#dp-plans-menu h4 {
+    margin: 5px 0;
+    padding: 4px;
+}
+
+#dp-plan-content,
+#program-content,
+#required-learning{
+    float:right;
+    display:inline; /* <IE7 margin-doubling fix */
+    width:70%;
+}
+
+#edit-program-content{
+    display:inline; /* <IE7 margin-doubling fix */
+    width:70%;
+}
+
+div.plan_box {
+    margin:10px 0;
+    padding: 10px;
+}
+
+#dp-plan-content #dp-plans-description .instructional_text {
+    float: left;
+    width: 73%;
+    padding: 10px 0;
+}
+
+#dp-plan-content .notifynotice input[type="submit"] {
+    margin: 0;
+    margin-left: 5px;
+}
+
+.dir-rtl #dp-plan-content #dp-plans-description .instructional_text {
+    float: right;
+}
+
+#dp-plan-content #dp-plans-description .dp-add-plan-link {
+    float: right;
+    text-align: right;
+    width: 25%;
+    padding-top: 10px;
+}
+
+.dir-rtl #dp-plan-content #dp-plans-description .dp-add-plan-link {
+    float: left;
+    text-align: left;
+}
+
+#dp-plan-content #dp-plans-list-active-plans table td.c0,
+#dp-plan-content #dp-plans-list-unapproved-plans table td.c0,
+#dp-plan-content #dp-plans-list-completed-plans table td.c0 {
+    padding-left: 40px;
+}
+
+table.dp-templates {
+    width:100%;
+}
+
+table.dp-templates td.c0 {
+    width:70%;
+}
+
+table.planpermissions select {
+    width: 100px
+}
+
+#recordoflearning-menu .dp-menu-selected,
+#dp-plans-menu .dp-menu-selected {
+    font-weight:bold;
+}
+
+.dp-summary-widget-title {
+    font-weight:bold;
+    padding:5px 0;
+}
+span.dp-summary-widget-component-name {
+    background: url([[pix:spacer]]) no-repeat scroll right 5px transparent;
+    margin-right: 4px;
+    padding: 3px 4px 0 0;
+}
+#dp-component-update {
+    margin-top:10px;
+}
+
+.dp-plan-assign-button {
+    margin:10px 0;
+}
+
+.mform table .fitem .felement { margin-left:0; }
+
+.ie7 #dp-plans-description {padding-bottom: 60px;}
+
+.jsenabled .fstatic .visibleifjs {
+    display: none;
+}

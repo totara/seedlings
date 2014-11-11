@@ -1,0 +1,124 @@
+/** Calendars **/
+
+/** Main Calendar **/
+.path-calendar .maincalendar {
+    padding: 5px;
+}
+.path-calendar .maincalendar div.header {
+    background: #F9F9F9;
+    padding: 10px 10px 10px 15px;
+    line-height: 24px;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 20px;
+}
+.path-calendar .maincalendar div.header .cal_courses_flt {
+    display: inline-block;
+}
+.path-calendar .maincalendar div.header .calendar-mod-filters fieldset {
+    border:1px solid #DDDDDD;
+    width: 98%;
+    padding: 0px 5px 5px 5px;
+}
+.path-calendar .maincalendar div.header .calendar-mod-filters fieldset legend {
+    padding: 0px 5px;
+}
+.path-calendar .maincalendar div.header select {
+    width: 200px;
+    margin: 0 5px;
+}
+.path-calendar .maincalendar .calendar-controls h1.current {
+    font-size: 1.6em;
+    margin: 15px 0 5px;
+}
+.path-calendar .maincalendar .calendar-controls .previous,
+.path-calendar .maincalendar .calendar-controls .next {
+}
+.path-calendar .maincalendar .calendarmonth th.header {
+    border: 1px solid #DDDDDD;
+}
+.path-calendar .maincalendar .calendarmonth td {
+    border: 1px solid #DDDDDD;
+    text-align: left;
+}
+.path-calendar .maincalendar .calendarmonth td.today {
+    background: #F9F9F9;
+    -webkit-border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0px 0px;
+}
+.path-calendar .maincalendar .filters table {
+    background: #FFFFFF;
+}
+
+/** Daily event list **/
+.path-calendar .maincalendar .eventlist .event {
+    width: 99.9%;
+    padding: 20px 0;
+}
+.path-calendar .maincalendar .eventlist .event .course {
+    font-size: 0.8em;
+}
+.path-calendar .maincalendar .eventlist .event .side {
+    background-color: #FFFFFF;
+}
+.calendartable .today {
+    border: 2px solid #DDDDDD;
+}
+.block .minicalendar {
+    font-size: 100%;
+    border: none;
+    margin: 0 0 5px;
+    background: transparent;
+    max-width: none;
+    border-collapse: separate;
+    border-spacing: 1px;
+}
+.block .minicalendar th,.block .minicalendar td {
+    font-size: 0.9em;
+    border: none;
+    padding: 2px 0 0;
+}
+.block .minicalendar th abbr {
+    border: none;
+}
+.block .minicalendar td.day {
+    padding: 2px;
+    background: #FFFFFF;
+}
+.block .minicalendar td.today {
+    font-weight: bold;
+    color: #333333;
+    background: #CCCCCC;
+}
+.block .minicalendar td.day.hasevent,.block .minicalendar td.hasevent a {
+    color: #333333;
+}
+.block .minicalendar td.today a {
+    color: #333333;
+}
+.block .minicalendar td.weekend {
+    color: #999999;
+    background: #f5f5f5;
+}
+.block .calendar_filters.filters {
+    background-color: transparent;
+}
+
+/** Stabalise some IE7 behaviour **/
+.ie7 .maincalendar .calendar-controls h1{
+    line-height: 1.6em;
+    margin: 0;
+    padding: 0;
+}
+.ie.path-calendar .maincalendar div.header .cal_courses_flt {
+    display: inline;
+}
+.ie.path-calendar .maincalendar div.header input {
+    background: #FFFFFF;
+}
+.ie.path-calendar .maincalendar .calendar-controls h1.current {
+    margin: 0px 0 5px;
+}
+
+.block .calendar_filters li span img {
+    padding: 4px 3px;
+}

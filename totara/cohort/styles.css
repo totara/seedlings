@@ -1,0 +1,7 @@
+/* to hide "this form contains required fields" inside the cohort rules dialogs */
+#cohortruleformdialog .required {
+    display: none;
+}
+select#id_listofvalues {
+    max-height: 300px;
+}

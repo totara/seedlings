@@ -1,0 +1,2 @@
+body[dir=rtl] .tabs li {float: right;}
+body[dir=rtl] td[align=left] {text-align: right;}

@@ -1,0 +1,10 @@
+{
+  "name": "moodle-totara_program-categoryexpander",
+  "builds": {
+    "moodle-totara_program-categoryexpander": {
+      "jsfiles": [
+        "categoryexpander.js"
+      ]
+    }
+  }
+}

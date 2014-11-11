@@ -1,0 +1,23 @@
+/******************************************
+ * Stats block widget
+ *****************************************/
+
+.block_totara_stats .content img {
+    float: left;
+}
+.dir-rtl .block_totara_stats .content img {
+    float: right;
+}
+
+.block_totara_stats .content p {
+    margin-left: 40px;
+}
+.dir-rtl .block_totara_stats .content p {
+    margin-right: 40px;
+    margin-left: 0;
+}
+
+.block_totara_stats.block .content ul {
+    margin: 10px 0 0;
+    list-style: none;
+}

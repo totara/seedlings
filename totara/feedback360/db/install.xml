@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/feedback360/db" VERSION="20130709" COMMENT="XMLDB file for Moodle totara/feedback360"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="feedback360" COMMENT="360 feedback360 form (recipients - feedback360_RECIPIENT_* bitmask).">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="recipients" TYPE="int" LENGTH="8" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feed_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="feed_nam_ix" UNIQUE="false" FIELDS="name"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="feedback360_quest_field" COMMENT="Individual question definitions for each feedback360">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="datatype" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="descriptionformat" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="required" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="defaultdata" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="defaultdataformat" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param1" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param2" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param3" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param4" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param5" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feedquesfiel_fee_fk" TYPE="foreign" FIELDS="feedback360id" REFTABLE="feedback360" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="feedquesfiel_nam_ix" UNIQUE="false" FIELDS="name"/>
+        <INDEX NAME="feequesfiel_sor_ix" UNIQUE="false" FIELDS="sortorder"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="feedback360_grp_org" COMMENT="Organisations assigned to feedback360">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="orgid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="includechildren" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feedgrporg_fee_fk" TYPE="foreign" FIELDS="feedback360id" REFTABLE="feedback360" REFFIELDS="id"/>
+        <KEY NAME="feedgrporg_org_fk" TYPE="foreign" FIELDS="orgid" REFTABLE="org" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="feedback360_grp_pos" COMMENT="Positions assigned to feedback360">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="posid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="includechildren" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feedgrppos_fee_fk" TYPE="foreign" FIELDS="feedback360id" REFTABLE="feedback360" REFFIELDS="id"/>
+        <KEY NAME="feedgrppos_pos_fk" TYPE="foreign" FIELDS="posid" REFTABLE="pos" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="feedback360_grp_cohort" COMMENT="Audiences assigned to feedback360">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="cohortid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feedgrpcoho_fee_fk" TYPE="foreign" FIELDS="feedback360id" REFTABLE="feedback360" REFFIELDS="id"/>
+        <KEY NAME="feedgrpcoho_coh_fk" TYPE="foreign" FIELDS="cohortid" REFTABLE="cohort" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="feedback360_user_assignment" COMMENT="Actual user who is subject of feedback360">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timedue" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feeduserassi_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="feeduserassi_fee_fk" TYPE="foreign" FIELDS="feedback360id" REFTABLE="feedback360" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="feedback360_resp_assignment" COMMENT="feedback360 responders assignments">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360userassignmentid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timeassigned" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="viewed" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="feedback360emailassignmentid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Email assignments"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feedrespassi_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="feedrespassi_fee_fk" TYPE="foreign" FIELDS="feedback360userassignmentid" REFTABLE="feedback360_user_assignment" REFFIELDS="id"/>
+        <KEY NAME="feedrespassi_ema_fk" TYPE="foreign" FIELDS="feedback360emailassignmentid" REFTABLE="feedback360_email_assignment" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="feedback360_email_assignment" COMMENT="Email addresses for feedback360">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="email" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="token" TYPE="char" LENGTH="40" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="feedback360_scale" COMMENT="Multiple choice sets">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360questfieldid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="scaletype" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feedscal_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="feedscal_fee_fk" TYPE="foreign" FIELDS="feedback360questfieldid" REFTABLE="feedback360_quest_field" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="feedscal_scatyp_ix" UNIQUE="false" FIELDS="scaletype"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="feedback360_scale_value" COMMENT="Multiple choice options (score can be used when applicable)">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360scaleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="score" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feedscalvalu_fee_fk" TYPE="foreign" FIELDS="feedback360scaleid" REFTABLE="feedback360_scale" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="feedscalvalu_feenamsco_ix" UNIQUE="true" FIELDS="feedback360scaleid, name, score"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="feedback360_scale_data" COMMENT="Multiple user answers">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="feedback360scalevalueid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="feedback360respassignmentid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="feedback360questfieldid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="feedscaldata_sca_fk" TYPE="foreign" FIELDS="feedback360scalevalueid" REFTABLE="feedback360_scale_value" REFFIELDS="id"/>
+        <KEY NAME="feedscaldata_res_fk" TYPE="foreign" FIELDS="feedback360respassignmentid" REFTABLE="feedback360_resp_assignment" REFFIELDS="id"/>
+        <KEY NAME="feedscaldata_que_fk" TYPE="foreign" FIELDS="feedback360questfieldid" REFTABLE="feedback360_quest_field" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

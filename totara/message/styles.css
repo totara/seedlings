@@ -1,0 +1,28 @@
+#totara-msgs-dismiss dt,
+#totara-msgs-dismiss label {
+    width: 15%;
+    display: inline-block;
+    min-width: 70px;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+#totara-msgs-dismiss dd,
+#totara-msgs-dismiss input {
+    width: 80%;
+    display: inline-block;
+}
+
+#totara-msgs-dismiss dd,
+#totara-msgs-dismiss input,
+#totara-msgs-dismiss dt,
+#totara-msgs-dismiss label {
+    padding-top: 10px;
+}
+
+#totara_message_actions input[type=submit] {
+    display: none;
+}
+.jsenabled #totara_message_actions input[type=submit] {
+    display: inline-block;
+}

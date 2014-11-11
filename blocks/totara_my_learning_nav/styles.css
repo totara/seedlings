@@ -1,0 +1,21 @@
+.block_totara_my_learning_nav ul {
+    margin: 0;
+    list-style: none;
+}
+.block_totara_my_learning_nav li {
+    padding: 3px 0;
+}
+.block_totara_my_learning_nav li img.smallicon {
+    padding: 4px 0px 4px 0px;
+}
+.dir-rtl .block_totara_my_learning_nav li img.smallicon {
+    padding: 4px 0px 4px 0px;
+}
+@media screen and (min-width: 980px) {
+    .block_totara_my_learning_nav li img.smallicon {
+        padding: 4px 20px 4px 2px;
+    }
+    .dir-rtl .block_totara_my_learning_nav li img.smallicon {
+        padding: 4px 2px 4px 20px;
+    }
+}

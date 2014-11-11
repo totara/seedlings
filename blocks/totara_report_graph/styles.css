@@ -1,0 +1,14 @@
+/* IE does not work properly with 100% height, so let'd use http://alistapart.com/article/creating-intrinsic-ratios-for-video */
+.ie .rb-block-svggraph {
+    position: relative;
+    padding-bottom: 100%;  /* This is the ration of original svg size 400x400 */
+    height: 0;
+}
+
+.ie .rb-block-svggraph object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

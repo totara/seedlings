@@ -1,0 +1,28 @@
+.block_totara_quicklinks .content ul {
+    margin-left: 0;
+}
+
+.block_totara_quicklinks .content li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    border: 1px solid #e3e3e3;
+    border-top: none;
+    padding: 5px;
+}
+
+.block_totara_quicklinks .content li:first-child {
+    border-top: 1px solid #e3e3e3;
+}
+
+.block_totara_quicklinks .content li.odd {
+    background-color: #f5f5f5;
+}
+
+.block_totara_quicklinks .content .link {
+  border-top:1px solid;
+  border-top-color:#DDDDDD;
+  padding-bottom:5px;
+  font-size:0.82em;
+}

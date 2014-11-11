@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/plan/db" VERSION="20130828" COMMENT="XMLDB file for Moodle totara/plan'"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="dp_template" COMMENT="Templates store configuration options for a group of plans.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="fullname" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="User readable name for this template"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="A shorter name for this template (optional)"/>
+        <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp for when plans based on this template start by default"/>
+        <FIELD NAME="enddate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp for when plans based on this template end by default."/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Field to determine the order of the templates when displayed together"/>
+        <FIELD NAME="visible" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="To allow templates to be hidden"/>
+        <FIELD NAME="workflow" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Current workflow for this template"/>
+        <FIELD NAME="isdefault" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="To indicate if this is the default template"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan" COMMENT="Stores individual plans belonging to users.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="templateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the template used by this plan."/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the user this plan is for"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Name of this development plan"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Description of this development plan"/>
+        <FIELD NAME="startdate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp of the start date of this plan"/>
+        <FIELD NAME="enddate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp of the end date of this plan"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp of the completed date plan"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false" COMMENT="Integer code indicating the state of the plan"/>
+        <FIELD NAME="createdby" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Integer to identify if the plan has been create by an automatic process"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="templateid" TYPE="foreign" FIELDS="templateid" REFTABLE="dp_template" REFFIELDS="id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_permissions" COMMENT="Stores the permission settings for plan templates">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="templateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="ID of the template that this permission setting is for"/>
+        <FIELD NAME="role" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Name of a development plan role, not moodle role."/>
+        <FIELD NAME="component" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Shortname of component this permission is related to. Same as folder name in components or plan if related to the whole plan."/>
+        <FIELD NAME="action" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Shortname of the permission to be set"/>
+        <FIELD NAME="value" TYPE="int" LENGTH="4" NOTNULL="false" SEQUENCE="false" COMMENT="Integer value representing the permission, or null if not set"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpperm_tem_fk" TYPE="foreign" FIELDS="templateid" REFTABLE="dp_template" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_component_settings" COMMENT="Stores the names and component-independent settings for each installed component.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="templateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies which template this component setting is for."/>
+        <FIELD NAME="component" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Shortname of the component"/>
+        <FIELD NAME="enabled" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Controls if this component is available or not"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Controls the ordering of components, used when displaying component tabs."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpcompsett_tem_fk" TYPE="foreign" FIELDS="templateid" REFTABLE="dp_template" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="templateid-component" UNIQUE="true" FIELDS="templateid, component" COMMENT="Prevent a component from being included in a template more than once."/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="dp_course_settings" COMMENT="Contains settings specific to the course component">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="templateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the template these settings should be applied to"/>
+        <FIELD NAME="duedatemode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Defines how due dates are handled by this component"/>
+        <FIELD NAME="prioritymode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Defines how priorities are handled within this component"/>
+        <FIELD NAME="priorityscale" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the scale used by this component"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpcoursett_tem_fk" TYPE="foreign-unique" FIELDS="templateid" REFTABLE="dp_template" REFFIELDS="id"/>
+        <KEY NAME="dpcoursett_pri_fk" TYPE="foreign" FIELDS="priorityscale" REFTABLE="dp_priority_scale" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan_course_assign" COMMENT="Stores courses assigned to a particular plan">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="planid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the plan this course is attached to"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the course being assigned"/>
+        <FIELD NAME="priority" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the priority of this course within the current plan."/>
+        <FIELD NAME="duedate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp of the date this course is due to be completed."/>
+        <FIELD NAME="approved" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Indicates if the course has been accepted as part of a plan, or is awaiting approval."/>
+        <FIELD NAME="reasonfordecision" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The reason for approving/declining the request"/>
+        <FIELD NAME="completionstatus" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Stores the course completion status at the moment the plan is marked as complete. Set to null before the plan is complete."/>
+        <FIELD NAME="grade" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" DECIMALS="5" COMMENT="Stores the course grade at the moment the plan is marked as complete. Set to null for active plans."/>
+        <FIELD NAME="manual" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Was this assignment made manually"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpplancourassi_pla_fk" TYPE="foreign" FIELDS="planid" REFTABLE="dp_plan" REFFIELDS="id"/>
+        <KEY NAME="dpplancourassi_cou_fk" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+        <KEY NAME="dpplancourassi_pri_fk" TYPE="foreign" FIELDS="priority" REFTABLE="dp_priority_scale_value" REFFIELDS="id"/>
+        <KEY NAME="dpplancourassi_com_fk" TYPE="foreign" FIELDS="completionstatus" REFTABLE="course_completions" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="planidcourseid" UNIQUE="true" FIELDS="planid, courseid" COMMENT="Index on courseid. Ensures each course is only shown once per plan."/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="dp_plan_competency_assign" COMMENT="Stores competencies assigned to a particular plan">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="planid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the plan this competency is attached to"/>
+        <FIELD NAME="competencyid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the competency being assigned"/>
+        <FIELD NAME="priority" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the priority of this competency within the current plan."/>
+        <FIELD NAME="duedate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp of the date this competency is due to be completed."/>
+        <FIELD NAME="approved" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Indicates if the competency has been accepted as part of a plan, or is awaiting approval."/>
+        <FIELD NAME="reasonfordecision" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The reason for approving/declining the request"/>
+        <FIELD NAME="scalevalueid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The final id of the proficiency scalevalue. This field is used as a snapshot field, for saving the proficiency, after the plan has been completed"/>
+        <FIELD NAME="manual" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Was this assignment made manually"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpplancompassi_pla_fk" TYPE="foreign" FIELDS="planid" REFTABLE="dp_plan" REFFIELDS="id"/>
+        <KEY NAME="dpplancompassi_com_fk" TYPE="foreign" FIELDS="competencyid" REFTABLE="comp" REFFIELDS="id"/>
+        <KEY NAME="dpplancompassi_pri_fk" TYPE="foreign" FIELDS="priority" REFTABLE="dp_priority_scale_value" REFFIELDS="id"/>
+        <KEY NAME="dpplancompassi_sca_fk" TYPE="foreign" FIELDS="scalevalueid" REFTABLE="comp_scale_values" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="planidcompetencyid" UNIQUE="true" FIELDS="planid, competencyid" COMMENT="Index on competencyid. Ensures each competency is only shown once per plan."/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="dp_competency_settings" COMMENT="Contains settings specific to the competency component">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="templateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the template these settings should be applied to"/>
+        <FIELD NAME="autoassignorg" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="autoassignpos" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="includecompleted" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="autoassigncourses" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Flag to determine if linked courses should also be added when competencies are auto assigned"/>
+        <FIELD NAME="duedatemode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Defines how due dates are handled by this component"/>
+        <FIELD NAME="prioritymode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Defines how priorities are handled within this component"/>
+        <FIELD NAME="priorityscale" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the scale used by this component"/>
+        <FIELD NAME="autoadddefaultevidence" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpcompsett_tem_fk" TYPE="foreign-unique" FIELDS="templateid" REFTABLE="dp_template" REFFIELDS="id"/>
+        <KEY NAME="dpcompsett_pri_fk" TYPE="foreign" FIELDS="priorityscale" REFTABLE="dp_priority_scale" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_priority_scale" COMMENT="Contains priority scales for development plans">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Defines the name of the priority scale"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Description of the priority scale"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the last time this scale was modified"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the id of the user who last modified the priority scale"/>
+        <FIELD NAME="defaultid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the id of the default scale value"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpprioscal_def_fk" TYPE="foreign" FIELDS="defaultid" REFTABLE="dp_priority_scale_value" REFFIELDS="id"/>
+        <KEY NAME="dpprioscal_use_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_priority_scale_value" COMMENT="Scale values for development plan priority scales">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Name for scale value"/>
+        <FIELD NAME="idnumber" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies a value that can be given to a scale value"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Description of the scale value"/>
+        <FIELD NAME="priorityscaleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the priority scale that a value belongs to"/>
+        <FIELD NAME="numericscore" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" DECIMALS="5"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the order scale values appear in"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the last time a scale value was modified"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the id of the user who last modified the scale value"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpprioscalvalu_use_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="dpprioscalvalu_pri_fk" TYPE="foreign" FIELDS="priorityscaleid" REFTABLE="dp_priority_scale" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_objective_scale" COMMENT="Contains objective scales for development plans">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Name of the objective scale"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Description of the objective scale"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the last time the objective scale was modified"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the id of the user who last modified the objective scale"/>
+        <FIELD NAME="defaultid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the id of the default scale value"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpobjescal_use_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="dpobjescal_def_fk" TYPE="foreign" FIELDS="defaultid" REFTABLE="dp_objective_scale_value" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_objective_scale_value" COMMENT="Objective Scale values for development plan priority scales">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="objscaleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the objective scale id this value belongs to"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Name of the scale value"/>
+        <FIELD NAME="idnumber" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Defines a id that can be assigned to a scale value"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The description of the scale value"/>
+        <FIELD NAME="numericscore" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" DECIMALS="5" COMMENT="Identifies a score that can be assigned to a scale value"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Defines the order of the priority scale values"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the last time this scale value was modified"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the id of the user who last modified the scale value"/>
+        <FIELD NAME="achieved" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Identifies if this scale value is an achieved value"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpobjescalvalu_obj_fk" TYPE="foreign" FIELDS="objscaleid" REFTABLE="dp_objective_scale" REFFIELDS="id"/>
+        <KEY NAME="dpobjescalvalu_use_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan_history" COMMENT="A table for tracking and recording modifications to a related dp_plan">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="planid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The related plan's id"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="The plan's status"/>
+        <FIELD NAME="reason" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false" COMMENT="The reason for the status change"/>
+        <FIELD NAME="reasonfordecision" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The reason for approving/declining the request"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Modification time"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="The id of the user who made the modification"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpplanhist_pla_fk" TYPE="foreign" FIELDS="planid" REFTABLE="dp_plan" REFFIELDS="id"/>
+        <KEY NAME="dpplanhist_use_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan_component_relation" COMMENT="Provides a way to link together items from different components within a plan">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="component1" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="The first component in the relation - first alphabetically"/>
+        <FIELD NAME="itemid1" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifier for the first component in the relation"/>
+        <FIELD NAME="component2" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="The second component in the relation - second alphabetically"/>
+        <FIELD NAME="itemid2" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the second item in the relation"/>
+        <FIELD NAME="mandatory" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Is this a manadatory relation"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan_evidence" COMMENT="Contains user evidence in the record of learning">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Name for this item of evidence"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Description of this item of evidence"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp indicating when this evidence item was created"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp indicating when this evidence item was last modified"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the user who last modified this item of evidence"/>
+        <FIELD NAME="evidencetypeid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Integer representing the type of this evidence item"/>
+        <FIELD NAME="evidencelink" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="institution" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="datecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="User whose evidence this is"/>
+        <FIELD NAME="readonly" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="evidencetypeid" TYPE="foreign" FIELDS="evidencetypeid" REFTABLE="dp_evidence_type" REFFIELDS="id"/>
+        <KEY NAME="dpplanevid_user_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="dpplanevid_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_objective_settings" COMMENT="Settings for a template's objectives">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="templateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="duedatemode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="prioritymode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="priorityscale" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="objectivescale" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpobjesett_tem_fk" TYPE="foreign" FIELDS="templateid" REFTABLE="dp_template" REFFIELDS="id"/>
+        <KEY NAME="dpobjesett_pri_fk" TYPE="foreign" FIELDS="priorityscale" REFTABLE="dp_priority_scale" REFFIELDS="id"/>
+        <KEY NAME="dpobjesett_obj_fk" TYPE="foreign" FIELDS="objectivescale" REFTABLE="dp_objective_scale" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan_objective" COMMENT="One row for each objective in a plan">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="planid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="fullname" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="priority" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="duedate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="scalevalueid" TYPE="int" LENGTH="4" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="approved" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="reasonfordecision" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The reason for approving/declining the request"/>
+        <FIELD NAME="manual" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Was this assignment made manually"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpplanobje_pla_fk" TYPE="foreign" FIELDS="planid" REFTABLE="dp_plan" REFFIELDS="id"/>
+        <KEY NAME="dpplanobje_pri_fk" TYPE="foreign" FIELDS="priority" REFTABLE="dp_priority_scale_value" REFFIELDS="id"/>
+        <KEY NAME="dpplanobje_sca_fk" TYPE="foreign" FIELDS="scalevalueid" REFTABLE="dp_objective_scale_value" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan_settings" COMMENT="Contains settings for the plan">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="templateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the template these settings should be applied to"/>
+        <FIELD NAME="manualcomplete" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Flag to identify if a plan must be completed manually"/>
+        <FIELD NAME="autobyitems" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Flag to identify if a plan should autocomplete when all items have been completed"/>
+        <FIELD NAME="autobyplandate" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Flag to identify if a plan should autocomplete when due date has passed"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpplansett_tem_fk" TYPE="foreign-unique" FIELDS="templateid" REFTABLE="dp_template" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan_program_assign" COMMENT="Stores program assigned to a particular plan">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="planid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the plan this program is attached to"/>
+        <FIELD NAME="programid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the program being assigned"/>
+        <FIELD NAME="priority" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the priority of this program within the current plan."/>
+        <FIELD NAME="duedate" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Timestamp of the date this program is due to be completed."/>
+        <FIELD NAME="approved" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Indicates if the program has been accepted as part of a plan, or is awaiting approval."/>
+        <FIELD NAME="reasonfordecision" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The reason for approving/declining the request"/>
+        <FIELD NAME="manual" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Was this assignment made manually"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpplanprogassi_pla_fk" TYPE="foreign" FIELDS="planid" REFTABLE="dp_plan" REFFIELDS="id"/>
+        <KEY NAME="dpplanprogassi_pro_fk" TYPE="foreign" FIELDS="programid" REFTABLE="prog" REFFIELDS="id"/>
+        <KEY NAME="dpplanprogassi_pri_fk" TYPE="foreign" FIELDS="priority" REFTABLE="dp_priority_scale_value" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="planidprogramid" UNIQUE="true" FIELDS="planid, programid" COMMENT="Index on programid. Ensures each program is only shown once per plan."/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="dp_program_settings" COMMENT="Contains settings specific to the program component">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="templateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifies the template these settings should be applied to"/>
+        <FIELD NAME="duedatemode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Defines how due dates are handled by this component"/>
+        <FIELD NAME="prioritymode" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Defines how priorities are handled within this component"/>
+        <FIELD NAME="priorityscale" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Identifies the scale used by this component"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpprogsett_tem_fk" TYPE="foreign-unique" FIELDS="templateid" REFTABLE="dp_template" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_evidence_type" COMMENT="Table to store evidence type menu">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="dpevidtype_use_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="dp_plan_evidence_relation" COMMENT="Related courses / objectives / competencies">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="evidenceid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Evidence ID from dp_plan_evidence"/>
+        <FIELD NAME="planid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Plan ID from dp_plan"/>
+        <FIELD NAME="component" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="component name - competency, objective, course"/>
+        <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Component ID"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="evidenceid" TYPE="foreign" FIELDS="evidenceid" REFTABLE="dp_plan_evidence" REFFIELDS="id"/>
+        <KEY NAME="planid" TYPE="foreign" FIELDS="planid" REFTABLE="dp_plan" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="component" UNIQUE="false" FIELDS="planid, component, itemid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

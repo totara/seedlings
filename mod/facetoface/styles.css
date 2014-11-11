@@ -1,0 +1,106 @@
+.f2fsessiongroup {
+    padding-bottom: 10px;
+}
+.f2fsession {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+.f2fsession:last-child {
+    border-bottom: none;
+}
+.f2fsessiontime {
+    width: 80%;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 5px;
+}
+.f2finprogress .f2fsessiontime {
+    width: 100%;
+}
+.f2foptions {
+    width: 20%;
+    display: inline-block;
+    min-width: 60px;
+}
+.f2fsessionlinks,
+.f2fsessionnotice {
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 14px;
+    display: block;
+    padding: 3px;
+}
+.f2factivityname {
+    line-height:1.5;
+}
+.facetoface .mod-indent-outer {
+    display: block;
+}
+span.errorstring {
+    font-size: 12px;
+    line-height: 18px;
+}
+
+body#page-mod-facetoface-view div#page-content table.sessions {
+    width: 100%;
+}
+
+body.path-mod-facetoface table.mod-facetoface-room-list {
+    width: 100%;
+}
+
+body.path-mod-facetoface table.mod-facetoface-notification-template-list {
+    width: 100%;
+}
+
+body.path-mod-facetoface table.mod-facetoface-attendees {
+    width: 100%;
+}
+
+body.path-mod-facetoface div.f2f-button {
+    float: left;
+}
+
+body.path-mod-facetoface div#fgroup_id_recipients input[id*="id_booked_type"] {
+    margin-left: 15px;
+}
+
+input.cellwidth {
+    width: 90% !important;
+}
+div.mod-indent form.togglecompletion input[type="image"] {
+    left: -13px;
+}
+.dir-rtl div.mod-indent form.togglecompletion input[type="image"] {
+    right: -5px;
+}
+
+/* modal dialogs */
+.path-admin-mod-facetoface.yui3-skin-sam .yui3-panel-content,
+.path-mod-facetoface.yui3-skin-sam .yui3-panel-content {
+    border: none;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.path-admin-mod-facetoface.yui3-skin-sam .yui3-panel-content .yui3-widget-hd,
+.path-mod-facetoface.yui3-skin-sam .yui3-panel-content .yui3-widget-hd {
+    background: #f5f5f5;
+    color: #444444;
+    font-weight: bold;
+}
+
+.path-admin-mod-facetoface.yui3-skin-sam .yui3-panel-content .yui3-widget-hd,
+.path-admin-mod-facetoface.yui3-skin-sam .yui3-panel-content .yui3-widget-bd,
+.path-mod-facetoface.yui3-skin-sam .yui3-panel-content .yui3-widget-hd,
+.path-mod-facetoface.yui3-skin-sam .yui3-panel-content .yui3-widget-bd {
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.path-admin-mod-facetoface.yui3-skin-sam .yui3-panel .yui3-widget-ft,
+.path-mod-facetoface.yui3-skin-sam .yui3-panel .yui3-widget-ft {
+    background: none;
+}

@@ -1,0 +1,619 @@
+/*
+ * This file is part of Totara LMS
+ *
+ * Copyright (C) 2010 onwards Totara Learning Solutions LTD
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author Simon Coggins <simon.coggins@totaralms.com>
+ * @package totara
+ * @subpackage totara_core
+ *
+ *
+ * This stylesheet is for layout and *very* basic styling for *general* Totara-specific
+ * elements. For styles that are specific to a particular module, use
+ * totara/[modname]/style.css instead.
+ *
+ * Any styles in here should be suitable for displaying in the 'base' theme.
+ * Additional styling (e.g. colours etc) should go in the Totara theme
+ *
+ * Make sure you comment each section to clearly indicate where it is used
+ */
+
+/* Class for full width content */
+.fullwidth {
+    width: 100%;
+}
+
+/* Override help link size */
+.helplink img {
+    height: 14px;
+    width: 14px;
+    /* offset image out of sight - only needed to preload hover state */
+    background: url([[pix:moodle|help-hover]]) 100 100 no-repeat;
+}
+
+/* Notification message box */
+.notifymessage {
+    border: 1px solid black;
+    background-color: #ffc;
+    padding: 10px;
+}
+
+
+/**
+ * Totara toolbar - used by lib/totaratablelib.php
+ */
+.totaratable .toolbar {
+    background-color: #f3f3f3;
+    padding: 0px 0px;
+}
+.totaratable .toolbar-left-table,
+.totaratable .toolbar-right-table {
+    margin: 0px;
+}
+.totaratable .toolbar-cell {
+    border: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    padding: 4px;
+    display: inline-block;
+}
+
+/* Align the toolbar items, swapping sides in RTL languages */
+.totaratable .toolbar-left-table {
+    float: left;
+}
+.totaratable .toolbar-right-table {
+    float: right;
+}
+body.dir-rtl .totaratable .toolbar-left-table {
+    float: right;
+}
+body.dir-rtl .totaratable .toolbar-right-table {
+    float: left;
+}
+
+/* modify borders to make toolbars look like a single row */
+.totaratable .toolbar-top td.toolbar,
+.totaratable .toolbar-bottom td.toolbar {
+    border-bottom: none;
+    border-top: none;
+}
+.totaratable .toolbar-top.first td.toolbar,
+.totaratable .toolbar-bottom.first td.toolbar {
+    border-top: 1px solid #ddd;
+}
+.totaratable .toolbar-top.last td.toolbar,
+.totaratable .toolbar-bottom.last td.toolbar {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Reduce the margin for paging bars inside the toolbar */
+.totaratable .paging {
+    margin: 0px;
+}
+
+/* Message displayed if there are no records to show */
+.totaratable .norecords {
+    padding: 20px;
+    text-align: center;
+}
+
+/*******************************************************************************
+ * Totara Dialog styles & jQuery UI skin overrides
+ ******************************************************************************/
+#ui-widget-overlay {
+    /* actually the underlay */
+    opacity: 0.5;
+}
+
+div.totara-dialog {
+    overflow:visible !important;
+    border: 1px solid #DDDDDD;
+    padding: 0.5em;
+
+}
+    div.totara-dialog div.ui-dialog-titlebar {
+        overflow: visible;
+        position: relative;
+    }
+    div.totara-dialog div.ui-dialog-content {
+        overflow: auto;
+    }
+    div.totara-dialog div.ui-dialog-content table.dialog-content {
+        height: 100%;
+        margin-bottom: 0; /* avoids scrollbars due to default margin applied to tables */
+        width: 100%;
+    }
+        /* Treeview and Select table cell */
+        div.totara-dialog div.ui-dialog-content table.dialog-content td.select {
+            padding-right: 10px;
+            vertical-align: top;
+            width: 70%;
+        }
+        div.totara-dialog div.ui-dialog-content .header p {
+            margin:0 0 5px 0;
+            font-weight:bold;
+        }
+        div.totara-dialog td.select div#dialog-tabs {
+            border: medium none;
+            height: 37px;
+            width: 100%;
+        }
+            div.totara-dialog td.select div#dialog-tabs ul.ui-tabs-nav {
+                margin: 0 0 10px;
+                padding: 0;
+            }
+            div.totara-dialog td.select #search-tab,
+            div.totara-dialog td.select #browse-tab {
+                border: medium none;
+            }
+            div.totara-dialog td.select #search-tab fieldset {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+                div.totara-dialog td.select #search-tab form.mform {
+                    width: 100%;
+                }
+                    div.totara-dialog td.select select {
+                        width:100%;
+                    }
+                    div.totara-dialog td.select select,
+                    div.totara-dialog td.select #search-tab fieldset input,
+                    div.totara-dialog td.select #search-tab fieldset select,
+                    div.totara-dialog td.select #search-tab fieldset button {
+                        font-size: 0.85em;
+                    }
+
+            div.totara-dialog div.treeview-wrapper,
+            div.totara-dialog div#column-checkboxes {
+                margin-top: 5px;
+            }
+                div.totara-dialog ul.treeview li {
+                    min-height:16px;
+                    padding-top: 2px;
+                    font-size: 13px;
+                }
+                div.totara-dialog ul.treeview li span a {
+                    margin:0 5px;
+                    display:block;
+                }
+                div.totara-dialog ul.treeview li span.empty a {
+                    display:inline;
+                    margin:0;
+                }
+                div.totara-dialog ul.treeview li span.unclickable,
+                div.totara-dialog ul.treeview li span.unclickable a,
+                div.totara-dialog .selected span.unremovable a {
+                    color: #777777;
+                    cursor: text;
+                    text-decoration: none;
+                }
+                    div.totara-dialog ul.treeview span.deletebutton {
+                        display: none;
+                    }
+                div.totara-dialog .selected span.unremovable span.deletebutton,
+                div.totara-dialog .selected span.unremovable span.addbutton {
+                    background:none;
+                }
+
+        /* table cell containing results from td.select operations */
+        div.totara-dialog table.dialog-content td.selected {
+            border-left: 1px solid #CCCCCC;
+            padding-left: 10px;
+            vertical-align: top;
+            width: 30%;
+        }
+
+    div.totara-dialog .selected div.treeview-selected-item {
+        display: none !important;
+    }
+
+        div.totara-dialog .selected span {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 10px;
+            overflow: auto;
+            width: 100%;
+            word-break:break-all;
+        }
+            div.totara-dialog .selected span a {
+                cursor: text;
+                display: block;
+                float: left;
+                text-decoration: none;
+                width: 80%;
+                outline:none;
+                word-break:normal ;
+            }
+            div.totara-dialog .selected span span.addbutton,
+            div.totara-dialog .selected span span.deletebutton {
+                background: none repeat scroll 0 0 transparent;
+                cursor: pointer;
+                float: right;
+                display: inline; /* IE margin-doubling fix */
+                margin: 0;
+                overflow: hidden;
+                text-indent: -999px;
+                width: 10%;
+            }
+            /* Handle hovers */
+            div.totara-dialog .selected span:hover span.deletebutton {
+                background-image: url([[pix:totara_core|jquery_ui_dialog/ui-icons_000000_256x240]]);
+                background-position:-80px -128px;
+                background-repeat: no-repeat;
+            }
+            div.totara-dialog .selected span:hover span.addbutton {
+                background-image: url([[pix:moodle|t/add]]);
+                background-position: right center;
+                background-repeat: no-repeat;
+            }
+        div.totara-dialog .selected p {
+            font-weight: bold;
+            margin-bottom:10px;
+            padding:0;
+        }
+
+/* Dialog buttons */
+div.ui-dialog .ui-dialog-buttonpane button {
+    cursor: pointer;
+}
+
+
+/* Misc Dialog parts */
+div.ui-dialog .totara-msgs-action-left {
+    width:15%;
+    font-weight:bold;
+    padding-right:10px;
+    text-align:right;
+    vertical-align:top;
+}
+div.ui-dialog .totara-msgs-action-right {
+    vertical-align:top;
+}
+
+/* Make none JS links look more like buttons */
+a.noscript-button {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #999;
+    background: #eee;
+    display: block;
+    width: 150px;
+    float: left;
+    text-align: center;
+}
+
+/* button for removing Positions once added by dialog */
+.dialog-singleselect-deletable {
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 0 0 2px;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    padding: 2px 0px;
+    width: 20px;
+    background: transparent url([[pix:moodle|t/delete]]) 2px 3px no-repeat;
+}
+
+/* fix for add competency display width */
+#hierarchy-type-competency-evidence-add #mform1 {
+    width: 95%;
+}
+
+/** Competencies lightbox styling **/
+#evidence #available-evidence {
+    width: 40%;
+    border-left: 1px solid #ccc;
+    overflow: auto;
+    padding-left: 10px;
+}
+
+#evidence #available-evidence h3 {
+    margin: 0 0 0.5em;
+}
+
+#evidence #available-evidence ul {
+    font-size: 0.8em;
+    margin: 0.25em 0 1em;
+    list-style: none;
+    padding: 0;
+}
+
+#evidence #available-evidence ul li {
+    font-size: 1em;
+    padding-bottom: 0.25em;
+}
+
+/*******************************************************************************
+ * jQuery Datepicker UI skin overrides
+ ******************************************************************************/
+/* Invert element order without affecting position of Datepicker element */
+.dir-rtl input.hasDatepicker {
+    float:right;
+}
+
+/*******************************************************************************
+ * jQuery Treeview widget
+ ******************************************************************************/
+.treeview, .treeview ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.treeview ul {
+    background-color: white;
+    margin-top: 4px;
+}
+
+.treeview .hitarea {
+    background: url([[pix:totara_core|jquery_treeview/treeview-default]]) -64px -24px no-repeat;
+    height: 16px;
+    width: 16px;
+    margin-left: -16px;
+    float: left;
+    cursor: pointer;
+}
+/* fix for IE6 */
+* html .hitarea {
+    display: inline;
+    float:none;
+}
+
+.treeview li {
+    margin: 0;
+    padding: 3px 0pt 3px 16px;
+}
+
+.treeview a.selected {
+    background-color: #eee;
+}
+
+#treecontrol { margin: 1em 0; display: none; }
+
+.treeview li { background: url([[pix:totara_core|jquery_treeview/treeview-default-line]]) 0 0 no-repeat; }
+.treeview li.collapsable, .treeview li.expandable { background-position: 0 -176px; }
+
+.treeview .expandable-hitarea { background-position: -80px -2px; }
+
+.treeview li.last { background-position: 0 -1766px }
+.treeview li.lastCollapsable, .treeview li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-default]]); }
+.treeview li.lastCollapsable { background-position: 0 -111px }
+.treeview li.lastExpandable { background-position: -32px -67px }
+
+.treeview div.lastCollapsable-hitarea, .treeview div.lastExpandable-hitarea { background-position: 0; }
+
+.treeview-red li { background-image: url([[pix:totara_core|jquery_treeview/treeview-red-line]]); }
+.treeview-red .hitarea, .treeview-red li.lastCollapsable, .treeview-red li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-red]]); }
+
+.treeview-black li { background-image: url([[pix:totara_core|jquery_treeview/treeview-black-line]]); }
+.treeview-black .hitarea, .treeview-black li.lastCollapsable, .treeview-black li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-black]]); }
+
+.treeview-gray li { background-image: url([[pix:totara_core|jquery_treeview/treeview-gray-line]]); }
+.treeview-gray .hitarea, .treeview-gray li.lastCollapsable, .treeview-gray li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-gray]]); }
+
+.treeview-famfamfam li { background-image: url([[pix:totara_core|jquery_treeview/treeview-famfamfam-line]]); }
+.treeview-famfamfam .hitarea, .treeview-famfamfam li.lastCollapsable, .treeview-famfamfam li.lastExpandable { background-image: url([[pix:totara_core|jquery_treeview/treeview-famfamfam]]); }
+
+.filetree li { padding: 3px 0 2px 16px; }
+.filetree li { padding: 0 0 0 16px; }
+.filetree span.folder, .filetree span.file { padding: 1px 0 1px 16px; display: block; }
+.filetree span.folder { background: url([[pix:totara_core|jquery_treeview/folder]]) 0 0 no-repeat; }
+.filetree li.expandable span.folder { background: url([[pix:totara_core|jquery_treeview/folder-closed]]) 0 0 no-repeat; }
+.filetree span.file { background: url([[pix:totara_core|jquery_treeview/file]]) 0 0 no-repeat; }
+
+
+/*****************************************************************************
+ * Comments
+ *****************************************************************************/
+
+/* display comment count on top of speech bubble image */
+a.comments-icon-some,
+a.comments-icon-none {
+    display: block;
+    width: 27px;
+    height: 25px;
+    padding: 0px;
+    text-align: center;
+    line-height: 21px;
+}
+
+a.comments-icon-some {
+    background-image: url([[pix:totara_core|t/comments]]);
+}
+
+a.comments-icon-none {
+    background-image: url([[pix:totara_core|t/comments-none]]);
+}
+
+.comment-list li {
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+ul.comment-list .comment-list li .comment-content {
+    border: 1px solid #099;
+}
+
+.comments-master-container div.comment-area {
+    margin-left: 27px;
+}
+
+ul.comment-list li.comment-own-post .comment-content {
+    border: medium none;
+    margin: 0 30px 0 29px;
+    border: 1px solid #c2e3eb ;
+    border-radius: 4px 4px 4px 4px;
+    background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.09, #D4EBF1),
+    color-stop(0.93, #EAF5F8)
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        #D4EBF1 9%,
+        #EAF5F8 93%
+    );
+    padding: 5px 8px;
+    max-width: 551px;
+    background-color: #e5f4f7;
+    position: relative;
+
+}
+
+ul.comment-list li.comment-own-post,
+ul.comment-list li.comment-others-post {
+    max-width: 628px;
+    background: none;
+}
+
+ul.comment-list li.comment-others-post .comment-content {
+    border: medium none;
+    position: relative;
+    margin: 0 30px 0 29px;
+    max-width: 551px;
+    position: relative;
+    border: 1px solid #d3d3d3;
+    border-radius: 4px 4px 4px 4px;
+    background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.06, #E2E2E2),
+    color-stop(0.73, #F8F8F8)
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        #E2E2E2 6%,
+        #F8F8F8 73%
+    );
+    padding: 5px 8px;
+    background-color: #f7f7f7;
+
+
+}
+
+ul.comment-list li.comment-others-post .comment-userpicture {
+    background: url([[pix:totara_core|comment-point-grey]]) no-repeat scroll left center transparent;
+    float: right;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 4px;
+    width: 31px;
+    height: 20px;
+    z-index: 99;
+}
+
+ul.comment-list li.comment-own-post .comment-userpicture {
+    background: url([[pix:totara_core|comment-point-blue]]) no-repeat scroll right center transparent;
+    float: left;
+    position: absolute;
+    left: 0;
+    text-align: left;
+    top: 4px;
+    width: 30px;
+    z-index: 99;
+}
+
+ul.comment-list li .comment-delete {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+
+.comment-ctrl {font-size: 12px;display: none;margin:0;padding:0;}
+.comment-ctrl h5 {margin:0;padding: 5px;}
+.comment-area {max-width: 400px;padding: 5px;margin-left: 27px;}
+.comment-area textarea {width:100%;overflow:auto;}
+.comment-area .fd {text-align:right;}
+.comment-meta span {color:gray;}
+.comment-list {font-size: 11px;overflow:auto;list-style:none;padding:0;margin:0;}
+.comment-list li {margin: 2px;list-style:none;margin-bottom:5px;clear:both;background-color:#F6FAC8;}
+.comment-list li.first {display:none}
+.comment-list .comment-userpicture img {
+    width: 18px;
+    height: 18px;
+}
+.comment-paging{text-align:center;}
+.comment-paging .pageno{padding:2px;}
+.comment-paging .curpage{border:1px solid #CCC;}
+.comment-userpicture {width: 20px;float:left;}
+.comment-content {margin-left: 22px;}
+.comment-content div {margin:0;padding:0;}
+.comment-content p {padding:0;margin:0 20px 0 0; display: inline;}
+.comment-content a {font-weight:bold;}
+.comment-content .comment-datetime {color:gray; padding: 3px 0px;}
+.comment-delete {float:right;text-align:right;}
+.comment-delete-confirm {background: #eee; padding: 1px; width: 12em;text-align:center;}
+.comment-delete-confirm a {padding: 0px 3px;}
+.comment-container {float:left;margin: 4px;}
+.comment-report-selectall{display:none}
+.comment-link {display:none}
+.jsenabled .comment-link {display:block}
+.jsenabled .showcommentsnonjs{display:none}
+.jsenabled .comment-report-selectall{display:inline}
+
+/* Fix for T-9945
+ * https://bugs.totaralms.com/show_bug.cgi?id=9945
+ * Removed default padding of .5em
+ * from /lib/yui/3.4.1/build/cssbase/cssbase.css
+ * and /lib/yui/3.4.1/build/cssbase/cssbase-min.css
+ * and added padding to the classes below
+ */
+ /* Standard table classes from the element library */
+.generaltable td,
+.generaltable th,
+.flexible td,
+.flexible th,
+.boxaligncenter td,
+.boxaligncenter th,
+.fullwidth td,
+.fullwidth th,
+.cell td,
+.cell th,
+.centerblock td,
+.centerblock th,
+/* Other table/cell classes found in the base styles with no padding */
+.ratingtable td,
+.ratingtable th,
+.notifytiny td,
+.category_subcategories td,
+.category_subcategories th,
+.formtable td,
+.formtable th,
+.logtable td,
+.logtable th,
+.gradetreebox td,
+.gradetreebox th,
+.incompatibleblockstable td,
+.incompatibleblockstable th,
+.groupmanagementtable td,
+.groupmanagementtable th
+{
+    padding:.5em;
+}
+/* End of fix for T-9945 */
+
+
+#page-admin-tool-totara_sync-admin-sourcesettings .db_connect_message {
+    display: inline;
+}

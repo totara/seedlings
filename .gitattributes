@@ -1,0 +1,5 @@
+# This file lists files/directories that are not included in Totara packages built by git-archive
+/build export-ignore
+/cucumber.yml export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore

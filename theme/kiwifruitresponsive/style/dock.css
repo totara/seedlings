@@ -1,0 +1,96 @@
+/**
+ * Docking
+**/
+
+body.has_dock {
+    margin:0;
+}
+body.has_dock #page-content-wrapper {
+    padding:0 0 0 0;
+}
+.dir-ltr body.has_dock #page-content-wrapper {
+    border-left:30px solid #FFFFFF
+}
+.dir-rtl body.has_dock #page-content-wrapper {
+    border-right:30px solid #FFFFFF
+}
+body.has_dock #page,
+body.has_dock #page-footer {
+    padding-left: 30px;
+}
+#dock,
+.dir-rtl #dock {
+    position: absolute;
+    z-index:100;
+    background:#FFFFFF;
+    border:none;
+    top:87px;
+    bottom: 0;
+}
+#dock.dock-fixed {
+    position: fixed;
+    top: 0;
+}
+#dock .controls {
+    bottom:12px;
+    position:fixed;
+    padding:0.3em 0;
+    background:transparent url([[pix:theme|dock-to-block-bg]]) no-repeat center center;
+    left: 2px;
+    width: 25px;
+}
+.dir-rtl #dock .controls {
+    right: 2px;
+    left: 0;
+}
+#dock .controls img {
+    vertical-align: initial;
+}
+#dock .dockeditem_container {
+    padding-top: 0;
+    margin: 0;
+}
+#dock .dockeditem {
+    padding:0;
+}
+#dockeditempanel {
+    z-index:100;
+    min-width:250px;
+    border:none;
+}
+#dockeditempanel .dockeditempanel_content {
+    border:none;
+    background:#FFF;
+}
+#dock .dockeditem .dockedtitle,
+#dock .dockeditem .dockedtitle.activeitem {
+    color:#9c9b9b;
+    border:none;
+    border-bottom:1px solid #C4C0C0;
+    border-radius: 0;
+    margin: 0;
+}
+#dock .dockeditem .dockedtitle h2 {
+    font-size:0.9em;
+    color:#9c9b9b;
+    background-color: transparent;
+    margin-bottom: 0;
+}
+#dock .dockeditem .dockedtitle.activeitem,
+#dock .dockeditem .dockedtitle.activeitem h2 {
+    background:#F6F6F1;
+}
+#dock .dockeditem .dockedtitle h2 svg {
+    color:#9c9b9b;
+}
+#dock .dockeditempanel_hd {
+    border:none;
+    background:#FFFFFF;
+}
+#dock .dockeditempanel_hd .hidepanelicon {
+    display:none;
+}
+
+#dockeditempanel .dockeditempanel_hd h2 {
+    background-color: transparent;
+}

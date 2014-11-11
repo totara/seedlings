@@ -1,0 +1,10 @@
+{
+    "name": "moodle-totara_reportbuilder-graphicalreporting",
+    "builds": {
+        "moodle-totara_reportbuilder-graphicalreporting": {
+            "jsfiles": [
+                "graphicalreporting.js"
+            ]
+        }
+    }
+}

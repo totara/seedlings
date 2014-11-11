@@ -1,0 +1,7 @@
+/** Question **/
+#qtypechoicecontainer #chooseqtype .qtypes {
+    border-bottom-color: #AAA;
+}
+#qtypechoicecontainer #chooseqtype .qtypesummary {
+    border-left-color: #AAA;
+}

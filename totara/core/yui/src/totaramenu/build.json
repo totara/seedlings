@@ -1,0 +1,10 @@
+{
+    "name": "moodle-totara_core-totaramenu",
+    "builds": {
+        "moodle-totara_core-totaramenu": {
+            "jsfiles": [
+                "totaramenu.js"
+            ]
+        }
+    }
+}

@@ -1,0 +1,46 @@
+UPGRADING A TOTARA SITE
+=======================
+
+These instructions detail the process for upgrading a Totara site to the latest
+point release version. For upgrading a Moodle site see MOODLEUPGRADE.txt.
+
+New requirements in Totara 2.7:
+
+* PHP version 5.4.4 required.
+* PHP zlib and OPcache modules now recommended.
+* MSSQL only: Database user requires additional permissions: ALTER SETTINGS(SERVER)
+* MariaDB 5.5.31 now required (was 5.3.5 in Totara 2.6).
+
+NOTE: To upgrade to Totara 2.7 you must be on Totara 2.2.22 or later. If your version
+    is earlier than 2.2.22 the upgrade will not run. Versions of Totara prior to 2.2 must first
+    upgrade to 2.2 via Totara 1.1.17+, then to at least 2.2.22, before upgrading to 2.7
+
+For more information see http://docs.moodle.org/en/Upgrading
+
+1.  Check the live logs to check if any users are currently using the site.
+    The site will be offline while the upgrades are performed.
+    Reports -> Live Logs
+
+2.  Enable maintenance mode in Totara.
+    Server -> Maintenance Mode
+
+3.  Backup the Totara database.
+
+4.  Backup the site data directory.
+
+5.  Backup the Totara source code directory.
+
+6.  Remove the old source code, and extract the new source code into the source code directory.
+    Note: Do not copy the new code on top of the existing code folder.
+
+7.  Navigate to the admin/index.php page. The upgrade process will
+    automatically start.
+
+8. Check for Warnings or Errors on the upgrade review page.
+
+9. Edit new settings page if required.
+
+10. Disable server maintenance mode.
+
+11. Congratulations, your site is now upgraded. Read CHANGELOG.php for details on what is new.
+

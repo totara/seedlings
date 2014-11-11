@@ -1,0 +1,8 @@
+.dir-rtl .block_totara_certifications .name {
+    float: right;
+}
+
+.block_totara_certifications ul {
+    list-style-type: none;
+    margin: 0;
+}

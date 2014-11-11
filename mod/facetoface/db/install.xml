@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/facetoface/db" VERSION="20131114" COMMENT="XMLDB file for Moodle mod/facetoface"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="facetoface" COMMENT="Each facetoface activity has an entry here">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="id of the table, please edit me"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="intro" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" COMMENT="intro"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="2" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="introformat"/>
+        <FIELD NAME="thirdparty" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="email address of a third party involved in this activity"/>
+        <FIELD NAME="thirdpartywaitlist" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Set to 1 if the third party wants to receive signups/cancellations about wait-listed sessions, 0 otherwise."/>
+        <FIELD NAME="display" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="32" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="showoncalendar" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="approvalreqd" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usercalentry" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="multiplesessions" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completionstatusrequired" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="managerreserve" TYPE="int" LENGTH="4" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="Can managers make reservations/bookings on behalf of their team"/>
+        <FIELD NAME="maxmanagerreserves" TYPE="int" LENGTH="7" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="How many reservations can each manager make"/>
+        <FIELD NAME="reservecanceldays" TYPE="int" LENGTH="7" NOTNULL="false" DEFAULT="1" SEQUENCE="false" COMMENT="Number days before the session when all unconfirmed reservations are deleted"/>
+        <FIELD NAME="reservedays" TYPE="int" LENGTH="7" NOTNULL="false" DEFAULT="2" SEQUENCE="false" COMMENT="Number days before the session when reservations are closed"/>
+        <FIELD NAME="selfapprovaltandc" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false" COMMENT="Terms and conditions to display when to users when self approval is enabled"/>
+        <FIELD NAME="declareinterest" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Allow users to declare interest in the facetoface"/>
+        <FIELD NAME="interestonlyiffull" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"  COMMENT="Only allow users to declare interest if all sessions are full"/>
+        <FIELD NAME="allowcancellationsdefault" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="selectpositiononsignup" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Users with multiple positions will select one on signup"/>
+        <FIELD NAME="forceselectposition" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Error if no suitable position is available when signing up"/>
+        <FIELD NAME="allowsignupnotedefault" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Allow 'User sign-up note' default"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="Primary key for facetoface"/>
+        <KEY NAME="face_cou_fk" TYPE="foreign" FIELDS="course" REFTABLE="course" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_session_roles" COMMENT="Users with a trainer role in a facetoface session">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="id of the table"/>
+        <FIELD NAME="sessionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="roleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="sessionid" TYPE="foreign" FIELDS="sessionid" REFTABLE="facetoface_sessions" REFFIELDS="id"/>
+        <KEY NAME="facesessrole_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_sessions" COMMENT="A given facetoface activity may be given at different times and places">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="id of the table, please edit me"/>
+        <FIELD NAME="facetoface" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="ID of the facetoface activity this session is for"/>
+        <FIELD NAME="capacity" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Number of students who can enroll in this session. A value of 0 means unlimited."/>
+        <FIELD NAME="allowoverbook" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Flag to turn on waitlisting of signups over capacity."/>
+        <FIELD NAME="waitlisteveryone" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Will everyone be added to the waiting list"/>
+        <FIELD NAME="details" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" COMMENT="Extra information about this session"/>
+        <FIELD NAME="datetimeknown" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="A value of 0 means that the date and time are unknown whereas a value of 1 means that both are known."/>
+        <FIELD NAME="duration" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Total duration (in minutes) of the session.  A session may be split across multiple dates, this is the total."/>
+        <FIELD NAME="normalcost" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="The normal (non-discounted) cost of the session"/>
+        <FIELD NAME="discountcost" TYPE="char" LENGTH="255" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Discounted cost of the event"/>
+        <FIELD NAME="roomid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Foreign key to facetoface_room"/>
+        <FIELD NAME="allowcancellations" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="20" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="20" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="20" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="selfapproval" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Allow self approval"/>
+        <FIELD NAME="mincapacity" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="The minimum number of people for this session to take place."/>
+        <FIELD NAME="cutoff" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="86400" SEQUENCE="false" COMMENT="The number of seconds before the session start by which the minimum capacity should be reached"/>
+        <FIELD NAME="availablesignupnote" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="User sign-up note"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="primary key of the table, please edit me"/>
+        <KEY NAME="facetoface" TYPE="foreign" FIELDS="facetoface" REFTABLE="facetoface" REFFIELDS="id"/>
+        <KEY NAME="facesess_roo_fk" TYPE="foreign" FIELDS="roomid" REFTABLE="facetoface_room" REFFIELDS="id"/>
+        <KEY NAME="facesess_use_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_sessions_dates" COMMENT="The dates and times for each session.  Sessions can be set over multiple days or blocks of time.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="id of the table, please edit me"/>
+        <FIELD NAME="sessionid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="sessiontimezone" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false" COMMENT="Timezone in which this event will take place"/>
+        <FIELD NAME="timestart" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timefinish" TYPE="int" LENGTH="18" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="primary key of the table, please edit me"/>
+        <KEY NAME="sessionid" TYPE="foreign" FIELDS="sessionid" REFTABLE="facetoface_sessions" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_signups" COMMENT="User/session signups">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="sessionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="discountcode" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="notificationtype" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="archived" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Has this sign up been archived by the archive completion feature."/>
+        <FIELD NAME="bookedby" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="The manager who reserved / booked this space"/>
+        <FIELD NAME="positionid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="If required, the position the user is doing the training for"/>
+        <FIELD NAME="positiontype" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="If required, the position type (prim, sec, asp) the user is doing the training for"/>
+        <FIELD NAME="positionassignmentid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="If required, the position assignment the user is doing the training for"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="primary key of the table, please edit me"/>
+        <KEY NAME="sessionid" TYPE="foreign" FIELDS="sessionid" REFTABLE="facetoface_sessions" REFFIELDS="id"/>
+        <KEY NAME="facesign_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_signups_status" COMMENT="User/session signup status">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="signupid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="statuscode" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="superceded" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="grade" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" DECIMALS="5"/>
+        <FIELD NAME="note" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="createdby" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT="primary key of the table, please edit me"/>
+        <KEY NAME="signupid" TYPE="foreign" FIELDS="signupid" REFTABLE="facetoface_signups" REFFIELDS="id"/>
+        <KEY NAME="facesignstat_cre_fk" TYPE="foreign" FIELDS="createdby" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_session_field" COMMENT="Definitions of custom info fields for Face-to-face session">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="shortname" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="type" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="possiblevalues" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" COMMENT="CSV list of allowed values"/>
+        <FIELD NAME="required" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Whether or not this field is mandatory"/>
+        <FIELD NAME="defaultvalue" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="showinsummary" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Whether or not to show this field in attendance exports and lists of sessions"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="ind_session_field_unique" UNIQUE="true" FIELDS="shortname" COMMENT="Guarantees that all short names are actually unique"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="facetoface_session_data" COMMENT="Contents of custom info fields for Face-to-face session">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="fieldid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="ID in facetoface_session_field"/>
+        <FIELD NAME="sessionid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="ID in facetoface_sessions"/>
+        <FIELD NAME="data" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Contents"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="facesessdata_fie_fk" TYPE="foreign" FIELDS="fieldid" REFTABLE="facetoface_session_field" REFFIELDS="id"/>
+        <KEY NAME="facesessdata_ses_fk" TYPE="foreign" FIELDS="sessionid" REFTABLE="facetoface_sessions" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_notice" COMMENT="Site-wide notices shown on the Training Calendar">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Name displayed to admins in list of notices"/>
+        <FIELD NAME="text" TYPE="text" LENGTH="medium" NOTNULL="false" SEQUENCE="false" COMMENT="Text shown to users on the Training Calendar" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_notice_data" COMMENT="Custom field filters for site notices">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="fieldid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="ID from the facetoface_session_field table"/>
+        <FIELD NAME="noticeid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="ID from the facetoface_notice table"/>
+        <FIELD NAME="data" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="Value of the custom field required for the notice to be shown on the training calendar"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="facenotidata_fie_fk" TYPE="foreign" FIELDS="fieldid" REFTABLE="facetoface_session_field" REFFIELDS="id"/>
+        <KEY NAME="facenotidata_not_fk" TYPE="foreign" FIELDS="noticeid" REFTABLE="facetoface_notice" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="facetoface_notice_date_fieldid" UNIQUE="false" FIELDS="fieldid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="facetoface_notification_tpl" COMMENT="Face-to-face notification templates">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="title" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="body" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="managerprefix" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="title" UNIQUE="true" FIELDS="title"/>
+        <INDEX NAME="status" UNIQUE="false" FIELDS="status"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="facetoface_notification" COMMENT="Facetoface notifications">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="type" TYPE="int" LENGTH="1" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="conditiontype" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="scheduleunit" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="scheduleamount" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="scheduletime" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="ccmanager" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="managerprefix" TYPE="text" LENGTH="big" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="title" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="body" TYPE="text" LENGTH="big" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="booked" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="waitlisted" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="cancelled" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="facetofaceid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="issent" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="courseid" TYPE="foreign" FIELDS="courseid" REFTABLE="course" REFFIELDS="id"/>
+        <KEY NAME="facetofaceid" TYPE="foreign" FIELDS="facetofaceid" REFTABLE="facetoface" REFFIELDS="id"/>
+        <KEY NAME="facenoti_use_fk" TYPE="foreign" FIELDS="usermodified" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="type" UNIQUE="false" FIELDS="type"/>
+        <INDEX NAME="title" UNIQUE="false" FIELDS="title"/>
+        <INDEX NAME="status" UNIQUE="false" FIELDS="status"/>
+        <INDEX NAME="issent" UNIQUE="false" FIELDS="issent"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="facetoface_notification_sent" COMMENT="Face-to-face notification reciepts">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="notificationid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="sessionid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="notificationid" TYPE="foreign" FIELDS="notificationid" REFTABLE="facetoface_notification" REFFIELDS="id"/>
+        <KEY NAME="sessionid" TYPE="foreign" FIELDS="sessionid" REFTABLE="facetoface_sessions" REFFIELDS= "id"/>
+        <KEY NAME="userid" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS= "id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_room" COMMENT="Table for storing pre-defined facetoface room data">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="building" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="address" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="capacity" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="type" TYPE="char" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" LENGTH="small" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="custom" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="custom" UNIQUE="false" FIELDS="custom"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="facetoface_notification_hist" COMMENT="Notifications history (stores ical event information)">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="notificationid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="FK of notification"/>
+        <FIELD NAME="sessionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="FK of facetoface_sessions"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="FK of user"/>
+        <FIELD NAME="sessiondateid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="FK of facetoface_sessions_dates"/>
+        <FIELD NAME="ical_uid" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" COMMENT="globally unique id of ical event"/>
+        <FIELD NAME="ical_method" TYPE="char" LENGTH="32" NOTNULL="false" SEQUENCE="false" COMMENT="ICAL method e.g. update, cancel etc."/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="timestamp of record creation"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="notificationid_fk" TYPE="foreign" FIELDS="notificationid" REFTABLE="facetoface_notification" REFFIELDS="id"/>
+        <KEY NAME="sessionid_fk" TYPE="foreign" FIELDS="sessionid" REFTABLE="facetoface_sessions" REFFIELDS="id"/>
+        <KEY NAME="sessiondateid_fk" TYPE="foreign" FIELDS="sessiondateid" REFTABLE="facetoface_sessions_dates" REFFIELDS="id"/>
+        <KEY NAME="facenotihist_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="facetoface_interest" COMMENT="Users who have declared interest in a facetoface session">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="facetoface" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timedeclared" TYPE="int" LENGTH="20" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="reason" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="facetoface" UNIQUE="false" FIELDS="facetoface"/>
+        <INDEX NAME="userid" UNIQUE="false" FIELDS="userid"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

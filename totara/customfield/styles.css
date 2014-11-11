@@ -1,0 +1,8 @@
+form fieldset.multiselect span {
+    min-width: 200px;
+    display: inline-block;
+}
+
+.js-delete {
+    display: none;
+}

@@ -1,0 +1,62 @@
+
+#dock {
+    filter:none; /* IE6-9 */
+}
+#dockeditempanel {
+    box-shadow:4px 4px 5px #999999;
+}
+
+.notifymessage {
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.notifysuccess {
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.notice,
+.notifynotice {
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.errorbox,
+.notifyproblem {
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+fieldset.surround,
+.mform fieldset.surround,
+.block_calendar_month .minicalendar td {
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+}
+.tabtree .tabrow0 li a,
+.yui-skin-sam .yui-navset .yui-nav a,
+#dialog-tabs ul li.ui-state-default a {
+    -webkit-border-radius:3px 3px 0 0;
+    -moz-border-radius:3px 3px 0 0;
+    border-radius:3px 3px 0 0;
+}
+.ui-dialog .ui-dialog-titlebar-close,
+.user-enroller-panel .uep-header .close,
+#page-mod-quiz-edit div.quizpage .pagecontent,
+#page-mod-quiz-edit div.editq div.question div.content {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+}
+div.totara-dialog .selected span:hover span.deletebutton {
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+}
+div.loginbox,
+div.ui-dialog,
+div.totara-dialog,
+div.yui3-dd-draggable,
+div.loginbox .signuppanel {
+    -moz-border-radius:10px;
+    -webkit-border-radius: 10px;
+    border-radius:10px;
+}
+.blogsite thead tr td {
+    width:100%;
+}

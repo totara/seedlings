@@ -1,0 +1,169 @@
+2.2.0 (2012-06-14):
+
+Improvements:
+- Ported to Moodle 2 codebase
+
+Bug fixes:
+- Various bug caused by porting
+
+1.8.0 (2011-11-24):
+Bug fixes:
+- Check mailed field exists before dropping to prevent errors on upgrade
+- Fixed errors in facetoface_get_trainer_roles()
+- Fixed bug with hour to minute conversion
+- Fix missing parameter in breadcrumb on attendees page
+- Add checks to sees if session is finished or in progress before allowing
+signup
+- Fix misuse of table API in various places
+- Fix custom fields to use new separator (; can now be used in custom fields)
+- Fix tests that were failing in MySQL
+- Simplify permissions check for approval
+
+Security fixes:
+- Fixed parameter cleaning searchtext on edit attendees page
+
+Improvements:
+- Improve unit test coverage
+- Improve code documentation
+- Add new English help files
+- Add validation to stop start date being after end date
+- Show no permission notification instead of error on signup page
+- Tidy up display of session roles
+- Add markup to module info for better styling
+- Add sitelog calls
+- Hide cancel session link if the session is finished
+
+1.6.2 (2010-10-21):
+Bug fixes:
+- Removed hardcoded references to the mdl_ DB prefix
+
+1.6.1 (2010-10-14):
+Bug fixes:
+- Fix upgrade from 1.5.0
+- Fix mysql incompatibilities in upgrade script
+
+1.6.0 (2010-09-28):
+New features:
+- Stateful bookings, allow for multiple booking states e.g. unconfirmed
+- Multiple types of attendance - partial, full, no show
+- Option to require manager approval before booking's are confirmed
+- Save booking/attendance history for a session
+- Allow booking of a session over maximum capacity
+- The ability to assign users as trainers to sessions
+
+Improvements:
+- Prevent taking attendance for a session that has yet to finish
+- Improve session details view
+- Only display location pull down if more than one location exists
+
+1.5.0 (UNRELEASED):
+New features:
+- Calendar entries for students and teachers
+- Calendar entries for all sessions (site-wide events)
+- Custom fields (defined site-wide) for session details
+- Session details can now contain HTML characters
+
+Improvements:
+- User timezone is used in reminder emails
+- Add a new capability for determining whether or not overbooking is allowed
+- Split add/remove attendees into two difference capabilities
+- Allow users to enter duration like "1:20" (1 hour and 20 minutes)
+- Ability to set the user profile fields to be included in attendance exports
+- User search now looks in username and idnumber fields as well
+- Support for multiple third-party email addresses
+- Support for ID number at the activity level
+- Move activity settings over to formslib
+- Add an index page for Face-to-face help pages
+- Optimised attendance exports
+- Add duration column to attendance exports
+- Use a date column for timestamp columns
+- Moved most forms to formslib
+- All pages are now valid XHTML
+
+Bug fixes:
+- Prevent users from cancelling after the session has ended
+- Fix the order of how multi-day sessions appear
+- Check session capacity on the signup page (for direct links)
+- Fix backlinks on the attendance and signup pages
+- Add missing course parameter to user page links
+- Fix broken exports when user profile fields are missing
+- Proper redirections from error pages
+- Fix SQL error on new instances
+
+1.4.0 (2008-12-01):
+New features:
+- Display a record of cancellations on the attendance page
+- Report the expected data to the course Participants Report
+- User-level activity reports ("Outline" and "Complete" reports)
+
+Improvements:
+- Use a custom field for the manager's email address instead of the MSN field
+- Store attendance data in the gradebook
+- Module settings now use formslib
+- Scalability improvements in the attendance page
+
+Bug fixes:
+- [SECURITY] check the session key in all user forms
+- Display actual attendance and work untick checkboxes (take attendance page)
+- Show "unknown date/time" in confirmation emails for wait-listed sessions
+- Don't send iCalendar appointments for wait-listed sessions
+- Remove internationalisation from log entries
+- Remove site-wide settings for default email messages
+- Fix errors when adding/updating an activity
+
+1.3.0 (2008-07-30):
+New features:
+- iCalendar support in email notifications
+- Option to suppress email notifications in the bulk user signup page
+- New activity setting to send notifications of wait-listed sessions to the third party
+- New site-wide setting to set the default email messages
+
+Bug fixes:
+- Made all email-related errors non-fatal in the bulk user signup page
+- Major cleanup of the email notification code
+
+Other improvements:
+- Remove some hard-coded strings and move them to the language pack
+- Made the session capacity a text field instead of a drop-down
+
+1.2.0 (2008-04-24):
+New features:
+- Teachers can now sign users up for a session, even after the fact
+- Add ODF support when downloading attendance
+- Dutch translation by Peter-Anne Wissema <wis@veursvoorburg.nl>
+
+Bug fixes:
+- Always mark reminders as sent, even when the email to the manager failed
+- Fix the default permissions to fix problems where a user is both student and teacher
+- Add an empty db/upgrade.php to fix upgrade problems on Moodle 1.9
+- Respect the system's date format when displaying dates and times
+- Respect the system's currency symbol when displaying costs
+- Strip out currency symbols from amounts entered by users and round the amounts up
+
+Other improvements:
+- Improved Javascript done in the "add session" page
+- Improved capability checking in the "all sessions" page
+- Reduced the request size when creating a session
+
+1.1.0 (2008-02-18):
+- Major bugfix release
+
+Bug fixes:
+- Fix error and notice messages in the cron job
+- The 'Add sessions' link did not appear for non-admin users with the 'editsessions' capability
+- Reminders meant for users were sometimes sent to managers instead
+- Update the remindersent flag when there are no messages to send to the manager
+- Make sure that the discount code is stored as NULL in the DB after a restore
+
+New features:
+- Add French translation by Jerome Decuq <jerome451@free.fr>
+- Add options for hiding the cost and discount fields
+
+Other improvements:
+- Wrap transactions around all of the DELETEs to improve data integrity
+- Make sure every user action is logged, whether or not it failed
+- Display sessions for which dates are missing
+- Add details (email addresses) to reminder email cron log
+
+1.0.0 (2007-09-28)
+- First public release

@@ -1,0 +1,27 @@
+PHPUnit via Composer
+====================
+
+Installation:
+
+1. cd /your/pathto/SVGGraph
+2. curl -s https://getcomposer.org/installer | php
+3. php composer.phar install --dev
+
+Execute tests:
+
+1. cd /your/pathto/SVGGraph
+2. vendor/bin/phpunit tests
+
+
+PHPUnit via PHAR
+================
+
+Installation:
+
+1. cd /your/pathto/SVGGraph
+2. wget https://phar.phpunit.de/phpunit.phar
+
+Execute tests:
+
+1. cd /your/pathto/SVGGraph
+2. php phpunit.phar tests

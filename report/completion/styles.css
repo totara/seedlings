@@ -1,0 +1,27 @@
+#page-report-completion-index table#completion-progress {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+#page-report-completion-index .export-actions {
+    text-align: center;
+}
+#page-report-completion-index.dir-rtl #completion-progress th svg {
+    direction: ltr;
+}
+.ie8 div.ie-vertical-completion {
+    writing-mode: tb-lr;
+    max-height: 24% !important;
+    text-align: right !important;
+}
+.ie8 th.ie-vertical-completion {
+    height: 24% !important;
+    overflow: hidden !important;
+}
+.ie8 span.ie-block-completion {
+    display: block;
+}
+.ie8 span.ie-color-completion {
+    display: block;
+    color: #238e23;
+    padding-left: 4px;
+}

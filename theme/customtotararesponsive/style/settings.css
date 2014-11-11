@@ -1,0 +1,99 @@
+a {
+    color: [[setting:linkcolor]];
+}
+.mform .btn-cancel {
+    color: [[setting:linkcolor]];
+}
+a:visited {
+    color: [[setting:linkvisitedcolor]];
+}
+a:hover {
+    color: [[setting:linkcolor-dark]];
+}
+button,
+input.submit,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+#id_buttonfield,
+a.link-as-button {
+    color: [[setting:buttoncolor-readable-text]];
+    text-shadow:0 1px 1px [[setting:buttoncolor-readable-text-shadow]];
+    background-color: [[setting:buttoncolor]];
+    background-image:-ms-linear-gradient(top, [[setting:buttoncolor-light]], [[setting:buttoncolor]]);
+    background-image:-webkit-gradient(linear, 0 0, 0 100%, from([[setting:buttoncolor-light]]), to([[setting:buttoncolor-dark]]));
+    background-image:-webkit-linear-gradient(top, [[setting:buttoncolor-light]], [[setting:buttoncolor]]);
+    background-image:-o-linear-gradient(top, [[setting:buttoncolor-light]], [[setting:buttoncolor]]);
+    background-image:linear-gradient(top, [[setting:buttoncolor-light]], [[setting:buttoncolor]]);
+    background-image:-moz-linear-gradient(top, [[setting:buttoncolor-light]], [[setting:buttoncolor]]);
+    border:1px solid [[setting:buttoncolor-light]];
+    border-color: [[setting:buttoncolor]] [[setting:buttoncolor]] [[setting:buttoncolor-dark]];
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow:inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 2px rgba(0,0,0,0.05)
+}
+
+input.submit:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+#id_buttonfield:hover,
+button:hover,
+a.link-as-button:hover {
+    color:[[setting:buttoncolor-readable-text]];
+    background-color:[[setting:buttoncolor-lighter-perc]];
+    background-image:-ms-linear-gradient(top, [[setting:buttoncolor]], [[setting:buttoncolor-light]]);
+    background-image:-webkit-gradient(linear, 0 0, 0 100%, from([[setting:buttoncolor-dark]]), to([[setting:buttoncolor]]));
+    background-image:-webkit-linear-gradient(top, [[setting:buttoncolor]], [[setting:buttoncolor-light]]);
+    background-image:-o-linear-gradient(top, [[setting:buttoncolor]], [[setting:buttoncolor-light]]);
+    background-image:linear-gradient(top, [[setting:buttoncolor]], [[setting:buttoncolor-light]]);
+    background-image:-moz-linear-gradient(top, [[setting:buttoncolor]], [[setting:buttoncolor-light]]);
+}
+button.disabled,
+input.form-submit.disabled,
+input[type="button"].disabled,
+input[type="submit"].disabled,
+input[type="reset"].disabled,
+button[disabled],
+input.form-submit[disabled],
+input[type="button"][disabled],
+input[type="submit"][disabled],
+input[type="reset"][disabled] {
+    color:#888888;
+    background-color:[[setting:buttoncolor-lighter-perc]];
+    background-image:-ms-linear-gradient(top, [[setting:buttoncolor-light-perc]], [[setting:buttoncolor-lighter-perc]]);
+    background-image:-webkit-gradient(linear, 0 0, 0 100%, from([[setting:buttoncolor-light-perc]]), to([[setting:buttoncolor-light-perc]]));
+    background-image:-webkit-linear-gradient(top, [[setting:buttoncolor-light-perc]], [[setting:buttoncolor-lighter-perc]]);
+    background-image:-o-linear-gradient(top, [[setting:buttoncolor-light-perc]], [[setting:buttoncolor-lighter-perc]]);
+    background-image:linear-gradient(top, [[setting:buttoncolor-light-perc]], [[setting:buttoncolor-lighter-perc]]);
+    background-image:-moz-linear-gradient(top, [[setting:buttoncolor-light-perc]], [[setting:buttoncolor-lighter-perc]]);
+}
+#page-footer, .block, .navbar-inner, .block > .header {
+    background-color: [[setting:headerbgc]];
+}
+th.header,
+td.header,
+div.header h1,
+div.header h2,
+div.header h3,
+div.header h4,
+div.header h5,
+div.header h6 {
+    background-color: [[setting:headerbgc]];
+    color: [[setting:text-on-headerbgc]];
+}
+.totara-dialog .ui-dialog-titlebar {
+    background-color: [[setting:headerbgc]];
+}
+#page-header-wrapper {
+    color: [[setting:text-on-headerbgc]];
+}
+#page-footer .footer-powered {
+    color: [[setting:text-on-headerbgc]];
+}
+
+/** Custom CSS defined via theme settings **/
+[[setting:customcss]]

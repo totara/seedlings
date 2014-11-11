@@ -1,0 +1,8 @@
+{
+  "moodle-totara_program-categoryexpander": {
+    "requires": [
+        "node",
+        "event-key"
+    ]
+  }
+}

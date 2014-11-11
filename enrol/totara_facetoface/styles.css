@@ -1,0 +1,39 @@
+#f2fdirect-list {
+    width: 100%;
+}
+
+#f2fdirect-list tr {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+#f2fdirect-list label {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+#region-main #f2fdirect-list .fitem div {
+    width: auto;
+    margin-right: 5px;
+    float: left;
+}
+.dir-rtl #region-main #f2fdirect-list .fitem div {
+    margin-left: 5px;
+    float: right;
+}
+
+#f2fdirect-list table {
+    width: 100%;
+}
+
+#f2fdirect-list table td:first-child {
+    width: 15%;
+    min-width: 100px;
+}
+#f2fdirect-list table td:nth-child(2) {
+    width: 60%;
+}
+
+.room {
+    display: block;
+}

@@ -1,0 +1,253 @@
+
+/* Spacing for the multicheck report builder filter */
+div.multicheck-items fieldset.felement span {
+    display: block;
+    float: left;
+    width: 30%;
+}
+
+/* show/hide button alignment */
+.dir-ltr .rb-showhide {
+    clear: right;
+    text-align: right;
+}
+.dir-rtl .rb-showhide {
+    clear: left;
+    text-align: left;
+}
+
+.rb-search-menu {
+    vertical-align: middle !important;
+}
+
+.rb-genbutton {
+    float: right;
+}
+
+.rb-genicon {
+    cursor: hand; cursor: pointer;
+}
+
+.rb-hidden {
+    display: none;
+}
+
+.rb-inline {
+    display: inline-block;
+}
+#my-teammembers-content .rb-display-table-container {
+    clear: both;
+}
+#team_members .user_namewithlinks a {
+    padding-left: 5px;
+    float: left;
+}
+#team_members .user_namewithlinks .name {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 8px;
+}
+
+#team_members .user_namewithlinks ul {
+    clear: left;
+    margin: 0;
+    padding-top: 2px;
+}
+
+#team_members .user_namewithlinks ul li {
+    float:left;
+    list-style-type: none;
+}
+
+#team_members .user_namewithlinks li a {
+    border-left: 1px solid #bbbbbb;
+    font-size: 10px;
+    line-height: 10px;
+    margin: 2px;
+}
+
+#team_members .user_namewithlinks li:first-child a {
+    border-left: none;
+    margin-left: 0;
+}
+
+form[id^="toolbarsearch"].mform div,
+form[id^="toolbarsearch"].mform fieldset {
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+form[id^="toolbarsearch"].mform .fsubmit {
+    width: auto;
+}
+
+#fitem_id_toolbarsearchtext,
+#fitem_id_toolbarsearchbutton,
+#fitem_id_cleartoolbarsearchtext {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+/* Sidebar filters */
+.rb-sidebar {
+    float: left;
+    vertical-align: top;
+    margin: 5px;
+    padding-right: 10px;
+}
+.dir-rtl .rb-sidebar.desktop-first-column {
+    float: right;
+    padding-left: 10px;
+}
+
+/* Name */
+.rb-sidebar .fitemtitle {
+    width: auto !important;
+    float: none !important;
+}
+
+/* Content */
+.rb-sidebar .fgroup {
+    display: inline-block;
+    width: auto !important;
+    float: left !important;
+}
+.dir-rtl .rb-sidebar .fgroup {
+    float: right !important;
+}
+
+/* Simplemode select */
+.rb-sidebar .fitem_fselect>.fselect {
+    float: none !important;
+}
+
+/* Not simplemode select */
+.rb-sidebar fieldset.fgroup>select {
+    display: block;
+}
+
+/* Date */
+.rb-sidebar fieldset.fgroup>span {
+    display: block !important;
+    overflow: visible; /* This is a clearfix thing. */
+    float: none !important;
+    width: auto !important;
+    clear: left;
+}
+.dir-rtl .rb-sidebar fieldset.fgroup>span {
+    clear: right;
+}
+
+.rb-sidebar.mform .fitem .fstatic {
+    width: auto;
+    float: left;
+}
+.dir-rtl .rb-sidebar.mform .fitem .fstatic {
+    width: auto;
+    float: right;
+}
+
+/* Time */
+.rb-sidebar .fdate_time_selector select,
+.rb-sidebar .fdate_time_selector input {
+    float: left;
+}
+.dir-rtl .rb-sidebar .fdate_time_selector select,
+.dir-rtl .rb-sidebar .fdate_time_selector input {
+    float: right;
+}
+.rb-sidebar .fdate_time_selector select:nth-child(8) {
+    clear: left;
+}
+.dir-rtl .rb-sidebar .fdate_time_selector select:nth-child(8) {
+    clear: right;
+}
+
+.rb-expand-row {
+    height: 5px;
+}
+
+.rb-expand-cell {
+    border-width: 1px;
+    border-color: #DDD;
+}
+
+.rb-expand-cell #id_submitbutton {
+    float: right;
+}
+
+.dir-rtl .rb-expand-cell #id_submitbutton {
+    float: left;
+}
+
+#fitem_id_all_sidebar_filters {
+    display: none !important;
+}
+
+.multicheck-items label>div {
+    display: inline;
+}
+
+.rb-display-expand {
+    padding: 5px;
+    background-repeat: no-repeat;
+    background-position: 0 5px;
+    cursor: pointer;
+}
+
+.dir-rtl .rb-display-expand {
+    background-position: right;
+}
+
+.rb-display-expand-link {
+    margin-left: 20px;
+}
+
+.dir-rtl .rb-display-expand-link {
+    margin-right: 20px;
+    margin-left: 0;
+}
+
+#rb-search-controls {
+    float: right;
+}
+.dir-rtl #rb-search-controls {
+    float: left;
+}
+#rb-search-controls > div {
+    display: inline-block;
+}
+
+.rb-display-table-container {
+    clear: right;
+}
+.dir-rtl .rb-display-table-container {
+    clear: left;
+}
+
+.jsenabled #fgroup_id_submitgroupsidebar {
+    display: none;
+}
+
+fieldset.felement.fgroup > .rb-filter-button {
+    margin: 0 5px 0 5px;
+}
+
+fieldset.felement.fgroup > .rb-filter-content-list {
+    margin: 10px 5px 10px 5px;
+}
+
+/* IE does not work properly with 100% height, so let'd use http://alistapart.com/article/creating-intrinsic-ratios-for-video */
+.ie .rb-report-svggraph {
+    position: relative;
+    padding-bottom: 40%;  /* This is the ration of original svg size 1000x400 */
+    height: 0;
+}
+.ie .rb-report-svggraph svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

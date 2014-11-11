@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g>
+	<ellipse fill="#7FA2D7" cx="17.067" cy="7.308" rx="6.991" ry="6.188"/>
+	<ellipse fill="#D9F3FE" cx="17.067" cy="7.308" rx="5.72" ry="4.951"/>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="17.0673" y1="11.6399" x2="17.0673" y2="2.9763">
+		<stop  offset="0" style="stop-color:#82B7ED"/>
+		<stop  offset="1" style="stop-color:#C5EFFE"/>
+	</linearGradient>
+	<ellipse fill="url(#SVGID_1_)" cx="17.067" cy="7.308" rx="5.084" ry="4.332"/>
+	<ellipse fill="#90BB21" cx="8.955" cy="16.668" rx="8.897" ry="7.426"/>
+	<ellipse fill="#B9D572" cx="8.955" cy="16.668" rx="7.626" ry="6.188"/>
+	<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="8.9554" y1="22.2375" x2="8.9554" y2="11.0985">
+		<stop  offset="0" style="stop-color:#90BB21"/>
+		<stop  offset="1" style="stop-color:#ACDA34"/>
+	</linearGradient>
+	<ellipse fill="url(#SVGID_2_)" cx="8.955" cy="16.668" rx="6.991" ry="5.57"/>
+	<path fill="#FCFEFA" d="M13.551,13.78c0,1.853-2.057,4.594-4.595,4.594S4.36,15.634,4.36,13.78s2.057-3.356,4.595-3.356
+		S13.551,11.927,13.551,13.78z"/>
+	<polygon fill="#D66416" points="7.896,11.833 10.121,11.833 11.241,14.163 9.01,16.576 6.67,14.205 	"/>
+	<polygon fill="#D66416" points="7.466,14.746 10.564,14.746 11.497,17.803 8.976,18.705 6.413,17.828 	"/>
+	<path fill="#B9D572" d="M8.955,9.902c-2.855,0-5.17,1.736-5.17,3.879c0,2.142,2.315,5.116,5.17,5.116s5.17-2.974,5.17-5.116
+		C14.125,11.638,11.811,9.902,8.955,9.902z M8.955,18.374c-2.538,0-4.595-2.74-4.595-4.594s2.057-3.356,4.595-3.356
+		s4.595,1.503,4.595,3.356S11.493,18.374,8.955,18.374z"/>
+	<ellipse fill="#C29262" cx="8.955" cy="6.663" rx="5.72" ry="5.57"/>
+	
+		<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-24.835" y1="-19.7887" x2="-16.1713" y2="-19.7887" gradientTransform="matrix(4.489659e-011 1 -1 4.489659e-011 -10.8333 27.1667)">
+		<stop  offset="0" style="stop-color:#F9EAD4"/>
+		<stop  offset="1" style="stop-color:#E6B061"/>
+	</linearGradient>
+	<ellipse fill="url(#SVGID_3_)" cx="8.955" cy="6.663" rx="4.449" ry="4.332"/>
+</g>
+</svg>

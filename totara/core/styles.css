@@ -1,0 +1,148 @@
+/*
+ * CSS for progress bar (see totara/core/renderer.php)
+ * background-position is added via inline styles to correctly show progress
+ * */
+img.totara_progress_bar_large {
+   background: white url('[[pix:totara_core|progressbar_back-large]]') no-repeat top left;
+}
+img.totara_progress_bar_medium {
+   background: white url('[[pix:totara_core|progressbar_back-medium]]') no-repeat top left;
+}
+.dir-rtl img.totara_progress_bar_large {
+   background-image: url('[[pix:totara_core|progressbar_back-large-rtl]]');
+}
+.dir-rtl img.totara_progress_bar_medium {
+   background-image: url('[[pix:totara_core|progressbar_back-medium-rtl]]');
+}
+
+span.coursecompletionstatus span {
+    display: block;
+    width: 39px;
+    height: 12px;
+    background: transparent url('[[pix:totara_core|progress-icons]]') no-repeat;
+    /* hide text outside of visible area (accessibility) */
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.dir-rtl span.coursecompletionstatus span {
+    background-image: url('[[pix:totara_core|progress-icons-rtl]]');
+}
+
+span.coursecompletionstatus span.completion-inprogress {
+    background-position: 0px -12px;
+}
+
+span.coursecompletionstatus span.completion-complete {
+    background-position: 0px -24px;
+}
+
+span.coursecompletionstatus span.completion-completeviarpl {
+    background-position: 0px -24px;
+}
+
+/**
+ * Wrap this div round the datepicker text field and icon to avoid
+ * issues in RTL languages.
+ */
+div.datepicker-wrapper {
+    display: inline-block;
+}
+
+table.namewithlinks-layout {
+    width: 100%;
+}
+
+.block_totara_my_team_nav .content span {
+    padding-left: 5px;
+    font-style: italic;
+}
+
+.block_totara_my_team_nav a img.smallicon {
+    height: auto;
+    width: auto;
+}
+
+ul.reportmanager {
+    margin: 0;
+    list-style-type: none;
+}
+
+ul.reportmanager img {
+    padding: 2px 5px;
+}
+#browse-tab,
+#search-tab,
+.selected.dialog-nobind {
+    overflow-y: auto;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+}
+div.totara-dialog .selected div.treeview-selected-item {
+    display: none;
+}
+
+.totara-dialog #fitem_id_query,
+.totara-dialog #fitem_id_frameworkid,
+.totara-dialog #fitem_id_dialogsearchsubmitbutton {
+    float: left;
+    display: inline-block;
+    width: auto;
+}
+.totara-dialog #fitem_id_query .felement,
+.totara-dialog #fitem_id_frameworkid .felement,
+.totara-dialog #fitem_id_dialogsearchsubmitbutton .felement {
+    width: auto;
+    float: left;
+}
+
+.totara-dialog #fitem_id_query label,
+.totara-dialog #fitem_id_frameworkid label,
+.totara-dialog #fitem_id_dialogsearchsubmitbutton label {
+    display: inline;
+}
+
+.totara-dialog #fitem_id_query .fitemtitle,
+.totara-dialog #fitem_id_frameworkid .fitemtitle,
+.totara-dialog #fitem_id_dialogsearchsubmitbutton .fitemtitle {
+    float: left;
+    width: auto;
+}
+.dir-rtl .totara-dialog #fitem_id_query,
+.dir-rtl .totara-dialog #fitem_id_frameworkid,
+.dir-rtl .totara-dialog #fitem_id_dialogsearchsubmitbutton,
+.dir-rtl .totara-dialog #fitem_id_query .felement,
+.dir-rtl .totara-dialog #fitem_id_frameworkid .felement,
+.dir-rtl .totara-dialog #fitem_id_dialogsearchsubmitbutton .felement,
+.dir-rtl .totara-dialog #fitem_id_query .fitemtitle,
+.dir-rtl .totara-dialog #fitem_id_frameworkid .fitemtitle,
+.dir-rtl .totara-dialog #fitem_id_dialogsearchsubmitbutton .fitemtitle {
+    float: right;
+    clear: left;
+}
+
+.totara-dialog #fitem_id_query .fitemtitle {
+    padding-top: 5px;
+}
+
+.totara-dialog #id_dialogsearchsubmitbutton {
+    margin: 0;
+}
+
+#dialog-tabs{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.totara_item_depth1 {
+    padding-left: 20px;
+}
+.totara_item_depth2 {
+    padding-left: 40px;
+}
+.dir-rtl .totara_item_depth1 {
+    padding-right: 20px;
+}
+.dir-rtl .totara_item_depth2 {
+    padding-right: 40px;
+}

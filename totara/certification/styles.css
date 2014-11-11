@@ -1,0 +1,48 @@
+@CHARSET "UTF-8";
+/* Certification details edit */
+P.subheader {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* #page-course-search - copy of neighbouring fields */
+.coursebox .learningcomptype {
+    font-size: 1em;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    float: left;
+    width: 15%;
+}
+
+.coursebox .learningcomptype .name {
+    margin-bottom: 3px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 13px;
+}
+
+/* edit_content.php */
+#edit-program-content.program #programcontent #id_sameascert_rc {
+    margin-bottom: 14px;
+    margin-left: 10px;
+}
+
+#programcontent legend#certifpath.ftoggler {
+    font-size: 1.5em;
+}
+
+/* totara/plan/record/certifications.php - allow titles to fold, hide certifpath col */
+#page-totara-plan-record-certifications  table#plan_certifications TH {
+    white-space: normal;
+}
+#page-totara-plan-record-certifications .certif_completion_certifpath {
+    display: none;
+}
+
+/* totara/completionimport/viewreport.php */
+#page-admin-totara-completionimport-viewreport table#completionimport_course TH,
+#page-admin-totara-completionimport-viewreport table#completionimport_certification TH {
+    white-space: normal;
+}

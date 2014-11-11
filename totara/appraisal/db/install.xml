@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="totara/appraisal/db" VERSION="20140602" COMMENT="XMLDB file for Moodle totara/appraisal"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="appraisal" COMMENT="Main appraisal table">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timefinished" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="timestamp"/>
+        <FIELD NAME="timestarted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="timestamp"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="appr_nam_ix" UNIQUE="false" FIELDS="name"/>
+        <INDEX NAME="appr_sta_ix" UNIQUE="false" FIELDS="status"/>
+        <INDEX NAME="appr_stamod_ix" UNIQUE="false" FIELDS="timefinished"/>
+        <INDEX NAME="appr_tim" UNIQUE="false" FIELDS="timestarted"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_stage" COMMENT="Stages within appraisal">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timedue" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprstag_app_fk" TYPE="foreign" FIELDS="appraisalid" REFTABLE="appraisal" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="apprstag_nam_ix" UNIQUE="false" FIELDS="name"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_stage_page" COMMENT="Pages within appraisal stages. Each stage has at least one page">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalstageid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprstagpage_app_fk" TYPE="foreign" FIELDS="appraisalstageid" REFTABLE="appraisal_stage" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_scale" COMMENT="Multiple choice sets">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="scaletype" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprscal_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="apprscal_scatyp_ix" UNIQUE="false" FIELDS="scaletype"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_scale_value" COMMENT="Multiple choice options (score can be used when applicable)">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalscaleid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="score" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprscalvalu_app_fk" TYPE="foreign" FIELDS="appraisalscaleid" REFTABLE="appraisal_scale" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="apprscalvalu_appnamsco_ix" UNIQUE="true" FIELDS="appraisalscaleid, name, score"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_stage_role_setting" COMMENT="Role access settings for each stage. appraisalrole - APPRAISAL_ROLE_* constant.">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalstageid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalrole" TYPE="int" LENGTH="3" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="locked" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprstagrolesett_app_fk" TYPE="foreign" FIELDS="appraisalstageid" REFTABLE="appraisal_stage" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="apprstagrolesett_appapp_ix" UNIQUE="true" FIELDS="appraisalstageid, appraisalrole"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_quest_field" COMMENT="Individual question list for appraisal page">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalstagepageid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="datatype" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="descriptionformat" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="sortorder" TYPE="int" LENGTH="2" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="defaultdata" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="defaultdataformat" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="appraisalscaleid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param1" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param2" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param3" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param4" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="param5" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprquesfiel_app_fk" TYPE="foreign" FIELDS="appraisalstagepageid" REFTABLE="appraisal_stage_page" REFFIELDS="id"/>
+        <KEY NAME="apprquesfiel_appsca_fk" TYPE="foreign" FIELDS="appraisalscaleid" REFTABLE="appraisal_scale" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_quest_field_role" COMMENT="Access restrictions for each question. access - APPRAISAL_ACCESS_* constant">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalquestfieldid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalrole" TYPE="int" LENGTH="3" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="rights" TYPE="int" LENGTH="3" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprquesfielrole_app_fk" TYPE="foreign" FIELDS="appraisalquestfieldid" REFTABLE="appraisal_quest_field" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="apprquesfielrole_appapp_ix" UNIQUE="true" FIELDS="appraisalquestfieldid, appraisalrole"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_grp_org" COMMENT="Organisations assigned to appraisal">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="orgid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="includechildren" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprgrporg_app_fk" TYPE="foreign" FIELDS="appraisalid" REFTABLE="appraisal" REFFIELDS="id"/>
+        <KEY NAME="apprgrporg_org_fk" TYPE="foreign" FIELDS="orgid" REFTABLE="org" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_grp_pos" COMMENT="Positions assigned to appraisal">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="posid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="includechildren" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprgrppos_app_fk" TYPE="foreign" FIELDS="appraisalid" REFTABLE="appraisal" REFFIELDS="id"/>
+        <KEY NAME="apprgrppos_pos_fk" TYPE="foreign" FIELDS="posid" REFTABLE="pos" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_grp_cohort" COMMENT="Audiences assigned to appraisal">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="cohortid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprgrpcoho_app_fk" TYPE="foreign" FIELDS="appraisalid" REFTABLE="appraisal" REFFIELDS="id"/>
+        <KEY NAME="apprgrpcoho_coh_fk" TYPE="foreign" FIELDS="cohortid" REFTABLE="cohort" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_review_data" COMMENT="Course, objectives, etc reviews in appraisal">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalquestfieldid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalscalevalueid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalroleassignmentid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="itemid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="scope" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="content" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprreviquesdata_app_fk" TYPE="foreign" FIELDS="appraisalquestfieldid" REFTABLE="appraisal_quest_field" REFFIELDS="id"/>
+        <KEY NAME="apprreviquesdata_rol_fk" TYPE="foreign" FIELDS="appraisalroleassignmentid" REFTABLE="appraisal_role_assignment" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="apprreviquesdata_ite_ix" UNIQUE="false" FIELDS="itemid"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_history" COMMENT="Appraisal access history">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprhist_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="apprhist_app_fk" TYPE="foreign" FIELDS="appraisalid" REFTABLE="appraisal" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_user_assignment" COMMENT="Actual user who is subject of appraisal">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="activestageid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="status" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="appruserassi_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+        <KEY NAME="appruserassi_app_fk" TYPE="foreign" FIELDS="appraisalid" REFTABLE="appraisal" REFFIELDS="id"/>
+        <KEY NAME="appruserassi_act_fk" TYPE="foreign" FIELDS="activestageid" REFTABLE="appraisal_stage" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_role_assignment" COMMENT="Individual user assignments by their roles">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisaluserassignmentid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalrole" TYPE="int" LENGTH="3" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="activepageid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprroleassi_app_fk" TYPE="foreign" FIELDS="appraisaluserassignmentid" REFTABLE="appraisal_user_assignment" REFFIELDS="id"/>
+        <KEY NAME="apprroleassi_use_fk" TYPE="foreign" FIELDS="userid" REFTABLE="user" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="apprroleassi_appuserol_ix" UNIQUE="true" FIELDS="appraisaluserassignmentid, userid, appraisalrole"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_stage_data" COMMENT="Appraisal stage completion for each asiignment">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalroleassignmentid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalstageid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="timecompleted" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprstagdata_app_fk" TYPE="foreign" FIELDS="appraisalroleassignmentid" REFTABLE="appraisal_role_assignment" REFFIELDS="id"/>
+        <KEY NAME="apprstagdata_appsta_fk" TYPE="foreign" FIELDS="appraisalstageid" REFTABLE="appraisal_stage" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_scale_data" COMMENT="Multiple user answers">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalscalevalueid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalroleassignmentid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalquestfieldid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprscaldata_sca_fk" TYPE="foreign" FIELDS="appraisalscalevalueid" REFTABLE="appraisal_scale_value" REFFIELDS="id"/>
+        <KEY NAME="apprscaldata_rol_fk" TYPE="foreign" FIELDS="appraisalroleassignmentid" REFTABLE="appraisal_role_assignment" REFFIELDS="id"/>
+        <KEY NAME="apprscaldata_que_fk" TYPE="foreign" FIELDS="appraisalquestfieldid" REFTABLE="appraisal_quest_field" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_event" COMMENT="Appraisal event notifications">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisalstageid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="event" TYPE="char" LENGTH="32" NOTNULL="true" SEQUENCE="false" COMMENT="Event name: activation, stage_complete or stage_due"/>
+        <FIELD NAME="delta" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Event time delta: + - after event, 0 - immediately, - before event"/>
+        <FIELD NAME="deltaperiod" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Period: 0 - hours (not used), 1 - days, 2 - weeks, 3 - months"/>
+        <FIELD NAME="triggered" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="stageiscompleted" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timescheduled" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="appreven_app_fk" TYPE="foreign" FIELDS="appraisalid" REFTABLE="appraisal" REFFIELDS="id"/>
+        <KEY NAME="appreven_sta_fk" TYPE="foreign" FIELDS="appraisalstageid" REFTABLE="appraisal_stage" REFFIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="appreven_eve_ix" UNIQUE="false" FIELDS="event"/>
+        <INDEX NAME="appreven_tim_ix" UNIQUE="false" FIELDS="timescheduled"/>
+      </INDEXES>
+    </TABLE>
+    <TABLE NAME="appraisal_event_message" COMMENT="Appraisal event message">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisaleventid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false" COMMENT="Message title"/>
+        <FIELD NAME="content" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="appreven_app_fk" TYPE="foreign" FIELDS="appraisaleventid" REFTABLE="appraisal_event" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_event_rcpt" COMMENT="Appraisal events recipients (roles)">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="appraisalrole" TYPE="int" LENGTH="3" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="appraisaleventmessageid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+        <KEY NAME="apprevenmess_app_fk" TYPE="foreign" FIELDS="appraisaleventmessageid" REFTABLE="appraisal_event_message" REFFIELDS="id"/>
+      </KEYS>
+    </TABLE>
+    <TABLE NAME="appraisal_role_changes" COMMENT="Store role changes for assignments">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userassignmentid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="originaluserid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="newuserid" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="role" TYPE="int" LENGTH="3" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>
