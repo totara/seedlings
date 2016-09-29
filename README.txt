@@ -2,18 +2,23 @@ TOTARA SEEDLINGS 2.7
 ====================
 
 Totara Seedlings is a developer-only, open edition of
-Totara LMS released as a way of sharing our latest code
-and innovations with the community.
+Totara LMS last updated in 2014.
 
 Totara Seedlings includes beta code and experimental
 features. Seedlings is NOT suitable for running in a
-production environment and is not supported.
+production environment, is not supported and is no 
+longer representative of current Totara LMS 
+functionality and user experience.
 
 For a production installation we strongly recommend
 the Totara LMS Enterprise edition to receive stable
 releases via the Software Update Service including
 ticketed technical support and bug fixes (including
 security fixes).
+
+Totara LMS Enterprise is available through a global 
+network of Totara Partners listed here: 
+https://www.totaralearning.com/partners.
 
 QUICK INSTALL
 =============
